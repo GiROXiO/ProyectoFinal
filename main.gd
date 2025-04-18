@@ -1,5 +1,5 @@
 extends Control
-
+#quisiera ser una mosca
 var selectedSlot := 0
 
 func _ready():
