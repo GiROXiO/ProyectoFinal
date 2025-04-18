@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ocfgbpqjf8v"]
+
+[ext_resource type="Script" uid="uid://c3e0aodvak0be" path="res://main.gd" id="1_glv2v"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Save" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glv2v")
+
+[node name="NewUsernamePanel" type="Panel" parent="Save"]
+visible = false
+layout_mode = 0
+offset_left = 234.0
+offset_top = 72.0
+offset_right = 501.0
+offset_bottom = 178.0
+scale = Vector2(2.80688, 4.75463)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Save/NewUsernamePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextLabel" type="Label" parent="Save/NewUsernamePanel/VBoxContainer"]
+layout_mode = 2
+text = "Escribe el nombre del personaje:"
+
+[node name="UsernameInput" type="LineEdit" parent="Save/NewUsernamePanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="Save/NewUsernamePanel/VBoxContainer"]
+layout_mode = 2
+text = "Aceptar"
+
+[node name="InfoLabel" type="Label" parent="Save"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Save"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 108.0
+offset_right = 312.0
+offset_bottom = 209.0
+scale = Vector2(3.66709, 2.94564)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Save/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Save/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Info1" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Ranura 1"
+
+[node name="Delete1" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "🗑"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Save/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Info2" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Ranura 2"
+
+[node name="Delete2" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "🗑"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Save/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Info3" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Ranura 3"
+
+[node name="Delete3" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "🗑"
