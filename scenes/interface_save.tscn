@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0ocfgbpqjf8v"]
 
-[ext_resource type="Script" uid="uid://c3e0aodvak0be" path="res://scripts/main.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://c3e0aodvak0be" path="res://scripts/save.gd" id="1_vvhm7"]
 
-[node name="Main" type="Node2D"]
+[node name="interface_save" type="Node2D"]
 
 [node name="Save" type="Control" parent="."]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_glv2v")
+script = ExtResource("1_vvhm7")
 
 [node name="NewUsernamePanel" type="Panel" parent="Save"]
 visible = false
@@ -88,3 +88,9 @@ text = "Ranura 3"
 [node name="Delete3" type="Button" parent="Save/CenterContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "🗑"
+
+[node name="back" type="Button" parent="Save/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Save/CenterContainer/VBoxContainer/back" to="Save" method="_on_back_pressed"]
