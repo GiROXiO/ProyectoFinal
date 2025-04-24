@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0ocfgbpqjf8v"]
 
-[ext_resource type="Script" uid="uid://c3e0aodvak0be" path="res://scripts/main.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://c3e0aodvak0be" path="res://scripts/save_menu.gd" id="1_glv2v"]
 
 [node name="Main" type="Node2D"]
 
@@ -93,4 +93,7 @@ text = "🗑"
 layout_mode = 2
 text = "Back"
 
+[connection signal="pressed" from="Save/CenterContainer/VBoxContainer/HBoxContainer/Info1" to="Save" method="_on_info_1_pressed"]
+[connection signal="pressed" from="Save/CenterContainer/VBoxContainer/HBoxContainer2/Info2" to="Save" method="_on_info_2_pressed"]
+[connection signal="pressed" from="Save/CenterContainer/VBoxContainer/HBoxContainer3/Info3" to="Save" method="_on_info_3_pressed"]
 [connection signal="pressed" from="Save/CenterContainer/VBoxContainer/back" to="Save" method="_on_back_pressed"]

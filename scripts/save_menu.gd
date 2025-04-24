@@ -27,7 +27,6 @@ func slot3Deleted(): deleteSave(3)
 func updateInfo(slot: int):
 	var path = "user://save_slot_%d.save" % slot
 	var button_node: Button = null
-
 	match slot:
 		1:
 			button_node = $CenterContainer/VBoxContainer/HBoxContainer/Info1
@@ -66,6 +65,8 @@ func slotSelection(slot: int):
 	else:
 		#print("Ranura", slot, "cargada. Jugador:", data["username"])
 		showInfo("Datos cargados del jugador %s (Nivel %d)" % [data["username"], data["level"]])
+		get_tree().change_scene_to_file("res://scenes/world.tscn")
+		
 
 func confirmName():
 	var username = $NewUsernamePanel/VBoxContainer/UsernameInput.text.strip_edges()
@@ -82,6 +83,7 @@ func confirmName():
 	$NewUsernamePanel.visible = false
 	$NewUsernamePanel/VBoxContainer/UsernameInput.text = ""
 	showInfo("Guardado como '%s' en la ranura %d" % [username, selectedSlot])
+	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 func saveGame(slot: int, data: Dictionary):
 	var path = "user://save_slot_%d.save" % slot
@@ -113,7 +115,3 @@ func deleteSave(slot: int):
 
 func showInfo(text: String):
 	$InfoLabel.text = text
-
-
-func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
