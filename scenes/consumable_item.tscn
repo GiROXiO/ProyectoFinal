@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yi5i0sleo43n"]
+
+[ext_resource type="PackedScene" uid="uid://c4141mywwrke4" path="res://scenes/item.tscn" id="1_ejhtt"]
+[ext_resource type="Script" uid="uid://besso0ei8h1ec" path="res://scripts/consumable_item.gd" id="2_eq53j"]
+
+[node name="consumable_item" instance=ExtResource("1_ejhtt")]
+script = ExtResource("2_eq53j")
+health_restore = 0
+is_harmful = false
