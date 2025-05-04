@@ -23,28 +23,28 @@ func _physics_process(delta):
 func player_movement(delta):
 	
 	if Input.is_action_pressed("ui_right"):
-		$AttackArea.position = Vector2(14, 0)
+		$AttackArea.position = Vector2(16, 0)
 		play_anim(1)
 		current_dir = "right"
 		velocity.x = speed
 		velocity.y = 0
 	
 	elif Input.is_action_pressed("ui_left"):
-		$AttackArea.position = Vector2(-14, 0)
+		$AttackArea.position = Vector2(-16, 0)
 		play_anim(1)
 		current_dir = "left"
 		velocity.x = -speed
 		velocity.y = 0
 		
 	elif Input.is_action_pressed("ui_up"):
-		$AttackArea.position = Vector2(0, -14)
+		$AttackArea.position = Vector2(0, -16)
 		play_anim(1)
 		current_dir = "up"
 		velocity.x = 0
 		velocity.y = -speed
 		
 	elif Input.is_action_pressed("ui_down"):
-		$AttackArea.position = Vector2(0, 14)
+		$AttackArea.position = Vector2(0, 16)
 		play_anim(1)
 		current_dir = "down"
 		velocity.x = 0
@@ -83,7 +83,7 @@ func play_anim(movement):
 			anim.play("back_walk")
 		elif movement == 0:
 			if attack_ip == false:
-				anim.play("side_init")
+				anim.play("back_init")
 	
 	elif dir == "down":
 		anim.flip_h = false
@@ -91,7 +91,7 @@ func play_anim(movement):
 			anim.play("front_walk")
 		elif movement == 0:
 			if attack_ip == false:
-				anim.play("side_init")
+				anim.play("front_init")
 
 func player():
 	pass
@@ -134,11 +134,11 @@ func attack():
 			$deal_attack_timer.start()
 		if dir == "down":
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("back_attack")
+			$AnimatedSprite2D.play("front_attack")
 			$deal_attack_timer.start()
 		if dir == "up":
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("front_attack")
+			$AnimatedSprite2D.play("back_attack")
 			$deal_attack_timer.start()
 
 func _on_deal_attack_timer_timeout() -> void:
