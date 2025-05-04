@@ -6,6 +6,7 @@ var player = null
 
 var health = 60
 var player_inattack_zone = false
+var enemy_inattackzone = false
 var can_take_damage = true
 
 func _physics_process(delta: float) -> void:
@@ -22,6 +23,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("idle")
 
+func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
+	if area.name == "AttackArea":
+		enemy_inattackzone = true
+		print("Entro")
+	else:
+		print(area.name)
+func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
+	if area.name == "AttackArea":
+		enemy_inattackzone = false
+		print("Salio")
+
 func _on_detection_area_body_entered(body: Node2D) -> void: 
 	player = body # Cualquier cosa que entre al area de detección, sera la variable body
 	player_chase = true
@@ -34,19 +46,20 @@ func enemy():
 	pass
 
 
+
+
 func _on_enemy_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_inattack_zone = true
-
 
 func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_inattack_zone = false
 
 func deal_with_damage():
-	if can_take_damage and player_inattack_zone and global.player_current_attack == true:
+	if can_take_damage and enemy_inattackzone and global.player_current_attack == true:
 		health = health - 20
-		position.x -= 20
+		position.x -= 10
 		can_take_damage = false
 		$take_damage_cooldown.start()
 		print("Vida del slime: ", health)

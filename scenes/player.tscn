@@ -1,7 +1,10 @@
-[gd_scene load_steps=57 format=3 uid="uid://ctovl7kvxvlym"]
+[gd_scene load_steps=58 format=3 uid="uid://ctovl7kvxvlym"]
 
 [ext_resource type="Script" uid="uid://ywlsktjp0se1" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://d1h1sylpcyxwc" path="res://sprites/characters/player.png" id="2_qhqgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(26, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 13.6168
@@ -424,6 +427,13 @@ radius = 11.0454
 collision_layer = 3
 script = ExtResource("1_g2els")
 
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(3, -6)
+shape = SubResource("RectangleShape2D_g2els")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 scale = Vector2(0.293754, 0.272639)
@@ -447,6 +457,10 @@ wait_time = 0.5
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.82
 
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

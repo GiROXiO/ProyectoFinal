@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var enemy_inattack_range = false
+var player_inaatack_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
@@ -22,24 +23,28 @@ func _physics_process(delta):
 func player_movement(delta):
 	
 	if Input.is_action_pressed("ui_right"):
+		$AttackArea.position = Vector2(14, 0)
 		play_anim(1)
 		current_dir = "right"
 		velocity.x = speed
 		velocity.y = 0
 	
 	elif Input.is_action_pressed("ui_left"):
+		$AttackArea.position = Vector2(-14, 0)
 		play_anim(1)
 		current_dir = "left"
 		velocity.x = -speed
 		velocity.y = 0
 		
 	elif Input.is_action_pressed("ui_up"):
+		$AttackArea.position = Vector2(0, -14)
 		play_anim(1)
 		current_dir = "up"
 		velocity.x = 0
 		velocity.y = -speed
 		
 	elif Input.is_action_pressed("ui_down"):
+		$AttackArea.position = Vector2(0, 14)
 		play_anim(1)
 		current_dir = "down"
 		velocity.x = 0
@@ -91,17 +96,18 @@ func play_anim(movement):
 func player():
 	pass
 
+
+
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"): # Si el objeto que entro tiene esa función
-		enemy_inattack_range = true
-		
+		player_inaatack_range = true
 		
 func _on_player_hitbox_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
-		enemy_inattack_range = false
+		player_inaatack_range = false
 
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown:
+	if player_inaatack_range and enemy_attack_cooldown:
 		health = health - 10
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
