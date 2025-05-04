@@ -8,12 +8,14 @@ var health = 60
 var player_inattack_zone = false
 var enemy_inattackzone = false
 var can_take_damage = true
+var takeDamage = 1
 
 func _physics_process(delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
-		position += (player.position - position) / speed
+		position += ((player.position - position) / speed) * takeDamage
+		move_and_slide()
 		$AnimatedSprite2D.play("walk")
 		
 		if (player.position.x - position.x) < 0:
@@ -59,8 +61,9 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 func deal_with_damage():
 	if can_take_damage and enemy_inattackzone and global.player_current_attack == true:
 		health = health - 20
-		position.x -= 10
+
 		can_take_damage = false
+		takeDamage = -1
 		$take_damage_cooldown.start()
 		print("Vida del slime: ", health)
 		if health == 0:
@@ -68,3 +71,4 @@ func deal_with_damage():
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+	takeDamage = 1

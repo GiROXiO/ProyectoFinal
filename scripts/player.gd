@@ -8,7 +8,9 @@ var player_alive = true
 
 var attack_ip = false # attack in progress
 
-const speed = 100
+var speed = 100
+var normalSpeed = 100
+var sprintSpeed = 125
 var current_dir = "down"
 
 func _physics_process(delta):
@@ -23,28 +25,25 @@ func _physics_process(delta):
 func player_movement(delta):
 	
 	if Input.is_action_pressed("ui_right"):
-		$AttackArea.position = Vector2(16, 0)
+		
 		play_anim(1)
 		current_dir = "right"
 		velocity.x = speed
 		velocity.y = 0
 	
 	elif Input.is_action_pressed("ui_left"):
-		$AttackArea.position = Vector2(-16, 0)
 		play_anim(1)
 		current_dir = "left"
 		velocity.x = -speed
 		velocity.y = 0
 		
 	elif Input.is_action_pressed("ui_up"):
-		$AttackArea.position = Vector2(0, -16)
 		play_anim(1)
 		current_dir = "up"
 		velocity.x = 0
 		velocity.y = -speed
 		
 	elif Input.is_action_pressed("ui_down"):
-		$AttackArea.position = Vector2(0, 16)
 		play_anim(1)
 		current_dir = "down"
 		velocity.x = 0
@@ -61,36 +60,37 @@ func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
 	
-	if dir == "right":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("side_walk")
-		elif movement == 0:
-			if attack_ip == false:
+	if attack_ip == false:
+		if dir == "right":
+			$AttackArea.position = Vector2(16, 0)
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("side_walk")
+			elif movement == 0:
 				anim.play("side_init")
-			
-	elif dir == "left":
-		anim.flip_h = true
-		if movement == 1:
-			anim.play("side_walk")
-		elif movement == 0:
-			if attack_ip == false:
+				
+		elif dir == "left":
+			$AttackArea.position = Vector2(-16, 0)
+			anim.flip_h = true
+			if movement == 1:
+				anim.play("side_walk")
+			elif movement == 0:
 				anim.play("side_init")
-	
-	elif dir == "up":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("back_walk")
-		elif movement == 0:
-			if attack_ip == false:
+		
+		elif dir == "up":
+			$AttackArea.position = Vector2(0, -16)
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("back_walk")
+			elif movement == 0:
 				anim.play("back_init")
-	
-	elif dir == "down":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("front_walk")
-		elif movement == 0:
-			if attack_ip == false:
+		
+		elif dir == "down":
+			$AttackArea.position = Vector2(0, 16)
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("front_walk")
+			elif movement == 0:
 				anim.play("front_init")
 
 func player():
@@ -121,7 +121,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and attack_ip == false:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
