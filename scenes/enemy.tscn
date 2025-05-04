@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dbbqe7ydm0tt8"]
+[gd_scene load_steps=22 format=3 uid="uid://dbbqe7ydm0tt8"]
 
 [ext_resource type="Texture2D" uid="uid://d27r2mo87yeix" path="res://sprites/characters/slime.png" id="1_7p1mj"]
-[ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scenes/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/enemy.gd" id="1_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("1_7p1mj")
@@ -132,6 +132,9 @@ radius = 75.0267
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
 radius = 5.09902
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 9.0
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_md0e3")
 
@@ -151,5 +154,17 @@ shape = SubResource("CircleShape2D_ile5s")
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_4ra3w")
 
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+wait_time = 0.83
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
