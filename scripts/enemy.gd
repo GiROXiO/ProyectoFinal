@@ -65,10 +65,12 @@ func deal_with_damage():
 		can_take_damage = false
 		takeDamage = -1
 		$take_damage_cooldown.start()
+		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		print("Vida del slime: ", health)
 		if health == 0:
 			self.queue_free()
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	takeDamage = 1

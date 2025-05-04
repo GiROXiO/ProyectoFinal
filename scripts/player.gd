@@ -110,6 +110,7 @@ func enemy_attack():
 	if player_inaatack_range and enemy_attack_cooldown:
 		health = health - 10
 		enemy_attack_cooldown = false
+		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
 
@@ -117,6 +118,7 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 func attack():
 	var dir = current_dir
