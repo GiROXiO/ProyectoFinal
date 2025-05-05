@@ -147,3 +147,7 @@ func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()
 	global.player_current_attack = false
 	attack_ip = false
+
+func _on_collect_area_area_entered(area):
+	if area.has_method("collect"):
+		area.collect()

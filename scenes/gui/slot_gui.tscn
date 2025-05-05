@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://clllp3jjxp3x8"]
+
+[ext_resource type="Texture2D" uid="uid://d015nce6mdnjg" path="res://art/inventoryUI/UI_Frames.png" id="1_r2aht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2aht"]
+atlas = ExtResource("1_r2aht")
+region = Rect2(63.0033, 14.8887, 18.2195, 18.2117)
+
+[node name="Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.031
+offset_right = 0.415998
+offset_bottom = -0.0880013
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 10.125)
+scale = Vector2(1.11111, 1.10938)
+texture = SubResource("AtlasTexture_r2aht")

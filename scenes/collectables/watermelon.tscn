@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2lmrcdul7m5t"]
+
+[ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/collectables/pickup_item.tscn" id="1_bvm8j"]
+[ext_resource type="Texture2D" uid="uid://1r5uhgx0y1rq" path="res://art/pickables/SpriteSheet.png" id="2_77s32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vut0q"]
+resource_local_to_scene = true
+size = Vector2(16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83fyy"]
+atlas = ExtResource("2_77s32")
+region = Rect2(48, 64, 16, 16)
+
+[node name="Watermelon" instance=ExtResource("1_bvm8j")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vut0q")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_83fyy")
