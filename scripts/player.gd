@@ -62,7 +62,7 @@ func play_anim(movement):
 	
 	if attack_ip == false:
 		if dir == "right":
-			$AttackArea.position = Vector2(16, 0)
+			$AttackArea.position = Vector2(15, 0)
 			anim.flip_h = false
 			if movement == 1:
 				anim.play("side_walk")
@@ -70,7 +70,7 @@ func play_anim(movement):
 				anim.play("side_init")
 				
 		elif dir == "left":
-			$AttackArea.position = Vector2(-16, 0)
+			$AttackArea.position = Vector2(-15, 0)
 			anim.flip_h = true
 			if movement == 1:
 				anim.play("side_walk")
@@ -78,7 +78,7 @@ func play_anim(movement):
 				anim.play("side_init")
 		
 		elif dir == "up":
-			$AttackArea.position = Vector2(0, -16)
+			$AttackArea.position = Vector2(0, -15)
 			anim.flip_h = false
 			if movement == 1:
 				anim.play("back_walk")
@@ -86,7 +86,7 @@ func play_anim(movement):
 				anim.play("back_init")
 		
 		elif dir == "down":
-			$AttackArea.position = Vector2(0, 16)
+			$AttackArea.position = Vector2(0, 15)
 			anim.flip_h = false
 			if movement == 1:
 				anim.play("front_walk")
