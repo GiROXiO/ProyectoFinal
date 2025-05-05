@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://clllp3jjxp3x8"]
+[gd_scene load_steps=4 format=3 uid="uid://clllp3jjxp3x8"]
 
 [ext_resource type="Texture2D" uid="uid://d015nce6mdnjg" path="res://art/inventoryUI/UI_Frames.png" id="1_r2aht"]
+[ext_resource type="Script" uid="uid://s0ux3ws25qok" path="res://scripts/slot_gui.gd" id="1_tobkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2aht"]
 atlas = ExtResource("1_r2aht")
@@ -14,8 +15,20 @@ anchor_right = 0.017
 anchor_bottom = 0.031
 offset_right = 0.415998
 offset_bottom = -0.0880013
+script = ExtResource("1_tobkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(10, 10.125)
 scale = Vector2(1.11111, 1.10938)
 texture = SubResource("AtlasTexture_r2aht")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]

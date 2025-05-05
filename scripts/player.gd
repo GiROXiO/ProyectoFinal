@@ -13,6 +13,8 @@ var normalSpeed = 100
 var sprintSpeed = 125
 var current_dir = "down"
 
+@export var inventory: Inventory
+
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
@@ -150,4 +152,4 @@ func _on_deal_attack_timer_timeout() -> void:
 
 func _on_collect_area_area_entered(area):
 	if area.has_method("collect"):
-		area.collect()
+		area.collect(inventory)

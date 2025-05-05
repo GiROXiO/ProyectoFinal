@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://bkiak8dn5m5gn"]
+
+[ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_h4b6a"]
+[ext_resource type="Texture2D" uid="uid://1r5uhgx0y1rq" path="res://art/pickables/SpriteSheet.png" id="2_trmg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d3hf"]
+atlas = ExtResource("2_trmg6")
+region = Rect2(48.9019, 31.8439, 14.0462, 15.2835)
+
+[resource]
+script = ExtResource("1_h4b6a")
+name = "apple"
+texture = SubResource("AtlasTexture_8d3hf")
+metadata/_custom_type_script = "uid://dwbnornupta3q"
