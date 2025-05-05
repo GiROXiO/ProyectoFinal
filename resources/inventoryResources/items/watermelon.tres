@@ -11,4 +11,5 @@ region = Rect2(47.9142, 66.6536, 16.1377, 12.4058)
 script = ExtResource("1_6vhvc")
 name = "watermelon"
 texture = SubResource("AtlasTexture_nusxf")
+maxAmount = 16
 metadata/_custom_type_script = "uid://dwbnornupta3q"

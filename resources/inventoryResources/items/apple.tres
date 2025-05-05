@@ -11,4 +11,5 @@ region = Rect2(48.9019, 31.8439, 14.0462, 15.2835)
 script = ExtResource("1_h4b6a")
 name = "apple"
 texture = SubResource("AtlasTexture_8d3hf")
+maxAmount = 16
 metadata/_custom_type_script = "uid://dwbnornupta3q"
