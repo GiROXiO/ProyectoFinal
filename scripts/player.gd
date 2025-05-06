@@ -26,26 +26,26 @@ func _physics_process(delta):
 	
 func player_movement(delta):
 	
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_key_pressed(KEY_D) or Input.is_action_pressed("ui_right"):
 		
 		play_anim(1)
 		current_dir = "right"
 		velocity.x = speed
 		velocity.y = 0
 	
-	elif Input.is_key_pressed(KEY_A):
+	elif Input.is_key_pressed(KEY_A) or Input.is_action_pressed("ui_left"):
 		play_anim(1)
 		current_dir = "left"
 		velocity.x = -speed
 		velocity.y = 0
 		
-	elif Input.is_key_pressed(KEY_W):
+	elif Input.is_key_pressed(KEY_W) or Input.is_action_pressed("ui_up"):
 		play_anim(1)
 		current_dir = "up"
 		velocity.x = 0
 		velocity.y = -speed
 		
-	elif Input.is_key_pressed(KEY_S):
+	elif Input.is_key_pressed(KEY_S) or Input.is_action_pressed("ui_down"):
 		play_anim(1)
 		current_dir = "down"
 		velocity.x = 0
