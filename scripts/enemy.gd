@@ -15,8 +15,7 @@ func _physics_process(delta: float) -> void:
 	
 	if player_chase:
 		position += ((player.position - position) / speed) * takeDamage
-		print(position)
-		print(player.position)
+
 		move_and_slide()
 		$AnimatedSprite2D.play("walk")
 		
@@ -68,7 +67,7 @@ func deal_with_damage():
 		takeDamage = -1
 		$take_damage_cooldown.start()
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
-		print("Vida del slime: ", health)
+		print("Vida de la emision: ", health)
 		if health == 0:
 			self.queue_free()
 			
