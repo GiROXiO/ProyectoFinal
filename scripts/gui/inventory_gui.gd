@@ -26,3 +26,7 @@ func close():
 	visible = false
 	isOpen = false
 	closed.emit()
+
+
+func _on_back_to_start_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")

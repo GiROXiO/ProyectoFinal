@@ -365,15 +365,6 @@ wait_time = 0.5
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.82
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-limit_left = -166
-limit_top = -101
-limit_right = 311
-limit_bottom = 169
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-
 [node name="CollectArea" type="Area2D" parent="."]
 visible = false
 

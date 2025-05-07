@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player = $Player
+@onready var healthBar = $Player.health
 @onready var inventory = $CanvasLayer/InventoryGUI
 
 func _ready():
