@@ -1,17 +1,9 @@
-[gd_scene load_steps=48 format=3 uid="uid://ctovl7kvxvlym"]
+[gd_scene load_steps=47 format=3 uid="uid://ctovl7kvxvlym"]
 
 [ext_resource type="Script" uid="uid://ywlsktjp0se1" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://ccup3q1i88hi8" path="res://resources/inventoryResources/playerInventory.tres" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://d1h1sylpcyxwc" path="res://sprites/characters/player.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://finn87qsgkj0" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://sweuwgr1s0t" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(13, 13.5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 13.6168
-height = 66.0214
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qlg0r")
@@ -54,15 +46,12 @@ atlas = ExtResource("4_tuyoq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
-atlas = ExtResource("2_qhqgy")
 region = Rect2(0, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
-atlas = ExtResource("2_qhqgy")
 region = Rect2(48, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
-atlas = ExtResource("2_qhqgy")
 region = Rect2(96, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
@@ -325,6 +314,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(13, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(54.4673, 84.3606)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 11.0454
 
@@ -338,25 +333,27 @@ collision_layer = 3
 script = ExtResource("1_g2els")
 inventory = ExtResource("2_dqkch")
 
-[node name="AttackArea" type="Area2D" parent="."]
-position = Vector2(0, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_g2els")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
-scale = Vector2(0.293754, 0.272639)
-shape = SubResource("CapsuleShape2D_g2els")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_apa73")
 animation = &"back_attack"
 offset = Vector2(0, -15)
 
+[node name="AttackArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="YSortColission" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-07, -8.5)
+scale = Vector2(0.293754, 0.272639)
+shape = SubResource("RectangleShape2D_dqkch")
+
 [node name="player_hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
 position = Vector2(1, -7)
@@ -378,6 +375,7 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="CollectArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 position = Vector2(0, -9)

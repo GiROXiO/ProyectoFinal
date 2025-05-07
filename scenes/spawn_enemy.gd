@@ -12,14 +12,15 @@ func _process(delta: float) -> void:
 	spawn()
 
 func spawn():
-	if spawn_count > 0:
+	if spawn_count > 0 and bool_spawn:
 		$cooldown.start()
 		bool_spawn = false
 		var enemy_instance = Enemy_Scene.instantiate()
 		enemy_instance.global_position = Vector2(random.randi_range(-163, 305), random.randi_range(-96, 164))
 		add_child(enemy_instance)
-		spawn_count -= 1
+		
 
 
 func _on_cooldown_timeout() -> void:
+	spawn_count -= 1
 	bool_spawn = true

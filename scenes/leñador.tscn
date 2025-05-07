@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://co1ikey7ltj1c"]
+[gd_scene load_steps=27 format=3 uid="uid://co1ikey7ltj1c"]
 
 [ext_resource type="Script" uid="uid://4oeykll4vjyj" path="res://scripts/leñador.gd" id="1_ehlom"]
 [ext_resource type="Texture2D" uid="uid://cu0a8wxfd50ns" path="res://art/characters/spritesheet leñador.png" id="2_ehlom"]
-[ext_resource type="Texture2D" uid="uid://d1h1sylpcyxwc" path="res://sprites/characters/player.png" id="5_17gyh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgvkd"]
 atlas = ExtResource("2_ehlom")
@@ -41,15 +40,12 @@ atlas = ExtResource("2_ehlom")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
-atlas = ExtResource("5_17gyh")
 region = Rect2(0, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
-atlas = ExtResource("5_17gyh")
 region = Rect2(48, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
-atlas = ExtResource("5_17gyh")
 region = Rect2(96, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk485"]
@@ -201,7 +197,6 @@ animation = &"front_init"
 offset = Vector2(0, -15)
 
 [node name="detection_area" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 

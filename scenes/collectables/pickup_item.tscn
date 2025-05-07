@@ -8,7 +8,7 @@ resource_local_to_scene = true
 [node name="PickupItem" type="Area2D"]
 script = ExtResource("1_ift3w")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jvkj8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

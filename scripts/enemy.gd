@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	if player_chase:
 		position += ((player.position - position) / speed) * takeDamage
 
-		move_and_slide()
+		move_and_collide(Vector2(0,0))
 		$AnimatedSprite2D.play("walk")
 		
 		if (player.position.x - position.x) < 0:
@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
+		velocity = Vector2.ZERO
+		move_and_slide()
 		$AnimatedSprite2D.play("idle")
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
