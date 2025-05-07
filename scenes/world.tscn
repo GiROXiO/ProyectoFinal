@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=26 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Texture2D" uid="uid://b3ca1hgdntm0p" path="res://sprites/tilesets/plains.png" id="1_4wyf3"]
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="10_w7kh3"]
 [ext_resource type="Texture2D" uid="uid://cvvf5cf8ljfry" path="res://art/tilemap/grass.png" id="10_xo05s"]
 [ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/leñador.tscn" id="15_xo05s"]
+[ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/spawn_enemy.tscn" id="16_dss4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
@@ -190,8 +191,10 @@ position = Vector2(79, 82)
 process_mode = 3
 script = ExtResource("10_w7kh3")
 
-[node name="enemy" parent="." instance=ExtResource("5_71j4m")]
-position = Vector2(-10, 99)
+[node name="leñador" parent="." instance=ExtResource("15_xo05s")]
+position = Vector2(189, 37)
 
-[node name="enemy2" parent="." instance=ExtResource("15_xo05s")]
-position = Vector2(193, 58)
+[node name="emision" parent="." instance=ExtResource("5_71j4m")]
+position = Vector2(-9, 95)
+
+[node name="spawn_enemy" parent="." instance=ExtResource("16_dss4m")]

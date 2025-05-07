@@ -15,6 +15,8 @@ func _physics_process(delta: float) -> void:
 	
 	if player_chase:
 		position += ((player.position - position) / speed) * takeDamage
+		print(position)
+		print(player.position)
 		move_and_slide()
 		$AnimatedSprite2D.play("walk")
 		
