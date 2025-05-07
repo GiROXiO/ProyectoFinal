@@ -3,7 +3,7 @@ extends CharacterBody2D
 var enemy_inattack_range = false
 var player_inaatack_range = false
 var enemy_attack_cooldown = true
-var health = 11200
+var health = 100
 var player_alive = true
 
 var attack_ip = false # attack in progress
@@ -115,6 +115,8 @@ func enemy_attack():
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
+		if health == 0:
+			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 
 
 
