@@ -183,6 +183,11 @@ position = Vector2(79, 82)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = -101
+limit_right = 311
+limit_bottom = 169
+limit_smoothed = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
