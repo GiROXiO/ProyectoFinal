@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=28 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bu1fhpgq4ojt6" path="res://art/tilemap/lagos.png" id="9_o8fc1"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="10_w7kh3"]
 [ext_resource type="Texture2D" uid="uid://cvvf5cf8ljfry" path="res://art/tilemap/grass.png" id="10_xo05s"]
+[ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="15_dss4m"]
 [ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/leñador.tscn" id="15_xo05s"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/spawn_enemy.tscn" id="16_dss4m"]
 
@@ -195,3 +196,6 @@ position = Vector2(189, 37)
 position = Vector2(-9, 95)
 
 [node name="spawn_enemy" parent="." instance=ExtResource("16_dss4m")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("15_dss4m")]
+position = Vector2(-3, -46)

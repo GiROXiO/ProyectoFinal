@@ -1,0 +1,7 @@
+join Luis left
+Luis: ¡Hola! ¿Como te llamas?
+- son las 12
+	Luis: gracias
+	[signal arg="exit_luis"]
+- hola amiguito
+	Luis: ¿Que?

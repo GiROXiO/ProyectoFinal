@@ -9,6 +9,7 @@ func _ready():
 	inventory.closed.connect(_on_inventory_closed)
 
 
+
 func _on_inventory_opened():
 	get_tree().paused = true
 	
