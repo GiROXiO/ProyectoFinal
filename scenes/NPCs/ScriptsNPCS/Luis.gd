@@ -28,4 +28,4 @@ func run_dialogue(dialogue_string):
 
 func DialogicSignal(arg: String):
 	if arg == "exit_luis":
-		print("signal")
+		print("Se ha emitido una señal correctamente")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl51afnibmorf"]
+
+[ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_orrwu"]
+[ext_resource type="Texture2D" uid="uid://b22jm02fsdtkb" path="res://art/characters/npc4 .png" id="2_q4o1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvser"]
+atlas = ExtResource("2_q4o1a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1102j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvser")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" instance=ExtResource("1_orrwu")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_1102j")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 0.5)
