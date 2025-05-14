@@ -8,7 +8,7 @@ var random = RandomNumberGenerator.new()
 func _ready() -> void:
 	random.randomize()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	spawn()
 
 func spawn():

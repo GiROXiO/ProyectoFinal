@@ -24,7 +24,7 @@ func _physics_process(delta):
 		player_alive = false # Aca el jugador muere
 		self.queue_free() # De momento
 	
-func player_movement(delta):
+func player_movement(_delta):
 	
 	if Input.is_key_pressed(KEY_D) or Input.is_action_pressed("ui_right"):
 		

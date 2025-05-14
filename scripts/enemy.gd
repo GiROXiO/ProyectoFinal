@@ -10,7 +10,7 @@ var enemy_inattackzone = false
 var can_take_damage = true
 var takeDamage = 1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	deal_with_damage()
 	
 	if player_chase:
@@ -43,7 +43,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	player = body # Cualquier cosa que entre al area de detección, sera la variable body
 	player_chase = true
 	
-func _on_detection_area_body_exited(body: Node2D) -> void:
+func _on_detection_area_body_exited(_body: Node2D) -> void:
 	player = null
 	player_chase = false
 	

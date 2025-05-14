@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=23 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
@@ -16,63 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/leñador.tscn" id="15_xo05s"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/spawn_enemy.tscn" id="16_dss4m"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jhx03"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
-texture = SubResource("CompressedTexture2D_jhx03")
-0:0/0 = 0
-1:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-2:0/0 = 0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o8fc1"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7141"]
-texture = SubResource("CompressedTexture2D_o8fc1")
-0:0/0 = 0
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xo05s"]
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i7141"]
 scenes/1/scene = ExtResource("7_i7141")
 scenes/2/scene = ExtResource("6_4mrxx")
@@ -84,23 +27,14 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/z_index = 1
 0:0/0/y_sort_origin = 10
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(11.7893, 25.4905, 5.09809, 27.7209, -1.59315, 28.6768, -9.55892, 26.765, -14.0198, 25.1718, -12.108, 12.7452, 8.2844, 12.7452)
-1:0/0 = 0
 0:1/0 = 0
 0:1/0/z_index = 1
 0:1/0/y_sort_origin = 10
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(11.7893, 25.4905, 5.09809, 27.7209, -1.59315, 28.6768, -9.55892, 26.765, -14.0198, 25.1718, -12.108, 12.7452, 8.2844, 12.7452)
-1:1/0 = 0
 0:2/0 = 0
 0:2/0/z_index = 1
 0:2/0/y_sort_origin = 10
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(11.7893, 25.4905, 5.09809, 27.7209, -1.59315, 28.6768, -9.55892, 26.765, -14.0198, 25.1718, -12.108, 12.7452, 8.2844, 12.7452)
-1:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhx03"]
 texture = ExtResource("8_q5onr")
@@ -149,14 +83,11 @@ texture = ExtResource("8_o8fc1")
 
 [sub_resource type="TileSet" id="TileSet_e5uuo"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_i7141")
 sources/3 = SubResource("TileSetScenesCollectionSource_i7141")
 sources/4 = SubResource("TileSetAtlasSource_q5onr")
 sources/5 = SubResource("TileSetAtlasSource_jhx03")
 sources/6 = SubResource("TileSetAtlasSource_dss4m")
 sources/7 = SubResource("TileSetAtlasSource_7t5mc")
-sources/0 = SubResource("TileSetAtlasSource_qfnet")
-sources/2 = SubResource("TileSetScenesCollectionSource_xo05s")
 sources/8 = SubResource("TileSetAtlasSource_lakw3")
 
 [node name="World" type="Node2D"]
@@ -183,6 +114,8 @@ y_sort_enabled = true
 position = Vector2(79, 82)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-79, -82)
+anchor_mode = 0
 zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
