@@ -142,5 +142,11 @@ offset_bottom = 8.0
 mouse_filter = 2
 mouse_default_cursor_shape = 3
 
+[node name="InventoryArea" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(148, 147)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
