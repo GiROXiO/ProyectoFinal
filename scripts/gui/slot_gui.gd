@@ -6,7 +6,8 @@ signal clicked(index)
 
 @onready var backgroundSprite: Sprite2D = $background
 @onready var itemSprite: Sprite2D = $CenterContainer/Panel/item
-@onready var amountLabel: Label = $CenterContainer/Panel/Label
+@onready var amountLabel: Label = $CenterContainer/Panel/Amount
+@onready var nameLabel: Label = $CenterContainer/Panel/Name
 
 @export var index: int = -1
 
@@ -16,23 +17,30 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	pass
+	self.showNameLabel()
 
 func update(slot: InventorySlot):
 	if !slot.item:
-		itemSprite.visible = false
-		amountLabel.visible = false
+		self.itemSprite.visible = false
+		self.amountLabel.visible = false
+		self.nameLabel.visible = false
 	else:
 		self.itemSprite.visible = true
 		self.itemSprite.texture = slot.item.texture
 		self.amountLabel.visible = slot.amount>1
 		self.amountLabel.text = str(slot.amount)
+		self.nameLabel.text = str(slot.item.name)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and not event.is_echo():
 		if onSlot:
-			print("Clic en slot")
 			emit_signal("clicked", index)
+
+func showNameLabel():
+	if self.onSlot and int(self.amountLabel.text)>0:
+		self.nameLabel.visible = true
+	else:
+		self.nameLabel.visible = false
 
 func _on_mouse_entered() -> void:
 	print("On slot")

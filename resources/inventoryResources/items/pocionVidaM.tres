@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_lgib3")
-name = "pocionVidaM"
+name = "Pocion Mediana"
 texture = ExtResource("2_6ecrb")
 maxAmount = 16
 metadata/_custom_type_script = "uid://dwbnornupta3q"
