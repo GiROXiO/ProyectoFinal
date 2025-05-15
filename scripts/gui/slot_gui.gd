@@ -2,9 +2,13 @@ extends Panel
 
 class_name SlotGui
 
+signal clicked(index)
+
 @onready var backgroundSprite: Sprite2D = $background
 @onready var itemSprite: Sprite2D = $CenterContainer/Panel/item
 @onready var amountLabel: Label = $CenterContainer/Panel/Label
+
+@export var index: int = -1
 
 var onSlot: bool = false
 
@@ -19,13 +23,16 @@ func update(slot: InventorySlot):
 		itemSprite.visible = false
 		amountLabel.visible = false
 	else:
-		itemSprite.visible = true
-		itemSprite.texture = slot.item.texture
-		amountLabel.visible = slot.amount>1
-		amountLabel.text = str(slot.amount)
+		self.itemSprite.visible = true
+		self.itemSprite.texture = slot.item.texture
+		self.amountLabel.visible = slot.amount>1
+		self.amountLabel.text = str(slot.amount)
 
-func dragging(index: int):
-	pass
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and not event.is_echo():
+		if onSlot:
+			print("Clic en slot")
+			emit_signal("clicked", index)
 
 func _on_mouse_entered() -> void:
 	print("On slot")
