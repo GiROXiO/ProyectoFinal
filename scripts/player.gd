@@ -116,6 +116,7 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
 		if health == 0:
+			global.player_current_attack = false
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 
 

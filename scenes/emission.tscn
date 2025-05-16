@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dbbqe7ydm0tt8"]
 
 [ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://btiws7opybhv4" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://bwrgooryoui2j" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")
@@ -119,8 +119,7 @@ script = ExtResource("1_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shcg2")
-animation = &"walk"
-frame_progress = 0.131554
+animation = &"death"
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -144,6 +143,8 @@ shape = SubResource("CircleShape2D_md0e3")
 [node name="take_damage_cooldown" type="Timer" parent="."]
 wait_time = 0.83
 
+[node name="deathTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="area_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
@@ -151,3 +152,4 @@ wait_time = 0.83
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
