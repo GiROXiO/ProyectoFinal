@@ -1,7 +1,11 @@
 join Luis left
-Luis: ¡Hola! ¿Como te llamas?
-- son las 12
-	Luis: gracias
-	[signal arg="exit_luis"]
-- hola amiguito
-	Luis: ¿Que?
+Luis: ¡Hola! ¿Derrotaste a 3 emisiones?
+- Claaro que si
+	if {emissions_defeated} == 3.0:
+		Luis: Dale bien, muchas gracias
+	elif {emissions_defeated} > 3.0:
+		Luis: DERROTASTE A MÁS DE 3?? QUE CRACK
+	else:
+		Luis: Heyheyhey, no me mientas, no haz derrotado a 3 \:(
+- Nada, no lo he hecho
+	Luis: Porfa hazlo \:=(

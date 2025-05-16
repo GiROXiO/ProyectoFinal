@@ -68,6 +68,10 @@ audio/channel_defaults={
 layout/style_list=["res://Dialogic/Style/style.tres"]
 layout/default_style="res://Dialogic/Style/style.tres"
 glossary/default_case_sensitive=true
+variables={
+"emissions_defeated": 0,
+"lumberjacks_defeated": 0
+}
 
 [editor]
 

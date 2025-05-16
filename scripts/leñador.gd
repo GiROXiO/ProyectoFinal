@@ -88,6 +88,8 @@ func deal_with_damage():
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		print("Vida del leñador: ", health)
 		if health == 0:
+			Dialogic.VAR.lumberjacks_defeated += 1
+			print(Dialogic.VAR.lumberjacks_defeated)
 			self.queue_free()
 			
 func _on_take_damage_cooldown_timeout() -> void:
