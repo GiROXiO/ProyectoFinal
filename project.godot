@@ -69,8 +69,16 @@ layout/style_list=["res://Dialogic/Style/style.tres"]
 layout/default_style="res://Dialogic/Style/style.tres"
 glossary/default_case_sensitive=true
 variables={
+"EnemiesDefeated": {
 "emissions_defeated": 0,
 "lumberjacks_defeated": 0
+},
+"MissionAcepted": {
+"Luis_Mission": {
+"luis_mission_accepted": false,
+"luis_mission_completed": false
+}
+}
 }
 
 [editor]

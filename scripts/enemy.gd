@@ -75,8 +75,8 @@ func deal_with_damage():
 			if health == 0:
 				$deathTimer.start()
 				isAlive = false
-				Dialogic.VAR.emissions_defeated += 1
-				print(Dialogic.VAR.emissions_defeated)
+				Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
+				print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
@@ -86,5 +86,4 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	print("Ya no?")
 	self.queue_free()

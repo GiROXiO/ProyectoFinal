@@ -1,11 +1,34 @@
 join Luis left
-Luis: ¡Hola! ¿Derrotaste a 3 emisiones?
-- Claaro que si
-	if {emissions_defeated} == 3.0:
-		Luis: Dale bien, muchas gracias
-	elif {emissions_defeated} > 3.0:
-		Luis: DERROTASTE A MÁS DE 3?? QUE CRACK
-	else:
-		Luis: Heyheyhey, no me mientas, no haz derrotado a 3 \:(
-- Nada, no lo he hecho
-	Luis: Porfa hazlo \:=(
+if {MissionAcepted.Luis_Mission.luis_mission_accepted} == false:
+	Luis: ¿Sabes que le dijo un perro a otro perro?
+	- Ehhh, ¿que?
+		Luis: Le dice wuau
+		Luis: Jajajajajajajaja
+		Luis: Casi me quede sin amigos por decir eso
+		- Lastima, en fin, ¿en que puedo ayudar?
+			Luis: ¿Podrias derrotar a 10 emisiones por mi? han invadido mucho esta zona y no me dejan contar mis chistes
+			Luis: Tambien ayudarias en la lucha del cambio climático, si eso es lo que te importa
+			- Lo hare, pero por favor no vuelvas a decirme ningún chiste
+				Luis: Ñeeeerda bueno
+				Luis: Te estare esperando para cuando termines
+				Me llamo Luis por cierto
+				set {MissionAcepted.Luis_Mission.luis_mission_accepted} = true
+	- Adios
+		Luis: Grosero
+elif {MissionAcepted.Luis_Mission.luis_mission_completed} == true:
+	Luis: ¿Quieres escuchar un chiste?
+	Luis: Bueno ya me quedo callado
+else:
+	Luis: ¿Ya derrotaste a las emisiones?
+	- Claro que si viejo Luis
+		if {EnemiesDefeated.emissions_defeated} >= 10.0:
+			Luis: MUCHAS GRACIAS
+			Luis: Podre contar mis chistes ahora
+			- No gracias, seguire buscando a ver que más puedo hacer
+				Luis: Ñeerda bueno
+				Luis: Solo por lo que hiciste te la dejo pasar
+				Luis: Puedes ir donde mi amigo Ponllo a ver que quiere, ¡nos vemos!
+				set {MissionAcepted.Luis_Mission.luis_mission_completed} = true
+		else:
+			Luis: Hey pero si no haz derrotado a 10
+			Luis: Barro que me mientas
