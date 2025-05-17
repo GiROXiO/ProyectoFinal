@@ -24,10 +24,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "Luis": "res://Dialogic/Characters/Luis.dch",
-"Mono": "res://Dialogic/Characters/Mono.dch"
+"Mono": "res://Dialogic/Characters/Mono.dch",
+"Ponllo": "res://Dialogic/Characters/Ponllo.dch"
 }
 directories/dtl_directory={
-"luis_timeline": "res://Dialogic/Timeline/luis_timeline.dtl"
+"luis_timeline": "res://Dialogic/Timeline/luis_timeline.dtl",
+"ponllo_timeline": "res://Dialogic/Timeline/ponllo_timeline.dtl"
 }
 layout/style_directory={
 "": "res://Dialogic/Style/style.tres",
@@ -72,12 +74,17 @@ glossary/default_case_sensitive=true
 variables={
 "EnemiesDefeated": {
 "emissions_defeated": 0,
+"garbage_defeated": 0,
 "lumberjacks_defeated": 0
 },
 "MissionAcepted": {
 "Luis_Mission": {
 "luis_mission_accepted": false,
 "luis_mission_completed": false
+},
+"Ponllo_Mission": {
+"ponllo_mission_accepted": false,
+"ponllo_mission_completed": false
 }
 }
 }

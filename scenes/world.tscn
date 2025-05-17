@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=20 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
-[ext_resource type="PackedScene" uid="uid://dbbqe7ydm0tt8" path="res://scenes/emission.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://dbbqe7ydm0tt8" path="res://scenes/Enemies/emission.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/collectables/PocionVidaM.tscn" id="6_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://v0md8l44gdsw" path="res://scenes/collectables/PocionVidaG.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://52vwfn0wl4wi" path="res://scenes/canvas_layer.tscn" id="9_7r4gi"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="10_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://cvvdrrcq1v1kc" path="res://scenes/Enemies/Garbage.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://dxrqpu3kdiqry" path="res://scenes/NPCs/Ponllo.tscn" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://cl51afnibmorf" path="res://scenes/NPCs/Luis.tscn" id="15_dss4m"]
-[ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/lumberjack.tscn" id="15_xo05s"]
+[ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/Enemies/lumberjack.tscn" id="15_xo05s"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/spawn_enemy.tscn" id="16_dss4m"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i7141"]
@@ -119,3 +121,9 @@ position = Vector2(-9, 95)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("15_dss4m")]
 position = Vector2(0, -48)
+
+[node name="Garbage" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(35, -1)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(-55, -49)

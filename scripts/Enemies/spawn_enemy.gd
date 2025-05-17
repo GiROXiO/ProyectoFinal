@@ -1,8 +1,8 @@
 extends Area2D
 
-@onready var Enemy_Scene = load("res://scenes/emission.tscn")
+@onready var Enemy_Scene = load("res://scenes/Enemies/emission.tscn")
 var bool_spawn = true
-var spawn_count = 5
+var spawn_count = 0
 var random = RandomNumberGenerator.new()
 
 func _ready() -> void:
