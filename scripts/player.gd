@@ -6,6 +6,7 @@ var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 
+
 var attack_ip = false # attack in progress
 
 var speed = 100
@@ -16,8 +17,9 @@ var current_dir = "down"
 @export var inventory: Inventory
 
 func _physics_process(delta):
-	player_movement(delta)
-	enemy_attack()
+	if global.isChatting == false:
+		player_movement(delta)
+		enemy_attack()
 	attack()
 	
 	if health == 0:
@@ -94,7 +96,7 @@ func play_anim(movement):
 				anim.play("front_walk")
 			elif movement == 0:
 				anim.play("front_init")
-
+			
 func player():
 	pass
 
@@ -128,7 +130,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack") and attack_ip == false:
+	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -147,6 +149,21 @@ func attack():
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("back_attack")
 			$deal_attack_timer.start()
+			
+	if global.isChatting == true:
+		attack_ip = false
+		if dir == "up":
+			$AnimatedSprite2D.play("back_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "down":
+			$AnimatedSprite2D.play("front_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "right":
+			$AnimatedSprite2D.play("side_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "left":
+			$AnimatedSprite2D.play("side_init")
+			$AnimatedSprite2D.flip_h = true
 
 func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()

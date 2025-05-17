@@ -14,39 +14,40 @@ var takeDamage = 1
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:
-		deal_with_damage()
-		
-		if player_chase:
-			position += ((player.position - position) / speed) * takeDamage
+		if global.isChatting == false:
+			deal_with_damage()
 			
-			move_and_collide(Vector2(0,0))
-			
-			if player.position.y - position.y < 0:
-				current_dir = "up"
-			else:
-				current_dir = "down"
-			
-			match current_dir:
-				"down":	
-					if player_inattack_zone:
-						$AnimatedSprite2D.play("front_attack")
-					else:
-						$AnimatedSprite2D.play("front_walk")
-				"up":
-					if player_inattack_zone:
-						$AnimatedSprite2D.play("back_attack")
-					else:
-						$AnimatedSprite2D.play("back_walk")
-					
-			if (player.position.x - position.x) < 0:
-				$AnimatedSprite2D.flip_h = true
-			else:
-				$AnimatedSprite2D.flip_h = false
+			if player_chase:
+				position += ((player.position - position) / speed) * takeDamage
 				
-		else:
-			velocity = Vector2.ZERO
-			move_and_slide()
-			$AnimatedSprite2D.play("front_init")
+				move_and_collide(Vector2(0,0))
+				
+				if player.position.y - position.y < 0:
+					current_dir = "up"
+				else:
+					current_dir = "down"
+				
+				match current_dir:
+					"down":	
+						if player_inattack_zone:
+							$AnimatedSprite2D.play("front_attack")
+						else:
+							$AnimatedSprite2D.play("front_walk")
+					"up":
+						if player_inattack_zone:
+							$AnimatedSprite2D.play("back_attack")
+						else:
+							$AnimatedSprite2D.play("back_walk")
+						
+				if (player.position.x - position.x) < 0:
+					$AnimatedSprite2D.flip_h = true
+				else:
+					$AnimatedSprite2D.flip_h = false
+					
+			else:
+				velocity = Vector2.ZERO
+				move_and_slide()
+				$AnimatedSprite2D.play("front_init")
 	else:
 		# $AnimatedSprite2D.play("death")
 		pass
@@ -96,9 +97,10 @@ func deal_with_damage():
 			print("Vida del leñador: ", health)
 			if health == 0:
 				$deathTimer.start()
+				$CollisionShape2D.disabled = true
 				isAlive = false
-				Dialogic.VAR.lumberjacks_defeated += 1
-				print(Dialogic.VAR.lumberjacks_defeated)
+				Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
+				print(Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated)
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true

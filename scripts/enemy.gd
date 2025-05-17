@@ -12,22 +12,23 @@ var takeDamage = 1
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:
-		deal_with_damage()
-		
-		if player_chase:
-			position += ((player.position - position) / speed) * takeDamage
-
-			move_and_collide(Vector2(0,0))
-			$AnimatedSprite2D.play("walk")
+		if global.isChatting == false:
+			deal_with_damage()
 			
-			if (player.position.x - position.x) < 0:
-				$AnimatedSprite2D.flip_h = true
+			if player_chase:
+				position += ((player.position - position) / speed) * takeDamage
+
+				move_and_collide(Vector2(0,0))
+				$AnimatedSprite2D.play("walk")
+				
+				if (player.position.x - position.x) < 0:
+					$AnimatedSprite2D.flip_h = true
+				else:
+					$AnimatedSprite2D.flip_h = false
 			else:
-				$AnimatedSprite2D.flip_h = false
-		else:
-			velocity = Vector2.ZERO
-			move_and_slide()
-			$AnimatedSprite2D.play("idle")
+				velocity = Vector2.ZERO
+				move_and_slide()
+				$AnimatedSprite2D.play("idle")
 	else:
 		$AnimatedSprite2D.play("death")
 
@@ -73,6 +74,7 @@ func deal_with_damage():
 			$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 			print("Vida de la emision: ", health)
 			if health == 0:
+				$CollisionShape2D.disabled = true
 				$deathTimer.start()
 				isAlive = false
 				Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1

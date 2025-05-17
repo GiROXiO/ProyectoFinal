@@ -32,3 +32,4 @@ else:
 		else:
 			Luis: Hey pero si no haz derrotado a 10
 			Luis: Barro que me mientas
+[signal arg="exit_luis"]

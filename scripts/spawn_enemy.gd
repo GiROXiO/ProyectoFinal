@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	spawn()
 
 func spawn():
-	if spawn_count > 0 and bool_spawn:
+	if spawn_count > 0 and bool_spawn and global.isChatting == false:
 		$cooldown.start()
 		bool_spawn = false
 		var enemy_instance = Enemy_Scene.instantiate()
