@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		dragPreview.global_position = get_global_mouse_position()
 
 func update():
-	for i in range(min(inventory.slots.size(), slots.size())):
+	for i in range(min(inventory.slots.size(), slots_gui.size())):
 		slots_gui[i].index = i
 		slots_gui[i].update(inventory.slots[i])
 
