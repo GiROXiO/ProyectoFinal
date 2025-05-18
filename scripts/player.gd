@@ -16,6 +16,10 @@ var current_dir = "down"
 
 @export var inventory: Inventory
 
+func _ready():
+	gameData.setInventory(inventory)
+	gameData.cargarInventario()
+	
 func _physics_process(delta):
 	if global.isChatting == false:
 		player_movement(delta)
@@ -112,6 +116,7 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 
 func enemy_attack():
 	if player_inaatack_range and enemy_attack_cooldown:
+		get_node("/root/World/gas").play()
 		health = health - 10
 		enemy_attack_cooldown = false
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
@@ -173,3 +178,4 @@ func _on_deal_attack_timer_timeout() -> void:
 func _on_collect_area_area_entered(area):
 	if area.has_method("collect"):
 		area.collect(inventory)
+		gameData.save_to_file()

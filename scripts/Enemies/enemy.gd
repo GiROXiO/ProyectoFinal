@@ -65,9 +65,10 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 
 func deal_with_damage():
 	if isAlive:
+		
 		if can_take_damage and enemy_inattackzone and global.player_current_attack == true:
 			health = health - 20
-
+			get_node("/root/World/bonk").play()
 			can_take_damage = false
 			takeDamage = -1
 			$take_damage_cooldown.start()
