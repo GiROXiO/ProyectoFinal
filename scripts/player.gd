@@ -6,6 +6,7 @@ var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 
+
 var attack_ip = false # attack in progress
 
 var speed = 100
@@ -15,9 +16,14 @@ var current_dir = "down"
 
 @export var inventory: Inventory
 
+func _ready():
+	gameData.setInventory(inventory)
+	gameData.cargarInventario()
+	
 func _physics_process(delta):
-	player_movement(delta)
-	enemy_attack()
+	if global.isChatting == false:
+		player_movement(delta)
+		enemy_attack()
 	attack()
 	
 	if health == 0:
@@ -94,7 +100,7 @@ func play_anim(movement):
 				anim.play("front_walk")
 			elif movement == 0:
 				anim.play("front_init")
-
+			
 func player():
 	pass
 
@@ -110,12 +116,14 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 
 func enemy_attack():
 	if player_inaatack_range and enemy_attack_cooldown:
+		get_node("/root/World/gas").play()
 		health = health - 10
 		enemy_attack_cooldown = false
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
 		if health == 0:
+			global.player_current_attack = false
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 
 
@@ -127,7 +135,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack") and attack_ip == false:
+	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -146,6 +154,21 @@ func attack():
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("back_attack")
 			$deal_attack_timer.start()
+			
+	if global.isChatting == true:
+		attack_ip = false
+		if dir == "up":
+			$AnimatedSprite2D.play("back_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "down":
+			$AnimatedSprite2D.play("front_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "right":
+			$AnimatedSprite2D.play("side_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "left":
+			$AnimatedSprite2D.play("side_init")
+			$AnimatedSprite2D.flip_h = true
 
 func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()
@@ -155,3 +178,4 @@ func _on_deal_attack_timer_timeout() -> void:
 func _on_collect_area_area_entered(area):
 	if area.has_method("collect"):
 		area.collect(inventory)
+		gameData.save_to_file()

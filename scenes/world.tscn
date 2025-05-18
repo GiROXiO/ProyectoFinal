@@ -1,27 +1,27 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=24 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
-[ext_resource type="PackedScene" uid="uid://dbbqe7ydm0tt8" path="res://scenes/emision.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://dbbqe7ydm0tt8" path="res://scenes/Enemies/emission.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/collectables/PocionVidaM.tscn" id="6_4mrxx"]
-[ext_resource type="Texture2D" uid="uid://b0d255mqurkqg" path="res://art/tilemap/arbol.png" id="7_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://v0md8l44gdsw" path="res://scenes/collectables/PocionVidaG.tscn" id="7_i7141"]
-[ext_resource type="Texture2D" uid="uid://cmkk06yscxfcq" path="res://art/tilemap/camino de tierra.png" id="8_o8fc1"]
-[ext_resource type="Texture2D" uid="uid://co0oiff8sjssf" path="res://art/tilemap/roca.png" id="8_q5onr"]
 [ext_resource type="PackedScene" uid="uid://52vwfn0wl4wi" path="res://scenes/canvas_layer.tscn" id="9_7r4gi"]
-[ext_resource type="Texture2D" uid="uid://bu1fhpgq4ojt6" path="res://art/tilemap/lagos.png" id="9_o8fc1"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="10_w7kh3"]
-[ext_resource type="Texture2D" uid="uid://cvvf5cf8ljfry" path="res://art/tilemap/grass.png" id="10_xo05s"]
+[ext_resource type="PackedScene" uid="uid://cvvdrrcq1v1kc" path="res://scenes/Enemies/Garbage.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://dxrqpu3kdiqry" path="res://scenes/NPCs/Ponllo.tscn" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://bj5sqjdgyruvb" path="res://scenes/game_data.tscn" id="13_jhx03"]
+[ext_resource type="AudioStream" uid="uid://bni0b7jj5bu1i" path="res://music/bonk_AgRFvsD.mp3" id="14_dss4m"]
+[ext_resource type="AudioStream" uid="uid://cx5p5kciljc38" path="res://music/jerma985-gyass-sor3q7xmg_m.mp3" id="15_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://cl51afnibmorf" path="res://scenes/NPCs/Luis.tscn" id="15_dss4m"]
-[ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/leñador.tscn" id="15_xo05s"]
+[ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/Enemies/lumberjack.tscn" id="15_xo05s"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/spawn_enemy.tscn" id="16_dss4m"]
+[ext_resource type="AudioStream" uid="uid://fdvtf88et2f5" path="res://music/keyboard-click.mp3" id="16_lakw3"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i7141"]
 scenes/1/scene = ExtResource("7_i7141")
 scenes/2/scene = ExtResource("6_4mrxx")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
-texture = ExtResource("7_e3hyu")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/z_index = 1
@@ -37,30 +37,23 @@ texture_region_size = Vector2i(64, 64)
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(11.7893, 25.4905, 5.09809, 27.7209, -1.59315, 28.6768, -9.55892, 26.765, -14.0198, 25.1718, -12.108, 12.7452, 8.2844, 12.7452)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhx03"]
-texture = ExtResource("8_q5onr")
-0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/z_index = 1
 0:0/0/y_sort_origin = 6
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.67633, 5.39576, 5.57562, 10.7915, -2.33816, 11.1512, -5.39576, 9.89223, -5.93534, 5.57562)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dss4m"]
-texture = ExtResource("9_o8fc1")
-0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/z_index = 1
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(12.9829, 7.33816, 3.95689, 12.2304, -6.47491, 13.3095, -11.511, 9.89223, -14.3887, 6.1152, -14.7484, 0.719435, -14.9283, -3.41732, -12.4103, -8.09364, -1.61873, -11.8707, 10.7915, -8.09364, 13.8491, -5.39576, 15.288, -0.899294)
-0:2/size_in_atlas = Vector2i(2, 2)
 0:2/0 = 0
 0:2/0/z_index = 1
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.61873, -10.0721, 8, -8, 12.2304, 0.719435, 8, 8, 3.41732, 10.9714, -2.33816, 11.1512, -9.89223, 8.99294, -13.6693, -0.179857, -10.9714, -5.03604)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7t5mc"]
-texture = ExtResource("10_xo05s")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lakw3"]
-texture = ExtResource("8_o8fc1")
 1:3/0 = 0
 2:2/0 = 0
 3:2/0 = 0
@@ -132,3 +125,20 @@ position = Vector2(-9, 95)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("15_dss4m")]
 position = Vector2(0, -48)
+
+[node name="Garbage" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(35, -1)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(-55, -49)
+
+[node name="GameData" parent="." instance=ExtResource("13_jhx03")]
+
+[node name="bonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_dss4m")
+
+[node name="gas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_7t5mc")
+
+[node name="texto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_lakw3")

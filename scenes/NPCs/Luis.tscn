@@ -1,17 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl51afnibmorf"]
+[gd_scene load_steps=10 format=3 uid="uid://cl51afnibmorf"]
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_orrwu"]
-[ext_resource type="Texture2D" uid="uid://b22jm02fsdtkb" path="res://art/characters/npc4 .png" id="2_q4o1a"]
+[ext_resource type="Script" uid="uid://bin8cuuwn8ida" path="res://scenes/NPCs/ScriptsNPCS/Luis.gd" id="2_bvser"]
+[ext_resource type="Texture2D" uid="uid://b6dpjeke6t7rb" path="res://art/characters/spritesheet npcs v2.png" id="2_q4o1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvser"]
 atlas = ExtResource("2_q4o1a")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1102j"]
+atlas = ExtResource("2_q4o1a")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syheh"]
+atlas = ExtResource("2_q4o1a")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4w6n"]
+atlas = ExtResource("2_q4o1a")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2bxy"]
+atlas = ExtResource("2_q4o1a")
+region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1102j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bvser")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1102j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syheh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4w6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2bxy")
 }],
 "loop": true,
 "name": &"default",
@@ -19,10 +48,11 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" instance=ExtResource("1_orrwu")]
+script = ExtResource("2_bvser")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_1102j")
-animation = &"default"
+frame_progress = 0.791583
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0, 0.5)
+position = Vector2(-4, 0)

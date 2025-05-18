@@ -11,19 +11,19 @@
 "suffix": ""
 },
 &"default_portrait": "New portrait",
-&"description": "Un chico de barrio",
-&"display_name": "Luis",
+&"description": "",
+&"display_name": "Mono",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "New portrait": {
 "export_overrides": {
-"image": "\"res://Dialogic/Portraits/Luis.png\""
+"image": ""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1.0,
+"scale": 1,
 "scene": ""
 }
 },

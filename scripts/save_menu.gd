@@ -35,38 +35,27 @@ func updateInfo(slot: int):
 		3:
 			button_node = $CenterContainer/VBoxContainer/HBoxContainer3/Info3
 
-	# 🔧 Tamaño fijo y sin expansión (Godot 4)
 	button_node.custom_minimum_size = Vector2(200, 40)
 	button_node.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	button_node.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	button_node.clip_text = true
 
 	if FileAccess.file_exists(path):
-		var file = FileAccess.open(path, FileAccess.READ)
-		var data = file.get_line()
-		var dataLoaded = JSON.parse_string(data)
-		file.close()
-
-		if typeof(dataLoaded) == TYPE_DICTIONARY:
-			button_node.text = "%s - Nivel %s" % [dataLoaded["username"], str(int(dataLoaded["level"]))]
-			button_node.tooltip_text = button_node.text
-		else:
-			button_node.text = "Error al leer"
+		gameData.load_from_file(slot)
+		button_node.text = "%s - Nivel %d" % [gameData.username, gameData.level]
+		button_node.tooltip_text = button_node.text
 	else:
 		button_node.text = "Nuevo juego"
 
-		
 func slotSelection(slot: int):
 	selectedSlot = slot
-	var data = loadGame(slot)
-	if data.is_empty():
+	gameData.load_from_file(slot) 
+	if gameData.username == "":
 		$NewUsernamePanel.visible = true
 		$CenterContainer.visible= false
 	else:
-		#print("Ranura", slot, "cargada. Jugador:", data["username"])
-		showInfo("Datos cargados del jugador %s (Nivel %d)" % [data["username"], data["level"]])
+		showInfo("Datos cargados del jugador %s (Nivel %d)" % [gameData.username, gameData.level])
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
-		
 
 func confirmName():
 	var username = $NewUsernamePanel/VBoxContainer/UsernameInput.text.strip_edges()
@@ -74,35 +63,18 @@ func confirmName():
 		showInfo("Escribe un nombre de usuario valido")
 		return
 
-	var data = {
-		"username": username,
-		"level": int(1)
-	}
-	
-	saveGame(selectedSlot, data)
+	gameData.username = username
+	gameData.level = 1 
+	gameData.mute = 0
+
+	saveGame(selectedSlot)
 	$NewUsernamePanel.visible = false
 	$NewUsernamePanel/VBoxContainer/UsernameInput.text = ""
 	showInfo("Guardado como '%s' en la ranura %d" % [username, selectedSlot])
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
-func saveGame(slot: int, data: Dictionary):
-	var path = "user://save_slot_%d.save" % slot
-	var file = FileAccess.open(path, FileAccess.WRITE)
-	file.store_line(JSON.stringify(data))
-	file.close()
-
-func loadGame(slot: int) -> Dictionary:
-	var path = "user://save_slot_%d.save" % slot
-	if not FileAccess.file_exists(path):
-		return {}
-	var file = FileAccess.open(path, FileAccess.READ)
-	var data = file.get_line()
-	var dataLoaded = JSON.parse_string(data)
-	file.close()
-	if dataLoaded:
-		return dataLoaded
-	else:
-		return {}
+func saveGame(slot: int):
+	gameData.save_to_file_reset() 
 
 func deleteSave(slot: int):
 	var path = "user://save_slot_%d.save" % slot
@@ -115,6 +87,6 @@ func deleteSave(slot: int):
 
 func showInfo(text: String):
 	$InfoLabel.text = text
-	
+
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")

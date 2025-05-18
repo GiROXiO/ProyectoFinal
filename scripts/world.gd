@@ -7,7 +7,7 @@ extends Node2D
 func _ready():
 	inventory.opened.connect(_on_inventory_opened)
 	inventory.closed.connect(_on_inventory_closed)
-
+	global.player_current_attack = false
 
 
 func _on_inventory_opened():
