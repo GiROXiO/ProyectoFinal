@@ -317,7 +317,7 @@ animations = [{
 size = Vector2(13, 13.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(54.4673, 84.3606)
+size = Vector2(30.6379, 47.6821)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 13.0
@@ -345,13 +345,15 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="YSortColission" type="CollisionShape2D" parent="."]
-position = Vector2(-2.38419e-07, -8.5)
+y_sort_enabled = true
+position = Vector2(0, -3)
 scale = Vector2(0.293754, 0.272639)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_g2els")
 
@@ -362,6 +364,7 @@ wait_time = 0.5
 wait_time = 0.82
 
 [node name="CollectArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 position = Vector2(0, -9)

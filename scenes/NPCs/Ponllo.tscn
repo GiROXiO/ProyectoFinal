@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dxrqpu3kdiqry"]
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_x0jq8"]
-[ext_resource type="Script" uid="uid://c8ku4jmoctopu" path="res://scenes/NPCs/ScriptsNPCS/Ponllo.gd" id="2_hbxnq"]
-[ext_resource type="Texture2D" uid="uid://b6dpjeke6t7rb" path="res://art/characters/spritesheet npcs v2.png" id="3_jg8o8"]
+[ext_resource type="Script" path="res://scenes/NPCs/ScriptsNPCS/Ponllo.gd" id="2_hbxnq"]
+[ext_resource type="Texture2D" uid="uid://bs3lll8jecfuv" path="res://art/characters/spritesheet npcs v2.png" id="3_jg8o8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_806gl"]
 atlas = ExtResource("3_jg8o8")
@@ -61,11 +61,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" instance=ExtResource("1_x0jq8")]
+[node name="Ponllo" instance=ExtResource("1_x0jq8")]
 script = ExtResource("2_hbxnq")
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_nlnai")
+
+[node name="CollisionShape2D" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(-2, 7)
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-1.5, 2.25)

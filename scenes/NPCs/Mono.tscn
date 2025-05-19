@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://fc50j48ns2yj"]
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_sd42n"]
-[ext_resource type="Texture2D" uid="uid://b6dpjeke6t7rb" path="res://art/characters/spritesheet npcs v2.png" id="2_mlqg1"]
+[ext_resource type="Texture2D" uid="uid://bs3lll8jecfuv" path="res://art/characters/spritesheet npcs v2.png" id="2_mlqg1"]
 [ext_resource type="Script" uid="uid://s0ycb13irc5q" path="res://scenes/NPCs/mono.gd" id="2_ocyi0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocyi0"]
@@ -61,9 +61,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" instance=ExtResource("1_sd42n")]
+[node name="Mono" instance=ExtResource("1_sd42n")]
 script = ExtResource("2_ocyi0")
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_bvm4m")
 frame_progress = 0.0854398
+
+[node name="CollisionShape2D" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(0, 6)

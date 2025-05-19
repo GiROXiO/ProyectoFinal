@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_orrwu"]
 [ext_resource type="Script" uid="uid://bin8cuuwn8ida" path="res://scenes/NPCs/ScriptsNPCS/Luis.gd" id="2_bvser"]
-[ext_resource type="Texture2D" uid="uid://b6dpjeke6t7rb" path="res://art/characters/spritesheet npcs v2.png" id="2_q4o1a"]
+[ext_resource type="Texture2D" uid="uid://bs3lll8jecfuv" path="res://art/characters/spritesheet npcs v2.png" id="2_q4o1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvser"]
 atlas = ExtResource("2_q4o1a")
@@ -47,12 +47,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" instance=ExtResource("1_orrwu")]
+[node name="Luis" instance=ExtResource("1_orrwu")]
+y_sort_enabled = true
 script = ExtResource("2_bvser")
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_1102j")
 frame_progress = 0.791583
+
+[node name="CollisionShape2D" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(-6, 4)
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-4, 0)

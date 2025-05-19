@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=14 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://52vwfn0wl4wi" path="res://scenes/canvas_layer.tscn" id="9_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://dbbqe7ydm0tt8" path="res://scenes/Enemies/emission.tscn" id="10_jhx03"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://cvvdrrcq1v1kc" path="res://scenes/Enemies/Garbage.tscn" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://dt60obx0mc7v7" path="res://scenes/NPCs/Maritza.tscn" id="11_q5onr"]
@@ -11,38 +13,44 @@
 [ext_resource type="PackedScene" uid="uid://bj5sqjdgyruvb" path="res://scenes/game_data.tscn" id="13_jhx03"]
 [ext_resource type="PackedScene" uid="uid://cl51afnibmorf" path="res://scenes/NPCs/Luis.tscn" id="15_dss4m"]
 [ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/Enemies/lumberjack.tscn" id="15_xo05s"]
-[ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/spawn_enemy.tscn" id="16_dss4m"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_w7kh3")
 metadata/_edit_vertical_guides_ = [-141.0]
 
-[node name="Player" parent="." instance=ExtResource("4_k0juu")]
-y_sort_enabled = true
-position = Vector2(79, 82)
+[node name="Tilemap1" parent="." instance=ExtResource("2_jhx03")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-79, -82)
-anchor_mode = 0
-zoom = Vector2(4, 4)
+[node name="Player" parent="." instance=ExtResource("4_k0juu")]
+position = Vector2(574, 576)
+
+[node name="Luis" parent="." instance=ExtResource("15_dss4m")]
+position = Vector2(716, 365)
+
+[node name="Maritza" parent="." instance=ExtResource("11_q5onr")]
+y_sort_enabled = true
+position = Vector2(474, 359)
+
+[node name="Mono" parent="." instance=ExtResource("12_jhx03")]
+position = Vector2(502, 303)
+
+[node name="Ponllo" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(731, 313)
+
+[node name="leñador" parent="." instance=ExtResource("15_xo05s")]
+y_sort_enabled = true
+position = Vector2(139, 207)
+
+[node name="Garbage" parent="." instance=ExtResource("11_e3hyu")]
+y_sort_enabled = true
+position = Vector2(832, 609)
+
+[node name="emision" parent="." instance=ExtResource("10_jhx03")]
+position = Vector2(997, 367)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
 script = ExtResource("10_w7kh3")
-
-[node name="leñador" parent="." instance=ExtResource("15_xo05s")]
-position = Vector2(189, 37)
-
-[node name="spawn_enemy" parent="." instance=ExtResource("16_dss4m")]
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("15_dss4m")]
-position = Vector2(-68, 59)
-
-[node name="Garbage" parent="." instance=ExtResource("11_e3hyu")]
-position = Vector2(35, -1)
-
-[node name="CharacterBody2D2" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(-74, 119)
 
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
@@ -51,9 +59,3 @@ position = Vector2(-74, 119)
 [node name="gas" type="AudioStreamPlayer" parent="."]
 
 [node name="texto" type="AudioStreamPlayer" parent="."]
-
-[node name="Maritza" parent="." instance=ExtResource("11_q5onr")]
-position = Vector2(-18, 85)
-
-[node name="CharacterBody2D3" parent="." instance=ExtResource("12_jhx03")]
-position = Vector2(-10, 132)
