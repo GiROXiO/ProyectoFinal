@@ -1,9 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://ctovl7kvxvlym"]
+[gd_scene load_steps=46 format=3 uid="uid://ctovl7kvxvlym"]
 
 [ext_resource type="Script" uid="uid://ywlsktjp0se1" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Resource" uid="uid://ccup3q1i88hi8" path="res://resources/inventoryResources/playerInventory.tres" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://bki7sgmqy7nb4" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://dtff55m7o0p4f" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://finn87qsgkj0" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://sweuwgr1s0t" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qlg0r")
@@ -331,7 +330,6 @@ height = 24.0
 position = Vector2(0, -2)
 collision_layer = 3
 script = ExtResource("1_g2els")
-inventory = ExtResource("2_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 5)
@@ -364,7 +362,6 @@ wait_time = 0.5
 wait_time = 0.82
 
 [node name="CollectArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 position = Vector2(0, -9)
