@@ -78,6 +78,10 @@ func deal_with_damage():
 				$CollisionShape2D.disabled = true
 				$deathTimer.start()
 				isAlive = false
+				if Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted and Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed == false:
+					Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions += 1
+				if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted and Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed == false:
+					Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions += 1
 				Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
 				print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
 			

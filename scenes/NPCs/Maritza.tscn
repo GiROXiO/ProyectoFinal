@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://dt60obx0mc7v7"]
+
+[ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_6lodj"]
+[ext_resource type="Texture2D" uid="uid://b6dpjeke6t7rb" path="res://art/characters/spritesheet npcs v2.png" id="2_ype2h"]
+[ext_resource type="Script" uid="uid://cd3p1mnp02oma" path="res://scenes/NPCs/ScriptsNPCS/Maritza.gd" id="3_u82rd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u82rd"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr4r8"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sutwx"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhrdv"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2meko"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f0ii"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy1en"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(224, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jevig"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60y5r"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wb1b"]
+atlas = ExtResource("2_ype2h")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ype2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u82rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr4r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sutwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhrdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2meko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f0ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy1en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jevig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60y5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wb1b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Maritza" instance=ExtResource("1_6lodj")]
+script = ExtResource("3_u82rd")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_ype2h")
+frame = 1
+frame_progress = 0.863961

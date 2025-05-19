@@ -1,0 +1,58 @@
+join Maritza left
+if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
+	Maritza: Oh, ya despertaste
+	- ¿Donde Estoy?
+		Maritza: Tranquilo, estas a salvo
+	- ¿Quien eres?
+		Maritza: No te preocupes, no te hare daño
+	Maritza: Mi nombre es Maritza
+	Maritza: ...
+	Maritza: ...\
+	....
+	Maritza: ...\
+	....\
+	.....
+	Maritza: Supongo que ya viste el estado de este mundo
+	- Es horrible...
+		Maritza: Si, bastante horrible...
+	- Parece diarrea
+		Maritza: Jajajaja
+		Maritza: Me alegro que alguien tenga sentido del humor despues de lo que esta pasando...
+	Maritza: Realmente estas tierras han estado mucho tiempo asi
+	Maritza: Todo por el actuar de nosotros, los humanos
+	Maritza: Desde que empezamos a pensar de manera consumista, el mundo ha decaido bastante
+	Maritza: Los servicios ecológicos los han explotado de sobremanera
+	Maritza: Los limites planetarios se han desbalanceado totalmente
+	Maritza: Y sobretodo, el cambio climático se ha acelerado de sobremanera
+	Maritza: Da mucho miedo, los científicos esperan lo peor
+	- ¿Que puedo hacer para ayudar?
+	- Mucha diarrea es mala, ¿que se puede hacer?
+	Maritza: Ahora mismo tenemos que colaborar todos juntos para lograr un cambio
+	Maritza: Cualquier persona, cualquiera que quiera marcar una diferencia
+	Maritza: Inspirara a otras a hacer lo mismo
+	- Quiero marcar una diferencia
+	Maritza: No sabes cuanto me alegra escuchar esto
+	Maritza: Sabia que te veias como un muchacho comprometido
+	Maritza: Me alegra mucho que todavia haya gente que se preocupe por el medio ambiente
+	Maritza: Aunque no lo creas, por este mundo hay muchas personas que todavia se interesan por el medio ambiente, podrias ayudarlos
+	Maritza: Pero para probarte, toma esto
+	Escoba: Con esta escoba podras encargarte de la basura y de los leñadores
+	Aspiradora (New portrait): Y con esta aspiradora podras encargarte de las emisiones contaminantes
+	Maritza: Para probar y como tu primera misión, ¿por que no te encargas de 5 bolsas de basura que estan por ahi molestando en el pueblo?
+	Maritza: ¡Exitos!
+	set {MissionAcepted.Maritza_Mision.maritza_mission_accepted} = true
+elif {MissionAcepted.Maritza_Mision.maritza_mission_completed} == true:
+	Maritza: De verdad que todos podemos hacer un cambio si nos lo proponemos
+	Maritza: Tenemos que ser resilientes ante la adversidad
+	Maritza: Que viva la ecologia urbana
+else:
+	Maritza: ¿Ya te encargaste de la basura?
+	- Si claro
+		if {EnemiesDefeated.garbage_defeated} >= 5.0:
+			Maritza: Sabia que podias hacerlo
+			Maritza: Espero que puedas ayudar al medio ambiente y a muchas otras personas allá afuera
+			Maritza: Te deseo exitos
+			set {MissionAcepted.Maritza_Mision.maritza_mission_completed} = true
+	- No, aun no...
+		Maritza: No te preocupes, se que puedes hacerlo
+[signal arg="exit_maritza"]

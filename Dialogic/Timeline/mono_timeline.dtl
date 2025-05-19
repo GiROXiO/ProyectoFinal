@@ -1,0 +1,42 @@
+join pkm_42e left
+if {MissionAcepted.Mono_Mission.mono_mission_acepted} == false:
+	pkm_42e: esta tecnología esta bacana, que belleza...
+	- ¿Hola?
+		pkm_42e: hola
+	- ¿Y ese traje?
+		pkm_42e: ¿mi ropa?
+		pkm_42e: en fin
+	pkm_42e: creo que se nota que precisamente de este planeta no soy
+	pkm_42e: me llamo pkm_42e
+	- Eres mono asi que te llamare El Mono
+	pkm_42e: ¿ah?
+	Mono: bueno, me parece
+	Mono: en fin, he visto mucha contaminación por aca y me parece preocupante
+	Mono: ustedes solos se destruyen entre ustedes
+	Mono: bobitos
+	- Queremos remediarlo
+		Mono: ummm
+		Mono: parece que tienes buenas intenciones
+		Mono: aunque puedo ver que pensaste en llamarme bobo
+		- Espera, ¿como?
+		Mono: mira, ¿quieres que te proponga una misión verdad?
+		Mono: extermina a 20 emisiones de carbono
+		Mono: listo
+		set {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} = true
+	- Bobo tú
+		Mono: no, bobo tú
+		Mono: a pue
+elif {MissionAcepted.Mono_Mission.mono_mission_completed} == true:
+	Mono: bueno
+	Mono: al final si eres chevere
+else:
+	Mono: y bueno, ¿ya lo hiciste?
+	- si lees mi mente deberias saberlo
+		if {EnemiesDefeated.emissions_defeated} >= 20.0:
+			Mono: no si, ya se que lo hiciste
+			Mono: te quiero mucho
+		else:
+			Mono: ya se que no lo hiciste
+			Mono: te falta materia gris
+			Mono: no mentira te quiero mucho
+[signal arg="exit_mono"]

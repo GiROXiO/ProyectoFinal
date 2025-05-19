@@ -99,6 +99,10 @@ func deal_with_damage():
 				$deathTimer.start()
 				$CollisionShape2D.disabled = true
 				isAlive = false
+				
+				if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
+					Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_lumberjacks += 1
+					
 				Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
 				print(Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated)
 			

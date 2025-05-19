@@ -91,7 +91,8 @@ func deal_with_damage():
 				$deathTimer.start()
 				isAlive = false
 				Dialogic.VAR.EnemiesDefeated.garbage_defeated += 1
-				print(Dialogic.VAR.EnemiesDefeated.garbage_defeated)
+				if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted and Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed == false:
+					Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage += 1
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true

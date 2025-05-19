@@ -5,7 +5,7 @@ if {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} == false:
 		Ponllo: Yeeeerda
 		Ponllo: No eres Luis que pena
 		Ponllo: ¿Ya lo conociste?, espero que no
-		Ponllo: Soy Ponllo
+		Ponllo: Soy Ponllo, famoso director de series de televisión
 		- ¿Necesitas ayuda con algo Ponllo?
 			Ponllo: ¿Me acabas de conocer y me ofreces ayuda?
 			Ponllo: Increible
@@ -18,7 +18,7 @@ if {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} == false:
 			Ponllo: ¿Podrias ayudarme?
 			- De una, por supuesto
 				Ponllo: Que crack
-				Ponllo: Con que te encarges de 20 bolsas de basura contaminantes estamos firmes
+				Ponllo: Con que les des una lección a  20 leñadores estamos firmes
 				set {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} = true
 			- Nada, lo siento
 				Ponllo: Increible
@@ -35,10 +35,10 @@ else:
 			Ponllo: Perfecto
 			Ponllo: Eres un crack, lograste lo que pocos han logrado
 			Ponllo: Por eso quedas invitado para la siguiente temporada de una serie que estoy haciendo
-			Ponllo: Estaras al lado de grandes nombres como Pepe, Kike, etc
+			Ponllo: Estaras al lado de grandes nombres como Pepe, Kike, Lucho, etc
 			Ponllo: ¿Como que no los conoces? No me lo estoy inventando
 			Ponllo: En fin
-			Ponllo: Deberias buscar al mono si no lo haz hecho, puede que necesite de tú ayuda tambien
+			Ponllo: Deberias buscar a Luis si no lo haz hecho, puede que necesite de tú ayuda tambien
 		else:
 			Ponllo: Ombe pero tampoco empecemos con el embuste
 			Ponllo: Encargate bien de las 20 bolsas de basura por favor

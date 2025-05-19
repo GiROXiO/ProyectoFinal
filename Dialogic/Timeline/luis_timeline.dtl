@@ -32,4 +32,9 @@ else:
 		else:
 			Luis: Hey pero si no haz derrotado a 10
 			Luis: Barro que me mientas
+	- Nada viejo Luis, aún no
+		Luis: Vaya y hagalo
+		Luis: O le doy su nalgada
+		- ¿Que?
+			Luis: Uno nunca sabe
 [signal arg="exit_luis"]
