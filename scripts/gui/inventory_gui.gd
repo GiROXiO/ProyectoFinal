@@ -7,6 +7,7 @@ signal closed
 
 var isOpen: bool = false
 var on_inventory: bool = false
+var selected_slot: SlotGui
 
 @onready var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")
 @onready var slots_gui: Array = $Inventory/GridContainer.get_children()
@@ -26,6 +27,7 @@ func _ready():
 	close()
 	inventory.updated.connect(update)
 	update()
+	selected_slot = hotbar_slots[0]
 	_connect_slot_signals()
 
 func _process(_delta: float) -> void:
@@ -152,7 +154,11 @@ func _on_mouse_exited() -> void:
 	print("Not on inventory")
 	self.on_inventory = false
 
+func update_selected_item():
+	pass
+
 func update_hotbar_slots():
 	for i in range(4):
 		hotbar_slots[i].index = i
+		hotbar_slots[i].isHotbarSlot = true
 		hotbar_slots[i].update(inventory.slots[i])
