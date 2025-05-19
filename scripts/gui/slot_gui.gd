@@ -4,7 +4,7 @@ class_name SlotGui
 
 signal clicked(index)
 
-@onready var backgroundSprite: Sprite2D = $background
+@onready var backgroundSprite:AnimatedSprite2D = $background
 @onready var itemSprite: Sprite2D = $CenterContainer/Panel/item
 @onready var amountLabel: Label = $CenterContainer/Panel/Amount
 @onready var nameLabel: Label = $CenterContainer/Panel/Name
@@ -12,9 +12,11 @@ signal clicked(index)
 @export var index: int = -1
 
 var onSlot: bool = false
+var isSelected: bool = false
+var isHotbarSLot: bool = false
 
 func _ready() -> void:
-	pass
+	backgroundSprite.play("normal")
 
 func _process(_delta: float) -> void:
 	self.showNameLabel()
@@ -49,3 +51,9 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	print("Not on slot")
 	onSlot = false
+
+func _update_hotbar_slot():
+	if isHotbarSLot and isSelected:
+		backgroundSprite.play("selected")
+	else:
+		backgroundSprite.play("normal")

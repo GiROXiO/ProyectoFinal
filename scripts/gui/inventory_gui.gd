@@ -9,8 +9,9 @@ var isOpen: bool = false
 var on_inventory: bool = false
 
 @onready var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")
-@onready var slots_gui: Array = $NinePatchRect/GridContainer.get_children()
+@onready var slots_gui: Array = $Inventory/GridContainer.get_children()
 @onready var slots: Array = inventory.slots
+@onready var hotbar_slots: Array = $Hotbar/GridContainer.get_children()
 
 @onready var dragPreview:= $DragPreview
 @onready var iconPreview: Sprite2D = null
@@ -35,6 +36,7 @@ func update():
 	for i in range(min(inventory.slots.size(), slots_gui.size())):
 		slots_gui[i].index = i
 		slots_gui[i].update(inventory.slots[i])
+	update_hotbar_slots()
 
 func _connect_slot_signals():
 	for slot in slots_gui:
@@ -128,12 +130,14 @@ func stop_dragging():
 	self.dragPreview.texture = null
 
 func open():
-	visible = true
+	$Inventory.visible = true
+	$Hotbar.visible = false
 	isOpen = true
 	opened.emit()
 	
 func close():
-	visible = false
+	$Inventory.visible = false
+	$Hotbar.visible = true
 	isOpen = false
 	closed.emit()
 
@@ -147,3 +151,8 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	print("Not on inventory")
 	self.on_inventory = false
+
+func update_hotbar_slots():
+	for i in range(4):
+		hotbar_slots[i].index = i
+		hotbar_slots[i].update(inventory.slots[i])

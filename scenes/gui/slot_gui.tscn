@@ -1,11 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://clllp3jjxp3x8"]
+[gd_scene load_steps=6 format=3 uid="uid://clllp3jjxp3x8"]
 
-[ext_resource type="Texture2D" uid="uid://dm7ea68okrltx" path="res://art/inventoryUI/UI_Frames.png" id="1_r2aht"]
 [ext_resource type="Script" uid="uid://s0ux3ws25qok" path="res://scripts/gui/slot_gui.gd" id="1_tobkg"]
+[ext_resource type="Texture2D" uid="uid://c7e13fs7f2qcm" path="res://art/inventoryUI/Slots.png" id="2_tobkg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2aht"]
-atlas = ExtResource("1_r2aht")
-region = Rect2(63.0033, 14.8887, 18.2195, 18.2117)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tobkg"]
+atlas = ExtResource("2_tobkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la7p1"]
+atlas = ExtResource("2_tobkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flcqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tobkg")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la7p1")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
 
 [node name="Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -17,10 +40,11 @@ offset_right = -1.584
 offset_bottom = -2.088
 script = ExtResource("1_tobkg")
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(8.991, 9.03125)
+[node name="background" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 9)
 scale = Vector2(1.001, 0.996528)
-texture = SubResource("AtlasTexture_r2aht")
+sprite_frames = SubResource("SpriteFrames_flcqt")
+animation = &"selected"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(18, 18)
