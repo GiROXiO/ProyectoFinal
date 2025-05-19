@@ -10,10 +10,10 @@ signal clicked(index)
 @onready var nameLabel: Label = $CenterContainer/Panel/Name
 
 @export var index: int = -1
+@export var isHotbarSlot = false
+@export var isSelected: bool = false
 
 var onSlot: bool = false
-var isSelected: bool = false
-var isHotbarSLot: bool = false
 
 func _ready() -> void:
 	backgroundSprite.play("normal")
@@ -53,7 +53,7 @@ func _on_mouse_exited() -> void:
 	onSlot = false
 
 func _update_hotbar_slot():
-	if isHotbarSLot and isSelected:
+	if  isHotbarSlot and isSelected:
 		backgroundSprite.play("selected")
 	else:
 		backgroundSprite.play("normal")
