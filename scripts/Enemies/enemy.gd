@@ -73,7 +73,7 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 func deal_with_damage():
 	if isAlive:
 		if enemy_inattackzone and global.player_current_aspire == true:
-			get_node("/root/World/bonk").play()
+			get_node("/root/World/gas").play()
 			takeDamage = 0
 			
 			if current_damagin == false:

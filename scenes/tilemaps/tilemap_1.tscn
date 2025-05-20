@@ -1,14 +1,14 @@
 [gd_scene load_steps=26 format=4 uid="uid://dk57oid3g2mpr"]
 
-[ext_resource type="Texture2D" uid="uid://tp3qo6yvaioi" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
-[ext_resource type="Texture2D" uid="uid://t2qa5tog25tf" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
-[ext_resource type="Texture2D" uid="uid://x4yffu05elcx" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
-[ext_resource type="Texture2D" uid="uid://b3v34m1h2ammw" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
-[ext_resource type="Texture2D" uid="uid://fjllpa7re4s2" path="res://art/tilemap/ySort.png" id="3_02dga"]
-[ext_resource type="Texture2D" uid="uid://csn703yu0ojk0" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
-[ext_resource type="Texture2D" uid="uid://bwjxc8t8xr0o0" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
+[ext_resource type="Texture2D" uid="uid://dn1anroa3ycro" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
+[ext_resource type="Texture2D" uid="uid://1pscahi45brs" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
+[ext_resource type="Texture2D" uid="uid://iexmqlxgo8p" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
+[ext_resource type="Texture2D" uid="uid://bp3p0dtddynm7" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
+[ext_resource type="Texture2D" uid="uid://bkjy6u1vtu4v8" path="res://art/tilemap/ySort.png" id="3_02dga"]
+[ext_resource type="Texture2D" uid="uid://j1u0k5hwmjd1" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
+[ext_resource type="Texture2D" uid="uid://cms51qa1i7pyq" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
 [ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://lake.gd" id="5_xqubo"]
-[ext_resource type="Texture2D" uid="uid://4ilx501kndiu" path="res://art/tilemap/camion.png" id="10_lhc2v"]
+[ext_resource type="Texture2D" uid="uid://cfta3fh86dp6m" path="res://art/tilemap/camion.png" id="10_lhc2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nfve"]
 texture = ExtResource("1_ruvfg")

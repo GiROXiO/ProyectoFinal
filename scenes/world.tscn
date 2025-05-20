@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddsgr4t320312"]
+[gd_scene load_steps=16 format=3 uid="uid://ddsgr4t320312"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://fc50j48ns2yj" path="res://scenes/NPCs/Mono.tscn" id="12_jhx03"]
 [ext_resource type="PackedScene" uid="uid://dxrqpu3kdiqry" path="res://scenes/NPCs/Ponllo.tscn" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bj5sqjdgyruvb" path="res://scenes/game_data.tscn" id="13_jhx03"]
+[ext_resource type="AudioStream" uid="uid://bni0b7jj5bu1i" path="res://music/bonk_AgRFvsD.mp3" id="14_xo05s"]
+[ext_resource type="AudioStream" uid="uid://cx5p5kciljc38" path="res://music/jerma985-gyass-sor3q7xmg_m.mp3" id="15_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://cl51afnibmorf" path="res://scenes/NPCs/Luis.tscn" id="15_dss4m"]
 [ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/Enemies/lumberjack.tscn" id="15_xo05s"]
 
@@ -55,7 +57,9 @@ script = ExtResource("10_w7kh3")
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
 [node name="bonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_xo05s")
 
 [node name="gas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_7t5mc")
 
 [node name="texto" type="AudioStreamPlayer" parent="."]
