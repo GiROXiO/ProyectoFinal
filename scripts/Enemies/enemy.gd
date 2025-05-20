@@ -4,18 +4,21 @@ var speed = 65
 var player_chase = false
 var player = null
 var isAlive = true
-var health = 60
+var health = 1
 var player_inattack_zone = false
 var enemy_inattackzone = false
-var can_take_damage = true
 var takeDamage = 1
+var current_damagin = false
+
+func _ready() -> void:
+	$take_damage_cooldown.wait_time = 1.5
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:
 		if global.isChatting == false:
 			deal_with_damage()
 			
-			if player_chase:
+			if player_chase and current_damagin == false:
 				position += ((player.position - position) / speed) * takeDamage
 
 				move_and_collide(Vector2(0,0))
@@ -25,12 +28,16 @@ func _physics_process(_delta: float) -> void:
 					$AnimatedSprite2D.flip_h = true
 				else:
 					$AnimatedSprite2D.flip_h = false
+					
+			elif current_damagin:
+				$AnimatedSprite2D.play("death")
+				
 			else:
 				velocity = Vector2.ZERO
 				move_and_slide()
 				$AnimatedSprite2D.play("idle")
 	else:
-		$AnimatedSprite2D.play("death")
+		pass
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
@@ -65,32 +72,32 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 
 func deal_with_damage():
 	if isAlive:
-		
-		if can_take_damage and enemy_inattackzone and global. player_current_aspire == true:
-			health = health - 20
+		if enemy_inattackzone and global.player_current_aspire == true:
 			get_node("/root/World/bonk").play()
-			can_take_damage = false
-			takeDamage = -1
-			$take_damage_cooldown.start()
-			$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
-			print("Vida de la emision: ", health)
-			if health == 0:
-				$CollisionShape2D.disabled = true
-				$deathTimer.start()
-				isAlive = false
-				if Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted and Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed == false:
-					Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions += 1
-				if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted and Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed == false:
-					Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions += 1
-				Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
-				print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
+			takeDamage = 0
 			
+			if current_damagin == false:
+				current_damagin = true
+				$take_damage_cooldown.start()
+				$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
+			
+		else:
+			takeDamage = 1
+			$take_damage_cooldown.stop()
+			current_damagin = false
+			$AnimatedSprite2D.modulate = Color(1, 1, 1)
+			
+
 func _on_take_damage_cooldown_timeout() -> void:
-	can_take_damage = true
+	$take_damage_cooldown.stop()
+	$CollisionShape2D.disabled = true
+	isAlive = false
+	if Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted and Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed == false:
+		Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions += 1
+	if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted and Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed == false:
+		Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions += 1
+	Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
+	print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
-	takeDamage = 1
-
-
-
-func _on_death_timer_timeout() -> void:
 	self.queue_free()
+	

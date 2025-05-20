@@ -173,27 +173,27 @@ func attack():
 			$deal_attack_timer.start()
 			
 	elif Input.is_action_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 1:
-		global. player_current_aspire = true
+		global.player_current_aspire = true
 		attack_ip = true
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			#Basicamente esta parte
-			$AnimatedSprite2D.play("side_attack")
+			$AnimatedSprite2D.play("side_vacuum")
 			$deal_attack_timer.start()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			#Esta otra
-			$AnimatedSprite2D.play("side_attack")
+			$AnimatedSprite2D.play("side_vacuum")
 			$deal_attack_timer.start()
 		elif dir == "down":
 			$AnimatedSprite2D.flip_h = false
 			#Esta de aqui tambien
-			$AnimatedSprite2D.play("front_attack")
+			$AnimatedSprite2D.play("front_vacuum")
 			$deal_attack_timer.start()
 		elif dir == "up":
 			$AnimatedSprite2D.flip_h = false
 			#Esta de aqui tambien
-			$AnimatedSprite2D.play("back_attack")
+			$AnimatedSprite2D.play("back_vacuum")
 			$deal_attack_timer.start()
 			
 	if global.isChatting == true:
@@ -229,8 +229,8 @@ func chage_tool():
 			player_tool = 0
 		else: 
 			player_tool += 1
-		print("hoover: ",player_tool == 0 )
-		print("broom: ", player_tool == 1)
+		print("broom: ",player_tool == 0 )
+		print("vacuum: ", player_tool == 1)
 		print("caña : ", player_tool == 2)
 	change_size_attackArea()
 

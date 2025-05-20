@@ -11,6 +11,9 @@ var can_take_damage = true
 var takeDamage = 1
 var current_dir = "down"
 
+func _ready() -> void:
+	$take_damage_cooldown.wait_time = 0.5
+
 func _physics_process(_delta: float) -> void:
 	if isAlive:
 		if global.isChatting == false:
@@ -82,7 +85,7 @@ func deal_with_damage():
 			health = health - 20
 			get_node("/root/World/bonk").play()
 			can_take_damage = false
-			takeDamage = -1
+			takeDamage = -2
 			$take_damage_cooldown.start()
 			$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 			print("Vida de la basura: ", health)

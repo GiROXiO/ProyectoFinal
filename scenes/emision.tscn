@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cghjrprk3hx8j"]
+[gd_scene load_steps=19 format=3 uid="uid://cghjrprk3hx8j"]
 
-[ext_resource type="Texture2D" uid="uid://btiws7opybhv4" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
+[ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/Enemies/enemy.gd" id="1_lfq5q"]
+[ext_resource type="Texture2D" uid="uid://ckvg74imxw0pu" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")
@@ -56,25 +57,25 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_md0e3")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_4ra3w")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_5uy6h")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_c4w8v")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_xwavj")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_nenq2")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_md484")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ipns3")
 }],
 "loop": true,
@@ -114,11 +115,11 @@ size = Vector2(24, 27)
 radius = 20.0
 
 [node name="emision" type="CharacterBody2D"]
+script = ExtResource("1_lfq5q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shcg2")
-animation = &"walk"
-frame_progress = 0.131554
+animation = &"death"
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -140,7 +141,8 @@ position = Vector2(1, -7)
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
-wait_time = 0.83
+process_callback = 0
+wait_time = 1.5
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
