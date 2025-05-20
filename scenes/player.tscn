@@ -1,8 +1,8 @@
 [gd_scene load_steps=46 format=3 uid="uid://ctovl7kvxvlym"]
 
 [ext_resource type="Script" uid="uid://ywlsktjp0se1" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://finn87qsgkj0" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://sweuwgr1s0t" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bmlsxm1nn33wf" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://qxtxsbvhto5g" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qlg0r")
@@ -369,6 +369,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.5, 3.5)
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]
