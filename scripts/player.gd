@@ -31,6 +31,7 @@ func _physics_process(delta):
 		chage_tool()
 	elif global.another_entity:
 		enemy_attack()
+		play_anim(0)
 	attack()
 	
 	if health == 0:
