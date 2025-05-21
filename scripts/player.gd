@@ -25,10 +25,12 @@ func _ready():
 	gameData.cargarInventario()
 	
 func _physics_process(delta):
-	if global.isChatting == false:
+	if global.isChatting == false and global.another_entity == false:
 		player_movement(delta)
 		enemy_attack()
 		chage_tool()
+	elif global.another_entity:
+		enemy_attack()
 	attack()
 	
 	if health == 0:
@@ -195,6 +197,12 @@ func attack():
 			#Esta de aqui tambien
 			$AnimatedSprite2D.play("back_vacuum")
 			$deal_attack_timer.start()
+	
+	elif Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 2:
+		if global.another_entity == false:
+			global.another_entity = true
+		else:
+			global.another_entity = false
 			
 	if global.isChatting == true:
 		attack_ip = false
@@ -224,7 +232,7 @@ func _on_collect_area_area_entered(area):
 
 
 func chage_tool():
-	if Input.is_action_just_pressed("change_tool"):
+	if Input.is_action_just_pressed("change_tool") and global.another_entity == false:
 		if player_tool == 2:
 			player_tool = 0
 		else: 

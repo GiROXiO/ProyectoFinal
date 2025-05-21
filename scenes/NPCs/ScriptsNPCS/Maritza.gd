@@ -14,7 +14,8 @@ func _process(_delta):
 	if player_in_area:
 		if Input.is_key_pressed(KEY_E) and global.isChatting == false:
 			run_dialogue("maritza_timeline")
-
+			global.another_entity = false
+			
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
