@@ -9,7 +9,7 @@ if {MissionAcepted.Luis_Mission.luis_mission_accepted} == false:
 			Luis: ¿Podrias derrotar a 10 emisiones por mi? han invadido mucho esta zona y no me dejan contar mis chistes
 			Luis: Tambien ayudarias en la lucha del cambio climático, si eso es lo que te importa
 			- Lo hare, pero por favor no vuelvas a decirme ningún chiste
-				Luis: Ñeeeerda bueno
+				Luis: Aaaaanda bueno
 				Luis: Te estare esperando para cuando termines
 				Me llamo Luis por cierto
 				set {MissionAcepted.Luis_Mission.luis_mission_accepted} = true
@@ -25,7 +25,7 @@ else:
 			Luis: MUCHAS GRACIAS
 			Luis: Podre contar mis chistes ahora
 			- No gracias, seguire buscando a ver que más puedo hacer
-				Luis: Ñeerda bueno
+				Luis: Aaaaanda bueno
 				Luis: Solo por lo que hiciste te la dejo pasar
 				Luis: Puedes ir donde mi amigo Ponllo a ver que quiere, ¡nos vemos!
 				set {MissionAcepted.Luis_Mission.luis_mission_completed} = true
