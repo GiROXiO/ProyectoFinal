@@ -10,12 +10,16 @@ var enemy_inattackzone = false
 var can_take_damage = true
 var takeDamage = 1
 var current_dir = "down"
+var has_spawn = false
 
 func _ready() -> void:
 	$take_damage_cooldown.wait_time = 0.5
-
+	$AnimatedSprite2D.play("spawn")
+	$spawn.wait_time = 0.8
+	$spawn.start()
+	
 func _physics_process(_delta: float) -> void:
-	if isAlive:
+	if isAlive and has_spawn:
 		if global.isChatting == false:
 			deal_with_damage()
 			if player_chase:
@@ -45,7 +49,10 @@ func _physics_process(_delta: float) -> void:
 					$AnimatedSprite2D.play("back_idle")
 				else:
 					$AnimatedSprite2D.play("front_idle")
-	else:
+	elif has_spawn == false:
+		$AnimatedSprite2D.play("spawn")
+
+	elif isAlive == false:
 		$AnimatedSprite2D.play("death")
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
@@ -80,7 +87,7 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 		player_inattack_zone = false
 
 func deal_with_damage():
-	if isAlive:
+	if isAlive and has_spawn:
 		if can_take_damage and enemy_inattackzone and global.player_current_attack == true:
 			health = health - 20
 			get_node("/root/World/bonk").play()
@@ -106,3 +113,7 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()
+
+
+func _on_spawn_timeout() -> void:
+	has_spawn = true

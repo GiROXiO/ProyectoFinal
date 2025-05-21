@@ -9,12 +9,16 @@ var player_inattack_zone = false
 var enemy_inattackzone = false
 var takeDamage = 1
 var current_damagin = false
+var has_spawn = false
 
 func _ready() -> void:
+	print("Esta ready")
 	$take_damage_cooldown.wait_time = 1.5
+	$AnimatedSprite2D.play("spawn")
+	$spawn.start()
 
 func _physics_process(_delta: float) -> void:
-	if isAlive:
+	if isAlive and has_spawn:
 		if global.isChatting == false:
 			deal_with_damage()
 			
@@ -36,8 +40,8 @@ func _physics_process(_delta: float) -> void:
 				velocity = Vector2.ZERO
 				move_and_slide()
 				$AnimatedSprite2D.play("idle")
-	else:
-		pass
+	elif has_spawn == false:
+		$AnimatedSprite2D.play("spawn")
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
@@ -101,3 +105,7 @@ func _on_take_damage_cooldown_timeout() -> void:
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	self.queue_free()
 	
+
+
+func _on_spawn_timeout() -> void:
+	has_spawn = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbbqe7ydm0tt8"]
+[gd_scene load_steps=26 format=3 uid="uid://dbbqe7ydm0tt8"]
 
 [ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/Enemies/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://bm1em6wor5rir" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://otonqnnqmp7f" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")
@@ -38,6 +38,34 @@ region = Rect2(224, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qclf"]
 atlas = ExtResource("2_md0e3")
 region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1orw"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6l07"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehtdh"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht1ik"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k13g"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx3fs"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn173"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8i8w"]
 atlas = ExtResource("2_md0e3")
@@ -92,6 +120,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_q1orw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6l07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehtdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht1ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k13g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx3fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn173")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_w8i8w")
 }, {
 "duration": 1.0,
@@ -119,7 +173,7 @@ script = ExtResource("1_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shcg2")
-animation = &"death"
+animation = &"spawn"
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -145,6 +199,9 @@ wait_time = 0.83
 
 [node name="deathTimer" type="Timer" parent="."]
 
+[node name="spawn" type="Timer" parent="."]
+wait_time = 0.8
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="area_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
@@ -153,3 +210,4 @@ wait_time = 0.83
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]
