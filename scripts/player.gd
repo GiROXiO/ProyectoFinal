@@ -3,7 +3,7 @@ extends CharacterBody2D
 var enemy_inattack_range = false
 var player_inaatack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+@export var health = 100
 var player_alive = true
 
 
@@ -252,3 +252,6 @@ func change_size_attackArea():
 	elif player_tool == 0:
 		rect_shape.size = Vector2(15,15)
 		$AttackArea/CollisionShape2D.shape = rect_shape
+
+func get_life() -> int:
+	return health
