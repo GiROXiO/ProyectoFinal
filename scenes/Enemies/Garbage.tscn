@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbbqe7ydm0tt8" path="res://scenes/Enemies/emission.tscn" id="1_lcyr4"]
 [ext_resource type="Script" uid="uid://cb3r5ofbeati" path="res://scripts/Enemies/Garbage.gd" id="2_1glds"]
-[ext_resource type="Texture2D" uid="uid://bvwxidguurc2y" path="res://art/characters/spritesheet basura andante.png" id="3_o71of"]
+[ext_resource type="Texture2D" uid="uid://d31w6ylxypsox" path="res://art/characters/spritesheet basura andante.png" id="3_o71of"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uwug"]
 atlas = ExtResource("3_o71of")

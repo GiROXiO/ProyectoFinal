@@ -39,6 +39,8 @@ func from_dict(dat: Dictionary) -> void:
 func cargarInventario() -> void:
 	if not data.has("inventory"):
 		return
+	if not inventory:
+		return
 	inventory.from_dict(data["inventory"])
 
 func save_to_file() -> void:

@@ -50,6 +50,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

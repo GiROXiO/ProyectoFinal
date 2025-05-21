@@ -13,7 +13,11 @@ var speed = 100
 var normalSpeed = 100
 var sprintSpeed = 125
 var current_dir = "down"
-
+@export var player_tool = 0
+#Respecto a player_tool
+#0 = Escoba
+#1 = Aspiradora
+#2 = Caña
 @export var inventory: Inventory
 
 func _ready():
@@ -24,6 +28,7 @@ func _physics_process(delta):
 	if global.isChatting == false:
 		player_movement(delta)
 		enemy_attack()
+		chage_tool()
 	attack()
 	
 	if health == 0:
@@ -70,32 +75,44 @@ func play_anim(movement):
 	
 	if attack_ip == false:
 		if dir == "right":
-			$AttackArea.position = Vector2(15, 0)
 			anim.flip_h = false
+			if player_tool == 0:
+				$AttackArea.position = Vector2(15, 0)
+			elif player_tool == 1:
+				$AttackArea.position = Vector2(50, 0)
 			if movement == 1:
 				anim.play("side_walk")
 			elif movement == 0:
 				anim.play("side_init")
 				
 		elif dir == "left":
-			$AttackArea.position = Vector2(-15, 0)
 			anim.flip_h = true
+			if player_tool == 0:
+				$AttackArea.position = Vector2(-15, 0)
+			elif player_tool == 1:
+				$AttackArea.position = Vector2(-50, 0)
 			if movement == 1:
 				anim.play("side_walk")
 			elif movement == 0:
 				anim.play("side_init")
 		
 		elif dir == "up":
-			$AttackArea.position = Vector2(0, -15)
 			anim.flip_h = false
+			if player_tool == 0:
+				$AttackArea.position = Vector2(0, -15)
+			elif player_tool == 1:
+				$AttackArea.position = Vector2(0, -50)
 			if movement == 1:
 				anim.play("back_walk")
 			elif movement == 0:
 				anim.play("back_init")
 		
 		elif dir == "down":
-			$AttackArea.position = Vector2(0, 15)
 			anim.flip_h = false
+			if player_tool == 0:
+				$AttackArea.position = Vector2(0, 15)
+			elif player_tool == 1:
+				$AttackArea.position = Vector2(0, 50)
 			if movement == 1:
 				anim.play("front_walk")
 			elif movement == 0:
@@ -135,7 +152,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false:
+	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -153,6 +170,30 @@ func attack():
 		if dir == "up":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("back_attack")
+			$deal_attack_timer.start()
+			
+	elif Input.is_action_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 1:
+		global.player_current_aspire = true
+		attack_ip = true
+		if dir == "right":
+			$AnimatedSprite2D.flip_h = false
+			#Basicamente esta parte
+			$AnimatedSprite2D.play("side_vacuum")
+			$deal_attack_timer.start()
+		elif dir == "left":
+			$AnimatedSprite2D.flip_h = true
+			#Esta otra
+			$AnimatedSprite2D.play("side_vacuum")
+			$deal_attack_timer.start()
+		elif dir == "down":
+			$AnimatedSprite2D.flip_h = false
+			#Esta de aqui tambien
+			$AnimatedSprite2D.play("front_vacuum")
+			$deal_attack_timer.start()
+		elif dir == "up":
+			$AnimatedSprite2D.flip_h = false
+			#Esta de aqui tambien
+			$AnimatedSprite2D.play("back_vacuum")
 			$deal_attack_timer.start()
 			
 	if global.isChatting == true:
@@ -173,9 +214,41 @@ func attack():
 func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()
 	global.player_current_attack = false
+	global.player_current_aspire = false
 	attack_ip = false
 
 func _on_collect_area_area_entered(area):
 	if area.has_method("collect"):
 		area.collect(inventory)
 		gameData.save_to_file()
+
+
+func chage_tool():
+	if Input.is_action_just_pressed("change_tool"):
+		if player_tool == 2:
+			player_tool = 0
+		else: 
+			player_tool += 1
+		print("broom: ",player_tool == 0 )
+		print("vacuum: ", player_tool == 1)
+		print("caña : ", player_tool == 2)
+	change_size_attackArea()
+
+
+func change_size_attackArea():
+	#var originaL = $AttackArea/CollisionShape2D.shape
+	var rect_shape = RectangleShape2D.new()
+	if player_tool == 1:
+		var dir = current_dir
+		if dir == "right":
+			rect_shape.size = Vector2(80,50)
+		elif dir == "left":
+			rect_shape.size = Vector2(80,50)
+		elif dir == "up":
+			rect_shape.size = Vector2(50,80)
+		elif dir == "down":
+			rect_shape.size = Vector2(50,80)
+		$AttackArea/CollisionShape2D.shape = rect_shape
+	elif player_tool == 0:
+		rect_shape.size = Vector2(15,15)
+		$AttackArea/CollisionShape2D.shape = rect_shape
