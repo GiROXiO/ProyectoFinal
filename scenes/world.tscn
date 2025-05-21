@@ -77,7 +77,7 @@ position = Vector2(187, 708)
 position = Vector2(983, 707)
 
 [node name="spawn_lumberjacks" parent="." instance=ExtResource("17_7t5mc")]
-position = Vector2(297, 133)
+position = Vector2(903, 153)
 
 [node name="spawn_emissions" parent="." instance=ExtResource("19_pm21f")]
-position = Vector2(913, 140)
+position = Vector2(279, 136)
