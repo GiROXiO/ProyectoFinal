@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var inventory = $InventoryGUI
+@onready var inventory: InventoryGui = $InventoryGUI
 @onready var health_bar = $HeatlhBar
 @onready var toolSlot = $ToolSlot
 
@@ -9,7 +9,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("openInventory"):
-		if inventory.isOpen:
+		if inventory.isOpen and !inventory.dragging:
 			inventory.close()
 			toolSlot.visible = true
 		else:

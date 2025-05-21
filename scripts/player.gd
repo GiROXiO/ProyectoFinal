@@ -3,11 +3,15 @@ extends CharacterBody2D
 class_name Player
 
 signal toolChanged(index:int)
+signal usedItem(item: InventoryItem)
+
+@onready var inventory_gui: InventoryGui = get_parent().get_node("CanvasLayer/InventoryGUI")
 
 var enemy_inattack_range = false
 var player_inaatack_range = false
 var enemy_attack_cooldown = true
-@export var health = 100
+var maxHealth = 100
+@export var health = maxHealth
 var player_alive = true
 var selectedItem: InventoryItem
 
@@ -31,12 +35,14 @@ func _ready():
 	emit_signal("toolChanged", player_tool)
 	gameData.setInventory(inventory)
 	gameData.cargarInventario()
-	
+	inventory_gui.connect("selected", Callable(self, "_update_selected_item"))
+	self.use_item()
+
 func _physics_process(delta):
 	if global.isChatting == false and global.another_entity == false:
 		player_movement(delta)
 		enemy_attack()
-		chage_tool()
+		change_tool()
 	elif global.another_entity:
 		enemy_attack()
 		play_anim(0)
@@ -45,7 +51,12 @@ func _physics_process(delta):
 	if health == 0:
 		player_alive = false # Aca el jugador muere
 		self.queue_free() # De momento
-	
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and Input.is_action_just_pressed("use_item"):
+		self.use_item()
+		
+
 func player_movement(_delta):
 	
 	if Input.is_action_pressed("Sprint"):
@@ -240,8 +251,7 @@ func _on_collect_area_area_entered(area):
 		area.collect(inventory)
 		gameData.save_to_file()
 
-
-func chage_tool():
+func change_tool():
 	if Input.is_action_just_pressed("change_tool"):
 		if Input.is_key_pressed(KEY_UP):
 			previous_tool()
@@ -265,6 +275,20 @@ func next_tool():
 	else:
 		player_tool += 1
 	emit_signal("toolChanged", player_tool)
+
+func _update_selected_item(item: InventoryItem):
+	self.selectedItem = item
+	if selectedItem:
+		print(selectedItem.name)
+
+func use_item():
+	if selectedItem and self.health < self.maxHealth:
+		if self.health + self.selectedItem.curation > self.maxHealth:
+			self.health = self.maxHealth
+		else:
+			self.health += self.selectedItem.curation
+		print("Vida del jugador aumento a ", self.health)
+		self.usedItem.emit(selectedItem)
 
 func change_size_attackArea():
 	#var originaL = $AttackArea/CollisionShape2D.shape

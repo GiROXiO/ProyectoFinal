@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://blqh8q17xol8g"]
+[gd_scene load_steps=7 format=3 uid="uid://blqh8q17xol8g"]
 
 [ext_resource type="Script" uid="uid://cvwgwbowkxx7p" path="res://scripts/gui/inventory_gui.gd" id="1_xbyvm"]
-[ext_resource type="Texture2D" uid="uid://dbausx1kfv2at" path="res://art/UI/inventoryUI/UI_Frames.png" id="1_yr3bd"]
+[ext_resource type="Texture2D" uid="uid://baupj034ss848" path="res://art/UI/inventoryUI/UI_Frames.png" id="1_yr3bd"]
 [ext_resource type="PackedScene" uid="uid://clllp3jjxp3x8" path="res://scenes/gui/slot_gui.tscn" id="2_432mi"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="4_xereh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_432mi"]
 atlas = ExtResource("1_yr3bd")
@@ -176,11 +177,27 @@ layout_mode = 2
 
 [node name="DragPreview" type="TextureRect" parent="."]
 visible = false
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 0
-offset_right = 7.0
-offset_bottom = 8.0
+offset_left = 1.0
+offset_right = 16.0
+offset_bottom = 15.0
+scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 mouse_default_cursor_shape = 3
+
+[node name="Label" type="Label" parent="DragPreview"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 14.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xereh")
+theme_override_font_sizes/font_size = 6
+text = "-1"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

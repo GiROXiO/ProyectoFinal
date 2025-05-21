@@ -4,31 +4,39 @@ class_name InventoryGui
 
 signal opened
 signal closed
+signal selected(item: InventoryItem)
 
-var isOpen: bool = false
-var on_inventory: bool = false
-var selected_slot: SlotGui
+@onready var player: Player = get_parent().get_parent().get_node("Player")
 
 @onready var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")
 @onready var slots_gui: Array = $Inventory/GridContainer.get_children()
-@onready var slots: Array = inventory.slots
+@onready var slots: Array[InventorySlot] = inventory.slots
 @onready var hotbar_slots: Array = $Hotbar/GridContainer.get_children()
+@onready var index: int = 0
+@onready var selected_item: InventoryItem = slots[index].item
+@onready var selected_slot = hotbar_slots[index]
 
-@onready var dragPreview:= $DragPreview
+@onready var dragPreview: TextureRect = $DragPreview
+@onready var dragAmount: Label = $DragPreview/Label
 @onready var iconPreview: Sprite2D = null
 @onready var amountPreview: int = -1
 @onready var namePreview: String = ""
 @onready var itemPreview: InventoryItem
 @onready var dragging_index: int = -1
 
+var isOpen: bool = false
+var on_inventory: bool = false
+
 var dragging: bool = false
 
 func _ready():
 	close()
+	selected_slot.isSelected = true
 	inventory.updated.connect(update)
 	update()
-	selected_slot = hotbar_slots[0]
 	_connect_slot_signals()
+	emit_signal("selected", selected_item)
+	player.connect("usedItem", Callable(self, "_reduce_item_amount"))
 
 func _process(_delta: float) -> void:
 	if dragging:
@@ -50,6 +58,12 @@ func on_slot_clicked(index):
 		drop_to_slot(index)
 	elif !dragging:
 		start_dragging(index)
+
+func _input(event: InputEvent) -> void:
+	if !self.isOpen:
+		if event is InputEventKey and Input.is_action_just_pressed("change_item"):
+			self._update_selected_item()
+			self.selected.emit(selected_item)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and not event.is_echo():
@@ -78,6 +92,7 @@ func start_dragging(index):
 			
 			self.dragPreview.visible = true
 			self.dragPreview.texture = itemPreview.texture
+			self.dragAmount.text = str(amountPreview)
 			dragPreview.global_position = get_global_mouse_position()
 		else:
 			print("Slot vacio")
@@ -102,8 +117,11 @@ func drop_to_slot(index):
 				target_slot.amount += amountDelta
 				inventory.updated.emit()
 				amountPreview -= amountDelta
+				self.dragAmount.text = str(amountPreview)
 			else:
 				target_slot.amount += amountPreview
+				inventory.updated.emit()
+				stop_dragging()
 		else:
 			var itemTemp: InventoryItem = target_slot.item
 			var amountTemp: int = target_slot.amount
@@ -116,6 +134,7 @@ func drop_to_slot(index):
 			self.amountPreview = amountTemp
 			self.dragging_index = target_slot_gui.index
 			self.dragPreview.texture = itemPreview.texture
+			self.dragAmount.text = str(amountPreview)
 
 func drop_to_world():
 	if dragging and !on_inventory:
@@ -130,6 +149,7 @@ func stop_dragging():
 	self.namePreview = ""
 	self.dragPreview.visible = false
 	self.dragPreview.texture = null
+	self.dragAmount.text = "-1"
 
 func open():
 	$Inventory.visible = true
@@ -154,11 +174,43 @@ func _on_mouse_exited() -> void:
 	print("Not on inventory")
 	self.on_inventory = false
 
-func update_selected_item():
-	pass
-
 func update_hotbar_slots():
-	for i in range(4):
+	for i in range(5):
 		hotbar_slots[i].index = i
 		hotbar_slots[i].isHotbarSlot = true
 		hotbar_slots[i].update(inventory.slots[i])
+
+func _update_selected_item():
+	self.selected_slot.isSelected = false
+	if Input.is_key_pressed(KEY_RIGHT):
+		self._next_index()
+	elif Input.is_key_pressed(KEY_LEFT):
+		self._previous_index()
+		
+	self.selected_item = slots[index].item
+	self.selected_slot = hotbar_slots[index]
+	self.selected_slot.isSelected = true
+	self.update()
+
+func _next_index():
+	print("Indice actual: ", self.index)
+	if self.index == hotbar_slots.size()-1:
+		self.index = 0
+	else:
+		self.index += 1
+	print("Nuevo Indice: ", self.index)
+
+func _previous_index():
+	print("Indice actual: ", self.index)
+	if self.index == 0:
+		self.index = hotbar_slots.size()-1
+	else:
+		self.index -=1
+	print("Nuevo Indice: ", self.index)
+
+func _reduce_item_amount(item: InventoryItem):
+	for i in range(self.inventory.slots.size()):
+		if self.inventory.slots[i].item.name.to_lower().strip_edges().replace(" ", "") == item.name.to_lower().strip_edges().replace(" ", ""):
+			inventory.slots[i].amount -= 1
+			update()
+			return

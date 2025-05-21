@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2lmrcdul7m5t"]
 
 [ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/items/collectables/pickup_item.tscn" id="1_biqd4"]
-[ext_resource type="Resource" uid="uid://ba4578y8lifj" path="res://resources/inventoryResources/items/pocionVidaM.tres" id="2_trgdm"]
-[ext_resource type="Texture2D" uid="uid://si58qy7kklsh" path="res://art/objects/pocion de vida mediana.png" id="3_wiqpg"]
+[ext_resource type="Resource" uid="uid://ba4578y8lifj" path="res://resources/inventoryResources/items/jugoPatilla.tres" id="2_trgdm"]
+[ext_resource type="Texture2D" uid="uid://b1lv6lqg7mhgp" path="res://art/objects/pocion de vida mediana.png" id="3_wiqpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vut0q"]
 resource_local_to_scene = true
