@@ -2,7 +2,7 @@ join Ponllo left
 if {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} == false:
 	Ponllo: LUIS, ¡OTRO CHISTE NO!
 	- Ehh ¿disculpa?
-		Ponllo: Yeeeerda
+		Ponllo: Aaaaanda
 		Ponllo: No eres Luis que pena
 		Ponllo: ¿Ya lo conociste?, espero que no
 		Ponllo: Soy Ponllo, famoso director de series de televisión

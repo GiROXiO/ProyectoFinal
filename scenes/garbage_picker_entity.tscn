@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://4abm1p3atgmb"]
+
+[ext_resource type="Texture2D" uid="uid://otonqnnqmp7f" path="res://art/characters/monoxido de carbono.png" id="1_en0y3"]
+[ext_resource type="Script" uid="uid://b1mo5io0ugk32" path="res://scripts/garbage_picker_entity.gd" id="1_ra6i0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra6i0"]
+radius = 15.0333
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4glp0"]
+atlas = ExtResource("1_en0y3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt2le"]
+atlas = ExtResource("1_en0y3")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sd7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4glp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt2le")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GarbagePickerEntity" type="CharacterBody2D"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_ra6i0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ra6i0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6sd7x")
+frame = 1
+frame_progress = 0.432778
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

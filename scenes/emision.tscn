@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cghjrprk3hx8j"]
 
 [ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/Enemies/enemy.gd" id="1_lfq5q"]
-[ext_resource type="Texture2D" uid="uid://ckvg74imxw0pu" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://otonqnnqmp7f" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")
@@ -115,6 +115,8 @@ size = Vector2(24, 27)
 radius = 20.0
 
 [node name="emision" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_lfq5q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

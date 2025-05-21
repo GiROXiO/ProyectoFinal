@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_orrwu"]
 [ext_resource type="Script" uid="uid://bin8cuuwn8ida" path="res://scenes/NPCs/ScriptsNPCS/Luis.gd" id="2_bvser"]
-[ext_resource type="Texture2D" uid="uid://bs3lll8jecfuv" path="res://art/characters/spritesheet npcs v2.png" id="2_q4o1a"]
+[ext_resource type="Texture2D" uid="uid://diva1vyic8wah" path="res://art/characters/spritesheet npcs v2.png" id="2_q4o1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvser"]
 atlas = ExtResource("2_q4o1a")

@@ -15,9 +15,8 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
 	Maritza: Supongo que ya viste el estado de este mundo
 	- Es horrible...
 		Maritza: Si, bastante horrible...
-	- Parece diarrea
-		Maritza: Jajajaja
-		Maritza: Me alegro que alguien tenga sentido del humor despues de lo que esta pasando...
+	- No es muy bonito
+		Maritza: Para nada lo es
 	Maritza: Realmente estas tierras han estado mucho tiempo asi
 	Maritza: Todo por el actuar de nosotros, los humanos
 	Maritza: Desde que empezamos a pensar de manera consumista, el mundo ha decaido bastante
@@ -26,7 +25,6 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
 	Maritza: Y sobretodo, el cambio climático se ha acelerado de sobremanera
 	Maritza: Da mucho miedo, los científicos esperan lo peor
 	- ¿Que puedo hacer para ayudar?
-	- Mucha diarrea es mala, ¿que se puede hacer?
 	Maritza: Ahora mismo tenemos que colaborar todos juntos para lograr un cambio
 	Maritza: Cualquier persona, cualquiera que quiera marcar una diferencia
 	Maritza: Inspirara a otras a hacer lo mismo

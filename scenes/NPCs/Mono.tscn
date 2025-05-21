@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://fc50j48ns2yj"]
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_sd42n"]
-[ext_resource type="Texture2D" uid="uid://bs3lll8jecfuv" path="res://art/characters/spritesheet npcs v2.png" id="2_mlqg1"]
-[ext_resource type="Script" uid="uid://s0ycb13irc5q" path="res://scenes/NPCs/mono.gd" id="2_ocyi0"]
+[ext_resource type="Texture2D" uid="uid://diva1vyic8wah" path="res://art/characters/spritesheet npcs v2.png" id="2_mlqg1"]
+[ext_resource type="Script" uid="uid://s0ycb13irc5q" path="res://scenes/NPCs/ScriptsNPCS/mono.gd" id="2_ocyi0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocyi0"]
 atlas = ExtResource("2_mlqg1")

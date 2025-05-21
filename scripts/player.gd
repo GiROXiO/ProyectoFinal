@@ -17,6 +17,7 @@ var attack_ip = false # attack in progress
 var speed = 100
 var normalSpeed = 100
 var sprintSpeed = 125
+
 var current_dir = "down"
 @export var player_tool = 0
 #Respecto a player_tool
@@ -32,10 +33,13 @@ func _ready():
 	gameData.cargarInventario()
 	
 func _physics_process(delta):
-	if global.isChatting == false:
+	if global.isChatting == false and global.another_entity == false:
 		player_movement(delta)
 		enemy_attack()
 		chage_tool()
+	elif global.another_entity:
+		enemy_attack()
+		play_anim(0)
 	attack()
 	
 	if health == 0:
@@ -43,6 +47,11 @@ func _physics_process(delta):
 		self.queue_free() # De momento
 	
 func player_movement(_delta):
+	
+	if Input.is_action_pressed("Sprint"):
+		speed = sprintSpeed
+	else:
+		speed = normalSpeed
 	
 	if Input.is_key_pressed(KEY_D):
 		
@@ -198,6 +207,12 @@ func attack():
 			#Esta de aqui tambien
 			$AnimatedSprite2D.play("back_vacuum")
 			$deal_attack_timer.start()
+	
+	elif Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 2:
+		if global.another_entity == false:
+			global.another_entity = true
+		else:
+			global.another_entity = false
 			
 	if global.isChatting == true:
 		attack_ip = false
@@ -227,11 +242,19 @@ func _on_collect_area_area_entered(area):
 
 
 func chage_tool():
+<<<<<<< HEAD
 	if Input.is_action_just_pressed("change_tool"):
 		if Input.is_key_pressed(KEY_UP):
 			previous_tool()
 		elif Input.is_key_pressed(KEY_DOWN):
 			next_tool()
+=======
+	if Input.is_action_just_pressed("change_tool") and global.another_entity == false:
+		if player_tool == 2:
+			player_tool = 0
+		else: 
+			player_tool += 1
+>>>>>>> 5e74b6c67b57891d60f1438668f60466592be51c
 		print("broom: ",player_tool == 0 )
 		print("vacuum: ", player_tool == 1)
 		print("caña : ", player_tool == 2)
