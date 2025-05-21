@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=17 format=3 uid="uid://ddsgr4t320312"]
-=======
-[gd_scene load_steps=20 format=3 uid="uid://ddsgr4t320312"]
->>>>>>> 5e74b6c67b57891d60f1438668f60466592be51c
+[gd_scene load_steps=19 format=3 uid="uid://b6lsxjy4p1xyo"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -21,10 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://co1ikey7ltj1c" path="res://scenes/Enemies/lumberjack.tscn" id="15_xo05s"]
 [ext_resource type="PackedScene" uid="uid://dsathrefiyu4m" path="res://scenes/Enemies/spawn_lumberjacks.tscn" id="17_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://bttiiodu6hdcg" path="res://scenes/Enemies/spawn_garbage.tscn" id="18_lakw3"]
-<<<<<<< HEAD
-=======
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/Enemies/spawn_emissions.tscn" id="19_pm21f"]
->>>>>>> 5e74b6c67b57891d60f1438668f60466592be51c
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -75,15 +68,9 @@ stream = ExtResource("15_7t5mc")
 
 [node name="texto" type="AudioStreamPlayer" parent="."]
 
-<<<<<<< HEAD
-[node name="spawn_lumberjacks" parent="." instance=ExtResource("17_7t5mc")]
-position = Vector2(297, 141)
-
 [node name="spawn_lumberjacks2" parent="." instance=ExtResource("18_lakw3")]
 position = Vector2(601, 706)
 
-=======
->>>>>>> 5e74b6c67b57891d60f1438668f60466592be51c
 [node name="spawn_garbage" parent="." instance=ExtResource("18_lakw3")]
 position = Vector2(187, 708)
 

@@ -242,19 +242,11 @@ func _on_collect_area_area_entered(area):
 
 
 func chage_tool():
-<<<<<<< HEAD
 	if Input.is_action_just_pressed("change_tool"):
 		if Input.is_key_pressed(KEY_UP):
 			previous_tool()
 		elif Input.is_key_pressed(KEY_DOWN):
 			next_tool()
-=======
-	if Input.is_action_just_pressed("change_tool") and global.another_entity == false:
-		if player_tool == 2:
-			player_tool = 0
-		else: 
-			player_tool += 1
->>>>>>> 5e74b6c67b57891d60f1438668f60466592be51c
 		print("broom: ",player_tool == 0 )
 		print("vacuum: ", player_tool == 1)
 		print("caña : ", player_tool == 2)
