@@ -1,14 +1,14 @@
 [gd_scene load_steps=26 format=4 uid="uid://dk57oid3g2mpr"]
 
-[ext_resource type="Texture2D" uid="uid://dn1anroa3ycro" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
-[ext_resource type="Texture2D" uid="uid://1pscahi45brs" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
-[ext_resource type="Texture2D" uid="uid://iexmqlxgo8p" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
-[ext_resource type="Texture2D" uid="uid://bp3p0dtddynm7" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
-[ext_resource type="Texture2D" uid="uid://bkjy6u1vtu4v8" path="res://art/tilemap/ySort.png" id="3_02dga"]
-[ext_resource type="Texture2D" uid="uid://j1u0k5hwmjd1" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
-[ext_resource type="Texture2D" uid="uid://cms51qa1i7pyq" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
-[ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://lake.gd" id="5_xqubo"]
-[ext_resource type="Texture2D" uid="uid://cfta3fh86dp6m" path="res://art/tilemap/camion.png" id="10_lhc2v"]
+[ext_resource type="Texture2D" uid="uid://kbg7wvgkufhp" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
+[ext_resource type="Texture2D" uid="uid://cftxuvn4m3p27" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
+[ext_resource type="Texture2D" uid="uid://1tgmksp43qxr" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
+[ext_resource type="Texture2D" uid="uid://cfvv5u5wkgu7s" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
+[ext_resource type="Texture2D" uid="uid://c4er3oppq4sn7" path="res://art/tilemap/ySort.png" id="3_02dga"]
+[ext_resource type="Texture2D" uid="uid://i3fc5yxij5kq" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
+[ext_resource type="Texture2D" uid="uid://oe3snrsneyy" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
+[ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://scripts/lake.gd" id="5_xqubo"]
+[ext_resource type="Texture2D" uid="uid://bp6e8icqn6ax4" path="res://art/tilemap/camion.png" id="10_lhc2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nfve"]
 texture = ExtResource("1_ruvfg")

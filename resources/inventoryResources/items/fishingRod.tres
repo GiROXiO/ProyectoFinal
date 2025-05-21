@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://b2bfr3it0ebpn"]
+
+[ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_2hwmh"]
+[ext_resource type="Texture2D" uid="uid://c8h3scnew0v0i" path="res://art/objects/full items spritesheet v2.png" id="2_28q3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tu80"]
+atlas = ExtResource("2_28q3t")
+region = Rect2(1.1182, 32.215, 14.5621, 15.7598)
+
+[resource]
+script = ExtResource("1_2hwmh")
+name = "Caña de Pescar"
+texture = SubResource("AtlasTexture_4tu80")
+maxAmount = 1
+curation = 0
+metadata/_custom_type_script = "uid://dwbnornupta3q"

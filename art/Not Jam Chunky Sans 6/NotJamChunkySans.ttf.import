@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cv3bu838eglj6"
-path="res://.godot/imported/VT323-Regular.ttf-5388c4cb676da96f98e2c1cf227f75f6.fontdata"
+uid="uid://b04amb0g5fgkg"
+path="res://.godot/imported/NotJamChunkySans.ttf-fa3dd34fac3f9e442a4cc5c3058850ec.fontdata"
 
 [deps]
 
-source_file="res://art/VT323/VT323-Regular.ttf"
-dest_files=["res://.godot/imported/VT323-Regular.ttf-5388c4cb676da96f98e2c1cf227f75f6.fontdata"]
+source_file="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf"
+dest_files=["res://.godot/imported/NotJamChunkySans.ttf-fa3dd34fac3f9e442a4cc5c3058850ec.fontdata"]
 
 [params]
 

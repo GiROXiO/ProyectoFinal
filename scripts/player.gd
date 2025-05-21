@@ -1,10 +1,15 @@
 extends CharacterBody2D
 
+class_name Player
+
+signal toolChanged(index:int)
+
 var enemy_inattack_range = false
 var player_inaatack_range = false
 var enemy_attack_cooldown = true
 @export var health = 100
 var player_alive = true
+var selectedItem: InventoryItem
 
 
 var attack_ip = false # attack in progress
@@ -21,6 +26,8 @@ var current_dir = "down"
 @export var inventory: Inventory
 
 func _ready():
+	add_to_group("player")
+	emit_signal("toolChanged", player_tool)
 	gameData.setInventory(inventory)
 	gameData.cargarInventario()
 	
@@ -121,8 +128,6 @@ func play_anim(movement):
 func player():
 	pass
 
-
-
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"): # Si el objeto que entro tiene esa función
 		player_inaatack_range = true
@@ -142,8 +147,6 @@ func enemy_attack():
 		if health == 0:
 			global.player_current_attack = false
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
-
-
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
@@ -225,15 +228,28 @@ func _on_collect_area_area_entered(area):
 
 func chage_tool():
 	if Input.is_action_just_pressed("change_tool"):
-		if player_tool == 2:
-			player_tool = 0
-		else: 
-			player_tool += 1
+		if Input.is_key_pressed(KEY_UP):
+			previous_tool()
+		elif Input.is_key_pressed(KEY_DOWN):
+			next_tool()
 		print("broom: ",player_tool == 0 )
 		print("vacuum: ", player_tool == 1)
 		print("caña : ", player_tool == 2)
 	change_size_attackArea()
 
+func previous_tool():
+	if player_tool == 0:
+		player_tool = 2
+	else:
+		player_tool -= 1
+	emit_signal("toolChanged", player_tool)
+
+func next_tool():
+	if player_tool == 2:
+		player_tool = 0
+	else:
+		player_tool += 1
+	emit_signal("toolChanged", player_tool)
 
 func change_size_attackArea():
 	#var originaL = $AttackArea/CollisionShape2D.shape

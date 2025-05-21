@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://v0md8l44gdsw"]
 
-[ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/collectables/pickup_item.tscn" id="1_qvijq"]
+[ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/items/collectables/pickup_item.tscn" id="1_qvijq"]
 [ext_resource type="Resource" uid="uid://bkiak8dn5m5gn" path="res://resources/inventoryResources/items/pocionVidaG.tres" id="2_awhlk"]
-[ext_resource type="Texture2D" uid="uid://mv1oj6hofflt" path="res://art/objects/pocion de vida grande.png" id="3_l3hpc"]
+[ext_resource type="Texture2D" uid="uid://dxob4lprko185" path="res://art/objects/pocion de vida grande.png" id="3_l3hpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bqpx"]
 size = Vector2(16, 25)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://clllp3jjxp3x8"]
+[gd_scene load_steps=7 format=3 uid="uid://clllp3jjxp3x8"]
 
 [ext_resource type="Script" uid="uid://s0ux3ws25qok" path="res://scripts/gui/slot_gui.gd" id="1_tobkg"]
-[ext_resource type="Texture2D" uid="uid://egh8yxh6uqm0" path="res://art/UI/inventoryUI/Slots.png" id="2_tobkg"]
+[ext_resource type="Texture2D" uid="uid://c2m5xauxetgjp" path="res://art/UI/inventoryUI/Slots.png" id="2_tobkg"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_la7p1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tobkg"]
 atlas = ExtResource("2_tobkg")
@@ -44,7 +45,7 @@ script = ExtResource("1_tobkg")
 position = Vector2(9, 9)
 scale = Vector2(1.001, 0.996528)
 sprite_frames = SubResource("SpriteFrames_flcqt")
-animation = &"selected"
+animation = &"normal"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(18, 18)
@@ -60,27 +61,27 @@ layout_mode = 2
 [node name="Amount" type="Label" parent="CenterContainer/Panel"]
 custom_minimum_size = Vector2(10, 12)
 layout_mode = 0
-offset_left = -1.0
-offset_top = -2.0
-offset_right = 9.0
-offset_bottom = 10.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 7.0
+offset_bottom = 13.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("3_la7p1")
+theme_override_font_sizes/font_size = 6
 text = "0"
 horizontal_alignment = 2
 
 [node name="Name" type="Label" parent="CenterContainer/Panel"]
-visible = false
 custom_minimum_size = Vector2(10, 12)
 layout_mode = 0
-offset_left = -8.0
-offset_top = 6.0
-offset_right = 55.0
-offset_bottom = 18.0
+offset_left = -9.0
+offset_top = 9.0
+offset_right = 19.0
+offset_bottom = 21.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("3_la7p1")
+theme_override_font_sizes/font_size = 6
 text = "Name"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
