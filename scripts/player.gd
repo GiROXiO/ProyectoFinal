@@ -12,6 +12,7 @@ var attack_ip = false # attack in progress
 var speed = 100
 var normalSpeed = 100
 var sprintSpeed = 125
+
 var current_dir = "down"
 @export var player_tool = 0
 #Respecto a player_tool
@@ -39,6 +40,11 @@ func _physics_process(delta):
 		self.queue_free() # De momento
 	
 func player_movement(_delta):
+	
+	if Input.is_action_pressed("Sprint"):
+		speed = sprintSpeed
+	else:
+		speed = normalSpeed
 	
 	if Input.is_key_pressed(KEY_D):
 		
