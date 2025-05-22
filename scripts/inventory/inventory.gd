@@ -5,6 +5,7 @@ class_name Inventory
 signal updated
 
 @export var slots: Array[InventorySlot]
+var sw: bool = true
 
 func insert(item: InventoryItem) -> bool:
 	for slot in slots:
@@ -39,15 +40,17 @@ func to_dict() -> Dictionary:
 
 func from_dict(data: Dictionary) -> void:
 	
-	for i in data.keys():
-		var slot_data = data[i]
+	if (sw):
+		sw = false
+		for i in data.keys():
+			var slot_data = data[i]
 
-		var item = InventoryItem.new()
-		item.name = slot_data.get("name")
-		item.texture = ResourceLoader.load(slot_data.get("texture_path"))
-		item.maxAmount = slot_data.get("maxAmount")
-		item.curation = slot_data.get("curation")
-		var amount = slot_data.get("amount")
+			var item = InventoryItem.new()
+			item.name = slot_data.get("name")
+			item.texture = ResourceLoader.load(slot_data.get("texture_path"))
+			item.maxAmount = slot_data.get("maxAmount")
+			item.curation = slot_data.get("curation")
+			var amount = slot_data.get("amount")
 
-		for j in range(amount):
-			insert(item)
+			for j in range(amount):
+				insert(item)
