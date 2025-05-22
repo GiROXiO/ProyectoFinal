@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdinrn3t0oaur"]
+[gd_scene load_steps=8 format=3 uid="uid://bdinrn3t0oaur"]
 
 [ext_resource type="Script" uid="uid://bp4nkixnvn1iy" path="res://scripts/game_over_scene.gd" id="1_64dwf"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_ny7m6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weh2h"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(2.59906e-06, 0.953903, 0.500337, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny7m6"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy0sy"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.80604, 0, 0.219405, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ny7m6"]
+color = Color(0.624195, 0, 0.161453, 1)
+grow_begin = -1.0
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0nam"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
 
 [node name="game_over_scene" type="Control"]
 layout_mode = 3
@@ -33,21 +55,29 @@ offset_right = 150.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 15
 
 [node name="gamaoverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ny7m6")
 theme_override_font_sizes/font_size = 80
 text = "GAME OVER"
 
 [node name="continue" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ny7m6")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_weh2h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ny7m6")
 text = "Continue"
 
 [node name="go_start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ny7m6")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_jy0sy")
+theme_override_styles/pressed = SubResource("StyleBoxLine_ny7m6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0nam")
 text = "Go to start menu"
 
 [connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
