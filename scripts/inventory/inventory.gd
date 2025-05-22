@@ -32,7 +32,8 @@ func to_dict() -> Dictionary:
 				"name": slot.item.name,
 				"texture_path": slot.item.texture.resource_path,
 				"maxAmount": slot.item.maxAmount,
-				"amount": slot.amount
+				"amount": slot.amount,
+				"curation": slot.item.curation
 			}
 	return data
 
@@ -45,7 +46,7 @@ func from_dict(data: Dictionary) -> void:
 		item.name = slot_data.get("name")
 		item.texture = ResourceLoader.load(slot_data.get("texture_path"))
 		item.maxAmount = slot_data.get("maxAmount")
-		
+		item.curation = slot_data.get("curation")
 		var amount = slot_data.get("amount")
 
 		for j in range(amount):
