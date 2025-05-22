@@ -286,6 +286,16 @@ func use_item():
 		return
 	if self.selectedSlot.item != null:
 		print("Jugador tiene item en el slot")
+		print(selectedSlot.item.name )
+		
+		print("La curacion es de: ", selectedSlot.item.curation)
+		
+		##Medida de emergencia:
+		if selectedSlot.item.name == "Manzana":
+			selectedSlot.item.curation = 50
+		elif selectedSlot.item.name == "Jugo de Patilla":
+			selectedSlot.item.curation = 25
+		print("La nueva curacion es de: ", selectedSlot.item.curation)
 		if self.health < self.maxHealth:
 			print("Puede curarse")
 			if self.health + self.selectedSlot.item.curation > self.maxHealth:
