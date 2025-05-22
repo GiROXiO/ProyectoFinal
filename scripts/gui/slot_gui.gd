@@ -27,6 +27,7 @@ func update(slot: InventorySlot):
 		self.itemSprite.visible = false
 		self.amountLabel.visible = false
 		self.nameLabel.visible = false
+		self.amountLabel.text = "0"
 	else:
 		self.itemSprite.visible = true
 		self.itemSprite.texture = slot.item.texture

@@ -1,38 +1,31 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=30 format=3 uid="uid://ccup3q1i88hi8"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=28 format=3 uid="uid://ccup3q1i88hi8"]
 
 [ext_resource type="Script" uid="uid://7vnehrfen6bt" path="res://scripts/inventory/inventorySlot.gd" id="2_n1e7a"]
 [ext_resource type="Script" uid="uid://ck3qu5mogqwd1" path="res://scripts/inventory/inventory.gd" id="2_veuna"]
-[ext_resource type="Resource" uid="uid://bkiak8dn5m5gn" path="res://resources/inventoryResources/items/apple.tres" id="3_nvjtb"]
-[ext_resource type="Resource" uid="uid://ba4578y8lifj" path="res://resources/inventoryResources/items/jugoPatilla.tres" id="4_bjwnl"]
 
 [sub_resource type="Resource" id="Resource_veuna"]
 script = ExtResource("2_n1e7a")
-item = ExtResource("3_nvjtb")
-amount = 14
+amount = 0
 metadata/_custom_type_script = "uid://7vnehrfen6bt"
 
 [sub_resource type="Resource" id="Resource_nvjtb"]
 script = ExtResource("2_n1e7a")
-item = ExtResource("4_bjwnl")
-amount = 14
+amount = 0
 metadata/_custom_type_script = "uid://7vnehrfen6bt"
 
 [sub_resource type="Resource" id="Resource_bjwnl"]
 script = ExtResource("2_n1e7a")
-item = ExtResource("3_nvjtb")
-amount = 4
+amount = 0
 metadata/_custom_type_script = "uid://7vnehrfen6bt"
 
 [sub_resource type="Resource" id="Resource_h56u1"]
 script = ExtResource("2_n1e7a")
-item = ExtResource("4_bjwnl")
-amount = 4
+amount = 0
 metadata/_custom_type_script = "uid://7vnehrfen6bt"
 
 [sub_resource type="Resource" id="Resource_nnh77"]
 script = ExtResource("2_n1e7a")
-item = ExtResource("4_bjwnl")
-amount = 4
+amount = 0
 metadata/_custom_type_script = "uid://7vnehrfen6bt"
 
 [sub_resource type="Resource" id="Resource_bpuu1"]

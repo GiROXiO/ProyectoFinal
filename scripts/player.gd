@@ -6,6 +6,7 @@ signal toolChanged(index:int)
 signal usedItem(item: InventoryItem)
 
 @onready var inventory_gui: InventoryGui = get_parent().get_node("CanvasLayer/InventoryGUI")
+@export var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")
 
 var enemy_inattack_range = false
 var player_inaatack_range = false
@@ -13,7 +14,7 @@ var enemy_attack_cooldown = true
 var maxHealth = 100
 @export var health = maxHealth
 var player_alive = true
-var selectedItem: InventoryItem
+var selectedSlot: InventorySlot
 
 
 var attack_ip = false # attack in progress
@@ -28,15 +29,13 @@ var current_dir = "down"
 #0 = Escoba
 #1 = Aspiradora
 #2 = Caña
-@export var inventory: Inventory
 
 func _ready():
 	add_to_group("player")
 	emit_signal("toolChanged", player_tool)
 	gameData.setInventory(inventory)
 	gameData.cargarInventario()
-	inventory_gui.connect("selected", Callable(self, "_update_selected_item"))
-	self.use_item()
+	inventory_gui.connect("selectedSlot", Callable(self, "_update_selected_slot"))
 
 func _physics_process(delta):
 	if global.isChatting == false and global.another_entity == false:
@@ -276,19 +275,32 @@ func next_tool():
 		player_tool += 1
 	emit_signal("toolChanged", player_tool)
 
-func _update_selected_item(item: InventoryItem):
-	self.selectedItem = item
-	if selectedItem:
-		print(selectedItem.name)
+func _update_selected_slot(slot: InventorySlot):
+	self.selectedSlot = slot
+	if selectedSlot.item:
+		print(selectedSlot.item.name)
 
 func use_item():
-	if selectedItem and self.health < self.maxHealth:
-		if self.health + self.selectedItem.curation > self.maxHealth:
-			self.health = self.maxHealth
+	if not selectedSlot:
+		print("No tiene slot seleccionado")
+		return
+	if self.selectedSlot.item != null:
+		print("Jugador tiene item en el slot")
+		if self.health < self.maxHealth:
+			print("Puede curarse")
+			if self.health + self.selectedSlot.item.curation > self.maxHealth:
+				self.health = self.maxHealth
+			else:
+				self.health += self.selectedSlot.item.curation
+			print("Vida del jugador aumento a ", self.health)
+			self.selectedSlot.amount -=1
+			if selectedSlot.amount <= 0:
+				self.selectedSlot.item = null
+			self.inventory_gui.update()
 		else:
-			self.health += self.selectedItem.curation
-		print("Vida del jugador aumento a ", self.health)
-		self.usedItem.emit(selectedItem)
+			print("El jugador tiene la vida al maximo")
+	else:
+		print("No tiene ningun item en el slot seleccionado")
 
 func change_size_attackArea():
 	#var originaL = $AttackArea/CollisionShape2D.shape

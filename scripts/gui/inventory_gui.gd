@@ -4,7 +4,7 @@ class_name InventoryGui
 
 signal opened
 signal closed
-signal selected(item: InventoryItem)
+signal selectedSlot(slot: InventorySlot)
 
 @onready var player: Player = get_parent().get_parent().get_node("Player")
 
@@ -13,8 +13,8 @@ signal selected(item: InventoryItem)
 @onready var slots: Array[InventorySlot] = inventory.slots
 @onready var hotbar_slots: Array = $Hotbar/GridContainer.get_children()
 @onready var index: int = 0
-@onready var selected_item: InventoryItem = slots[index].item
-@onready var selected_slot = hotbar_slots[index]
+@onready var selected_slot: InventorySlot = inventory.slots[index]
+@onready var selected_hotbar_slot: SlotGui = hotbar_slots[index]
 
 @onready var dragPreview: TextureRect = $DragPreview
 @onready var dragAmount: Label = $DragPreview/Label
@@ -31,12 +31,11 @@ var dragging: bool = false
 
 func _ready():
 	close()
-	selected_slot.isSelected = true
+	selected_hotbar_slot.isSelected = true
 	inventory.updated.connect(update)
 	update()
 	_connect_slot_signals()
-	emit_signal("selected", selected_item)
-	player.connect("usedItem", Callable(self, "_reduce_item_amount"))
+	emit_signal("selectedSlot", selected_slot)
 
 func _process(_delta: float) -> void:
 	if dragging:
@@ -62,8 +61,8 @@ func on_slot_clicked(index):
 func _input(event: InputEvent) -> void:
 	if !self.isOpen:
 		if event is InputEventKey and Input.is_action_just_pressed("change_item"):
-			self._update_selected_item()
-			self.selected.emit(selected_item)
+			self._update_selected_slot()
+			emit_signal("selectedSlot", selected_slot)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and not event.is_echo():
@@ -180,16 +179,17 @@ func update_hotbar_slots():
 		hotbar_slots[i].isHotbarSlot = true
 		hotbar_slots[i].update(inventory.slots[i])
 
-func _update_selected_item():
-	self.selected_slot.isSelected = false
+func _update_selected_slot():
+	self.selected_hotbar_slot.isSelected = false
 	if Input.is_key_pressed(KEY_RIGHT):
 		self._next_index()
 	elif Input.is_key_pressed(KEY_LEFT):
 		self._previous_index()
 		
-	self.selected_item = slots[index].item
-	self.selected_slot = hotbar_slots[index]
-	self.selected_slot.isSelected = true
+	self.selected_slot = inventory.slots[index]
+	self.selected_hotbar_slot = self.hotbar_slots[index]
+	self.selected_hotbar_slot.isSelected = true
+	emit_signal("selectedSlot", self.selected_slot)
 	self.update()
 
 func _next_index():
@@ -207,10 +207,3 @@ func _previous_index():
 	else:
 		self.index -=1
 	print("Nuevo Indice: ", self.index)
-
-func _reduce_item_amount(item: InventoryItem):
-	for i in range(self.inventory.slots.size()):
-		if self.inventory.slots[i].item.name.to_lower().strip_edges().replace(" ", "") == item.name.to_lower().strip_edges().replace(" ", ""):
-			inventory.slots[i].amount -= 1
-			update()
-			return

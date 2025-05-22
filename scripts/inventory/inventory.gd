@@ -6,22 +6,23 @@ signal updated
 
 @export var slots: Array[InventorySlot]
 
-func insert(item: InventoryItem):
+func insert(item: InventoryItem) -> bool:
+	for slot in slots:
+		if slot.item != null and slot.amount < item.maxAmount and slot.item.name == item.name:
+			slot.amount += 1
+			updated.emit()
+			return true
 	
-	var find_empty_slot = func():
-		var emptySlots = slots.filter(func(slot): return slot.item == null)
-		if !emptySlots.is_empty():
-			emptySlots[0].item = item
-			emptySlots[0].amount = 1
+	for slot in slots:
+		if slot.item == null:
+			slot.item = item
+			slot.amount += 1
+			updated.emit()
+			return true
 	
-	var itemSlots = slots.filter(func(slot): return slot.item != null and slot.item.name == item.name)
-	if !itemSlots.is_empty() and itemSlots[itemSlots.size()-1].amount < item.maxAmount:
-		itemSlots[itemSlots.size()-1].amount += 1
-		
-	else:
-		find_empty_slot.call()
-	updated.emit()
-	
+	print("Inventario lleno")
+	return false
+
 func to_dict() -> Dictionary:
 	var data: Dictionary = {}
 	for i in range(slots.size()):

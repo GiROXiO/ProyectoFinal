@@ -1,14 +1,16 @@
-[gd_scene load_steps=26 format=4 uid="uid://dk57oid3g2mpr"]
+[gd_scene load_steps=30 format=4 uid="uid://dk57oid3g2mpr"]
 
-[ext_resource type="Texture2D" uid="uid://kbg7wvgkufhp" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
-[ext_resource type="Texture2D" uid="uid://cftxuvn4m3p27" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
-[ext_resource type="Texture2D" uid="uid://1tgmksp43qxr" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
-[ext_resource type="Texture2D" uid="uid://cfvv5u5wkgu7s" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
-[ext_resource type="Texture2D" uid="uid://c4er3oppq4sn7" path="res://art/tilemap/ySort.png" id="3_02dga"]
-[ext_resource type="Texture2D" uid="uid://i3fc5yxij5kq" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
-[ext_resource type="Texture2D" uid="uid://oe3snrsneyy" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
+[ext_resource type="Texture2D" uid="uid://c18xpfg8sel47" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
+[ext_resource type="Texture2D" uid="uid://cq0quy5amtryo" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
+[ext_resource type="Texture2D" uid="uid://bdeady5tkwjfk" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
+[ext_resource type="Texture2D" uid="uid://b60i7g4wwxafs" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
+[ext_resource type="Texture2D" uid="uid://gfnm14em4ytd" path="res://art/tilemap/ySort.png" id="3_02dga"]
+[ext_resource type="Texture2D" uid="uid://dbaq4xuwri8q0" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
+[ext_resource type="Texture2D" uid="uid://dfb0abwl3p5jd" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
 [ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://scripts/lake.gd" id="5_xqubo"]
-[ext_resource type="Texture2D" uid="uid://bp6e8icqn6ax4" path="res://art/tilemap/camion.png" id="10_lhc2v"]
+[ext_resource type="Texture2D" uid="uid://bhn0v36tpv54x" path="res://art/tilemap/camion.png" id="10_lhc2v"]
+[ext_resource type="PackedScene" uid="uid://v0md8l44gdsw" path="res://scenes/items/collectables/Manzana.tscn" id="10_m7jdy"]
+[ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/items/collectables/Patillazo.tscn" id="11_cv2pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nfve"]
 texture = ExtResource("1_ruvfg")
@@ -402,6 +404,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0life")
 sources/1 = SubResource("TileSetAtlasSource_s6kkm")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p0scm"]
+resource_name = "Collectables"
+scenes/1/scene = ExtResource("10_m7jdy")
+scenes/2/scene = ExtResource("11_cv2pu")
+
+[sub_resource type="TileSet" id="TileSet_s6kkm"]
+sources/0 = SubResource("TileSetScenesCollectionSource_p0scm")
+
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
 
@@ -438,6 +448,10 @@ y_sort_enabled = true
 position = Vector2(-885, -131)
 tile_map_data = PackedByteArray("AABcAB4AAAAAAAIAAABnABoAAAAEAAAAAABkABkAAAAEAAAAAABcABkAAAAGAAAAAABqABwAAAAKAAAAAABqAB0AAAAKAAAAAABqAB4AAAAKAAAAAABqAB8AAAAKAAAAAABqACAAAAAKAAAAAABoACEAAAAKAAAAAABmACEAAAAKAAAAAABlACIAAAAKAAAAAABlACQAAAAKAAAAAABlACMAAAAKAAAAAABnACEAAAAKAAAAAABkACQAAAAKAAAAAABPABsAAAAKAAAAAABPABwAAAAKAAAAAABPAB0AAAAKAAAAAABPAB4AAAAKAAAAAABPAB8AAAAKAAAAAABPACAAAAAKAAAAAABQABsAAAAKAAAAAABmAB8AAAAGAAAAAAA9AA8AAAAMAAAAAABDABgAAAAMAAAAAABQABIAAAAMAAAAAABTAAwAAAAMAAAAAABEAA0AAAAMAAAAAAA9ABgAAAAIAAAAAABQAA0AAAAIAAAAAABAABkAAAAAAAAAAAA9ABUAAAAAAAAAAABLABIAAAAAAAAAAABCAA8AAAAAAAAAAABEABEAAAAIAAAAAAA8ABwAAAAGAAAAAAA+ABwAAAAGAAAAAAA9ABwAAAAGAAAAAAA/ABwAAAAGAAAAAABDABwAAAAGAAAAAABEABwAAAAGAAAAAABFABwAAAAGAAAAAABGABwAAAAGAAAAAABGABsAAAAGAAAAAABGABoAAAAGAAAAAABGABkAAAAGAAAAAABGABgAAAAGAAAAAABGABcAAAAGAAAAAABGABYAAAAGAAAAAABGABUAAAAGAAAAAABHABUAAAAGAAAAAABIABUAAAAGAAAAAABJABUAAAAGAAAAAABKABUAAAAGAAAAAABMABUAAAAGAAAAAABLABUAAAAGAAAAAABNABUAAAAGAAAAAABOABUAAAAGAAAAAABPABUAAAAGAAAAAABQABUAAAAGAAAAAABRABUAAAAGAAAAAABSABUAAAAGAAAAAABTABUAAAAGAAAAAABUABUAAAAGAAAAAABVABUAAAAGAAAAAABVABQAAAAGAAAAAABVAAwAAAAGAAAAAABVAA0AAAAGAAAAAABVAA4AAAAGAAAAAABVABAAAAAGAAAAAABVAA8AAAAGAAAAAABVABMAAAAGAAAAAABGACAAAQAAAAAAAABJAB4AAQAAAAAAAABUABoAAAAGAAAAAAB0ACUAAAALAAUAAABsABQAAAALAAUAAABhAA4AAAALAAUAAAB3AA4AAAALAAUAAABwABwAAAALAAUAAABsAA0AAAALAAUAAAB5ABsAAAALAAUAAABzABIAAAALAAUAAABjABQAAAALAAUAAAB4AB8AAAAEAAAAAABpABUAAAAEAAAAAAB0AA0AAAAEAAAAAABzABgAAAACAAAAAAB6ABEAAAACAAAAAAA9ACgAAAALAAUAAABIACUAAAALAAUAAABDACwAAAALAAUAAABnAA0AAAAEAAAAAABTABMAAAAIAAAAAABJAA0AAAAIAAAAAAA=")
 tile_set = SubResource("TileSet_lhc2v")
+
+[node name="Collectables" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAAlABwAAAAAAAAAAQAfABsAAAAAAAAAAQAqABsAAAAAAAAAAQAfABkAAAAAAAAAAQApABgAAAAAAAAAAQArABkAAAAAAAAAAQAPAB4AAAAAAAAAAQA/AB8AAAAAAAAAAQA7AB8AAAAAAAAAAQA4ABcAAAAAAAAAAQA6ABYAAAAAAAAAAQBDABUAAAAAAAAAAQBAABUAAAAAAAAAAQAEABgAAAAAAAAAAQAEACIAAAAAAAAAAQAKACYAAAAAAAAAAQAoAAgAAAAAAAAAAQASACAAAAAAAAAAAgAPACYAAAAAAAAAAgAIACIAAAAAAAAAAgANABkAAAAAAAAAAgARABoAAAAAAAAAAgAvABUAAAAAAAAAAgAxABcAAAAAAAAAAgAxABMAAAAAAAAAAgA3ABUAAAAAAAAAAgBBABYAAAAAAAAAAgA7AA0AAAAAAAAAAgA3AA4AAAAAAAAAAgAzAAgAAAAAAAAAAgAqAAkAAAAAAAAAAgBBAAcAAAAAAAAAAgAfABQAAAAAAAAAAgAPABYAAAAAAAAAAgA=")
+tile_set = SubResource("TileSet_s6kkm")
 
 [connection signal="body_entered" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_entered"]
 [connection signal="body_exited" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_exited"]
