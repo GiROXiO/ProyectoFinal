@@ -1,6 +1,5 @@
-extends Resource
-
 class_name Inventory
+extends Resource
 
 signal updated
 
@@ -34,7 +33,8 @@ func to_dict() -> Dictionary:
 				"texture_path": slot.item.texture.resource_path,
 				"maxAmount": slot.item.maxAmount,
 				"amount": slot.amount,
-				"curation": slot.item.curation
+				"curation": slot.item.curation,
+				"slotn": i
 			}
 	return data
 
@@ -44,17 +44,16 @@ func from_dict(data: Dictionary) -> void:
 		slot.item = null
 		slot.amount = 0
 			
-	if (not lastSlot==gameData.slot):
-		lastSlot = gameData.slot
-		for i in data.keys():
-			var slot_data = data[i]
+	
+	lastSlot = gameData.slot
+	for i in data.keys():
+		var slot_data = data[i]
 
-			var item = InventoryItem.new()
-			item.name = slot_data.get("name")
-			item.texture = ResourceLoader.load(slot_data.get("texture_path"))
-			item.maxAmount = slot_data.get("maxAmount")
-			item.curation = slot_data.get("curation")
-			var amount = slot_data.get("amount")
-
-			for j in range(amount):
-				insert(item)
+		var item = InventoryItem.new()
+		item.name = slot_data.get("name")
+		item.texture = ResourceLoader.load(slot_data.get("texture_path"))
+		item.maxAmount = slot_data.get("maxAmount")
+		item.curation = slot_data.get("curation")
+		var amount = slot_data.get("amount")
+		slots.get(slot_data.get("slotn")).item = item
+		slots.get(slot_data.get("slotn")).amount = amount

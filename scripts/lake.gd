@@ -1,6 +1,5 @@
-extends Node2D
-
 class_name WaterBody
+extends Node2D
 
 @onready var water_tiles:TileMapLayer = $Lake
 @onready var fishingZones: Node2D = $FishingZone

@@ -1,6 +1,5 @@
-extends CharacterBody2D
-
 class_name Player
+extends CharacterBody2D
 
 signal toolChanged(index:int)
 signal usedItem(item: InventoryItem)
