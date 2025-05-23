@@ -7,6 +7,7 @@ var mute: int= 0
 var username: String = ""
 var level: int
 var health: int = 100
+var weapon: int = 0
 @export var inventory: Inventory
 @export var player: Player
 
@@ -17,6 +18,7 @@ func reset_data():
 func to_dict() -> Dictionary:
 	
 	return {
+		"weapon": player.saveWeapon(),
 		"username": username,
 		"level": level,
 		"health": player.saveHealth(),
@@ -26,6 +28,7 @@ func to_dict() -> Dictionary:
 	
 func to_dict_reset() -> Dictionary:
 	return {
+		"weapon": weapon,
 		"username": username,
 		"level": level,
 		"health": health,
@@ -66,6 +69,15 @@ func loadPosition() -> void:
 	if not player:
 		return
 	player.load_position(data["position"])
+	
+func loadWeapon() -> int:
+	load_from_file(slot)
+	if not player:
+		return weapon
+	if not data.has("weapon"):
+		return weapon
+	weapon = data.get("weapon")
+	return weapon
 	
 func save_to_file() -> void:
 	var path = "user://save_slot_%d.save" % slot

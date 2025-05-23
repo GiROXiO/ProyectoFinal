@@ -9,8 +9,8 @@ class_name ToolSlotGui
 var onSlot: bool = false
 
 func _ready():
-	self.toolSprite.texture = toolIcons[0].texture
-	self.nameLabel.text = toolIcons[0].name
+	self.toolSprite.texture = toolIcons[gameData.weapon].texture
+	self.nameLabel.text = toolIcons[gameData.weapon].name
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size()>0:
 		var player = players[0]

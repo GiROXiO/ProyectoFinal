@@ -37,6 +37,7 @@ func _ready():
 	gameData.setPlayer(self)
 	loadHealth()
 	gameData.loadPosition()
+	loadWeapon()
 	inventory_gui.connect("selectedSlot", Callable(self, "_update_selected_slot"))
 	
 func loadHealth()-> void:
@@ -44,9 +45,18 @@ func loadHealth()-> void:
 		health = 100
 	else:
 		health = gameData.loadHealth()
-	
+		
 func saveHealth()-> int:
 	return health
+
+func loadWeapon()-> void:
+	if (gameData.loadWeapon() == 0):
+		player_tool = 0
+	else:
+		player_tool = gameData.loadWeapon()
+		
+func saveWeapon()-> int:
+	return player_tool
 	
 func savePosition() -> Dictionary:
 	return {
