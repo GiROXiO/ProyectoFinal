@@ -5,7 +5,7 @@ class_name Inventory
 signal updated
 
 @export var slots: Array[InventorySlot]
-var sw: bool = true
+var lastSlot: int = 10
 
 func insert(item: InventoryItem) -> bool:
 	for slot in slots:
@@ -39,9 +39,13 @@ func to_dict() -> Dictionary:
 	return data
 
 func from_dict(data: Dictionary) -> void:
-	
-	if (sw):
-		sw = false
+	for i in range(slots.size()):
+		var slot = slots[i]
+		slot.item = null
+		slot.amount = 0
+			
+	if (not lastSlot==gameData.slot):
+		lastSlot = gameData.slot
 		for i in data.keys():
 			var slot_data = data[i]
 

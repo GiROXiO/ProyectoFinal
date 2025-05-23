@@ -34,8 +34,29 @@ func _ready():
 	add_to_group("player")
 	emit_signal("toolChanged", player_tool)
 	gameData.setInventory(inventory)
-	gameData.cargarInventario()
+	gameData.loadInventory()
+	gameData.setPlayer(self)
+	loadHealth()
+	gameData.loadPosition()
 	inventory_gui.connect("selectedSlot", Callable(self, "_update_selected_slot"))
+	
+func loadHealth()-> void:
+	if (gameData.loadHealth() == 100):
+		health = 100
+	else:
+		health = gameData.loadHealth()
+	
+func saveHealth()-> int:
+	return health
+	
+func savePosition() -> Dictionary:
+	return {
+		"x": position.x,
+		"y": position.y
+	}
+
+func load_position(data: Dictionary) -> void:
+	position = Vector2(data.get("x"), data.get("y"))
 
 func _physics_process(delta):
 	if global.isChatting == false and global.another_entity == false:
@@ -57,7 +78,7 @@ func _input(event: InputEvent) -> void:
 		
 
 func player_movement(_delta):
-	
+	gameData.save_to_file()
 	if Input.is_action_pressed("Sprint"):
 		speed = sprintSpeed
 	else:
@@ -165,7 +186,13 @@ func enemy_attack():
 		print("Vida del jugador: ", health)
 		if health == 0:
 			global.player_current_attack = false
+			health = 100
+			position = Vector2(574,576)
+			gameData.save_to_file()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
+		else:
+			gameData.save_to_file()
+	
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
@@ -300,6 +327,7 @@ func use_item():
 			print("Puede curarse")
 			if self.health + self.selectedSlot.item.curation > self.maxHealth:
 				self.health = self.maxHealth
+				
 			else:
 				self.health += self.selectedSlot.item.curation
 			print("Vida del jugador aumento a ", self.health)
@@ -311,6 +339,7 @@ func use_item():
 			print("El jugador tiene la vida al maximo")
 	else:
 		print("No tiene ningun item en el slot seleccionado")
+	gameData.save_to_file()
 
 func change_size_attackArea():
 	#var originaL = $AttackArea/CollisionShape2D.shape

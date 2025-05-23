@@ -66,6 +66,7 @@ func confirmName():
 	gameData.username = username
 	gameData.level = 1 
 	gameData.mute = 0
+	gameData.health = 100
 
 	saveGame(selectedSlot)
 	$NewUsernamePanel.visible = false

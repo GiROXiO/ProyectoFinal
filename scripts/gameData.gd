@@ -6,7 +6,9 @@ var slot: int = 0
 var mute: int= 0  
 var username: String = ""
 var level: int
+var health: int = 100
 @export var inventory: Inventory
+@export var player: Player
 
 func reset_data():
 	username = ""
@@ -17,32 +19,54 @@ func to_dict() -> Dictionary:
 	return {
 		"username": username,
 		"level": level,
+		"health": player.saveHealth(),
 		"inventory": inventory.to_dict(),
-		"mute": mute
+		"position": player.savePosition()
 	}
 	
 func to_dict_reset() -> Dictionary:
 	return {
 		"username": username,
 		"level": level,
-		"mute": mute,
-		"inventory": {}
+		"health": health,
+		"inventory": {},
+		"position": {
+						"x": 574,
+						"y": 576
+					}
 	}
 
 func from_dict(dat: Dictionary) -> void:
 	data = dat
 	username = data.get("username")
 	level = data.get("level")
-	
 	mute = data.get("mute",0)
 
-func cargarInventario() -> void:
+func loadInventory() -> void:
+	load_from_file(slot)
 	if not data.has("inventory"):
 		return
 	if not inventory:
 		return
 	inventory.from_dict(data["inventory"])
 
+func loadHealth() -> int:
+	load_from_file(slot)
+	if not player:
+		return health
+	if not data.has("health"):
+		return health
+	health = data.get("health")
+	return health
+
+func loadPosition() -> void:
+	load_from_file(slot)
+	if not data.has("position"):
+		return
+	if not player:
+		return
+	player.load_position(data["position"])
+	
 func save_to_file() -> void:
 	var path = "user://save_slot_%d.save" % slot
 	var file = FileAccess.open(path, FileAccess.WRITE)
@@ -81,3 +105,6 @@ func load_from_file(slotc: int) -> void:
 
 func setInventory(inv: Inventory) -> void:
 	inventory = inv
+	
+func setPlayer(pl: Player) -> void:
+	player = pl
