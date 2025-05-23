@@ -30,7 +30,6 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
 	Maritza: Inspirara a otras a hacer lo mismo
 	- Quiero marcar una diferencia
 	Maritza: No sabes cuanto me alegra escuchar esto
-	Maritza: Sabia que te veias como un muchacho comprometido
 	Maritza: Me alegra mucho que todavia haya gente que se preocupe por el medio ambiente
 	Maritza: Aunque no lo creas, por este mundo hay muchas personas que todavia se interesan por el medio ambiente, podrias ayudarlos
 	Maritza: Pero para probarte, toma esto
@@ -51,6 +50,9 @@ else:
 			Maritza: Espero que puedas ayudar al medio ambiente y a muchas otras personas allá afuera
 			Maritza: Te deseo exitos
 			set {MissionAcepted.Maritza_Mision.maritza_mission_completed} = true
+		else:
+			Maritza: Umm nop, aún no lo haz hecho
+			Maritza: ¡Vuelve cuando lo hagas!
 	- No, aun no...
 		Maritza: No te preocupes, se que puedes hacerlo
 [signal arg="exit_maritza"]

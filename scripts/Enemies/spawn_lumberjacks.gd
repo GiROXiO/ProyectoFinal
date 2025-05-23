@@ -4,11 +4,13 @@ extends Area2D
 var bool_spawn = false
 var spawn_count = 4
 var random = RandomNumberGenerator.new()
+var verifyPonllo = false
 
 func _ready() -> void:
 	random.randomize()
 
 func _process(_delta: float) -> void:
+	missionVerifier()
 	spawn()
 
 func spawn():
@@ -19,6 +21,8 @@ func spawn():
 		enemy_instance.global_position = Vector2(position.x + random.randi_range(-50, 50), position.y + random.randi_range(-50, 50))
 		get_tree().current_scene.add_child(enemy_instance)
 		print("Enemigo instanciado")
+	
+	
 
 
 func _on_cooldown_timeout() -> void:
@@ -30,7 +34,13 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy") and spawn_count <= 0:
 		spawn_count = 4
 
-
+func missionVerifier():
+	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_lumberjacks and verifyPonllo == false:
+		verifyPonllo = true
+		$cooldown.stop()
+		$cooldown.wait_time += 1.5
+		print("Se actualizo cooldown")
+		$cooldown.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	print("Se ve en pantalla")
