@@ -36,10 +36,10 @@ y_sort_enabled = true
 position = Vector2(474, 359)
 
 [node name="Mono" parent="." instance=ExtResource("12_jhx03")]
-position = Vector2(502, 303)
+position = Vector2(92, 185)
 
 [node name="Ponllo" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(731, 313)
+position = Vector2(1064, 407)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3

@@ -9,7 +9,6 @@ func _ready() -> void:
 	$CollisionShape2D.disabled = true
 	$AnimatedSprite2D.hide()
 
-
 func _physics_process(delta):
 	if global.another_entity == true:
 		if exist == false:
