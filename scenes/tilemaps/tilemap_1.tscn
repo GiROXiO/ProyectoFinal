@@ -1,14 +1,14 @@
 [gd_scene load_steps=30 format=4 uid="uid://dk57oid3g2mpr"]
 
-[ext_resource type="Texture2D" uid="uid://bqrn6dkuvasm1" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
-[ext_resource type="Texture2D" uid="uid://dx4giytjn1e33" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
-[ext_resource type="Texture2D" uid="uid://sd3ju3dtyx4m" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
-[ext_resource type="Texture2D" uid="uid://cepdoco88g055" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
-[ext_resource type="Texture2D" uid="uid://dths3vbuilcrs" path="res://art/tilemap/ySort.png" id="3_02dga"]
-[ext_resource type="Texture2D" uid="uid://dun25ylg85vpr" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
-[ext_resource type="Texture2D" uid="uid://cogd1y08fxji3" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
+[ext_resource type="Texture2D" uid="uid://bk4p6ueequbxc" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
+[ext_resource type="Texture2D" uid="uid://b2ya5k5r4rwav" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
+[ext_resource type="Texture2D" uid="uid://djxv1nlldarfr" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
+[ext_resource type="Texture2D" uid="uid://cfa4ipfa0vgxb" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
+[ext_resource type="Texture2D" uid="uid://dlcvdl8fif4sq" path="res://art/tilemap/ySort.png" id="3_02dga"]
+[ext_resource type="Texture2D" uid="uid://cmqv75f2skyj7" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
+[ext_resource type="Texture2D" uid="uid://lactgyep1hhc" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
 [ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://scripts/lake.gd" id="5_xqubo"]
-[ext_resource type="Texture2D" uid="uid://bmniawdfw1v31" path="res://art/tilemap/camion.png" id="10_lhc2v"]
+[ext_resource type="Texture2D" uid="uid://chjjtyt5qlq7" path="res://art/tilemap/camion.png" id="10_lhc2v"]
 [ext_resource type="PackedScene" uid="uid://v0md8l44gdsw" path="res://scenes/items/collectables/Manzana.tscn" id="10_m7jdy"]
 [ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/items/collectables/Patillazo.tscn" id="11_cv2pu"]
 
@@ -450,7 +450,7 @@ tile_map_data = PackedByteArray("AABcAB4AAAAAAAIAAABnABoAAAAEAAAAAABkABkAAAAEAAA
 tile_set = SubResource("TileSet_lhc2v")
 
 [node name="Collectables" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray("AAAlABwAAAAAAAAAAQAfABsAAAAAAAAAAQAqABsAAAAAAAAAAQAfABkAAAAAAAAAAQApABgAAAAAAAAAAQArABkAAAAAAAAAAQAPAB4AAAAAAAAAAQA/AB8AAAAAAAAAAQA7AB8AAAAAAAAAAQA4ABcAAAAAAAAAAQA6ABYAAAAAAAAAAQBDABUAAAAAAAAAAQBAABUAAAAAAAAAAQAEABgAAAAAAAAAAQAEACIAAAAAAAAAAQAKACYAAAAAAAAAAQAoAAgAAAAAAAAAAQASACAAAAAAAAAAAgAPACYAAAAAAAAAAgAIACIAAAAAAAAAAgANABkAAAAAAAAAAgARABoAAAAAAAAAAgAvABUAAAAAAAAAAgAxABcAAAAAAAAAAgAxABMAAAAAAAAAAgA3ABUAAAAAAAAAAgBBABYAAAAAAAAAAgA7AA0AAAAAAAAAAgA3AA4AAAAAAAAAAgAzAAgAAAAAAAAAAgAqAAkAAAAAAAAAAgBBAAcAAAAAAAAAAgAfABQAAAAAAAAAAgAPABYAAAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAlABwAAAAAAAAAAQAfABsAAAAAAAAAAQAqABsAAAAAAAAAAQAfABkAAAAAAAAAAQApABgAAAAAAAAAAQArABkAAAAAAAAAAQAPAB4AAAAAAAAAAQA/AB8AAAAAAAAAAQA7AB8AAAAAAAAAAQA4ABcAAAAAAAAAAQA6ABYAAAAAAAAAAQBDABUAAAAAAAAAAQBAABUAAAAAAAAAAQAEABgAAAAAAAAAAQAEACIAAAAAAAAAAQAKACYAAAAAAAAAAQAoAAgAAAAAAAAAAQASACAAAAAAAAAAAgAPACYAAAAAAAAAAgAIACIAAAAAAAAAAgANABkAAAAAAAAAAgARABoAAAAAAAAAAgAvABUAAAAAAAAAAgAxABcAAAAAAAAAAgAxABMAAAAAAAAAAgA3ABUAAAAAAAAAAgBBABYAAAAAAAAAAgA7AA0AAAAAAAAAAgA3AA4AAAAAAAAAAgAzAAgAAAAAAAAAAgAqAAkAAAAAAAAAAgBBAAcAAAAAAAAAAgAfABQAAAAAAAAAAgAPABYAAAAAAAAAAgAVABsAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_s6kkm")
 
 [connection signal="body_entered" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_entered"]
