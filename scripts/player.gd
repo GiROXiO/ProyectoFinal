@@ -104,7 +104,6 @@ func player_movement(_delta):
 		speed = normalSpeed
 	
 	if is_dashing == false:
-		print("No esta dasheando")
 		if Input.is_key_pressed(KEY_D):
 			current_dir = "right"
 			play_anim(1)
@@ -135,7 +134,6 @@ func player_movement(_delta):
 			velocity.y = 0
 			
 	elif is_dashing and attack_ip == false:
-		print("Esta dasheando")
 		if current_dir == "right":
 			play_anim(0)
 			velocity.y = 0
