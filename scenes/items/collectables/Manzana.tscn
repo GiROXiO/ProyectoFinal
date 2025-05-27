@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://v0md8l44gdsw"]
+[gd_scene load_steps=5 format=3 uid="uid://v0md8l44gdsw"]
 
 [ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/items/collectables/pickup_item.tscn" id="1_5vp4m"]
 [ext_resource type="Resource" uid="uid://bkiak8dn5m5gn" path="res://resources/inventoryResources/items/apple.tres" id="2_ck7oo"]
-[ext_resource type="Texture2D" uid="uid://ccqsdnmpkfguf" path="res://art/objects/full items spritesheet v2.png" id="3_32bdr"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb628"]
-atlas = ExtResource("3_32bdr")
-region = Rect2(35.9695, 29.9069, 18.4301, 18.9207)
+[ext_resource type="Texture2D" uid="uid://c4wtyxxvjpcrr" path="res://art/pickables/Apple.png" id="3_5vp4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bqpx"]
 size = Vector2(16, 25)
@@ -15,7 +11,8 @@ size = Vector2(16, 25)
 itemRes = ExtResource("2_ck7oo")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = SubResource("AtlasTexture_eb628")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5vp4m")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 0.5)

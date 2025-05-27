@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dk57oid3g2mpr"]
+[gd_scene load_steps=32 format=4 uid="uid://dk57oid3g2mpr"]
 
 [ext_resource type="Texture2D" uid="uid://bk4p6ueequbxc" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
 [ext_resource type="Texture2D" uid="uid://b2ya5k5r4rwav" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cmqv75f2skyj7" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
 [ext_resource type="Texture2D" uid="uid://lactgyep1hhc" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
 [ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://scripts/lake.gd" id="5_xqubo"]
+[ext_resource type="PackedScene" uid="uid://cthikgy7mamcx" path="res://scenes/items/collectables/Cereza.tscn" id="10_cv2pu"]
 [ext_resource type="Texture2D" uid="uid://chjjtyt5qlq7" path="res://art/tilemap/camion.png" id="10_lhc2v"]
 [ext_resource type="PackedScene" uid="uid://v0md8l44gdsw" path="res://scenes/items/collectables/Manzana.tscn" id="10_m7jdy"]
-[ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/items/collectables/Patillazo.tscn" id="11_cv2pu"]
+[ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/items/collectables/Naranja.tscn" id="11_cv2pu"]
+[ext_resource type="PackedScene" uid="uid://7r1ry1pk773e" path="res://scenes/items/collectables/ManzanaDorada.tscn" id="12_p0scm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nfve"]
 texture = ExtResource("1_ruvfg")
@@ -406,8 +408,10 @@ sources/1 = SubResource("TileSetAtlasSource_s6kkm")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p0scm"]
 resource_name = "Collectables"
-scenes/1/scene = ExtResource("10_m7jdy")
-scenes/2/scene = ExtResource("11_cv2pu")
+scenes/3/scene = ExtResource("10_cv2pu")
+scenes/4/scene = ExtResource("10_m7jdy")
+scenes/5/scene = ExtResource("12_p0scm")
+scenes/6/scene = ExtResource("11_cv2pu")
 
 [sub_resource type="TileSet" id="TileSet_s6kkm"]
 sources/0 = SubResource("TileSetScenesCollectionSource_p0scm")
@@ -450,8 +454,45 @@ tile_map_data = PackedByteArray("AABcAB4AAAAAAAIAAABnABoAAAAEAAAAAABkABkAAAAEAAA
 tile_set = SubResource("TileSet_lhc2v")
 
 [node name="Collectables" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray("AAAlABwAAAAAAAAAAQAfABsAAAAAAAAAAQAqABsAAAAAAAAAAQAfABkAAAAAAAAAAQApABgAAAAAAAAAAQArABkAAAAAAAAAAQAPAB4AAAAAAAAAAQA/AB8AAAAAAAAAAQA7AB8AAAAAAAAAAQA4ABcAAAAAAAAAAQA6ABYAAAAAAAAAAQBDABUAAAAAAAAAAQBAABUAAAAAAAAAAQAEABgAAAAAAAAAAQAEACIAAAAAAAAAAQAKACYAAAAAAAAAAQAoAAgAAAAAAAAAAQASACAAAAAAAAAAAgAPACYAAAAAAAAAAgAIACIAAAAAAAAAAgANABkAAAAAAAAAAgARABoAAAAAAAAAAgAvABUAAAAAAAAAAgAxABcAAAAAAAAAAgAxABMAAAAAAAAAAgA3ABUAAAAAAAAAAgBBABYAAAAAAAAAAgA7AA0AAAAAAAAAAgA3AA4AAAAAAAAAAgAzAAgAAAAAAAAAAgAqAAkAAAAAAAAAAgBBAAcAAAAAAAAAAgAfABQAAAAAAAAAAgAPABYAAAAAAAAAAgAVABsAAAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAKAB0AAAAAAAAAAwAHACMAAAAAAAAAAwAXACMAAAAAAAAAAwATABsAAAAAAAAAAwASABwAAAAAAAAAAwAQAB4AAAAAAAAAAwAPACAAAAAAAAAABAASAB8AAAAAAAAABAARACQAAAAAAAAABQAUACIAAAAAAAAABQAZACUAAAAAAAAABgA7AB8AAAAAAAAABgA+AB8AAAAAAAAABgA9ACEAAAAAAAAABgA7ACEAAAAAAAAABgA2ACIAAAAAAAAABQA5ACYAAAAAAAAABQBBACMAAAAAAAAABQA+ACUAAAAAAAAABQBDAB8AAAAAAAAABgBBABwAAAAAAAAABgBAAB0AAAAAAAAABgA4AB0AAAAAAAAAAwAyACIAAAAAAAAAAwAxACMAAAAAAAAAAwAxACYAAAAAAAAAAwAsACUAAAAAAAAAAwAgABkAAAAAAAAABAAfABsAAAAAAAAABAAiABkAAAAAAAAAAwAhABsAAAAAAAAAAwApABsAAAAAAAAABQAmABwAAAAAAAAABQAjABwAAAAAAAAABQApABkAAAAAAAAABgAqABsAAAAAAAAABgAnABgAAAAAAAAABgA=")
 tile_set = SubResource("TileSet_s6kkm")
 
 [connection signal="body_entered" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_entered"]
 [connection signal="body_exited" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_exited"]
+[connection signal="body_entered" from="TileMap/Collectables/Cereza" to="TileMap/Collectables/Cereza" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30924" to="TileMap/Collectables/@Area2D@30924" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30925" to="TileMap/Collectables/@Area2D@30925" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30926" to="TileMap/Collectables/@Area2D@30926" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30927" to="TileMap/Collectables/@Area2D@30927" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30928" to="TileMap/Collectables/@Area2D@30928" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/Manzana" to="TileMap/Collectables/Manzana" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30929" to="TileMap/Collectables/@Area2D@30929" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/ManzanaDorada" to="TileMap/Collectables/ManzanaDorada" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30930" to="TileMap/Collectables/@Area2D@30930" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/Naranja" to="TileMap/Collectables/Naranja" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30931" to="TileMap/Collectables/@Area2D@30931" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30932" to="TileMap/Collectables/@Area2D@30932" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30933" to="TileMap/Collectables/@Area2D@30933" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30934" to="TileMap/Collectables/@Area2D@30934" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30935" to="TileMap/Collectables/@Area2D@30935" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30936" to="TileMap/Collectables/@Area2D@30936" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30937" to="TileMap/Collectables/@Area2D@30937" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30938" to="TileMap/Collectables/@Area2D@30938" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30939" to="TileMap/Collectables/@Area2D@30939" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30940" to="TileMap/Collectables/@Area2D@30940" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30941" to="TileMap/Collectables/@Area2D@30941" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30942" to="TileMap/Collectables/@Area2D@30942" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30943" to="TileMap/Collectables/@Area2D@30943" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30944" to="TileMap/Collectables/@Area2D@30944" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30945" to="TileMap/Collectables/@Area2D@30945" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30946" to="TileMap/Collectables/@Area2D@30946" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30947" to="TileMap/Collectables/@Area2D@30947" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30948" to="TileMap/Collectables/@Area2D@30948" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30949" to="TileMap/Collectables/@Area2D@30949" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30950" to="TileMap/Collectables/@Area2D@30950" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30951" to="TileMap/Collectables/@Area2D@30951" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30952" to="TileMap/Collectables/@Area2D@30952" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30953" to="TileMap/Collectables/@Area2D@30953" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30954" to="TileMap/Collectables/@Area2D@30954" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30955" to="TileMap/Collectables/@Area2D@30955" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/Collectables/@Area2D@30956" to="TileMap/Collectables/@Area2D@30956" method="_on_body_entered"]
