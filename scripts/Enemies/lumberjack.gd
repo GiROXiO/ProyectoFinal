@@ -18,11 +18,11 @@ func _physics_process(_delta: float) -> void:
 			deal_with_damage()
 			
 			if player_chase:
-				position += ((player.position - position) / speed) * takeDamage
+				global_position += ((player.global_position - global_position) / speed) * takeDamage
 				
 				move_and_collide(Vector2(0,0))
 				
-				if player.position.y - position.y < 0:
+				if player.global_position.y - global_position.y < 0:
 					current_dir = "up"
 				else:
 					current_dir = "down"
@@ -39,7 +39,7 @@ func _physics_process(_delta: float) -> void:
 						else:
 							$AnimatedSprite2D.play("back_walk")
 						
-				if (player.position.x - position.x) < 0:
+				if (player.global_position.x - global_position.x) < 0:
 					$AnimatedSprite2D.flip_h = true
 				else:
 					$AnimatedSprite2D.flip_h = false
@@ -99,9 +99,6 @@ func deal_with_damage():
 				$deathTimer.start()
 				$CollisionShape2D.disabled = true
 				isAlive = false
-				
-				if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
-					Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_lumberjacks += 1
 					
 				Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
 				print(Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated)

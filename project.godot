@@ -101,7 +101,7 @@ variables={
 "mono_mission_completed": false
 },
 "Ponllo_Mission": {
-"ponllo_lumberjacks": 0,
+"ponllo_garbage": 0,
 "ponllo_mission_accepted": false,
 "ponllo_mission_completed": false
 }

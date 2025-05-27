@@ -20,6 +20,8 @@ wait_time = 2.643
 position = Vector2(-2.00001, 0)
 scale = Vector2(6.575, 4.975)
 
+[node name="SpawnedEnemies" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

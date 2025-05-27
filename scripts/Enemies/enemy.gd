@@ -23,12 +23,12 @@ func _physics_process(_delta: float) -> void:
 			deal_with_damage()
 			
 			if player_chase and current_damagin == false:
-				position += ((player.position - position) / speed) * takeDamage
+				global_position += ((player.global_position - global_position) / speed) * takeDamage
 
 				move_and_collide(Vector2(0,0))
 				$AnimatedSprite2D.play("walk")
 				
-				if (player.position.x - position.x) < 0:
+				if (player.global_position.x - global_position.x) < 0:
 					$AnimatedSprite2D.flip_h = true
 				else:
 					$AnimatedSprite2D.flip_h = false
