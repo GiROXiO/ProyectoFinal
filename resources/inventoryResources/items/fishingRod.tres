@@ -1,7 +1,15 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b2bfr3it0ebpn"]
 
 [ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_2hwmh"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://b10viql46hqhu" path="res://art/objects/FishingRod.png" id="2_28q3t"]
+=======
+[ext_resource type="Texture2D" uid="uid://smtus1ycbcv5" path="res://art/objects/full items spritesheet v2.png" id="2_28q3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tu80"]
+atlas = ExtResource("2_28q3t")
+region = Rect2(1.1182, 32.215, 14.5621, 15.7598)
+>>>>>>> 7ae4d30e6272c48e41a5159ade9f908c66825f61
 
 [resource]
 script = ExtResource("1_2hwmh")

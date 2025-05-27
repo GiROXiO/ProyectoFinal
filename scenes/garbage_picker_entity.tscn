@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://4abm1p3atgmb"]
+[gd_scene load_steps=8 format=3 uid="uid://4abm1p3atgmb"]
 
 [ext_resource type="Script" uid="uid://b1mo5io0ugk32" path="res://scripts/garbage_picker_entity.gd" id="1_ra6i0"]
-[ext_resource type="Texture2D" uid="uid://csf7dm83a6wpn" path="res://art/characters/animales spritesheet v1.png" id="2_ra6i0"]
+[ext_resource type="Texture2D" uid="uid://djos3sy1y81vh" path="res://art/characters/animales spritesheet v1.png" id="2_ra6i0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra6i0"]
 radius = 15.0333
@@ -28,6 +28,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4glp0"]
+radius = 14.0
+
 [node name="GarbagePickerEntity" type="CharacterBody2D"]
 collision_layer = 128
 collision_mask = 128
@@ -42,4 +45,11 @@ frame_progress = 0.679249
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="CollectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+position = Vector2(-2, 1)
+shape = SubResource("CircleShape2D_4glp0")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
