@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://v0md8l44gdsw"]
 
 [ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/items/collectables/pickup_item.tscn" id="1_5vp4m"]
-[ext_resource type="Resource" uid="uid://bkiak8dn5m5gn" path="res://resources/inventoryResources/items/apple.tres" id="2_ck7oo"]
+[ext_resource type="Resource" uid="uid://cmchrnrpk83s2" path="res://resources/inventoryResources/items/apple.tres" id="2_ck7oo"]
 [ext_resource type="Texture2D" uid="uid://c4wtyxxvjpcrr" path="res://art/pickables/Apple.png" id="3_5vp4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bqpx"]
