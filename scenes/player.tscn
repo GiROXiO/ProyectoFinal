@@ -1,10 +1,10 @@
 [gd_scene load_steps=92 format=3 uid="uid://ctovl7kvxvlym"]
 
 [ext_resource type="Script" uid="uid://ywlsktjp0se1" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cm3fayht2erbn" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://dc562ss2rntys" path="res://art/characters/j1 spritesheet aspiradora.png" id="4_dqkch"]
-[ext_resource type="Texture2D" uid="uid://c8ugt7rf5j3o0" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://sern2yfadlyc" path="res://art/characters/j1 animaciones pescar, plantar.png" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bud0vb12mgk42" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://r2k2irb7dcst" path="res://art/characters/j1 spritesheet aspiradora.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://vs4c7whpm8uh" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bpo6btiq3vabc" path="res://art/characters/j1 animaciones pescar, plantar.png" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qlg0r")
@@ -705,6 +705,11 @@ wait_time = 0.5
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.82
 
+[node name="dash_time" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="dash_cooldown" type="Timer" parent="."]
+
 [node name="CollectArea" type="Area2D" parent="."]
 visible = false
 
@@ -732,4 +737,6 @@ rotation_smoothing_speed = 2.0
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="dash_time" to="." method="_on_dash_time_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]

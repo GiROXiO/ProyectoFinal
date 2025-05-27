@@ -22,7 +22,7 @@ if {MissionAcepted.Mono_Mission.mono_mission_acepted} == false:
 		Mono: mira, ¿quieres que te proponga una misión verdad?
 		Mono: extermina a 20 emisiones de carbono
 		Mono: listo
-		set {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} = true
+		set {MissionAcepted.Mono_Mission.mono_mission_acepted} = true
 	- Bobo tú
 		Mono: no, bobo tú
 		Mono: a pue
@@ -32,7 +32,7 @@ elif {MissionAcepted.Mono_Mission.mono_mission_completed} == true:
 else:
 	Mono: y bueno, ¿ya lo hiciste?
 	- si lees mi mente deberias saberlo
-		if {EnemiesDefeated.emissions_defeated} >= 20.0:
+		if {MissionAcepted.Mono_Mission.mono_emissions} >= 20.0:
 			Mono: no si, ya se que lo hiciste
 			Mono: te quiero mucho
 		else:

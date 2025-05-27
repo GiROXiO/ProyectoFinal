@@ -15,12 +15,17 @@ var maxHealth = 100
 var player_alive = true
 var selectedSlot: InventorySlot
 
+var is_dashing = false
+var can_dash = true
+var dash_time = 0.0
 
 var attack_ip = false # attack in progress
 
 var speed = 100
-var normalSpeed = 100
-var sprintSpeed = 125
+
+const normalSpeed = 100
+const sprintSpeed = 125
+const dashSpeed = 220
 
 var current_dir = "down"
 @export var player_tool = 0
@@ -90,44 +95,79 @@ func player_movement(_delta):
 	gameData.save_to_file()
 	if Input.is_action_pressed("Sprint"):
 		speed = sprintSpeed
+	elif Input.is_action_just_pressed("Dash") and is_dashing == false and can_dash:
+		is_dashing = true
+		can_dash = false
+		$dash_time.start()
+		$dash_cooldown.start()
 	else:
 		speed = normalSpeed
 	
-	if Input.is_key_pressed(KEY_D):
+	if is_dashing == false:
+		print("No esta dasheando")
+		if Input.is_key_pressed(KEY_D):
+			current_dir = "right"
+			play_anim(1)
+			velocity.y = 0
+			velocity.x = speed
+			
+		elif Input.is_key_pressed(KEY_A):
+			play_anim(1)
+			current_dir = "left"
+			velocity.x = -speed
+			velocity.y = 0
+			
+		elif Input.is_key_pressed(KEY_W):
+			play_anim(1)
+			current_dir = "up"
+			velocity.x = 0
+			velocity.y = -speed
+			
+		elif Input.is_key_pressed(KEY_S):
+			play_anim(1)
+			current_dir = "down"
+			velocity.x = 0
+			velocity.y = speed
+			
+		else:
+			play_anim(0)
+			velocity.x = 0
+			velocity.y = 0
+			
+	elif is_dashing and attack_ip == false:
+		print("Esta dasheando")
+		if current_dir == "right":
+			play_anim(0)
+			velocity.y = 0
+			velocity.x = dashSpeed
+			
+		elif current_dir == "left":
+			play_anim(0)
+			velocity.y = 0
+			velocity.x = -dashSpeed
+
+		elif current_dir == "up":
+			play_anim(0)
+			velocity.y = -dashSpeed
+			velocity.x = 0
 		
-		play_anim(1)
-		current_dir = "right"
-		velocity.x = speed
-		velocity.y = 0
-	
-	elif Input.is_key_pressed(KEY_A):
-		play_anim(1)
-		current_dir = "left"
-		velocity.x = -speed
-		velocity.y = 0
-		
-	elif Input.is_key_pressed(KEY_W):
-		play_anim(1)
-		current_dir = "up"
-		velocity.x = 0
-		velocity.y = -speed
-		
-	elif Input.is_key_pressed(KEY_S):
-		play_anim(1)
-		current_dir = "down"
-		velocity.x = 0
-		velocity.y = speed
-		
-	else:
-		play_anim(0)
-		velocity.x = 0
-		velocity.y = 0
+		elif current_dir == "down":
+			play_anim(0)
+			velocity.y = dashSpeed
+			velocity.x = 0
+			
+		pass
 	
 	move_and_slide()
 	
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
+	
+	# Respecto a movement
+	# 0 = Quieto
+	# 1 = Moviendose
+	# 2 = Dash
 	
 	if attack_ip == false:
 		if dir == "right":
@@ -136,6 +176,7 @@ func play_anim(movement):
 				$AttackArea.position = Vector2(15, 0)
 			elif player_tool == 1:
 				$AttackArea.position = Vector2(50, 0)
+				
 			if movement == 1:
 				anim.play("side_walk")
 			elif movement == 0:
@@ -147,6 +188,7 @@ func play_anim(movement):
 				$AttackArea.position = Vector2(-15, 0)
 			elif player_tool == 1:
 				$AttackArea.position = Vector2(-50, 0)
+				
 			if movement == 1:
 				anim.play("side_walk")
 			elif movement == 0:
@@ -158,6 +200,7 @@ func play_anim(movement):
 				$AttackArea.position = Vector2(0, -15)
 			elif player_tool == 1:
 				$AttackArea.position = Vector2(0, -50)
+				
 			if movement == 1:
 				anim.play("back_walk")
 			elif movement == 0:
@@ -169,6 +212,7 @@ func play_anim(movement):
 				$AttackArea.position = Vector2(0, 15)
 			elif player_tool == 1:
 				$AttackArea.position = Vector2(0, 50)
+				
 			if movement == 1:
 				anim.play("front_walk")
 			elif movement == 0:
@@ -210,7 +254,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0:
+	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -370,3 +414,12 @@ func change_size_attackArea():
 
 func get_life() -> int:
 	return health
+
+
+
+func _on_dash_time_timeout() -> void:
+	is_dashing = false
+	
+
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true

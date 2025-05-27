@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var Enemy_Scene = load("res://scenes/garbage_picker_entity.tscn")
+@export var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")
 var exist = false
 var movement = true
-var speed = 100
+var speed = 130
 
 func _ready() -> void:
 	$CollisionShape2D.disabled = true
@@ -18,8 +18,6 @@ func _physics_process(delta):
 			$AnimatedSprite2D.show()
 			$AnimatedSprite2D.play("default")
 		garbage_picker_movement(delta)
-		
-		
 	else:
 		exist = false
 		$CollisionShape2D.disabled = true
@@ -60,3 +58,9 @@ func garbage_picker_movement(_delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	global.another_entity = false
+
+
+func _on_collect_area_area_entered(area: Area2D) -> void:
+	if area.has_method("collect"):
+		area.collect(inventory)
+		gameData.save_to_file()
