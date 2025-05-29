@@ -251,7 +251,9 @@ func _on_attack_cooldown_timeout() -> void:
 
 func attack():
 	var dir = current_dir
-	if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted:
+	var tutorial_completed = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
+	tutorial_completed = true #Mientras tanto para hacer pruebas
+	if tutorial_completed:
 		if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false:
 			global.player_current_attack = true
 			attack_ip = true

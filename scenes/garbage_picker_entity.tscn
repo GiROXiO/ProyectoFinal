@@ -1,32 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://4abm1p3atgmb"]
+[gd_scene load_steps=5 format=3 uid="uid://4abm1p3atgmb"]
 
 [ext_resource type="Script" uid="uid://b1mo5io0ugk32" path="res://scripts/garbage_picker_entity.gd" id="1_ra6i0"]
-[ext_resource type="Texture2D" uid="uid://djos3sy1y81vh" path="res://art/characters/animales spritesheet v1.png" id="2_ra6i0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra6i0"]
 radius = 15.0333
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ra6i0"]
-atlas = ExtResource("2_ra6i0")
-region = Rect2(0, 64, 50, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4glp0"]
-atlas = ExtResource("2_ra6i0")
-region = Rect2(50, 64, 50, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_6sd7x"]
-animations = [{
-"frames": [{
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_ra6i0")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_4glp0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4glp0"]
 radius = 14.0

@@ -5,6 +5,7 @@ var player_chase = false
 var player = null
 var current_dir = "up"
 
+var has_spawn = false
 var isAlive = true
 var health = 60
 var player_inattack_zone = false
@@ -12,8 +13,14 @@ var enemy_inattackzone = false
 var can_take_damage = true
 var takeDamage = 1
 
+func _ready() -> void:
+	$take_damage_cooldown.wait_time = 0.5
+	$AnimatedSprite2D.play("spawn")
+	$spawn.wait_time = 0.8
+	$spawn.start()
+
 func _physics_process(_delta: float) -> void:
-	if isAlive:
+	if isAlive and has_spawn:
 		if global.isChatting == false:
 			deal_with_damage()
 			
@@ -48,8 +55,10 @@ func _physics_process(_delta: float) -> void:
 				velocity = Vector2.ZERO
 				move_and_slide()
 				$AnimatedSprite2D.play("front_init")
+	elif has_spawn == false:
+		$AnimatedSprite2D.play("spawn")
 	else:
-		# $AnimatedSprite2D.play("death")
+		$AnimatedSprite2D.play("death")
 		pass
 		
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
@@ -97,6 +106,7 @@ func deal_with_damage():
 			print("Vida del leñador: ", health)
 			if health == 0:
 				$deathTimer.start()
+				$AnimatedSprite2D.play("death")
 				$CollisionShape2D.disabled = true
 				isAlive = false
 				verifyMisions()
@@ -112,3 +122,7 @@ func verifyMisions():
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()
+
+
+func _on_spawn_timeout() -> void:
+	has_spawn = true
