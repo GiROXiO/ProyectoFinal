@@ -55,13 +55,13 @@ func _physics_process(_delta: float) -> void:
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = true
-		print("Entro")
 	else:
 		print(area.name)
+		
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = false
-		print("Salio")
+
 
 func _on_detection_area_body_entered(body: Node2D) -> void: 
 	player = body # Cualquier cosa que entre al area de detección, sera la variable body
@@ -99,14 +99,16 @@ func deal_with_damage():
 				$deathTimer.start()
 				$CollisionShape2D.disabled = true
 				isAlive = false
-					
-				Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
-				print(Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated)
+				verifyMisions()
+				
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	takeDamage = 1
+	
+func verifyMisions():
+	Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()

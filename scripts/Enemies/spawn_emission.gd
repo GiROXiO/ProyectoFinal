@@ -40,7 +40,7 @@ func missionVerifier():
 		print("Se actualizo cooldown")
 		$cooldown.start()
 	
-	if Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed and verifyMono == false:
+	if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed and verifyMono == false:
 		verifyMono = true
 		$cooldown.stop()
 		$cooldown.wait_time += 1.5

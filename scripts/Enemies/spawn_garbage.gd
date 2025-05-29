@@ -4,7 +4,6 @@ extends Area2D
 var bool_spawn = false
 var spawn_count = 0
 var random = RandomNumberGenerator.new()
-var verifyMaritza = false
 var verifyPonllo = false
 func _ready() -> void:
 	random.randomize()
@@ -37,12 +36,6 @@ func _on_cooldown_timeout() -> void:
 	bool_spawn = true
 	
 func missionVerifier():
-	if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed and verifyMaritza == false:
-		verifyMaritza = true
-		$cooldown.stop()
-		$cooldown.wait_time += 1.5
-		print("Se actualizo cooldown")
-		$cooldown.start()
 		
 	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed and verifyPonllo == false:
 		verifyPonllo = true

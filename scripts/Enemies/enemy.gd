@@ -96,16 +96,17 @@ func _on_take_damage_cooldown_timeout() -> void:
 	$take_damage_cooldown.stop()
 	$CollisionShape2D.disabled = true
 	isAlive = false
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
+	verifyMision()
+	self.queue_free()
+	
+func verifyMision():
 	if Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted and Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions += 1
 	if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted and Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions += 1
 	Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
 	print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
-	$AnimatedSprite2D.modulate = Color(1, 1, 1)
-	self.queue_free()
-	
-
 
 func _on_spawn_timeout() -> void:
 	has_spawn = true

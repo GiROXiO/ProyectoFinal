@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6lsxjy4p1xyo"]
+[gd_scene load_steps=19 format=3 uid="uid://b6lsxjy4p1xyo"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -12,8 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://bni0b7jj5bu1i" path="res://music/bonk_AgRFvsD.mp3" id="14_xo05s"]
 [ext_resource type="AudioStream" uid="uid://cx5p5kciljc38" path="res://music/jerma985-gyass-sor3q7xmg_m.mp3" id="15_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://cl51afnibmorf" path="res://scenes/NPCs/Luis.tscn" id="15_dss4m"]
+[ext_resource type="PackedScene" uid="uid://mlu3x1hqmiar" path="res://scenes/Enemies/dummy.tscn" id="16_dss4m"]
 [ext_resource type="PackedScene" uid="uid://dsathrefiyu4m" path="res://scenes/Enemies/spawn_lumberjacks.tscn" id="17_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://c5f18fck068ye" path="res://scenes/Enemies/gas.tscn" id="17_lakw3"]
 [ext_resource type="PackedScene" uid="uid://bttiiodu6hdcg" path="res://scenes/Enemies/spawn_garbage.tscn" id="18_lakw3"]
+[ext_resource type="PackedScene" uid="uid://bxf7h13udwao7" path="res://scenes/invisible_wall.tscn" id="18_pm21f"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/Enemies/spawn_emissions.tscn" id="19_pm21f"]
 
 [node name="World" type="Node2D"]
@@ -24,12 +27,12 @@ metadata/_edit_vertical_guides_ = [-141.0]
 [node name="Tilemap1" parent="." instance=ExtResource("2_jhx03")]
 
 [node name="Player" parent="." instance=ExtResource("4_k0juu")]
-position = Vector2(574, 576)
+position = Vector2(588, 490)
 
 [node name="GarbagePickerEntity" parent="Player" instance=ExtResource("4_lakw3")]
 
 [node name="Luis" parent="." instance=ExtResource("15_dss4m")]
-position = Vector2(716, 365)
+position = Vector2(492, 290)
 
 [node name="Maritza" parent="." instance=ExtResource("11_q5onr")]
 y_sort_enabled = true
@@ -68,3 +71,12 @@ position = Vector2(279, 136)
 
 [node name="spawn_garbage3" parent="." instance=ExtResource("18_lakw3")]
 position = Vector2(594, 704)
+
+[node name="Dummy" parent="." instance=ExtResource("16_dss4m")]
+position = Vector2(774, 326)
+
+[node name="gas2" parent="." instance=ExtResource("17_lakw3")]
+position = Vector2(777, 362)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("18_pm21f")]
+position = Vector2(588, 544)
