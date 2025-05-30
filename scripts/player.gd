@@ -251,73 +251,71 @@ func _on_attack_cooldown_timeout() -> void:
 
 func attack():
 	var dir = current_dir
-	var tutorial_completed = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
-	tutorial_completed = true #Mientras tanto para hacer pruebas
-	if tutorial_completed:
-		if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false:
-			global.player_current_attack = true
-			attack_ip = true
-			if dir == "right":
-				$AnimatedSprite2D.flip_h = false
-				$AnimatedSprite2D.play("side_attack")
-				$deal_attack_timer.start()
-			if dir == "left":
-				$AnimatedSprite2D.flip_h = true
-				$AnimatedSprite2D.play("side_attack")
-				$deal_attack_timer.start()
-			if dir == "down":
-				$AnimatedSprite2D.flip_h = false
-				$AnimatedSprite2D.play("front_attack")
-				$deal_attack_timer.start()
-			if dir == "up":
-				$AnimatedSprite2D.flip_h = false
-				$AnimatedSprite2D.play("back_attack")
-				$deal_attack_timer.start()
-				
-		elif Input.is_action_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 1:
-			global.player_current_aspire = true
-			attack_ip = true
-			if dir == "right":
-				$AnimatedSprite2D.flip_h = false
-				#Basicamente esta parte
-				$AnimatedSprite2D.play("side_vacuum")
-				$deal_attack_timer.start()
-			elif dir == "left":
-				$AnimatedSprite2D.flip_h = true
-				#Esta otra
-				$AnimatedSprite2D.play("side_vacuum")
-				$deal_attack_timer.start()
-			elif dir == "down":
-				$AnimatedSprite2D.flip_h = false
-				#Esta de aqui tambien
-				$AnimatedSprite2D.play("front_vacuum")
-				$deal_attack_timer.start()
-			elif dir == "up":
-				$AnimatedSprite2D.flip_h = false
-				#Esta de aqui tambien
-				$AnimatedSprite2D.play("back_vacuum")
-				$deal_attack_timer.start()
-		
-		elif Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 2:
-			if global.another_entity == false:
-				global.another_entity = true
-			else:
-				global.another_entity = false
-				
-		if global.isChatting == true:
-			attack_ip = false
-			if dir == "up":
-				$AnimatedSprite2D.play("back_init")
-				$AnimatedSprite2D.flip_h = false
-			elif dir == "down":
-				$AnimatedSprite2D.play("front_init")
-				$AnimatedSprite2D.flip_h = false
-			elif dir == "right":
-				$AnimatedSprite2D.play("side_init")
-				$AnimatedSprite2D.flip_h = false
-			elif dir == "left":
-				$AnimatedSprite2D.play("side_init")
-				$AnimatedSprite2D.flip_h = true
+	
+	if can_attack():
+		global.player_current_attack = true
+		attack_ip = true
+		if dir == "right":
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("side_attack")
+			$deal_attack_timer.start()
+		if dir == "left":
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("side_attack")
+			$deal_attack_timer.start()
+		if dir == "down":
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("front_attack")
+			$deal_attack_timer.start()
+		if dir == "up":
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("back_attack")
+			$deal_attack_timer.start()
+			
+	elif Input.is_action_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 1:
+		global.player_current_aspire = true
+		attack_ip = true
+		if dir == "right":
+			$AnimatedSprite2D.flip_h = false
+			#Basicamente esta parte
+			$AnimatedSprite2D.play("side_vacuum")
+			$deal_attack_timer.start()
+		elif dir == "left":
+			$AnimatedSprite2D.flip_h = true
+			#Esta otra
+			$AnimatedSprite2D.play("side_vacuum")
+			$deal_attack_timer.start()
+		elif dir == "down":
+			$AnimatedSprite2D.flip_h = false
+			#Esta de aqui tambien
+			$AnimatedSprite2D.play("front_vacuum")
+			$deal_attack_timer.start()
+		elif dir == "up":
+			$AnimatedSprite2D.flip_h = false
+			#Esta de aqui tambien
+			$AnimatedSprite2D.play("back_vacuum")
+			$deal_attack_timer.start()
+	
+	elif Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 2:
+		if global.another_entity == false:
+			global.another_entity = true
+		else:
+			global.another_entity = false
+			
+	if global.isChatting == true:
+		attack_ip = false
+		if dir == "up":
+			$AnimatedSprite2D.play("back_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "down":
+			$AnimatedSprite2D.play("front_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "right":
+			$AnimatedSprite2D.play("side_init")
+			$AnimatedSprite2D.flip_h = false
+		elif dir == "left":
+			$AnimatedSprite2D.play("side_init")
+			$AnimatedSprite2D.flip_h = true
 	else:
 		if global.isChatting == true:
 			attack_ip = false
@@ -425,6 +423,10 @@ func change_size_attackArea():
 func get_life() -> int:
 	return health
 
+func can_attack():
+	var tutorial_completed = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
+	tutorial_completed = true # Mientras tanto para hacer pruebas
+	return tutorial_completed and Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false
 
 
 func _on_dash_time_timeout() -> void:
