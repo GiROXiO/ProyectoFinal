@@ -86,8 +86,9 @@ position = Vector2(711, 488)
 [node name="spawnsItems" type="Node2D" parent="."]
 
 [node name="spawn_items" parent="spawnsItems" instance=ExtResource("19_2lf6f")]
-position = Vector2(108, 368)
+position = Vector2(590, 384)
+generationType = 1
 foodType = 2
-limit_spawn = 3
-cooldown = 400
-margen = 10
+limit_spawn = 15
+cooldown = 2
+margen = 60

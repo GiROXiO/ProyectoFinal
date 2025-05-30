@@ -7,3 +7,4 @@ enum organic {}
 enum recyclable {}
 enum unrecyclable {}
 enum sprouts {}
+enum generation {UNIQUE,VARIED}
