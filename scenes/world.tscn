@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6lsxjy4p1xyo"]
+[gd_scene load_steps=20 format=3 uid="uid://b6lsxjy4p1xyo"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c5f18fck068ye" path="res://scenes/Enemies/gas.tscn" id="17_lakw3"]
 [ext_resource type="PackedScene" uid="uid://bttiiodu6hdcg" path="res://scenes/Enemies/spawn_garbage.tscn" id="18_lakw3"]
 [ext_resource type="PackedScene" uid="uid://bxf7h13udwao7" path="res://scenes/invisible_wall.tscn" id="18_pm21f"]
+[ext_resource type="PackedScene" uid="uid://cr8vm1x4iccup" path="res://scenes/items/spawn_items.tscn" id="19_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/Enemies/spawn_emissions.tscn" id="19_pm21f"]
 
 [node name="World" type="Node2D"]
@@ -46,6 +47,7 @@ position = Vector2(1064, 407)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
+visible = false
 
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
@@ -80,3 +82,12 @@ position = Vector2(777, 362)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("18_pm21f")]
 position = Vector2(711, 488)
+
+[node name="spawnsItems" type="Node2D" parent="."]
+
+[node name="spawn_items" parent="spawnsItems" instance=ExtResource("19_2lf6f")]
+position = Vector2(108, 368)
+foodType = 2
+limit_spawn = 3
+cooldown = 400
+margen = 10
