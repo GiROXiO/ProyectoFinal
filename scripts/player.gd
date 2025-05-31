@@ -239,7 +239,7 @@ func enemy_attack():
 		if health == 0:
 			global.player_current_attack = false
 			health = 100
-			position = Vector2(980,417)
+			position = Vector2(3064,1486)
 			gameData.save_to_file()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 		else:
@@ -426,7 +426,7 @@ func get_life() -> int:
 
 func can_attack():
 	var tutorial_completed = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
-	tutorial_completed = true # Mientras tanto para hacer pruebas
+	# tutorial_completed = true # Mientras tanto para hacer pruebas
 	return tutorial_completed and Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false
 
 

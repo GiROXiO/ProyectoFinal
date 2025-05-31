@@ -30,27 +30,26 @@ metadata/_edit_vertical_guides_ = [-141.0]
 [node name="Tilemap1" parent="." instance=ExtResource("2_jhx03")]
 
 [node name="Player" parent="." instance=ExtResource("4_k0juu")]
-position = Vector2(980, 425)
+position = Vector2(2834, 1385)
 
 [node name="GarbagePickerEntity" parent="Player" instance=ExtResource("4_lakw3")]
+visible = false
 
 [node name="Luis" parent="." instance=ExtResource("15_dss4m")]
-position = Vector2(942, 431)
+position = Vector2(3548, 1378)
 
 [node name="Maritza" parent="." instance=ExtResource("11_q5onr")]
 y_sort_enabled = true
-position = Vector2(979, 522)
+position = Vector2(3064, 1446)
 
 [node name="Mono" parent="." instance=ExtResource("12_jhx03")]
 position = Vector2(92, 185)
 
 [node name="Ponllo" parent="." instance=ExtResource("12_q5onr")]
-visible = false
 position = Vector2(1064, 407)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
-visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 offset_left = 849.0
@@ -63,11 +62,15 @@ script = ExtResource("10_7iits")
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(300, 210)
-render_target_update_mode = 0
+render_target_update_mode = 4
 script = ExtResource("10_2lf6f")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.2, 0.2)
+limit_left = 14
+limit_top = 12
+limit_right = 5049
+limit_bottom = 2265
 
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
@@ -95,13 +98,16 @@ position = Vector2(279, 136)
 position = Vector2(594, 704)
 
 [node name="Dummy" parent="." instance=ExtResource("16_dss4m")]
-position = Vector2(936, 397)
+position = Vector2(2574, 1368)
 
 [node name="gas2" parent="." instance=ExtResource("17_lakw3")]
-position = Vector2(1028, 404)
+position = Vector2(2574, 1309)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("18_pm21f")]
-position = Vector2(984, 368)
+position = Vector2(2838, 1195)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("18_pm21f")]
+position = Vector2(2699, 1587)
 
 [node name="spawnsItems" type="Node2D" parent="."]
 
