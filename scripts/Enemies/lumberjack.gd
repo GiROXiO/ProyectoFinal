@@ -5,6 +5,7 @@ var player_chase = false
 var player = null
 var current_dir = "up"
 
+var has_spawn = false
 var isAlive = true
 var health = 60
 var player_inattack_zone = false
@@ -12,17 +13,23 @@ var enemy_inattackzone = false
 var can_take_damage = true
 var takeDamage = 1
 
+func _ready() -> void:
+	$take_damage_cooldown.wait_time = 0.5
+	$AnimatedSprite2D.play("spawn")
+	$spawn.wait_time = 0.8
+	$spawn.start()
+
 func _physics_process(_delta: float) -> void:
-	if isAlive:
+	if isAlive and has_spawn:
 		if global.isChatting == false:
 			deal_with_damage()
 			
 			if player_chase:
-				position += ((player.position - position) / speed) * takeDamage
+				global_position += ((player.global_position - global_position) / speed) * takeDamage
 				
 				move_and_collide(Vector2(0,0))
 				
-				if player.position.y - position.y < 0:
+				if player.global_position.y - global_position.y < 0:
 					current_dir = "up"
 				else:
 					current_dir = "down"
@@ -39,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 						else:
 							$AnimatedSprite2D.play("back_walk")
 						
-				if (player.position.x - position.x) < 0:
+				if (player.global_position.x - global_position.x) < 0:
 					$AnimatedSprite2D.flip_h = true
 				else:
 					$AnimatedSprite2D.flip_h = false
@@ -48,20 +55,22 @@ func _physics_process(_delta: float) -> void:
 				velocity = Vector2.ZERO
 				move_and_slide()
 				$AnimatedSprite2D.play("front_init")
+	elif has_spawn == false:
+		$AnimatedSprite2D.play("spawn")
 	else:
-		# $AnimatedSprite2D.play("death")
+		$AnimatedSprite2D.play("death")
 		pass
 		
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = true
-		print("Entro")
 	else:
 		print(area.name)
+		
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = false
-		print("Salio")
+
 
 func _on_detection_area_body_entered(body: Node2D) -> void: 
 	player = body # Cualquier cosa que entre al area de detección, sera la variable body
@@ -97,19 +106,23 @@ func deal_with_damage():
 			print("Vida del leñador: ", health)
 			if health == 0:
 				$deathTimer.start()
+				$AnimatedSprite2D.play("death")
 				$CollisionShape2D.disabled = true
 				isAlive = false
+				verifyMisions()
 				
-				if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
-					Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_lumberjacks += 1
-					
-				Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
-				print(Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated)
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	takeDamage = 1
+	
+func verifyMisions():
+	Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()
+
+
+func _on_spawn_timeout() -> void:
+	has_spawn = true

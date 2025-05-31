@@ -1,40 +1,56 @@
 join Luis left
-if {MissionAcepted.Luis_Mission.luis_mission_accepted} == false:
-	Luis: ¿Sabes que le dijo un perro a otro perro?
-	- Ehhh, ¿que?
-		Luis: Le dice wuau
-		Luis: Jajajajajajajaja
-		Luis: Casi me quede sin amigos por decir eso
-		- Lastima, en fin, ¿en que puedo ayudar?
-			Luis: ¿Podrias derrotar a 10 emisiones por mi? han invadido mucho esta zona y no me dejan contar mis chistes
-			Luis: Tambien ayudarias en la lucha del cambio climático, si eso es lo que te importa
-			- Lo hare, pero por favor no vuelvas a decirme ningún chiste
-				Luis: Aaaaanda bueno
-				Luis: Te estare esperando para cuando termines
-				Me llamo Luis por cierto
-				set {MissionAcepted.Luis_Mission.luis_mission_accepted} = true
-	- Adios
-		Luis: Grosero
-elif {MissionAcepted.Luis_Mission.luis_mission_completed} == true:
-	Luis: ¿Quieres escuchar un chiste?
-	Luis: Bueno ya me quedo callado
+if {MissionAcepted.Maritza_Mision.maritza_mission_completed} == true:
+	if {MissionAcepted.Luis_Mission.luis_mission_accepted} == false:
+		Luis: ¿Sabes que le dijo un perro a otro perro?
+		- Ehhh, ¿que?
+			Luis: Le dice wuau
+			Luis: Jajajajajajajaja
+			Luis: Casi me quede sin amigos por decir eso
+			- Lastima, en fin, ¿en que puedo ayudar?
+				Luis: Verdad, te escuche hablar con Maritza, que tu vas a ayudar y que no se que
+				Luis: Bueno
+				Luis: ¿Podrias derrotar a 10 emisiones por mi? han invadido mucho esta zona y no me dejan contar mis chistes
+				Luis: Tambien ayudarias en la lucha del cambio climático, si eso es lo que te importa
+				- Lo hare, pero por favor no vuelvas a decirme ningún chiste
+					Luis: Aaaaanda bueno
+					Luis: Te estare esperando para cuando termines
+					Me llamo Luis por cierto
+					set {MissionAcepted.Luis_Mission.luis_mission_accepted} = true
+		- Adios
+			Luis: Grosero
+	elif {MissionAcepted.Luis_Mission.luis_mission_completed} == true:
+		Luis: ¿Quieres escuchar un chiste?
+		Luis: Bueno ya me quedo callado
+	else:
+		Luis: ¿Ya derrotaste a las emisiones?
+		- Claro que si viejo Luis
+			if {EnemiesDefeated.emissions_defeated} >= 10.0:
+				Luis: MUCHAS GRACIAS
+				Luis: Podre contar mis chistes ahora
+				- No gracias, seguire buscando a ver que más puedo hacer
+					Luis: Aaaaanda bueno
+					Luis: Solo por lo que hiciste te la dejo pasar
+					Luis: Puedes ir donde mi amigo Ponllo a ver que quiere, ¡nos vemos!
+					set {MissionAcepted.Luis_Mission.luis_mission_completed} = true
+			else:
+				Luis: Hey pero si no haz derrotado a 10
+				Luis: Barro que me mientas
+		- Nada viejo Luis, aún no
+			Luis: Vaya y hagalo
+			Luis: O le doy su nalgada
+			- ¿Que?
+				Luis: Uno nunca sabe
+elif {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == true:
+	Luis: Vaya y hagale caso a Maritza
+	Luis: A toda la catedr...
+	Luis: Entrenamiento que le dio
+	Luis: Ya ahorita hablo con usted y le cuento un buen chiste
+	- ¿Ok?
 else:
-	Luis: ¿Ya derrotaste a las emisiones?
-	- Claro que si viejo Luis
-		if {EnemiesDefeated.emissions_defeated} >= 10.0:
-			Luis: MUCHAS GRACIAS
-			Luis: Podre contar mis chistes ahora
-			- No gracias, seguire buscando a ver que más puedo hacer
-				Luis: Aaaaanda bueno
-				Luis: Solo por lo que hiciste te la dejo pasar
-				Luis: Puedes ir donde mi amigo Ponllo a ver que quiere, ¡nos vemos!
-				set {MissionAcepted.Luis_Mission.luis_mission_completed} = true
-		else:
-			Luis: Hey pero si no haz derrotado a 10
-			Luis: Barro que me mientas
-	- Nada viejo Luis, aún no
-		Luis: Vaya y hagalo
-		Luis: O le doy su nalgada
-		- ¿Que?
-			Luis: Uno nunca sabe
+	Luis: Vaya y hable primero con la señora Maritza
+	Luis: No sea irrespetuoso
+	- ¿Es irrespetuoso primero hablar contigo?
+		Luis: ...
+		Luis: Vaya y hable con ella
+	- Ok
 [signal arg="exit_luis"]

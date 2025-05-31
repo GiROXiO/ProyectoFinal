@@ -252,7 +252,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false:
+	if can_attack():
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -316,6 +316,21 @@ func attack():
 		elif dir == "left":
 			$AnimatedSprite2D.play("side_init")
 			$AnimatedSprite2D.flip_h = true
+	else:
+		if global.isChatting == true:
+			attack_ip = false
+			if dir == "up":
+				$AnimatedSprite2D.play("back_init")
+				$AnimatedSprite2D.flip_h = false
+			elif dir == "down":
+				$AnimatedSprite2D.play("front_init")
+				$AnimatedSprite2D.flip_h = false
+			elif dir == "right":
+				$AnimatedSprite2D.play("side_init")
+				$AnimatedSprite2D.flip_h = false
+			elif dir == "left":
+				$AnimatedSprite2D.play("side_init")
+				$AnimatedSprite2D.flip_h = true
 
 func _on_deal_attack_timer_timeout() -> void:
 	$deal_attack_timer.stop()
@@ -408,6 +423,10 @@ func change_size_attackArea():
 func get_life() -> int:
 	return health
 
+func can_attack():
+	var tutorial_completed = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
+	tutorial_completed = true # Mientras tanto para hacer pruebas
+	return tutorial_completed and Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false
 
 
 func _on_dash_time_timeout() -> void:

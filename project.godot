@@ -26,6 +26,7 @@ gameData="*res://scenes/gameData.tscn"
 directories/dch_directory={
 "Aspiradora": "res://Dialogic/Characters/Aspiradora.dch",
 "Escoba": "res://Dialogic/Characters/Escoba.dch",
+"Golero": "res://Dialogic/Characters/Golero.dch",
 "Luis": "res://Dialogic/Characters/Luis.dch",
 "Maritza": "res://Dialogic/Characters/Maritza.dch",
 "Mono": "res://Dialogic/Characters/Mono.dch",
@@ -91,9 +92,12 @@ variables={
 "luis_mission_completed": false
 },
 "Maritza_Mision": {
-"maritza_garbage": 0,
+"maritza_dummy": false,
+"maritza_garbage_picker": 0,
+"maritza_gas": false,
 "maritza_mission_accepted": false,
-"maritza_mission_completed": false
+"maritza_mission_completed": false,
+"maritza_punches_dummy": 0
 },
 "Mono_Mission": {
 "mono_emissions": 0,
@@ -101,7 +105,7 @@ variables={
 "mono_mission_completed": false
 },
 "Ponllo_Mission": {
-"ponllo_lumberjacks": 0,
+"ponllo_garbage": 0,
 "ponllo_mission_accepted": false,
 "ponllo_mission_completed": false
 }

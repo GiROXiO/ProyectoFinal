@@ -34,8 +34,8 @@ func to_dict_reset() -> Dictionary:
 		"health": health,
 		"inventory": {},
 		"position": {
-						"x": 574,
-						"y": 576
+						"x": 588,
+						"y": 490
 					}
 	}
 

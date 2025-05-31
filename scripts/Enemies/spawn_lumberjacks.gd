@@ -13,14 +13,17 @@ func _process(_delta: float) -> void:
 	missionVerifier()
 	spawn()
 
-func spawn():
-	if spawn_count > 0 and bool_spawn and global.isChatting == false:
+func spawn():	
+	spawn_count = $SpawnedEnemies.get_child_count()
+	
+	if spawn_count <= 3 and bool_spawn and global.isChatting == false:
 		$cooldown.start()
 		bool_spawn = false
 		var enemy_instance = Enemy_Scene.instantiate()
-		enemy_instance.global_position = Vector2(position.x + random.randi_range(-50, 50), position.y + random.randi_range(-50, 50))
-		get_tree().current_scene.add_child(enemy_instance)
-		print("Enemigo instanciado")
+		var spawn_pos = Vector2(position.x + random.randi_range(-50, 50), position.y + random.randi_range(-50, 50))
+		enemy_instance.position = $SpawnedEnemies.to_local(spawn_pos)
+		$SpawnedEnemies.add_child(enemy_instance)		
+		print(spawn_count)
 	
 	
 
@@ -30,17 +33,8 @@ func _on_cooldown_timeout() -> void:
 	bool_spawn = true
 
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.has_method("enemy") and spawn_count <= 0:
-		spawn_count = 4
-
 func missionVerifier():
-	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_lumberjacks and verifyPonllo == false:
-		verifyPonllo = true
-		$cooldown.stop()
-		$cooldown.wait_time += 1.5
-		print("Se actualizo cooldown")
-		$cooldown.start()
+	pass
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	print("Se ve en pantalla")

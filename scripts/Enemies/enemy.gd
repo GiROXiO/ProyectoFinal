@@ -23,12 +23,12 @@ func _physics_process(_delta: float) -> void:
 			deal_with_damage()
 			
 			if player_chase and current_damagin == false:
-				position += ((player.position - position) / speed) * takeDamage
+				global_position += ((player.global_position - global_position) / speed) * takeDamage
 
 				move_and_collide(Vector2(0,0))
 				$AnimatedSprite2D.play("walk")
 				
-				if (player.position.x - position.x) < 0:
+				if (player.global_position.x - global_position.x) < 0:
 					$AnimatedSprite2D.flip_h = true
 				else:
 					$AnimatedSprite2D.flip_h = false
@@ -96,16 +96,17 @@ func _on_take_damage_cooldown_timeout() -> void:
 	$take_damage_cooldown.stop()
 	$CollisionShape2D.disabled = true
 	isAlive = false
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
+	verifyMision()
+	self.queue_free()
+	
+func verifyMision():
 	if Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted and Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions += 1
 	if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted and Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions += 1
 	Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
 	print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
-	$AnimatedSprite2D.modulate = Color(1, 1, 1)
-	self.queue_free()
-	
-
 
 func _on_spawn_timeout() -> void:
 	has_spawn = true

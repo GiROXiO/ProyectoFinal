@@ -2,10 +2,9 @@ extends Area2D
 
 @onready var Enemy_Scene = load("res://scenes/Enemies/Garbage.tscn")
 var bool_spawn = false
-var spawn_count = 4
+var spawn_count = 0
 var random = RandomNumberGenerator.new()
-var verifyMaritza = false
-
+var verifyPonllo = false
 func _ready() -> void:
 	random.randomize()
 
@@ -14,28 +13,32 @@ func _process(_delta: float) -> void:
 	spawn()
 
 func spawn():	
-	if spawn_count > 0 and bool_spawn and global.isChatting == false:
+	spawn_count = $SpawnedEnemies.get_child_count()
+	
+	if spawn_count <= 3 and bool_spawn and global.isChatting == false:
 		$cooldown.start()
 		bool_spawn = false
 		var enemy_instance = Enemy_Scene.instantiate()
-		enemy_instance.global_position = Vector2(position.x + random.randi_range(-50, 50), position.y + random.randi_range(-50, 50))
-		get_tree().current_scene.add_child(enemy_instance)
+		var spawn_pos = Vector2(position.x + random.randi_range(-50, 50), position.y + random.randi_range(-50, 50))
+		enemy_instance.position = $SpawnedEnemies.to_local(spawn_pos)
+		$SpawnedEnemies.add_child(enemy_instance)		
+		#get_tree().current_scene.add_child(enemy_instance)
+		print("VISIBLE:", enemy_instance.visible)
+		print("MODULATE:", enemy_instance.modulate)
+		print("SCALE:", enemy_instance.scale)
+		print("Dentro del árbol:", enemy_instance.is_inside_tree())
+		print("$SpawnedEnemies is inside tree: ", $SpawnedEnemies.is_inside_tree())
+
 		print(spawn_count)
 	
 
 func _on_cooldown_timeout() -> void:
-	spawn_count -= 1
 	bool_spawn = true
 	
-
-func _on_body_exited(body: Node2D) -> void:
-	if body.has_method("enemy") and spawn_count <= 0:
-		spawn_count = 4
-		print("Se subio el spawn count")
-
 func missionVerifier():
-	if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed and verifyMaritza == false:
-		verifyMaritza = true
+		
+	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed and verifyPonllo == false:
+		verifyPonllo = true
 		$cooldown.stop()
 		$cooldown.wait_time += 1.5
 		print("Se actualizo cooldown")

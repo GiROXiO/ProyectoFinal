@@ -24,12 +24,12 @@ func _physics_process(_delta: float) -> void:
 			deal_with_damage()
 			if player_chase:
 				
-				if player.position.y - position.y < 0:
+				if player.global_position.y - global_position.y < 0:
 					current_dir = "up"
 				else:
 					current_dir = "down"
 					
-				position += ((player.position - position) / speed) * takeDamage
+				global_position += ((player.global_position - global_position) / speed) * takeDamage
 				move_and_collide(Vector2(0,0))
 				
 				if current_dir == "up":
@@ -37,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 				else:
 					$AnimatedSprite2D.play("front_walk")
 					
-				if (player.position.x - position.x) < 0:
+				if (player.global_position.x - global_position.x) < 0:
 					$AnimatedSprite2D.flip_h = true
 				else:
 					$AnimatedSprite2D.flip_h = false
@@ -100,15 +100,17 @@ func deal_with_damage():
 				$CollisionShape2D.disabled = true
 				$deathTimer.start()
 				isAlive = false
-				Dialogic.VAR.EnemiesDefeated.garbage_defeated += 1
-				if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted and Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed == false:
-					Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage += 1
+				verifyMisions()
 			
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	takeDamage = 1
 
+func verifyMisions():
+	Dialogic.VAR.EnemiesDefeated.garbage_defeated += 1
+	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
+		Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_garbage += 1
 
 
 func _on_death_timer_timeout() -> void:
