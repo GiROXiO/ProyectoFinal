@@ -52,7 +52,6 @@ position = Vector2(1064, 407)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
-visible = false
 
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
