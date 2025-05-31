@@ -28,23 +28,26 @@ func _physics_process(delta):
 func garbage_picker_movement(_delta):
 	
 	if Input.is_key_pressed(KEY_D):
-		
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("side_flight")
 		velocity.x = speed
 		velocity.y = 0
 	
 	elif Input.is_key_pressed(KEY_A):
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("side_flight")
 		velocity.x = -speed
 		velocity.y = 0
 		
 	elif Input.is_key_pressed(KEY_W):
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("side_flight")
 		velocity.x = 0
 		velocity.y = -speed
 		
 	elif Input.is_key_pressed(KEY_S):
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("front_flight")
 		velocity.x = 0
 		velocity.y = speed
 		

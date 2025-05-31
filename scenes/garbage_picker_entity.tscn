@@ -1,11 +1,147 @@
-[gd_scene load_steps=5 format=3 uid="uid://4abm1p3atgmb"]
+[gd_scene load_steps=23 format=3 uid="uid://4abm1p3atgmb"]
 
 [ext_resource type="Script" uid="uid://b1mo5io0ugk32" path="res://scripts/garbage_picker_entity.gd" id="1_ra6i0"]
+[ext_resource type="Texture2D" uid="uid://dnf2ycua2vs0" path="res://art/characters/spritesheet golero.png" id="2_ra6i0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra6i0"]
 radius = 15.0333
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4glp0"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt2le"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sd7x"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrmak"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juk1o"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtfah"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnyl0"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a51w"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr13u"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvwwo"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty78w"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwmkl"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c64l5"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tor30"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1gwa"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhjdl"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcfh5"]
+atlas = ExtResource("2_ra6i0")
+region = Rect2(352, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6sd7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4glp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt2le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sd7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrmak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juk1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtfah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnyl0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a51w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr13u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvwwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty78w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwmkl")
+}],
+"loop": true,
+"name": &"front_flight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c64l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tor30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1gwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhjdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcfh5")
+}],
+"loop": true,
+"name": &"side_flight",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4glp0"]
 radius = 14.0
@@ -20,7 +156,7 @@ shape = SubResource("CircleShape2D_ra6i0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6sd7x")
-frame_progress = 0.679249
+animation = &"side_flight"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
