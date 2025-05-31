@@ -20,6 +20,7 @@ config/icon="uid://dqctik4ta3ckr"
 global="*res://scripts/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 gameData="*res://scenes/gameData.tscn"
+OptionsBus="*res://scripts/optionsBus.gd"
 
 [dialogic]
 

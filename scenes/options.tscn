@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b73bsknbw7gv"]
 
 [ext_resource type="Script" uid="uid://b756u4kc6g8nv" path="res://scripts/options.gd" id="1_c2u1v"]
-[ext_resource type="Texture2D" uid="uid://bwrq7an4b0pe3" path="res://art/images/inicio.png" id="2_kv8mn"]
-[ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scenes/master_sound.gd" id="2_yjkok"]
+[ext_resource type="Texture2D" uid="uid://dpna7lkpo06v7" path="res://art/images/inicio.png" id="2_kv8mn"]
+[ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="2_yjkok"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_1sggn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
@@ -177,7 +177,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "Filter1"
+text = "R/V"
 
 [node name="btnFilter2" type="Button" parent="MarginContainer/GridContainer/BtnFilterContainer"]
 layout_mode = 2
@@ -186,7 +186,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "Filter1"
+text = "A/A"
 
 [node name="btnFilter3" type="Button" parent="MarginContainer/GridContainer/BtnFilterContainer"]
 layout_mode = 2
@@ -195,7 +195,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "Filter1"
+text = "Monocromatismo"
 
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter1" to="." method="_on_btn_filter_1_pressed"]

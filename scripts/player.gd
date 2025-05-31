@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal toolChanged(index:int)
 signal usedItem(item: InventoryItem)
 
-@onready var inventory_gui: InventoryGui = get_parent().get_node("CanvasLayer/InventoryGUI")
+@onready var inventory_gui: InventoryGui = get_parent().get_node("GUI/InventoryGUI")
 @export var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")
 
 var enemy_inattack_range = false
