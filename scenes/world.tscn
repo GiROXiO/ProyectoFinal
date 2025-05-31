@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/Enemies/spawn_emissions.tscn" id="19_pm21f"]
 
 [node name="World" type="Node2D"]
+light_mask = 3
 y_sort_enabled = true
 script = ExtResource("1_w7kh3")
 metadata/_edit_vertical_guides_ = [-141.0]
@@ -52,7 +53,6 @@ position = Vector2(1064, 407)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
-visible = false
 
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
@@ -64,21 +64,6 @@ stream = ExtResource("15_7t5mc")
 
 [node name="texto" type="AudioStreamPlayer" parent="."]
 
-[node name="spawn_garbage" parent="." instance=ExtResource("18_lakw3")]
-position = Vector2(187, 708)
-
-[node name="spawn_garbage2" parent="." instance=ExtResource("18_lakw3")]
-position = Vector2(983, 707)
-
-[node name="spawn_lumberjacks" parent="." instance=ExtResource("17_7t5mc")]
-position = Vector2(903, 153)
-
-[node name="spawn_emissions" parent="." instance=ExtResource("19_pm21f")]
-position = Vector2(279, 136)
-
-[node name="spawn_garbage3" parent="." instance=ExtResource("18_lakw3")]
-position = Vector2(594, 704)
-
 [node name="Dummy" parent="." instance=ExtResource("16_dss4m")]
 position = Vector2(774, 326)
 
@@ -88,12 +73,90 @@ position = Vector2(777, 362)
 [node name="StaticBody2D" parent="." instance=ExtResource("18_pm21f")]
 position = Vector2(711, 488)
 
-[node name="spawnsItems" type="Node2D" parent="."]
+[node name="spawn_lumberjacks" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(2752, 467)
 
-[node name="spawn_items" parent="spawnsItems" instance=ExtResource("19_2lf6f")]
-position = Vector2(590, 384)
+[node name="spawn_lumberjacks2" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(3158, 1006)
+
+[node name="spawn_lumberjacks3" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(3670, 990)
+
+[node name="spawn_emissions" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(2060, 693)
+
+[node name="spawn_emissions2" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(234, 927)
+
+[node name="spawn_emissions3" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(1149, 1107)
+
+[node name="spawn_emissions4" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(458, 159)
+
+[node name="spawn_emissions5" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(1621, 151)
+
+[node name="spawn_garbage" parent="." instance=ExtResource("18_lakw3")]
+light_mask = 1
+position = Vector2(1710, 1997)
+
+[node name="spawn_garbage2" parent="." instance=ExtResource("18_lakw3")]
+light_mask = 1
+position = Vector2(2453, 2068)
+
+[node name="spawn_garbage3" parent="." instance=ExtResource("18_lakw3")]
+light_mask = 1
+position = Vector2(3268, 2086)
+
+[node name="spawn_items" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2971, 1421)
 generationType = 1
 foodType = 2
 limit_spawn = 15
 cooldown = 2
 margen = 60
+
+[node name="spawn_items2" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3017, 1436)
+generationType = 1
+
+[node name="spawn_items3" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3085, 1437)
+generationType = 1
+
+[node name="spawn_items4" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3142, 1419)
+generationType = 1
+
+[node name="AppleSpawner" type="Node2D" parent="."]
+
+[node name="spawn_items" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
+position = Vector2(4309, 940)
+foodType = 1
+
+[node name="spawn_items2" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
+position = Vector2(4561, 1089)
+foodType = 1
+
+[node name="spawn_items3" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
+position = Vector2(4642, 785)
+foodType = 1
+
+[node name="spawn_items4" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
+position = Vector2(4321, 661)
+foodType = 1
+
+[node name="CherrySpawner" type="Node2D" parent="."]
+position = Vector2(17, 50)
+
+[node name="spawn_items" parent="CherrySpawner" instance=ExtResource("19_2lf6f")]
+position = Vector2(4480, 779)

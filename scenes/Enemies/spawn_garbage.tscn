@@ -6,6 +6,7 @@
 size = Vector2(239, 158.5)
 
 [node name="spawn_garbage" type="Area2D"]
+light_mask = 3
 script = ExtResource("1_8o7nn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

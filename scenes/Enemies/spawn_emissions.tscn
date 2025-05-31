@@ -6,6 +6,7 @@
 size = Vector2(209, 168)
 
 [node name="spawn_emissions" type="Area2D"]
+light_mask = 3
 script = ExtResource("1_ukrj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

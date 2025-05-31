@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cghjrprk3hx8j"]
 
 [ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/Enemies/enemy.gd" id="1_lfq5q"]
-[ext_resource type="Texture2D" uid="uid://otonqnnqmp7f" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://0mpq46xc0tmv" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")
@@ -129,7 +129,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-visible = false
 shape = SubResource("CircleShape2D_ile5s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
