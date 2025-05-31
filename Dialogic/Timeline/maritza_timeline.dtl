@@ -54,6 +54,7 @@ elif {MissionAcepted.Maritza_Mision.maritza_dummy} == false:
 			Maritza: Ahora, como ultima parte de tu entrenamiento
 			Maritza: Haz que el golero recoga 4 desechos que estan flotando por el mar
 			Maritza: Esta especificamente entrenado para ello
+			set {MissionAcepted.Maritza_Mision.maritza_dummy} = true
 		else:
 			Maritza: Bien, lo hiciste muy bien
 			Maritza: Ahora supongo que habras visto un gas al lado del muñeco de entrenamiento
@@ -71,6 +72,8 @@ elif {MissionAcepted.Maritza_Mision.maritza_gas} == true:
 		Maritza: Ahora, como ultima parte de tu entrenamiento
 		Maritza: Haz que el golero recoga 4 desechos que estan flotando por el mar
 		Maritza: Esta especificamente entrenado para ello
+		Maritza: Pero como este no es el juego final, vamos a dar la misión como completada \:)
+		set {MissionAcepted.Maritza_Mision.maritza_mission_completed} = true
 	else:
 		Maritza: ¡Muy bien! Ya recogiste la basura con el golero
 		Maritza: Con todo esto estas más que listo para adentrarte en este mundo y ayudar al medio ambiente

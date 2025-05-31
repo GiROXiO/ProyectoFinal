@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var inventory: InventoryGui = $InventoryGUI
 @onready var health_bar = $HeatlhBar
 @onready var toolSlot = $ToolSlot
+@onready var coords = $coords
 
 func _ready():
 	inventory.close()

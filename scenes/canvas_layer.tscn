@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://52vwfn0wl4wi"]
+[gd_scene load_steps=14 format=3 uid="uid://52vwfn0wl4wi"]
 
 [ext_resource type="PackedScene" uid="uid://blqh8q17xol8g" path="res://scenes/gui/inventory_gui.tscn" id="1_c4rma"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="1_g6s7q"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_g6s7q"]
-[ext_resource type="Texture2D" uid="uid://b4rdk8e8c0k2d" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
-[ext_resource type="Texture2D" uid="uid://3jabgcogmamm" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
-[ext_resource type="Texture2D" uid="uid://p1spa4nmhu11" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
+[ext_resource type="Texture2D" uid="uid://hbdrm38p3ier" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
+[ext_resource type="Texture2D" uid="uid://bkv6xjeven07q" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
+[ext_resource type="Texture2D" uid="uid://ruterye66l05" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
 [ext_resource type="PackedScene" uid="uid://sl6f3q0apmcg" path="res://scenes/gui/tool_slot_gui.tscn" id="7_jtalx"]
+[ext_resource type="Script" uid="uid://kpxl6kookli4" path="res://scripts/coords.gd" id="8_jtalx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghj5q"]
 bg_color = Color(0.588235, 0.517647, 0.439216, 1)
@@ -58,6 +59,10 @@ func update_life(health):
 	print(health)
 	self.value = health
 "
+
+[sub_resource type="Theme" id="Theme_wskm7"]
+default_font = ExtResource("3_g6s7q")
+default_font_size = 23
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_g6s7q")
@@ -117,5 +122,16 @@ offset_top = 99.0
 offset_right = 37.0
 offset_bottom = 119.0
 scale = Vector2(4, 4)
+
+[node name="coords" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 110.0
+offset_right = 325.0
+offset_bottom = 189.0
+theme = SubResource("Theme_wskm7")
+text = "x: 2340  
+y: -4432
+"
+script = ExtResource("8_jtalx")
 
 [connection signal="pressed" from="VBoxContainer/back_to_start_menu" to="InventoryGUI" method="_on_back_to_start_menu_pressed"]

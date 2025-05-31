@@ -53,10 +53,7 @@ func from_dict(data: Dictionary) -> void:
 		item.name = slot_data.get("name")
 		item.texture = ResourceLoader.load(slot_data.get("texture_path"))
 		item.maxAmount = slot_data.get("maxAmount")
-		if slot_data.has("curation"):
-			item.curation = slot_data.get("curation")
-		else:
-			item.curation = 0
+		item.curation = slot_data.get("curation")
 		var amount = slot_data.get("amount")
 		slots.get(slot_data.get("slotn")).item = item
 		slots.get(slot_data.get("slotn")).amount = amount

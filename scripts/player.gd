@@ -77,6 +77,7 @@ func _physics_process(delta):
 		player_movement(delta)
 		enemy_attack()
 		change_tool()
+		global.player_position = global_position
 	elif global.another_entity:
 		enemy_attack()
 		play_anim(0)
@@ -135,22 +136,22 @@ func player_movement(_delta):
 			
 	elif is_dashing and attack_ip == false:
 		if current_dir == "right":
-			play_anim(0)
+			play_anim(2)
 			velocity.y = 0
 			velocity.x = dashSpeed
 			
 		elif current_dir == "left":
-			play_anim(0)
+			play_anim(2)
 			velocity.y = 0
 			velocity.x = -dashSpeed
 
 		elif current_dir == "up":
-			play_anim(0)
+			play_anim(2)
 			velocity.y = -dashSpeed
 			velocity.x = 0
 		
 		elif current_dir == "down":
-			play_anim(0)
+			play_anim(2)
 			velocity.y = dashSpeed
 			velocity.x = 0
 			
@@ -177,6 +178,8 @@ func play_anim(movement):
 				
 			if movement == 1:
 				anim.play("side_walk")
+			elif movement == 2:
+				anim.play("side_dash")
 			elif movement == 0:
 				anim.play("side_init")
 				
@@ -189,6 +192,8 @@ func play_anim(movement):
 				
 			if movement == 1:
 				anim.play("side_walk")
+			elif movement == 2:
+				anim.play("side_dash")
 			elif movement == 0:
 				anim.play("side_init")
 		
@@ -201,6 +206,8 @@ func play_anim(movement):
 				
 			if movement == 1:
 				anim.play("back_walk")
+			elif movement == 2:
+				anim.play("back_dash")
 			elif movement == 0:
 				anim.play("back_init")
 		
@@ -213,6 +220,8 @@ func play_anim(movement):
 				
 			if movement == 1:
 				anim.play("front_walk")
+			elif movement == 2:
+				anim.play("front_dash")
 			elif movement == 0:
 				anim.play("front_init")
 			
@@ -238,7 +247,7 @@ func enemy_attack():
 		if health == 0:
 			global.player_current_attack = false
 			health = 100
-			position = Vector2(574,576)
+			position = Vector2(3064,1486)
 			gameData.save_to_file()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 		else:
@@ -424,9 +433,9 @@ func get_life() -> int:
 	return health
 
 func can_attack():
-	var tutorial_completed = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
-	tutorial_completed = true # Mientras tanto para hacer pruebas
-	return tutorial_completed and Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false
+	var tutorial_accepted = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
+	tutorial_accepted = true
+	return tutorial_accepted and Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false
 
 
 func _on_dash_time_timeout() -> void:
