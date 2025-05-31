@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://dyvh37j58ix2e"]
+[gd_scene load_steps=22 format=3 uid="uid://dyvh37j58ix2e"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://4abm1p3atgmb" path="res://scenes/garbage_picker_entity.tscn" id="4_lakw3"]
 [ext_resource type="PackedScene" uid="uid://52vwfn0wl4wi" path="res://scenes/canvas_layer.tscn" id="9_7r4gi"]
+[ext_resource type="Script" uid="uid://efm2lx460a7a" path="res://scripts/minimap.gd" id="10_2lf6f"]
+[ext_resource type="Script" uid="uid://n1qux3ttdqmn" path="res://scripts/minimapVisibility.gd" id="10_7iits"]
 [ext_resource type="PackedScene" uid="uid://dt60obx0mc7v7" path="res://scenes/NPCs/Maritza.tscn" id="11_q5onr"]
 [ext_resource type="PackedScene" uid="uid://fc50j48ns2yj" path="res://scenes/NPCs/Mono.tscn" id="12_jhx03"]
 [ext_resource type="PackedScene" uid="uid://dxrqpu3kdiqry" path="res://scenes/NPCs/Ponllo.tscn" id="12_q5onr"]
@@ -28,22 +30,18 @@ metadata/_edit_vertical_guides_ = [-141.0]
 [node name="Tilemap1" parent="." instance=ExtResource("2_jhx03")]
 
 [node name="Player" parent="." instance=ExtResource("4_k0juu")]
-position = Vector2(1961, 413)
+position = Vector2(980, 425)
 
 [node name="GarbagePickerEntity" parent="Player" instance=ExtResource("4_lakw3")]
-visible = false
 
 [node name="Luis" parent="." instance=ExtResource("15_dss4m")]
-visible = false
-position = Vector2(716, 365)
+position = Vector2(942, 431)
 
 [node name="Maritza" parent="." instance=ExtResource("11_q5onr")]
-visible = false
 y_sort_enabled = true
-position = Vector2(474, 359)
+position = Vector2(979, 522)
 
 [node name="Mono" parent="." instance=ExtResource("12_jhx03")]
-visible = false
 position = Vector2(92, 185)
 
 [node name="Ponllo" parent="." instance=ExtResource("12_q5onr")]
@@ -52,6 +50,24 @@ position = Vector2(1064, 407)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
+visible = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+offset_left = 849.0
+offset_top = 434.0
+offset_right = 1149.0
+offset_bottom = 644.0
+stretch_shrink = 8
+script = ExtResource("10_7iits")
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(300, 210)
+render_target_update_mode = 0
+script = ExtResource("10_2lf6f")
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+zoom = Vector2(0.2, 0.2)
 
 [node name="GameData" parent="." instance=ExtResource("13_jhx03")]
 
@@ -79,13 +95,13 @@ position = Vector2(279, 136)
 position = Vector2(594, 704)
 
 [node name="Dummy" parent="." instance=ExtResource("16_dss4m")]
-position = Vector2(774, 326)
+position = Vector2(936, 397)
 
 [node name="gas2" parent="." instance=ExtResource("17_lakw3")]
-position = Vector2(777, 362)
+position = Vector2(1028, 404)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("18_pm21f")]
-position = Vector2(711, 488)
+position = Vector2(984, 368)
 
 [node name="spawnsItems" type="Node2D" parent="."]
 

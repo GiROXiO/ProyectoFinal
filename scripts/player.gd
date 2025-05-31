@@ -77,6 +77,7 @@ func _physics_process(delta):
 		player_movement(delta)
 		enemy_attack()
 		change_tool()
+		global.player_position = global_position
 	elif global.another_entity:
 		enemy_attack()
 		play_anim(0)
@@ -238,7 +239,7 @@ func enemy_attack():
 		if health == 0:
 			global.player_current_attack = false
 			health = 100
-			position = Vector2(574,576)
+			position = Vector2(980,417)
 			gameData.save_to_file()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 		else:
