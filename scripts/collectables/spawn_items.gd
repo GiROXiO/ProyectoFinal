@@ -1,3 +1,4 @@
+class_name ItemSpawn
 extends Area2D
 
 @export var itemType: ItemType.type

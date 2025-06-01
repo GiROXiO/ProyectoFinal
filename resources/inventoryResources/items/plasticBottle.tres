@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://ckoktyhk7iu28"]
+
+[ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_k0ngl"]
+[ext_resource type="Texture2D" uid="uid://bwi8yfu30kx82" path="res://art/objects/botella de agua.png" id="2_3tmwo"]
+
+[resource]
+script = ExtResource("1_k0ngl")
+name = "Botella de plastico"
+texture = ExtResource("2_3tmwo")
+maxAmount = 64
+curation = 0
+metadata/_custom_type_script = "uid://dwbnornupta3q"
