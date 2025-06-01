@@ -178,13 +178,6 @@ limit_spawn = 8
 cooldown = 120
 margen = 60
 
-[node name="spawn_items5" parent="." instance=ExtResource("19_2lf6f")]
-position = Vector2(2763, 1267)
-itemType = 2
-limit_spawn = 10
-cooldown = 30
-margen = 50
-
 [node name="TritanopiaFilter" type="CanvasLayer" parent="."]
 
 [node name="TritanopiaOL" type="ColorRect" parent="TritanopiaFilter"]
@@ -220,3 +213,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="spawn_items6" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2875, 1665)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items7" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2254, 1430)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items8" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2987, 1175)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items9" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3551, 1550)
+itemType = 2
+cooldown = 100

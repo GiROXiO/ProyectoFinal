@@ -36,6 +36,7 @@ var current_dir = "down"
 #2 = Caña
 
 func _ready():
+	global.player_current_attack = false
 	add_to_group("player")
 	emit_signal("toolChanged", "")
 	gameData.setPlayer(self)
@@ -426,7 +427,6 @@ func get_life() -> int:
 
 func can_attack():
 	var tutorial_accepted = Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted
-	tutorial_accepted = true
 	return tutorial_accepted and Input.is_action_just_pressed("attack") and attack_ip == false and global.isChatting == false and player_tool == 0 and is_dashing == false
 
 
