@@ -48,11 +48,9 @@ func showNameLabel():
 		self.nameLabel.visible = false
 
 func _on_mouse_entered() -> void:
-	print("On slot")
 	onSlot = true
 
 func _on_mouse_exited() -> void:
-	print("Not on slot")
 	onSlot = false
 
 func _update_hotbar_slot():

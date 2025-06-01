@@ -352,9 +352,7 @@ func change_tool():
 			previous_tool()
 		elif Input.is_key_pressed(KEY_DOWN):
 			next_tool()
-		print("broom: ",player_tool == 0 )
-		print("vacuum: ", player_tool == 1)
-		print("caña : ", player_tool == 2)
+			
 	change_size_attackArea()
 
 func previous_tool():
@@ -386,7 +384,6 @@ func use_item():
 		
 		print("La curacion es de: ", selectedSlot.item.curation)
 		
-		print("La nueva curacion es de: ", selectedSlot.item.curation)
 		if self.health < self.maxHealth:
 			print("Puede curarse")
 			if self.health + self.selectedSlot.item.curation > self.maxHealth:

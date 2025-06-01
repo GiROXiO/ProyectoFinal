@@ -19,8 +19,7 @@ func insert(item: InventoryItem) -> bool:
 			slot.amount += 1
 			updated.emit()
 			return true
-	
-	print("Inventario lleno")
+
 	return false
 
 func to_dict() -> Dictionary:

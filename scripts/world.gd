@@ -13,8 +13,7 @@ func _ready():
 	$TritanopiaFilter/TritanopiaOL.visible = false
 	$ProtanopiaFilter/ProtanopiaOL.visible = false
 	$MonochromatismFilter/MonochromatismOL.visible = false
-	
-	print(OptionsBus.current_filter)
+
 	var filter_name: String = OptionsBus.current_filter
 	self._filter_changed(filter_name)
 
@@ -28,20 +27,16 @@ func _on_inventory_closed():
 	get_tree().paused = false
 
 func _filter_changed(filter_name: String):
-	print("Recibida señal para filtro de ", filter_name)
 	match filter_name:
 		"protanopia":
-			print("Detectada protanopia")
 			$ProtanopiaFilter/ProtanopiaOL.visible = true
 			$TritanopiaFilter/TritanopiaOL.visible = false
 			$MonochromatismFilter/MonochromatismOL.visible = false
 		"tritanopia":
-			print("Detectada tritanopia")
 			$ProtanopiaFilter/ProtanopiaOL.visible = false
 			$TritanopiaFilter/TritanopiaOL.visible = true
 			$MonochromatismFilter/MonochromatismOL.visible = false
 		"monocromatismo":
-			print("Detectado monocromatismo")
 			$ProtanopiaFilter/ProtanopiaOL.visible = false
 			$TritanopiaFilter/TritanopiaOL.visible = false
 			$MonochromatismFilter/MonochromatismOL.visible = true

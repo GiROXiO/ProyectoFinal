@@ -20,7 +20,6 @@ func _process(_delta: float) -> void:
 	self.showName()
 
 func changeTool(index: int):
-	print("Cambiando herramienta, indice: ", index, " Tamanio de la lista de texturas: ", toolIcons.size())
 	if index >= 0 and index < toolIcons.size():
 		var item = toolIcons[index]
 		self.toolSprite.texture = item.texture

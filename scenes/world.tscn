@@ -58,7 +58,7 @@ position = Vector2(3064, 1446)
 position = Vector2(92, 185)
 
 [node name="Ponllo" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(1064, 407)
+position = Vector2(1010, 416)
 
 [node name="GUI" parent="." instance=ExtResource("9_7r4gi")]
 process_mode = 3
@@ -169,30 +169,6 @@ generationType = 1
 [node name="spawn_items4" parent="." instance=ExtResource("19_2lf6f")]
 position = Vector2(3142, 1419)
 generationType = 1
-
-[node name="AppleSpawner" type="Node2D" parent="."]
-
-[node name="spawn_items" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
-position = Vector2(4309, 940)
-foodType = 1
-
-[node name="spawn_items2" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
-position = Vector2(4561, 1089)
-foodType = 1
-
-[node name="spawn_items3" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
-position = Vector2(4642, 785)
-foodType = 1
-
-[node name="spawn_items4" parent="AppleSpawner" instance=ExtResource("19_2lf6f")]
-position = Vector2(4321, 661)
-foodType = 1
-
-[node name="CherrySpawner" type="Node2D" parent="."]
-position = Vector2(17, 50)
-
-[node name="spawn_items" parent="CherrySpawner" instance=ExtResource("19_2lf6f")]
-position = Vector2(4480, 779)
 
 [node name="TritanopiaFilter" type="CanvasLayer" parent="."]
 

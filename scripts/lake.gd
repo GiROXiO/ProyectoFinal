@@ -34,9 +34,8 @@ func create_fishing_zones():
 
 func _on_fishing_zone_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		print("Jugador entro en zona de pesca")
-		
+		pass
 
 func _on_fishing_zone_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
-		print("Jugador salio de zona de pesca")
+		pass
