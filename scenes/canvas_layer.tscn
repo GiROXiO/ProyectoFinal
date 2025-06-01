@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://sl6f3q0apmcg" path="res://scenes/gui/tool_slot_gui.tscn" id="7_jtalx"]
 [ext_resource type="Script" uid="uid://kpxl6kookli4" path="res://scripts/coords.gd" id="8_jtalx"]
 [ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="9_6gso4"]
-[ext_resource type="PackedScene" path="res://scenes/help_menu.tscn" id="10_6gso4"]
+[ext_resource type="PackedScene" uid="uid://dmbxqjl51x7bw" path="res://scenes/help_menu.tscn" id="10_6gso4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghj5q"]
 bg_color = Color(0.588235, 0.517647, 0.439216, 1)

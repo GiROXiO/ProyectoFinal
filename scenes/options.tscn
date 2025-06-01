@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b73bsknbw7gv"]
 
 [ext_resource type="Script" uid="uid://df61ee1yqxr06" path="res://scripts/options.gd" id="1_0agyt"]
-[ext_resource type="Texture2D" uid="uid://ok0lxj3x15bs" path="res://art/images/inicio.png" id="2_ufgnv"]
+[ext_resource type="Texture2D" uid="uid://cktunanbxwrpr" path="res://art/images/inicio.png" id="2_ufgnv"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
 [ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
 
@@ -206,6 +206,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
 text = "Mono"
 
+[connection signal="button_down" from="VBoxContainer/back" to="." method="_on_back_button_down"]
+[connection signal="button_up" from="VBoxContainer/back" to="." method="_on_back_button_up"]
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter4" to="." method="_on_btn_filter_4_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter1" to="." method="_on_btn_filter_1_pressed"]
