@@ -42,19 +42,23 @@ func updateInfo(slot: int):
 
 	if FileAccess.file_exists(path):
 		gameData.load_from_file(slot)
-		button_node.text = "%s - Nivel %d" % [gameData.username, gameData.level]
+		button_node.text = "%s - %s"  % [gameData.username, gameData.time]
 		button_node.tooltip_text = button_node.text
 	else:
 		button_node.text = "Nuevo juego"
 
 func slotSelection(slot: int):
+	
 	selectedSlot = slot
+	
+	gameData.username = ""
 	gameData.load_from_file(slot) 
+	
 	if gameData.username == "":
 		$NewUsernamePanel.visible = true
 		$CenterContainer.visible= false
 	else:
-		showInfo("Datos cargados del jugador %s (Nivel %d)" % [gameData.username, gameData.level])
+		showInfo("Datos cargados del jugador %s " % [gameData.username])
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 func confirmName():
@@ -64,18 +68,12 @@ func confirmName():
 		return
 
 	gameData.username = username
-	gameData.level = 1 
-	gameData.mute = 0
-	gameData.health = 100
-
-	saveGame(selectedSlot)
+	gameData.save_to_file_reset() 
+	
 	$NewUsernamePanel.visible = false
 	$NewUsernamePanel/VBoxContainer/UsernameInput.text = ""
 	showInfo("Guardado como '%s' en la ranura %d" % [username, selectedSlot])
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
-
-func saveGame(slot: int):
-	gameData.save_to_file_reset() 
 
 func deleteSave(slot: int):
 	var path = "user://save_slot_%d.save" % slot

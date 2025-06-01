@@ -86,6 +86,11 @@ variables={
 "garbage_defeated": 0,
 "lumberjacks_defeated": 0
 },
+"EnemiesDefeated2": {
+"emissions_defeated": 0,
+"garbage_defeated": 0,
+"lumberjacks_defeated": 0
+},
 "MissionAcepted": {
 "Luis_Mission": {
 "luis_emissions": 0,
@@ -112,6 +117,8 @@ variables={
 }
 }
 }
+save/autosave=true
+save/autosave_mode=2
 
 [editor]
 

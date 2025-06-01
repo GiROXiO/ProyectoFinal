@@ -43,12 +43,9 @@ func from_dict(data: Dictionary) -> void:
 		var slot = slots[i]
 		slot.item = null
 		slot.amount = 0
-			
-	
 	lastSlot = gameData.slot
 	for i in data.keys():
 		var slot_data = data[i]
-
 		var item = InventoryItem.new()
 		item.name = slot_data.get("name")
 		item.texture = ResourceLoader.load(slot_data.get("texture_path"))
