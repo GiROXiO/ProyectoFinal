@@ -5,6 +5,7 @@ extends Control
 @onready var trit = $MarginContainer/GridContainer/BtnFilterContainer/btnFilter2
 @onready var mon = $MarginContainer/GridContainer/BtnFilterContainer/btnFilter3
 @onready var optionBus = OptionsBus
+@export var ingame: bool
 
 #func _on_back_pressed() -> void:
 	#self.visible = false
@@ -36,7 +37,8 @@ func _on_btn_filter_4_pressed() -> void:
 
 
 func _on_back_button_up() -> void:
-	get_tree().paused = true
+	if ingame == true:
+		get_tree().paused = true
 
 
 func _on_back_button_down() -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b8bvj754arvsq"]
 
 [ext_resource type="Script" uid="uid://cfn12seal1mss" path="res://scripts/start_menu.gd" id="1_ouf4f"]
-[ext_resource type="Texture2D" uid="uid://brfp4o6nmyukv" path="res://art/images/inicio.png" id="2_m7x51"]
+[ext_resource type="Texture2D" uid="uid://cmfw76w0x85vd" path="res://art/images/inicio.png" id="2_m7x51"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_thu50"]
 [ext_resource type="PackedScene" uid="uid://dmbxqjl51x7bw" path="res://scenes/help_menu.tscn" id="4_fcv5n"]
 [ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="5_4v6gu"]
@@ -239,6 +239,7 @@ visible = false
 
 [node name="options" parent="CanvasLayer" instance=ExtResource("5_4v6gu")]
 visible = false
+ingame = false
 
 [connection signal="pressed" from="ElectionContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ElectionContainer/options" to="." method="_on_options_pressed"]
