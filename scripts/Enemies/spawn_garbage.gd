@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var Enemy_Scene = load("res://scenes/Enemies/Garbage.tscn")
+@onready var Enemy_Scene = preload("res://scenes/Enemies/Garbage.tscn")
 var bool_spawn = false
 var spawn_count = 0
 var random = RandomNumberGenerator.new()

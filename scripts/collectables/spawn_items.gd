@@ -48,15 +48,28 @@ func aboutGeneration():
 				ItemType.generation.UNIQUE:
 					match self.foodType:
 						ItemType.food.CEREZA:
-							item_scene = load("res://scenes/items/collectables/Cereza.tscn")
+							item_scene = preload("res://scenes/items/collectables/Cereza.tscn")
 						ItemType.food.MANZANA:
-							item_scene = load("res://scenes/items/collectables/Manzana.tscn")
+							item_scene = preload("res://scenes/items/collectables/Manzana.tscn")
 						ItemType.food.MANZANADORADA:
-							item_scene = load("res://scenes/items/collectables/ManzanaDorada.tscn")
+							item_scene = preload("res://scenes/items/collectables/ManzanaDorada.tscn")
 						ItemType.food.NARANJA:
-							item_scene = load("res://scenes/items/collectables/Naranja.tscn")
+							item_scene = preload("res://scenes/items/collectables/Naranja.tscn")
 					#Y luego los otros...
 				ItemType.generation.VARIED:
+					listScenes.append("res://scenes/items/collectables/Cereza.tscn")
+					listScenes.append("res://scenes/items/collectables/Manzana.tscn")
+					listScenes.append("res://scenes/items/collectables/ManzanaDorada.tscn")
+					listScenes.append("res://scenes/items/collectables/Naranja.tscn")
+		ItemType.type.RECYCLABLE:
+			match self.generationType:
+				ItemType.generation.UNIQUE:
+					match self.recyclableType:
+						ItemType.recyclable.PLASTICBOTTLE:
+							item_scene = preload("res://scenes/items/collectables/BotellaPlastico.tscn")
+					#Y luego los otros...
+				ItemType.generation.VARIED:
+					##Esto no se deberia quedar asi...
 					listScenes.append("res://scenes/items/collectables/Cereza.tscn")
 					listScenes.append("res://scenes/items/collectables/Manzana.tscn")
 					listScenes.append("res://scenes/items/collectables/ManzanaDorada.tscn")
