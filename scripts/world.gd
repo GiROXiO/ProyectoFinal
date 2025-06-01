@@ -43,7 +43,6 @@ func _filter_changed(filter_name: String):
 			$TritanopiaFilter/TritanopiaOL.visible = false
 			$MonochromatismFilter/MonochromatismOL.visible = true
 		"":
-			print("Apagado de filtros")
 			$ProtanopiaFilter/ProtanopiaOL.visible = false
 			$TritanopiaFilter/TritanopiaOL.visible = false
 			$MonochromatismFilter/MonochromatismOL.visible = false
