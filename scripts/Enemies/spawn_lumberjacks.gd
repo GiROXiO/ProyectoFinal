@@ -23,7 +23,6 @@ func spawn():
 		var spawn_pos = Vector2(position.x + random.randi_range(-50, 50), position.y + random.randi_range(-50, 50))
 		enemy_instance.position = $SpawnedEnemies.to_local(spawn_pos)
 		$SpawnedEnemies.add_child(enemy_instance)		
-		print(spawn_count)
 	
 	
 
@@ -37,10 +36,8 @@ func missionVerifier():
 	pass
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	print("Se ve en pantalla")
 	bool_spawn = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	print("No se ve en pantalla")
 	bool_spawn = false

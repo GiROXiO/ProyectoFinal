@@ -14,6 +14,8 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_completed} == true:
 				- Lo hare, pero por favor no vuelvas a decirme ningún chiste
 					Luis: Aaaaanda bueno
 					Luis: Te estare esperando para cuando termines
+					Luis: Hay bastanticas emisiones arriba a la izquierda
+					Luis: Donde la tierra esta fea
 					Me llamo Luis por cierto
 					set {MissionAcepted.Luis_Mission.luis_mission_accepted} = true
 		- Adios

@@ -34,8 +34,6 @@ func _physics_process(_delta: float) -> void:
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = true
-	else:
-		print(area.name)
 		
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.name == "AttackArea":
@@ -61,7 +59,6 @@ func _on_take_damage_cooldown_timeout() -> void:
 	$CollisionShape2D.disabled = true
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	has_spawn = false
-	print("Se deshizo")
 	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_gas = true
 	self.queue_free()
 

@@ -58,13 +58,9 @@ func _physics_process(_delta: float) -> void:
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = true
-		print("Entro")
-	else:
-		print(area.name)
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = false
-		print("Salio")
 
 func _on_detection_area_body_entered(body: Node2D) -> void: 
 	player = body # Cualquier cosa que entre al area de detección, sera la variable body
@@ -109,7 +105,8 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 func verifyMisions():
 	Dialogic.VAR.EnemiesDefeated.garbage_defeated += 1
-	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
+	Dialogic.VAR.get("MissionAccepted") 
+	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_garbage += 1
 
 

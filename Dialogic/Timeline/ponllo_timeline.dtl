@@ -10,7 +10,7 @@ if {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} == false:
 			Ponllo: ¿Me acabas de conocer y me ofreces ayuda?
 			Ponllo: Increible
 			Ponllo: Pues si, me vendria bastante bien la ayuda de alguien
-			Ponllo: Digamos que cuando estaba sacando a mis perros a pasear a la 1am
+			Ponllo: Digamos que cuando estaba sacando a mis perros a pasear a la 1am en la playa
 			Ponllo: Vi que habia mucha basura por ahi suelta
 			Ponllo: Y me enojo, porque yo siempre boto la basura a las 2am
 			Ponllo: Aparte que es muy peligrosa para el medio ambiente
@@ -18,7 +18,7 @@ if {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} == false:
 			Ponllo: ¿Podrias ayudarme?
 			- De una, por supuesto
 				Ponllo: Que crack
-				Ponllo: Con que les des una lección a  20 bolsas de basura estamos firmes
+				Ponllo: Con que les des una lección a 20 bolsas de basura estamos firmes
 				set {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} = true
 			- Nada, lo siento
 				Ponllo: Increible

@@ -64,9 +64,7 @@ func _physics_process(_delta: float) -> void:
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = true
-	else:
-		print(area.name)
-		
+
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = false
