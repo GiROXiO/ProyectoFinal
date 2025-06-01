@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://dbbqe7ydm0tt8"]
 
 [ext_resource type="Script" uid="uid://cib3x0xcs8xc2" path="res://scripts/Enemies/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://dc70nrkr2i3c4" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://cl20dfht2nc05" path="res://art/characters/monoxido de carbono.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_md0e3")

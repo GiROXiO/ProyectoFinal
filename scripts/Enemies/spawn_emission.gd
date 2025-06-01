@@ -25,7 +25,6 @@ func spawn():
 		enemy_instance.position = $SpawnedEnemies.to_local(spawn_pos)
 		$SpawnedEnemies.add_child(enemy_instance)		
 
-		print(spawn_count)
 	
 func _on_cooldown_timeout() -> void:
 	spawn_count -= 1
@@ -37,21 +36,17 @@ func missionVerifier():
 		verifyLuis = true
 		$cooldown.stop()
 		$cooldown.wait_time += 1.5
-		print("Se actualizo cooldown")
 		$cooldown.start()
 	
 	if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed and verifyMono == false:
 		verifyMono = true
 		$cooldown.stop()
 		$cooldown.wait_time += 1.5
-		print("Se actualizo cooldown")
 		$cooldown.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	print("Se ve en pantalla")
 	bool_spawn = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	print("No se ve en pantalla")
 	bool_spawn = false

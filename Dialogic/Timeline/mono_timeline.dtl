@@ -21,7 +21,10 @@ if {MissionAcepted.Mono_Mission.mono_mission_acepted} == false:
 		- Espera, ¿como?
 		Mono: mira, ¿quieres que te proponga una misión verdad?
 		Mono: extermina a 20 emisiones de carbono
-		Mono: listo
+		if {MissionAcepted.Luis_Mission.luis_mission_accepted} == true:
+			Mono: luis ya te dijo donde encontrarlas, pero por si no te acuerdas
+		Mono: ve arriba del todo, donde la tierra esta fea
+		Mono: y listo
 		set {MissionAcepted.Mono_Mission.mono_mission_acepted} = true
 	- Bobo tú
 		Mono: no, bobo tú

@@ -12,7 +12,6 @@ var current_damagin = false
 var has_spawn = false
 
 func _ready() -> void:
-	print("Esta ready")
 	$take_damage_cooldown.wait_time = 1.5
 	$AnimatedSprite2D.play("spawn")
 	$spawn.start()
@@ -46,13 +45,10 @@ func _physics_process(_delta: float) -> void:
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = true
-		print("Entro")
-	else:
-		print(area.name)
+
 func _on_enemy_hitbox_area_exited(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		enemy_inattackzone = false
-		print("Salio")
 
 func _on_detection_area_body_entered(body: Node2D) -> void: 
 	player = body # Cualquier cosa que entre al area de detección, sera la variable body
@@ -106,7 +102,6 @@ func verifyMision():
 	if Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted and Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions += 1
 	Dialogic.VAR.EnemiesDefeated.emissions_defeated += 1
-	print(Dialogic.VAR.EnemiesDefeated.emissions_defeated)
 
 func _on_spawn_timeout() -> void:
 	has_spawn = true

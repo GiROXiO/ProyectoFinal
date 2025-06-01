@@ -38,7 +38,7 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
 	Aspiradora (New portrait): Con esta aspiradora podras encargarte de las emisiones contaminantes
 	Golero: Y con este golero entrenado, podras recoger los desechos que hay por los cuerpos de agua
 	Maritza: Quiero ver que tal son tus habilidades con las herramientas que te acabo de dar antes de que salgas de esta zona
-	Maritza: Ve a tu derecha y dale con la escoba al muñeco de entrenamiento por lo menos 5 veces
+	Maritza: Ve a tu izquierda y dale con la escoba al muñeco de entrenamiento por lo menos 5 veces
 	set {MissionAcepted.Maritza_Mision.maritza_mission_accepted} = true
 elif {MissionAcepted.Maritza_Mision.maritza_mission_completed} == true:
 	Maritza: De verdad que todos podemos hacer un cambio si nos lo proponemos
