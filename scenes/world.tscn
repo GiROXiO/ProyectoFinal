@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://4abm1p3atgmb" path="res://scenes/garbage_picker_entity.tscn" id="4_lakw3"]
 [ext_resource type="PackedScene" uid="uid://52vwfn0wl4wi" path="res://scenes/canvas_layer.tscn" id="9_7r4gi"]
-[ext_resource type="Script" path="res://scripts/minimap.gd" id="10_2lf6f"]
-[ext_resource type="Script" path="res://scripts/minimapVisibility.gd" id="10_7iits"]
+[ext_resource type="Script" uid="uid://efm2lx460a7a" path="res://scripts/minimap.gd" id="10_2lf6f"]
+[ext_resource type="Script" uid="uid://n1qux3ttdqmn" path="res://scripts/minimapVisibility.gd" id="10_7iits"]
 [ext_resource type="PackedScene" uid="uid://dt60obx0mc7v7" path="res://scenes/NPCs/Maritza.tscn" id="11_q5onr"]
 [ext_resource type="PackedScene" uid="uid://fc50j48ns2yj" path="res://scenes/NPCs/Mono.tscn" id="12_jhx03"]
 [ext_resource type="PackedScene" uid="uid://dxrqpu3kdiqry" path="res://scenes/NPCs/Ponllo.tscn" id="12_q5onr"]
@@ -64,11 +64,10 @@ position = Vector2(1010, 416)
 process_mode = 3
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="GUI"]
-offset_left = 849.0
-offset_top = 434.0
-offset_right = 1149.0
-offset_bottom = 644.0
-stretch_shrink = 20
+offset_left = 852.0
+offset_top = 440.0
+offset_right = 1152.0
+offset_bottom = 650.0
 script = ExtResource("10_7iits")
 
 [node name="SubViewport" type="SubViewport" parent="GUI/SubViewportContainer"]
@@ -154,21 +153,37 @@ position = Vector2(3295, 2054)
 position = Vector2(2971, 1421)
 generationType = 1
 foodType = 2
-limit_spawn = 15
-cooldown = 2
+limit_spawn = 8
+cooldown = 120
 margen = 60
 
 [node name="spawn_items2" parent="." instance=ExtResource("19_2lf6f")]
 position = Vector2(3017, 1436)
 generationType = 1
+limit_spawn = 8
+cooldown = 120
+margen = 60
 
 [node name="spawn_items3" parent="." instance=ExtResource("19_2lf6f")]
 position = Vector2(3085, 1437)
 generationType = 1
+limit_spawn = 8
+cooldown = 120
+margen = 60
 
 [node name="spawn_items4" parent="." instance=ExtResource("19_2lf6f")]
 position = Vector2(3142, 1419)
 generationType = 1
+limit_spawn = 8
+cooldown = 120
+margen = 60
+
+[node name="spawn_items5" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2763, 1267)
+itemType = 2
+limit_spawn = 10
+cooldown = 30
+margen = 50
 
 [node name="TritanopiaFilter" type="CanvasLayer" parent="."]
 

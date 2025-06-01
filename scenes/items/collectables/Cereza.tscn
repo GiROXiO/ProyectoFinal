@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/items/collectables/pickup_item.tscn" id="1_r86vb"]
 [ext_resource type="Resource" uid="uid://ba4578y8lifj" path="res://resources/inventoryResources/items/cherry.tres" id="2_7ega6"]
-[ext_resource type="Texture2D" uid="uid://cq8lu1a46vnj3" path="res://art/pickables/Cherry.png" id="3_gq2ig"]
+[ext_resource type="Texture2D" uid="uid://pucmxmsxfye6" path="res://art/pickables/Cherry.png" id="3_gq2ig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ega6"]
 resource_local_to_scene = true
