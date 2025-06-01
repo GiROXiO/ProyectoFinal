@@ -13,6 +13,8 @@ config_version=5
 config/name="ProyectoFinal"
 run/main_scene="uid://b8bvj754arvsq"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
+boot_splash/use_filter=false
 config/icon="uid://dqctik4ta3ckr"
 
 [audio]
@@ -124,6 +126,11 @@ variables={
 save/autosave=true
 save/autosave_mode=2
 
+[display]
+
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=2
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -190,5 +197,7 @@ show_minimap={
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=0
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+environment/ssao/quality=1
