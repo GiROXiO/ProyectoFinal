@@ -65,5 +65,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_collect_area_area_entered(area: Area2D) -> void:
 	if area.has_method("collect"):
-		area.collect(inventory)
-		gameData.save_to_file()
+		var pickup := area as PickupItem
+		if pickup.itemType == ItemType.type.RECYCLABLE or pickup.itemType == ItemType.type.UNRECYCLABLE:
+			verifyMission()
+			area.collect(inventory)
+			gameData.save_to_file()
+
+func verifyMission():
+	if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed == false:
+		Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker += 1

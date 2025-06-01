@@ -36,7 +36,7 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
 	Maritza: Toma esto
 	Escoba: Con esta escoba podras encargarte de la basura y de los leñadores
 	Aspiradora (New portrait): Con esta aspiradora podras encargarte de las emisiones contaminantes
-	Golero: Y con este golero entrenado, podras recoger los desechos que hay por los cuerpos de agua
+	Golero: Y con este golero entrenado, podras recoger los desechos que estan contaminando
 	Maritza: Quiero ver que tal son tus habilidades con las herramientas que te acabo de dar antes de que salgas de esta zona
 	Maritza: Ve a tu izquierda y dale con la escoba al muñeco de entrenamiento por lo menos 5 veces
 	set {MissionAcepted.Maritza_Mision.maritza_mission_accepted} = true
@@ -72,8 +72,6 @@ elif {MissionAcepted.Maritza_Mision.maritza_gas} == true:
 		Maritza: Ahora, como ultima parte de tu entrenamiento
 		Maritza: Haz que el golero recoga 4 desechos que estan flotando por el mar
 		Maritza: Esta especificamente entrenado para ello
-		Maritza: Pero como este no es el juego final, vamos a dar la misión como completada \:)
-		set {MissionAcepted.Maritza_Mision.maritza_mission_completed} = true
 	else:
 		Maritza: ¡Muy bien! Ya recogiste la basura con el golero
 		Maritza: Con todo esto estas más que listo para adentrarte en este mundo y ayudar al medio ambiente

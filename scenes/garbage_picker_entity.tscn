@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://4abm1p3atgmb"]
 
 [ext_resource type="Script" uid="uid://b1mo5io0ugk32" path="res://scripts/garbage_picker_entity.gd" id="1_ra6i0"]
-[ext_resource type="Texture2D" uid="uid://dnf2ycua2vs0" path="res://art/characters/spritesheet golero.png" id="2_ra6i0"]
+[ext_resource type="Texture2D" uid="uid://cs8dplqi86hyr" path="res://art/characters/spritesheet golero.png" id="2_ra6i0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra6i0"]
 radius = 15.0333
