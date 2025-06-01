@@ -11,6 +11,11 @@ var time: String
 
 @export var player: Player
 
+func restore() -> void:
+	for i in to_dict_reset().keys():
+		if not data.has(i):
+			data[i] = to_dict_reset()[i]
+
 func to_dict() -> Dictionary:	
 	return {
 		"username": username,
@@ -19,7 +24,8 @@ func to_dict() -> Dictionary:
 		"weapon": player.saveWeapon(),
 		"inventory": player.inventory.to_dict(),
 		"position": player.savePosition(),
-		"quests": saveDialogic()
+		"quests": saveDialogic(),
+		"filtro": OptionsBus.current_filter
 	}
 	
 func to_dict_reset() -> Dictionary:
@@ -30,13 +36,16 @@ func to_dict_reset() -> Dictionary:
 		"weapon": 0,
 		"inventory": {},
 		"position": {"x": 3064,"y": 1486},
-		"quests": saveDialogicReset()
+		"quests": saveDialogicReset(),
+		"filtro": ""
 	}
 
 func from_dict(dataLoad: Dictionary) -> void:
 	data = dataLoad
+	restore()
 	username = data.get("username")
 	loadDialogic()
+	OptionsBus.current_filter = data.get("filtro")
 
 func setPlayer(pl: Player) -> void:
 	player = pl
