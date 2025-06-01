@@ -9,4 +9,5 @@ name = "Manzana"
 texture = ExtResource("2_trmg6")
 maxAmount = 16
 curation = 10
+typeItem = "food"
 metadata/_custom_type_script = "uid://dwbnornupta3q"

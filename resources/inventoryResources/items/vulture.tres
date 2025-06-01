@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://ckayyf6geti2s"]
+
+[ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_kwtmb"]
+[ext_resource type="Texture2D" uid="uid://dfwxmlpuquirp" path="res://art/characters/spritesheet golero.png" id="2_5jeyy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16i0p"]
+atlas = ExtResource("2_5jeyy")
+region = Rect2(17.9292, 13.479, 17.6618, 18.521)
+
+[resource]
+script = ExtResource("1_kwtmb")
+name = "Golero"
+texture = SubResource("AtlasTexture_16i0p")
+maxAmount = 1
+curation = 0
+typeItem = "tool"
+metadata/_custom_type_script = "uid://dwbnornupta3q"

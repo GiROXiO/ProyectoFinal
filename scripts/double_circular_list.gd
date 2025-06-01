@@ -1,19 +1,28 @@
+class_name ListaDobleCircular
 extends Node
 
-class_name ListaDobleCircular
-const Nodo = preload("res://scripts/Node.gd")
+const nodo = preload("res://scripts/toolNode.gd")
 
-var PTR: Nodo = null
+var PTR: nodo
+var FINAL: nodo
+var longitud = 0
 
-func insert_node(value):
-	var new = Nodo.new(value)
+func _init() -> void:
+	self.PTR = null
+	self.FINAL = null
+
+func _insert_node(value: InventoryItem):
+	var new_node: nodo = nodo.new(value)
+	new_node.index = longitud
+	
 	if PTR == null:
-		PTR = new
-		PTR.right = PTR
-		PTR.left = PTR
+		self.PTR = new_node
+		self.FINAL = new_node
 	else:
-		var last = PTR.left
-		last.right = new
-		new.left = last
-		new.right = PTR
-		PTR.left = new
+		new_node.left = self.FINAL
+		new_node.right = self.PTR
+		self.FINAL.right = new_node
+		self.PTR.left = new_node
+		self.FINAL = new_node
+	
+	self.longitud += 1

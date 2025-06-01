@@ -1,6 +1,5 @@
-extends Panel
-
 class_name SlotGui
+extends Panel
 
 signal clicked(index)
 

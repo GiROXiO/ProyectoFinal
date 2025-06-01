@@ -9,4 +9,5 @@ name = "Botella de plastico"
 texture = ExtResource("2_3tmwo")
 maxAmount = 64
 curation = 0
+typeItem = "trash"
 metadata/_custom_type_script = "uid://dwbnornupta3q"

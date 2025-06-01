@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b4n20wc4l1va8"]
 
 [ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_udwmi"]
-[ext_resource type="Texture2D" uid="uid://5qpmw0wusg5p" path="res://art/objects/aspiradora.png" id="2_i21cb"]
+[ext_resource type="Texture2D" uid="uid://jemijtk305pa" path="res://art/objects/aspiradora.png" id="2_i21cb"]
 
 [resource]
 script = ExtResource("1_udwmi")
@@ -9,4 +9,5 @@ name = "Aspiradora"
 texture = ExtResource("2_i21cb")
 maxAmount = 1
 curation = 0
+typeItem = "tool"
 metadata/_custom_type_script = "uid://dwbnornupta3q"

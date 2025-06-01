@@ -9,4 +9,5 @@ name = "Naranja"
 texture = ExtResource("2_dyplj")
 maxAmount = 16
 curation = 25
+typeItem = "food"
 metadata/_custom_type_script = "uid://dwbnornupta3q"

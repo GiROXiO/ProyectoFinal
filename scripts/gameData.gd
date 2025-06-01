@@ -21,13 +21,12 @@ func to_dict() -> Dictionary:
 		"username": username,
 		'time':player.saveTime(),
 		"health": player.saveHealth(),
-		"weapon": player.saveWeapon(),
 		"inventory": player.inventory.to_dict(),
 		"position": player.savePosition(),
 		"quests": saveDialogic(),
 		"filtro": OptionsBus.current_filter
 	}
-	
+
 func to_dict_reset() -> Dictionary:
 	return {
 		"username": username,
@@ -141,7 +140,6 @@ func loadData() -> void:
 		return
 	player.time = data.get("time")
 	player.health = data.get("health")
-	player.player_tool = data.get("weapon")
 	player.load_position(data["position"])
 	player.inventory.from_dict(data["inventory"])
 	

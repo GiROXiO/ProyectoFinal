@@ -1,6 +1,5 @@
-extends Control
-
 class_name InventoryGui
+extends Control
 
 signal opened
 signal closed

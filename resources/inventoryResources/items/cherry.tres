@@ -9,4 +9,5 @@ name = "Cereza"
 texture = ExtResource("2_unsnb")
 maxAmount = 16
 curation = 5
+typeItem = "food"
 metadata/_custom_type_script = "uid://dwbnornupta3q"

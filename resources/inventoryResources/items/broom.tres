@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c2foeht5b68s8"]
 
 [ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_f3qqd"]
-[ext_resource type="Texture2D" uid="uid://bfjjos614d16s" path="res://art/objects/escoba.png" id="2_hu3rw"]
+[ext_resource type="Texture2D" uid="uid://ds0i746lixudu" path="res://art/objects/escoba.png" id="2_hu3rw"]
 
 [resource]
 script = ExtResource("1_f3qqd")
@@ -9,4 +9,5 @@ name = "Escoba"
 texture = ExtResource("2_hu3rw")
 maxAmount = 1
 curation = 0
+typeItem = "tool"
 metadata/_custom_type_script = "uid://dwbnornupta3q"

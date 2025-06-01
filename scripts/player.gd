@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-signal toolChanged(index:int)
+signal toolChanged(direction: String)
 signal usedItem(item: InventoryItem)
 
 @onready var inventory_gui: InventoryGui = get_parent().get_node("GUI/InventoryGUI")
@@ -37,7 +37,7 @@ var current_dir = "down"
 
 func _ready():
 	add_to_group("player")
-	emit_signal("toolChanged", player_tool)
+	emit_signal("toolChanged", "")
 	gameData.setPlayer(self)
 	gameData.loadData()
 	inventory_gui.connect("selectedSlot", Callable(self, "_update_selected_slot"))
@@ -350,8 +350,10 @@ func change_tool():
 	if Input.is_action_just_pressed("change_tool"):
 		if Input.is_key_pressed(KEY_UP):
 			previous_tool()
+			emit_signal("toolChanged", "left")
 		elif Input.is_key_pressed(KEY_DOWN):
 			next_tool()
+			emit_signal("toolChanged", "right")
 			
 	change_size_attackArea()
 
@@ -360,14 +362,12 @@ func previous_tool():
 		player_tool = 2
 	else:
 		player_tool -= 1
-	emit_signal("toolChanged", player_tool)
 
 func next_tool():
 	if player_tool == 2:
 		player_tool = 0
 	else:
 		player_tool += 1
-	emit_signal("toolChanged", player_tool)
 
 func _update_selected_slot(slot: InventorySlot):
 	self.selectedSlot = slot
@@ -380,24 +380,25 @@ func use_item():
 		return
 	if self.selectedSlot.item != null:
 		print("Jugador tiene item en el slot")
-		print(selectedSlot.item.name )
-		
-		print("La curacion es de: ", selectedSlot.item.curation)
-		
-		if self.health < self.maxHealth:
-			print("Puede curarse")
-			if self.health + self.selectedSlot.item.curation > self.maxHealth:
-				self.health = self.maxHealth
-				
+		print("Nombre: "+selectedSlot.item.name )
+		print("Tipo: "+selectedSlot.item.typeItem)
+		if str(self.selectedSlot.item.typeItem).strip_edges().to_lower() == "food":
+			print("La curacion es de: ", selectedSlot.item.curation)
+			if self.health < self.maxHealth:
+				print("Puede curarse")
+				if self.health + self.selectedSlot.item.curation > self.maxHealth:
+					self.health = self.maxHealth
+				else:
+					self.health += self.selectedSlot.item.curation
+				print("Vida del jugador aumento a ", self.health)
+				self.selectedSlot.amount -=1
+				if selectedSlot.amount <= 0:
+					self.selectedSlot.item = null
+				self.inventory_gui.update()
 			else:
-				self.health += self.selectedSlot.item.curation
-			print("Vida del jugador aumento a ", self.health)
-			self.selectedSlot.amount -=1
-			if selectedSlot.amount <= 0:
-				self.selectedSlot.item = null
-			self.inventory_gui.update()
+				print("El jugador tiene la vida al maximo")
 		else:
-			print("El jugador tiene la vida al maximo")
+			print("No es comida")
 	else:
 		print("No tiene ningun item en el slot seleccionado")
 	gameData.save_to_file()
