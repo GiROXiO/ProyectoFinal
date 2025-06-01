@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://blqh8q17xol8g" path="res://scenes/gui/inventory_gui.tscn" id="1_c4rma"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="1_g6s7q"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_g6s7q"]
-[ext_resource type="Texture2D" uid="uid://44ov3e270bov" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
-[ext_resource type="Texture2D" uid="uid://cx75hkje5pp7t" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
-[ext_resource type="Texture2D" uid="uid://c3h7wl4l4gu8x" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
+[ext_resource type="Texture2D" uid="uid://b1pyhoi0lhtno" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
+[ext_resource type="Texture2D" uid="uid://bdwflqxey3j2" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
+[ext_resource type="Texture2D" uid="uid://b0d8pl4skm4hy" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
 [ext_resource type="PackedScene" uid="uid://sl6f3q0apmcg" path="res://scenes/gui/tool_slot_gui.tscn" id="7_jtalx"]
 [ext_resource type="Script" uid="uid://kpxl6kookli4" path="res://scripts/coords.gd" id="8_jtalx"]
-[ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="9_6gso4"]
-[ext_resource type="PackedScene" path="res://scenes/help_menu.tscn" id="10_6gso4"]
+[ext_resource type="PackedScene" uid="uid://n5hxy68qtim4" path="res://scenes/options_for_game.tscn" id="9_wskm7"]
+[ext_resource type="PackedScene" uid="uid://baaa2pq7dn5e" path="res://scenes/help_menu_for_game.tscn" id="10_6gso4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghj5q"]
 bg_color = Color(0.588235, 0.517647, 0.439216, 1)
@@ -226,7 +226,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
 text = "Exit"
 
-[node name="options" parent="." instance=ExtResource("9_6gso4")]
+[node name="options" parent="." instance=ExtResource("9_wskm7")]
 visible = false
 
 [node name="help_menu" parent="." instance=ExtResource("10_6gso4")]

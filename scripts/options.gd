@@ -7,7 +7,7 @@ extends Control
 @onready var optionBus = OptionsBus
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
+	self.visible = false
 
 func _on_btn_filter_1_pressed() -> void:
 	print("Boton de Protonopia presionado")
@@ -22,4 +22,10 @@ func _on_btn_filter_2_pressed() -> void:
 func _on_btn_filter_3_pressed() -> void:
 	print("Boton de Monocromatismo presionado")
 	OptionsBus.current_filter = "monocromatismo"
+	print(OptionsBus.current_filter)
+
+
+func _on_btn_filter_4_pressed() -> void:
+	print("Boton de apagado de filtro presionado")
+	OptionsBus.current_filter = ""
 	print(OptionsBus.current_filter)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8bvj754arvsq"]
+[gd_scene load_steps=18 format=3 uid="uid://b8bvj754arvsq"]
 
 [ext_resource type="Script" uid="uid://cfn12seal1mss" path="res://scripts/start_menu.gd" id="1_ouf4f"]
-[ext_resource type="Texture2D" uid="uid://ds6e2vjgst7r8" path="res://art/images/inicio.png" id="2_m7x51"]
+[ext_resource type="Texture2D" uid="uid://cktunanbxwrpr" path="res://art/images/inicio.png" id="2_m7x51"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_thu50"]
+[ext_resource type="PackedScene" path="res://scenes/help_menu.tscn" id="4_fcv5n"]
+[ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="5_4v6gu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x51"]
 bg_color = Color(0.588235, 0.517647, 0.439216, 1)
@@ -82,6 +84,45 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apowk"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnuwp"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egh8s"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v6gu"]
 bg_color = Color(0.588235, 0.517647, 0.439216, 1)
 border_width_left = 7
@@ -140,7 +181,7 @@ grow_vertical = 2
 mouse_default_cursor_shape = 6
 texture = ExtResource("2_m7x51")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ElectionContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -155,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="ElectionContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_thu50")
 theme_override_font_sizes/font_size = 50
@@ -164,7 +205,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_u4qax")
 theme_override_styles/normal = SubResource("StyleBoxFlat_h61rw")
 text = "Start"
 
-[node name="options" type="Button" parent="VBoxContainer"]
+[node name="options" type="Button" parent="ElectionContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_thu50")
 theme_override_font_sizes/font_size = 50
@@ -173,7 +214,16 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5byqq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fcv5n")
 text = "Options"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="help" type="Button" parent="ElectionContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_thu50")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_apowk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vnuwp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_egh8s")
+text = "Help"
+
+[node name="exit" type="Button" parent="ElectionContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_thu50")
 theme_override_font_sizes/font_size = 50
@@ -182,6 +232,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_e58y3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nxjfj")
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="help_menu" parent="CanvasLayer" instance=ExtResource("4_fcv5n")]
+visible = false
+
+[node name="options" parent="CanvasLayer" instance=ExtResource("5_4v6gu")]
+visible = false
+
+[connection signal="pressed" from="ElectionContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ElectionContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ElectionContainer/help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="ElectionContainer/exit" to="." method="_on_exit_pressed"]
