@@ -1,9 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmbxqjl51x7bw"]
+[gd_scene load_steps=23 format=3 uid="uid://dmbxqjl51x7bw"]
 
-[ext_resource type="Script" uid="uid://dw7mlynytx0ps" path="res://scripts/help_menu.gd" id="1_12kij"]
-[ext_resource type="Texture2D" uid="uid://ok0lxj3x15bs" path="res://art/images/inicio.png" id="1_yo4mw"]
+[ext_resource type="Script" path="res://scripts/help_menu.gd" id="1_12kij"]
+[ext_resource type="Texture2D" uid="uid://dpna7lkpo06v7" path="res://art/images/inicio.png" id="1_yo4mw"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_12kij"]
-[ext_resource type="Texture2D" uid="uid://cf1nflss2us13" path="res://art/icon.svg" id="3_cdt6g"]
+[ext_resource type="Texture2D" uid="uid://beghunv5ottij" path="res://art/images/w.png" id="4_p5r7i"]
+[ext_resource type="Texture2D" uid="uid://c55fvpqb4a4n8" path="res://art/images/down.png" id="5_prwkw"]
+[ext_resource type="Texture2D" uid="uid://dr3lxx36mn8cr" path="res://art/images/up.png" id="6_iaaq1"]
+[ext_resource type="Texture2D" uid="uid://c65epk5u08mor" path="res://art/images/s.png" id="7_qannr"]
+[ext_resource type="Texture2D" uid="uid://c8ato1b1xs7av" path="res://art/images/left.png" id="8_vilhh"]
+[ext_resource type="Texture2D" uid="uid://d4ka5yhwbi00k" path="res://art/images/right.png" id="9_x4s8d"]
+[ext_resource type="Texture2D" uid="uid://bet7xhw5k86od" path="res://art/images/d.png" id="10_qgryo"]
+[ext_resource type="Texture2D" uid="uid://dgysea4eofoqp" path="res://art/images/c.png" id="11_5clpl"]
+[ext_resource type="Texture2D" uid="uid://clcswddujw8de" path="res://art/images/a.png" id="12_34a3j"]
+[ext_resource type="Texture2D" uid="uid://daohcxnmaqx20" path="res://art/images/shift.png" id="13_nbccp"]
+[ext_resource type="Texture2D" uid="uid://cvfo08kw18um5" path="res://art/images/e.png" id="14_ccpy5"]
+[ext_resource type="Texture2D" uid="uid://kbnqxkhrqrjp" path="res://art/images/left click.png" id="15_drais"]
+[ext_resource type="Texture2D" uid="uid://bkx2r3ftboubq" path="res://art/images/space.png" id="16_2dq25"]
+[ext_resource type="Texture2D" uid="uid://dvekf434v2524" path="res://art/images/enter.png" id="17_enk6p"]
+[ext_resource type="Texture2D" uid="uid://bddg08ebmflwp" path="res://art/images/tab.png" id="18_hpu0k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmide"]
 bg_color = Color(0.894118, 0.643137, 0.454902, 1)
@@ -106,7 +120,7 @@ layout_mode = 2
 
 [node name="UpIcon" type="TextureRect" parent="MarginContainer/GridContainer/UpContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("4_p5r7i")
 expand_mode = 2
 
 [node name="ToolLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -121,12 +135,12 @@ layout_mode = 2
 
 [node name="ToolIcon" type="TextureRect" parent="MarginContainer/GridContainer/ToolContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("5_prwkw")
 expand_mode = 2
 
 [node name="ToolIcon2" type="TextureRect" parent="MarginContainer/GridContainer/ToolContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("6_iaaq1")
 expand_mode = 2
 
 [node name="DownLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -141,7 +155,7 @@ layout_mode = 2
 
 [node name="DownIcon" type="TextureRect" parent="MarginContainer/GridContainer/DownContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("7_qannr")
 expand_mode = 2
 
 [node name="ItemLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -156,12 +170,12 @@ layout_mode = 2
 
 [node name="itemIcon" type="TextureRect" parent="MarginContainer/GridContainer/ItemContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("8_vilhh")
 expand_mode = 2
 
 [node name="itemIcon2" type="TextureRect" parent="MarginContainer/GridContainer/ItemContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("9_x4s8d")
 expand_mode = 2
 
 [node name="RightLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -176,7 +190,7 @@ layout_mode = 2
 
 [node name="RightIcon" type="TextureRect" parent="MarginContainer/GridContainer/RightContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("10_qgryo")
 expand_mode = 2
 
 [node name="UseItemLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -191,7 +205,7 @@ layout_mode = 2
 
 [node name="UseItemIcon" type="TextureRect" parent="MarginContainer/GridContainer/UseItemContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("11_5clpl")
 expand_mode = 2
 
 [node name="LeftLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -206,7 +220,7 @@ layout_mode = 2
 
 [node name="LeftIcon" type="TextureRect" parent="MarginContainer/GridContainer/LeftContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("12_34a3j")
 expand_mode = 2
 
 [node name="RunLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -221,7 +235,7 @@ layout_mode = 2
 
 [node name="RunIcon" type="TextureRect" parent="MarginContainer/GridContainer/RunContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("13_nbccp")
 expand_mode = 2
 
 [node name="AtaqueLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -236,12 +250,12 @@ layout_mode = 2
 
 [node name="AtaqueIcon" type="TextureRect" parent="MarginContainer/GridContainer/AtaqueContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("14_ccpy5")
 expand_mode = 2
 
 [node name="AtaqueIcon2" type="TextureRect" parent="MarginContainer/GridContainer/AtaqueContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("15_drais")
 expand_mode = 2
 
 [node name="DashLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -256,7 +270,7 @@ layout_mode = 2
 
 [node name="DashIcon" type="TextureRect" parent="MarginContainer/GridContainer/DashContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("16_2dq25")
 expand_mode = 2
 
 [node name="DialogicLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -271,12 +285,12 @@ layout_mode = 2
 
 [node name="DialogicIcon" type="TextureRect" parent="MarginContainer/GridContainer/DialogicContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("17_enk6p")
 expand_mode = 2
 
 [node name="DialogicIcon2" type="TextureRect" parent="MarginContainer/GridContainer/DialogicContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("15_drais")
 expand_mode = 2
 
 [node name="MapLabel" type="Label" parent="MarginContainer/GridContainer"]
@@ -291,7 +305,7 @@ layout_mode = 2
 
 [node name="MapIcon" type="TextureRect" parent="MarginContainer/GridContainer/MapContainer"]
 layout_mode = 2
-texture = ExtResource("3_cdt6g")
+texture = ExtResource("18_hpu0k")
 expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
