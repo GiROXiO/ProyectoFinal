@@ -19,6 +19,7 @@ var is_dashing = false
 var can_dash = true
 var dash_time = 0.0
 
+var time = 0.0
 var attack_ip = false # attack in progress
 
 var speed = 100
@@ -37,28 +38,23 @@ var current_dir = "down"
 func _ready():
 	add_to_group("player")
 	emit_signal("toolChanged", player_tool)
-	gameData.setInventory(inventory)
-	gameData.loadInventory()
 	gameData.setPlayer(self)
-	loadHealth()
-	gameData.loadPosition()
-	loadWeapon()
+	gameData.loadData()
 	inventory_gui.connect("selectedSlot", Callable(self, "_update_selected_slot"))
+
+func _process(delta):
+	time += delta
 	
-func loadHealth()-> void:
-	if (gameData.loadHealth() == 100):
-		health = 100
-	else:
-		health = gameData.loadHealth()
+func reset()-> void:
+	health = 100
+	position = Vector2(3064,1486)
+	gameData.save_to_file()
+
+func saveTime()-> float:
+	return time
 		
 func saveHealth()-> int:
 	return health
-
-func loadWeapon()-> void:
-	if (gameData.loadWeapon() == 0):
-		player_tool = 0
-	else:
-		player_tool = gameData.loadWeapon()
 		
 func saveWeapon()-> int:
 	return player_tool
@@ -246,9 +242,7 @@ func enemy_attack():
 		print("Vida del jugador: ", health)
 		if health == 0:
 			global.player_current_attack = false
-			health = 100
-			position = Vector2(3064,1486)
-			gameData.save_to_file()
+			reset()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
 		else:
 			gameData.save_to_file()
