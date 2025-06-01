@@ -14,16 +14,8 @@ func _ready():
 	$TritanopiaFilter/TritanopiaOL.visible = false
 	$ProtanopiaFilter/ProtanopiaOL.visible = false
 	$MonochromatismFilter/MonochromatismOL.visible = false
-<<<<<<< HEAD
-
 	var filter_name: String = OptionsBus.current_filter
 	self._filter_changed(filter_name)
-=======
-	
-	print(OptionsBus.current_filter)
-	#filter_name = OptionsBus.current_filter
-	#self._filter_changed(filter_name)
->>>>>>> 3aa2b759b18512643afd4946a19c5598737063cd
 
 func _process(delta: float) -> void:
 	healthBar.value = player.get_life()

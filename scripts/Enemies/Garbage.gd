@@ -105,10 +105,7 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 func verifyMisions():
 	Dialogic.VAR.EnemiesDefeated.garbage_defeated += 1
-<<<<<<< HEAD
-=======
-	Dialogic.VAR.get("MissionAccepted") 
->>>>>>> 3aa2b759b18512643afd4946a19c5598737063cd
+	Dialogic.VAR.get("MissionAccepted")
 	if Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted and Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_garbage += 1
 
