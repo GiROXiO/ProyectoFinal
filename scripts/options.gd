@@ -42,11 +42,11 @@ func _on_back_button_down() -> void:
 
 func _toggle_fullscreen(state):
 	if state == 1:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		get_window().mode = Window.MODE_FULLSCREEN
 		print("Funciona")
 	else:
 		print("No funciona")
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		get_window().mode = Window.MODE_WINDOWED
 
 
 func _on_full_screen_button_resolutions_2_item_selected(index: int) -> void:
