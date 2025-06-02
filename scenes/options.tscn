@@ -5,13 +5,13 @@
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
 [ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
-bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vpq"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
 border_width_left = 7
 border_width_top = 7
 border_width_right = 7
 border_width_bottom = 7
-border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
 border_blend = true
 corner_radius_top_left = 7
 corner_radius_top_right = 7
@@ -31,13 +31,13 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vpq"]
-bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
 border_width_left = 7
 border_width_top = 7
 border_width_right = 7
 border_width_bottom = 7
-border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
 border_blend = true
 corner_radius_top_left = 7
 corner_radius_top_right = 7
@@ -67,29 +67,6 @@ grow_vertical = 2
 mouse_default_cursor_shape = 6
 texture = ExtResource("2_ufgnv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = 95.0
-offset_right = -262.0
-offset_bottom = 180.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="back" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_588u4")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "ATRAS"
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -97,10 +74,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -450.0
-offset_top = -159.0
-offset_right = 459.0
-offset_bottom = 82.0
+offset_left = -477.0
+offset_top = -103.0
+offset_right = 487.0
+offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -123,21 +100,11 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_1sggn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-
-[node name="ResolutonLabel" type="Label" parent="MarginContainer/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_588u4")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "RESOLUCION"
-
-[node name="OptionButtonResolutions" type="OptionButton" parent="MarginContainer/GridContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_588u4")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_1sggn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+item_count = 2
+popup/item_0/text = "Desactivado"
+popup/item_0/id = 0
+popup/item_1/text = "Activado"
+popup/item_1/id = 1
 
 [node name="VolumenLabel" type="Label" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -172,6 +139,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+min_value = 0.5
+value = 1.5
 
 [node name="FilerLabel" type="Label" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -221,10 +190,34 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
 text = "Mono"
 
-[connection signal="button_down" from="VBoxContainer/back" to="." method="_on_back_button_down"]
-[connection signal="button_up" from="VBoxContainer/back" to="." method="_on_back_button_up"]
-[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = 132.0
+offset_right = -259.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "ATRAS"
+
+[connection signal="item_selected" from="MarginContainer/GridContainer/FullScreenButtonResolutions2" to="." method="_on_full_screen_button_resolutions_2_item_selected"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter4" to="." method="_on_btn_filter_4_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter1" to="." method="_on_btn_filter_1_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter2" to="." method="_on_btn_filter_2_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter3" to="." method="_on_btn_filter_3_pressed"]
+[connection signal="button_down" from="VBoxContainer/back" to="." method="_on_back_button_down"]
+[connection signal="button_up" from="VBoxContainer/back" to="." method="_on_back_button_up"]
+[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]

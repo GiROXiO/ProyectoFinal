@@ -6,6 +6,12 @@ extends Control
 @onready var mon = $MarginContainer/GridContainer/BtnFilterContainer/btnFilter3
 @onready var optionBus = OptionsBus
 @export var ingame: bool
+@onready var brightness_slider = $MarginContainer/GridContainer/BrilloContainer/BrilloSlider
+
+
+func _ready() -> void:
+	$MarginContainer/GridContainer/FullScreenButtonResolutions2.select(0)
+
 
 #func _on_back_pressed() -> void:
 	#self.visible = false
@@ -33,3 +39,15 @@ func _on_back_button_up() -> void:
 
 func _on_back_button_down() -> void:
 	self.visible = false
+
+func _toggle_fullscreen(state):
+	if state == 1:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		print("Funciona")
+	else:
+		print("No funciona")
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_full_screen_button_resolutions_2_item_selected(index: int) -> void:
+	_toggle_fullscreen(index)
