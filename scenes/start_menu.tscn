@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b8bvj754arvsq"]
 
 [ext_resource type="Script" uid="uid://cfn12seal1mss" path="res://scripts/start_menu.gd" id="1_ouf4f"]
-[ext_resource type="Texture2D" uid="uid://dpna7lkpo06v7" path="res://art/images/inicio.png" id="2_m7x51"]
+[ext_resource type="Texture2D" uid="uid://b00e66njju03u" path="res://art/images/inicio.png" id="2_m7x51"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_thu50"]
 [ext_resource type="PackedScene" uid="uid://dmbxqjl51x7bw" path="res://scenes/help_menu.tscn" id="4_fcv5n"]
 [ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="5_4v6gu"]
@@ -203,7 +203,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_m7x51")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u4qax")
 theme_override_styles/normal = SubResource("StyleBoxFlat_h61rw")
-text = "Start"
+text = "Comenzar"
 
 [node name="options" type="Button" parent="ElectionContainer"]
 layout_mode = 2
@@ -212,7 +212,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_thu50")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5byqq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fcv5n")
-text = "Options"
+text = "Opciones"
 
 [node name="help" type="Button" parent="ElectionContainer"]
 layout_mode = 2
@@ -221,7 +221,16 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_apowk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vnuwp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_egh8s")
-text = "Help"
+text = "Ayuda"
+
+[node name="creditos" type="Button" parent="ElectionContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_thu50")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_4v6gu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e58y3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nxjfj")
+text = "Creditos"
 
 [node name="exit" type="Button" parent="ElectionContainer"]
 layout_mode = 2
@@ -230,7 +239,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_4v6gu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e58y3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nxjfj")
-text = "Exit"
+text = "Salir"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -243,4 +252,5 @@ visible = false
 [connection signal="pressed" from="ElectionContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ElectionContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="ElectionContainer/help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="ElectionContainer/creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="ElectionContainer/exit" to="." method="_on_exit_pressed"]

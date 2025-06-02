@@ -18,3 +18,7 @@ func _on_exit_pressed() -> void:
 func _on_help_pressed() -> void:
 	help.visible = true
 	
+
+
+func _on_creditos_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/creditos.tscn")

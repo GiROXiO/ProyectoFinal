@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://blqh8q17xol8g" path="res://scenes/gui/inventory_gui.tscn" id="1_c4rma"]
 [ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="1_g6s7q"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_g6s7q"]
-[ext_resource type="Texture2D" uid="uid://dhkogsysr1xne" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
-[ext_resource type="Texture2D" uid="uid://c55kfjwv414oi" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
-[ext_resource type="Texture2D" uid="uid://clxy6y48xpdu8" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
+[ext_resource type="Texture2D" uid="uid://dh4re02mkdn4f" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
+[ext_resource type="Texture2D" uid="uid://blbjgycyvr05a" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
+[ext_resource type="Texture2D" uid="uid://3hubyduv04y1" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
 [ext_resource type="PackedScene" uid="uid://sl6f3q0apmcg" path="res://scenes/gui/tool_slot_gui.tscn" id="7_jtalx"]
 [ext_resource type="Script" uid="uid://kpxl6kookli4" path="res://scripts/coords.gd" id="8_jtalx"]
 [ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="9_6gso4"]
@@ -197,7 +197,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
-text = "Continue"
+text = "Continuar"
 
 [node name="Configuracion" type="Button" parent="SubMenuContainer"]
 layout_mode = 2
@@ -206,7 +206,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
-text = "Settings"
+text = "Opciones"
 
 [node name="Ayuda" type="Button" parent="SubMenuContainer"]
 layout_mode = 2
@@ -215,7 +215,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
-text = "Help"
+text = "Ayuda"
 
 [node name="BackStartMenu" type="Button" parent="SubMenuContainer"]
 layout_mode = 2
@@ -224,7 +224,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
-text = "Exit"
+text = "Salir"
 
 [node name="options" parent="." instance=ExtResource("9_6gso4")]
 visible = false

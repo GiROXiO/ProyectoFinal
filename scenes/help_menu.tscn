@@ -308,7 +308,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_12kij")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
-text = "MiniMapa"
+text = "Inventario"
 
 [node name="InventoryContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -325,10 +325,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = 186.0
-offset_right = -286.0
-offset_bottom = 271.0
+offset_left = -517.0
+offset_top = 193.0
+offset_right = -303.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -339,6 +339,6 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_yo4mw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_12kij")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cdt6g")
-text = "BACK"
+text = "ATRAS"
 
 [connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]

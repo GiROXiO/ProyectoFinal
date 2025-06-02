@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b73bsknbw7gv"]
 
 [ext_resource type="Script" uid="uid://df61ee1yqxr06" path="res://scripts/options.gd" id="1_0agyt"]
-[ext_resource type="Texture2D" uid="uid://dpna7lkpo06v7" path="res://art/images/inicio.png" id="2_ufgnv"]
+[ext_resource type="Texture2D" uid="uid://b00e66njju03u" path="res://art/images/inicio.png" id="2_ufgnv"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
 [ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
 
@@ -74,9 +74,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -451.0
+offset_left = -476.0
 offset_top = 95.0
-offset_right = -237.0
+offset_right = -262.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -88,7 +88,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "BACK"
+text = "ATRAS"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -97,10 +97,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -362.0
-offset_top = -120.0
-offset_right = 362.0
-offset_bottom = 120.0
+offset_left = -450.0
+offset_top = -159.0
+offset_right = 459.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -109,12 +109,27 @@ texture_filter = 2
 layout_mode = 2
 columns = 2
 
+[node name="FulScreenLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "PANTALLA COMPLETA"
+
+[node name="FullScreenButtonResolutions2" type="OptionButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_1sggn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+
 [node name="ResolutonLabel" type="Label" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_588u4")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "RESOLUTIONS "
+text = "RESOLUCION"
 
 [node name="OptionButtonResolutions" type="OptionButton" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -163,7 +178,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_588u4")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
-text = "DALTONIC FILTER "
+text = "FILTRO DALTONICO"
 
 [node name="BtnFilterContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
 layout_mode = 2
