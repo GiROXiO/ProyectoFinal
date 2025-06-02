@@ -94,7 +94,7 @@ grow_vertical = 2
 [node name="Creditos" type="Label" parent="TextureRect/CreditosContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6yhot")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_jddgq")
 text = "Director del proyecto
 Juan Felipe Arrieta Coley
@@ -111,9 +111,6 @@ Jeronimo Antonio Castro Amaya
 
 Director de UI/UX
 Santiago Andres Camacho Carta
-
-Mencion honorifica
-Samuel Jesus Puello Arrieta
 "
 horizontal_alignment = 1
 
@@ -134,7 +131,7 @@ grow_vertical = 2
 [node name="back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6yhot")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_lgbdq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ul0vb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_idjxt")
