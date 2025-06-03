@@ -1,3 +1,4 @@
+class_name SaveMenu
 extends Control
 
 var selectedSlot := 0
@@ -59,7 +60,7 @@ func slotSelection(slot: int):
 		$CenterContainer.visible= false
 	else:
 		showInfo("Datos cargados del jugador %s " % [gameData.username])
-		get_tree().change_scene_to_file("res://scenes/world.tscn")
+		get_tree().change_scene_to_file("res://scenes/loading_screen/loading_screen.tscn")
 
 func confirmName():
 	var username = $NewUsernamePanel/VBoxContainer/UsernameInput.text.strip_edges()
@@ -73,7 +74,7 @@ func confirmName():
 	$NewUsernamePanel.visible = false
 	$NewUsernamePanel/VBoxContainer/UsernameInput.text = ""
 	showInfo("Guardado como '%s' en la ranura %d" % [username, selectedSlot])
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/loading_screen/loading_screen.tscn")
 
 func deleteSave(slot: int):
 	var path = "user://save_slot_%d.save" % slot

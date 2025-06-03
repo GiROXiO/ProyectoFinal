@@ -14,10 +14,10 @@ func _ready():
 	$TritanopiaFilter/TritanopiaOL.visible = false
 	$ProtanopiaFilter/ProtanopiaOL.visible = false
 	$MonochromatismFilter/MonochromatismOL.visible = false
-	var filter_name: String = OptionsBus.current_filter
+	self.filter_name = OptionsBus.current_filter
 	self._filter_changed(filter_name)
 
-func _process(delta: float) -> void:
+func _process(_delta) -> void:
 	healthBar.value = player.get_life()
 	filter_name = OptionsBus.current_filter
 	self._filter_changed(filter_name)
@@ -28,8 +28,8 @@ func _on_inventory_opened():
 func _on_inventory_closed():
 	get_tree().paused = false
 
-func _filter_changed(filter_name: String):
-	match filter_name:
+func _filter_changed(filter: String):
+	match filter:
 		"protanopia":
 			$ProtanopiaFilter/ProtanopiaOL.visible = true
 			$TritanopiaFilter/TritanopiaOL.visible = false

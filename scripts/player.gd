@@ -2,7 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 signal toolChanged(direction: String)
-signal usedItem(item: InventoryItem)
 
 @onready var inventory_gui: InventoryGui = get_parent().get_node("GUI/InventoryGUI")
 @export var inventory: Inventory = preload("res://resources/inventoryResources/playerInventory.tres")

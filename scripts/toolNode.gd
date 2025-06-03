@@ -6,7 +6,7 @@ var left: ToolNode
 var right: ToolNode
 var index: int = -1
 
-func _init(value):
-	self.value = value
+func _init(val: InventoryItem):
+	self.value = val
 	self.left = null
 	self.right = null

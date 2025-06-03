@@ -5,5 +5,5 @@ extends SubViewport
 func _ready() -> void:
 	world_2d = get_tree().root.world_2d
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta) -> void:
 	$Camera2D.position = global.player_position

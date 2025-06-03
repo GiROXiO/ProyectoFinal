@@ -12,7 +12,7 @@ func _ready():
 	visible_coord_y = int(real_coords.y / UMBRAL)
 	show_coords()
 
-func _process(delta):
+func _process(_delta):
 	var real_pos = global.player_position
 	
 	var new_visible_x = int(real_pos.x / UMBRAL)

@@ -50,12 +50,12 @@ func _connect_slot_signals():
 	for slot in slots_gui:
 		slot.connect("clicked", Callable(self, "on_slot_clicked"))
 
-func on_slot_clicked(index):
-	print("El slot clickeado es el numero: ", index)
+func on_slot_clicked(slot_index):
+	print("El slot clickeado es el numero: ", slot_index)
 	if dragging:
-		drop_to_slot(index)
+		drop_to_slot(slot_index)
 	elif !dragging:
-		start_dragging(index)
+		start_dragging(slot_index)
 
 func _input(event: InputEvent) -> void:
 	if !self.isOpen:
@@ -68,12 +68,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		if !self.on_inventory and self.dragging:
 			drop_to_world()
 
-func start_dragging(index):
-	if index < 0 or index > slots.size():
+func start_dragging(slot_index):
+	if slot_index < 0 or slot_index > slots.size():
 		return 
 	
-	var slot: InventorySlot = self.slots[index]
-	var slot_gui: SlotGui = self.slots_gui[index]
+	var slot: InventorySlot = self.slots[slot_index]
+	var slot_gui: SlotGui = self.slots_gui[slot_index]
 	if slot_gui.onSlot:
 		print("Slot a arrastrar: ", slot_gui.index)
 		if slot.item:
@@ -96,12 +96,12 @@ func start_dragging(index):
 			print("Slot vacio")
 		
 
-func drop_to_slot(index):
-	if index < 0 or index > slots_gui.size():
+func drop_to_slot(slot_index):
+	if slot_index < 0 or slot_index > slots_gui.size():
 		return 
 	
-	var target_slot: InventorySlot = self.slots[index]
-	var target_slot_gui: SlotGui = self.slots_gui[index]
+	var target_slot: InventorySlot = self.slots[slot_index]
+	var target_slot_gui: SlotGui = self.slots_gui[slot_index]
 	if target_slot_gui.onSlot and self.dragging:
 		print("Intercambio entre slot ", dragging_index, " y slot ", target_slot_gui.index)
 		if target_slot.item == null:
