@@ -1,9 +1,9 @@
 [gd_scene load_steps=46 format=3 uid="uid://co1ikey7ltj1c"]
 
 [ext_resource type="Script" uid="uid://4oeykll4vjyj" path="res://scripts/Enemies/lumberjack.gd" id="1_ehlom"]
-[ext_resource type="Texture2D" uid="uid://broepn4ow5ruw" path="res://art/characters/spritesheet leñador.png" id="2_ehlom"]
-[ext_resource type="Texture2D" uid="uid://bx50pjybt6vep" path="res://art/characters/len noqueado.png" id="3_8vsug"]
-[ext_resource type="Texture2D" uid="uid://o34mxgu3lrp2" path="res://art/characters/len animacion muerte.png" id="4_3ebq4"]
+[ext_resource type="Texture2D" uid="uid://daw70q7c21f37" path="res://art/characters/spritesheet leñador.png" id="2_ehlom"]
+[ext_resource type="Texture2D" uid="uid://cyxxxueb1sltv" path="res://art/characters/len noqueado.png" id="3_8vsug"]
+[ext_resource type="Texture2D" uid="uid://dohbcu3ppp03p" path="res://art/characters/len animacion muerte.png" id="4_3ebq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgvkd"]
 atlas = ExtResource("2_ehlom")
