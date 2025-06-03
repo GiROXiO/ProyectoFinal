@@ -103,11 +103,11 @@ func deal_with_damage():
 			$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 			print("Vida del leñador: ", health)
 			if health == 0:
+				verifyMisions()
 				$deathTimer.start()
 				$AnimatedSprite2D.play("death")
 				$CollisionShape2D.disabled = true
 				isAlive = false
-				verifyMisions()
 				
 			
 func _on_take_damage_cooldown_timeout() -> void:
@@ -117,6 +117,8 @@ func _on_take_damage_cooldown_timeout() -> void:
 	
 func verifyMisions():
 	Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated += 1
+	if Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_accepted and Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_completed == false:
+		Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_lumberjacks += 1
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()
