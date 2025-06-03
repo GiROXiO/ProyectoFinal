@@ -79,9 +79,9 @@ func _physics_process(delta):
 		play_anim(0)
 	attack()
 	
-	if health == 0:
-		player_alive = false # Aca el jugador muere
-		self.queue_free() # De momento
+	#if health == 0:
+		#player_alive = false # Aca el jugador muere
+		#self.queue_free() # De momento
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and Input.is_action_just_pressed("use_item"):
@@ -240,10 +240,12 @@ func enemy_attack():
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
-		if health < 0:
+		if health <= 0:
 			global.player_current_attack = false
+			get_node("/root/World/over").play()
 			reset()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
+			
 		else:
 			gameData.save_to_file()
 	
@@ -345,6 +347,14 @@ func _on_collect_area_area_entered(area):
 	if area.has_method("collect"):
 		area.collect(inventory)
 		gameData.save_to_file()
+		var sound = get_node("/root/World/item")
+		sound.play()
+		var timer = Timer.new()
+		timer.wait_time = 0.2
+		timer.one_shot = true
+		timer.connect("timeout", func(): sound.stop())
+		add_child(timer)
+		timer.start()
 
 func change_tool():
 	if Input.is_action_just_pressed("change_tool"):

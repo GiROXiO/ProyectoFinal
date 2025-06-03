@@ -15,6 +15,10 @@ func restore() -> void:
 	for i in to_dict_reset().keys():
 		if not data.has(i):
 			data[i] = to_dict_reset()[i]
+	
+	for i in saveDialogicReset().keys():
+		if not data["quests"].has(i):
+			data["quests"][i] = saveDialogicReset()[i]
 
 func to_dict() -> Dictionary:	
 	return {
@@ -36,7 +40,7 @@ func to_dict_reset() -> Dictionary:
 		"inventory": {},
 		"position": {"x": 3064,"y": 1486},
 		"quests": saveDialogicReset(),
-		"filtro": ""
+		"filtro": OptionsBus.current_filter
 	}
 
 func from_dict(dataLoad: Dictionary) -> void:
@@ -54,25 +58,44 @@ func saveDialogic() -> Dictionary:
 		"emissions_defeated": Dialogic.VAR.EnemiesDefeated.emissions_defeated,
 		"garbage_defeated": Dialogic.VAR.EnemiesDefeated.garbage_defeated,
 		"lumberjacks_defeated": Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated,
+		
 		"emissions_defeated2": Dialogic.VAR.EnemiesDefeated2.emissions_defeated,
 		"garbage_defeated2": Dialogic.VAR.EnemiesDefeated2.emissions_defeated,
 		"lumberjacks_defeated2": Dialogic.VAR.EnemiesDefeated2.emissions_defeated,
+		
 		"luis_emissions": Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions,
 		"luis_mission_accepted": Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted,
 		"luis_mission_completed": Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed,
+		
+		"maritza_punches_dummy": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_punches_dummy,
 		"maritza_dummy": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_dummy,
-		"maritza_garbage_picker": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker,
 		"maritza_gas": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_gas,
+		"maritza_garbage_picker": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker,
 		"maritza_mission_accepted": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted,
 		"maritza_mission_completed": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed,
-		"maritza_punches_dummy": Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_punches_dummy,
+		
+		
 		"mono_emissions": Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions,
 		"mono_mission_acepted": Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted,
 		"mono_mission_completed": Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed,
+		
 		"ponllo_garbage": Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_garbage,
 		"ponllo_mission_accepted": Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted,
 		"ponllo_mission_completed": Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed,
+		
+		"gabriella_pickup": Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_pickup, 
+		"gabriella_mission_accepted": Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_accepted,
+		"gabriella_mission_completed": Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_completed,
+		
+		"ignacio_lumberjacks": Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_lumberjacks,
+		"ignacio_mission_accepted": Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_accepted,
+		"ignacio_mission_completed": Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_completed, 
+		
+		"gabriella_pickup2": Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_pickup, 
+		"gabriella_mission_accepted2": Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_accepted,
+		"gabriella_mission_completed2": Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_completed,
 	}
+	
 	return quests
 	
 func saveDialogicReset() -> Dictionary:
@@ -80,24 +103,42 @@ func saveDialogicReset() -> Dictionary:
 		"emissions_defeated": 0,
 		"garbage_defeated": 0,
 		"lumberjacks_defeated": 0,
+		
 		"emissions_defeated2": 0,
 		"garbage_defeated2": 0,
 		"lumberjacks_defeated2": 0,
+		
 		"luis_emissions": 0,
 		"luis_mission_accepted": false,
 		"luis_mission_completed": false,
+		
+		"maritza_punches_dummy": 0,
 		"maritza_dummy": false,
-		"maritza_garbage_picker": 0,
 		"maritza_gas": false,
+		"maritza_garbage_picker": 0,
 		"maritza_mission_accepted": false,
 		"maritza_mission_completed": false,
-		"maritza_punches_dummy": 0,
+		
+		
 		"mono_emissions": 0,
 		"mono_mission_acepted": false,
 		"mono_mission_completed": false,
+		
 		"ponllo_garbage": 0,
 		"ponllo_mission_accepted": false,
 		"ponllo_mission_completed": false,
+		
+		"gabriella_pickup": 0,
+		"gabriella_mission_accepted": false,
+		"gabriella_mission_completed": false,
+		
+		"ignacio_lumberjacks": 0,
+		"ignacio_mission_accepted": false,
+		"ignacio_mission_completed": false,
+		
+		"gabriella_pickup2": 0,
+		"gabriella_mission_accepted2": false,
+		"gabriella_mission_completed2": false,
 	}
 	return quests
 	
@@ -105,24 +146,41 @@ func loadDialogic() -> void:
 	Dialogic.VAR.EnemiesDefeated.emissions_defeated = data.get("quests").get("emissions_defeated")
 	Dialogic.VAR.EnemiesDefeated.garbage_defeated = data.get("quests").get("garbage_defeated")
 	Dialogic.VAR.EnemiesDefeated.lumberjacks_defeated = data.get("quests").get("lumberjacks_defeated")
+	
 	Dialogic.VAR.EnemiesDefeated2.emissions_defeated = data.get("quests").get("emissions_defeated2")
 	Dialogic.VAR.EnemiesDefeated2.garbage_defeated = data.get("quests").get("garbage_defeated2")
 	Dialogic.VAR.EnemiesDefeated2.lumberjacks_defeated = data.get("quests").get("lumberjacks_defeated2")
+	
 	Dialogic.VAR.MissionAcepted.Luis_Mission.luis_emissions = data.get("quests").get("luis_emissions")
 	Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_accepted = data.get("quests").get("luis_mission_accepted")
 	Dialogic.VAR.MissionAcepted.Luis_Mission.luis_mission_completed = data.get("quests").get("luis_mission_completed")
+	
+	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_punches_dummy = data.get("quests").get("maritza_punches_dummy")
 	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_dummy = data.get("quests").get("maritza_dummy")
-	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker = data.get("quests").get("maritza_garbage_picker")
 	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_gas = data.get("quests").get("maritza_gas")
+	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker = data.get("quests").get("maritza_garbage_picker")
 	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_accepted = data.get("quests").get("maritza_mission_accepted")
 	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed = data.get("quests").get("maritza_mission_completed")
-	Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_punches_dummy = data.get("quests").get("maritza_punches_dummy")
+	
 	Dialogic.VAR.MissionAcepted.Mono_Mission.mono_emissions = data.get("quests").get("mono_emissions")
 	Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_acepted = data.get("quests").get("mono_mission_acepted")
 	Dialogic.VAR.MissionAcepted.Mono_Mission.mono_mission_completed = data.get("quests").get("mono_mission_completed")
+	
 	Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_garbage = data.get("quests").get("ponllo_garbage")
 	Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_accepted = data.get("quests").get("ponllo_mission_accepted")
 	Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed = data.get("quests").get("ponllo_mission_completed")
+
+	Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_pickup = data.get("quests").get("gabriella_pickup")
+	Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_accepted = data.get("quests").get("gabriella_mission_accepted")
+	Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_completed = data.get("quests").get("gabriella_mission_completed")
+
+	Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_lumberjacks = data.get("quests").get("ignacio_lumberjacks")
+	Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_accepted = data.get("quests").get("ignacio_mission_accepted")
+	Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_completed = data.get("quests").get("ignacio_mission_completed")
+
+	Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_pickup = data.get("quests").get("gabriella_pickup2")
+	Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_accepted = data.get("quests").get("gabriella_mission_accepted2")
+	Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_completed = data.get("quests").get("gabriella_mission_completed2")
 
 func getTool() -> int:
 	return player.player_tool
