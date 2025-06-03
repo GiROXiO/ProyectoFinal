@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dyvh37j58ix2e"]
+[gd_scene load_steps=40 format=3 uid="uid://dyvh37j58ix2e"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -26,6 +26,16 @@
 [ext_resource type="Shader" uid="uid://bgcuar3dhkd8x" path="res://scripts/daltonismShaders/monocromatismo.gdshader" id="24_ctatt"]
 [ext_resource type="PackedScene" uid="uid://fsasyfv7gyqa" path="res://scenes/NPCs/Ignacio.tscn" id="25_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://c1px5fr122brc" path="res://scenes/NPCs/Gabriella.tscn" id="26_munwf"]
+[ext_resource type="AudioStream" uid="uid://c7bjvy6wlgixo" path="res://music/raven-caw-caw.mp3" id="27_ts3gi"]
+[ext_resource type="AudioStream" uid="uid://dwctwnglimqyx" path="res://music/wings-flapping.mp3" id="28_0nbtd"]
+[ext_resource type="AudioStream" uid="uid://cyqpgxidv17ui" path="res://music/collect-a-berry.mp3" id="29_37qwj"]
+[ext_resource type="AudioStream" uid="uid://duohnrityf1d1" path="res://music/C418 - Wet Hands - Minecraft Volume Alpha.mp3" id="30_f17e3"]
+[ext_resource type="AudioStream" uid="uid://bvoabeidp0jag" path="res://music/minecraft---minecraft-volume-alpha.mp3" id="30_navra"]
+[ext_resource type="AudioStream" uid="uid://caaptvefeht23" path="res://music/C418 - Mice on Venus - Minecraft Volume Alpha.mp3" id="31_x2olw"]
+[ext_resource type="AudioStream" uid="uid://c2udh645yjmye" path="res://music/C418 - Haggstrom - Minecraft Volume Alpha.mp3" id="32_817gm"]
+[ext_resource type="AudioStream" uid="uid://c3tok3ha4ryya" path="res://music/living-mice---minecraft-volume-alpha.mp3" id="33_ggc52"]
+[ext_resource type="AudioStream" uid="uid://qeodjo77nlj7" path="res://music/subwoofer-lullaby---minecraft-volume-alpha.mp3" id="34_l8ah6"]
+[ext_resource type="AudioStream" uid="uid://ceie0nq1wyn3e" path="res://music/negative_beeps-6008.mp3" id="35_x2olw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpybi"]
 shader = ExtResource("22_oo54l")
@@ -375,3 +385,38 @@ cooldown = 190
 position = Vector2(3299, 492)
 itemType = 2
 cooldown = 190
+
+[node name="cuervo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_ts3gi")
+
+[node name="aleteo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_0nbtd")
+
+[node name="item" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_37qwj")
+
+[node name="bg6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_f17e3")
+volume_db = -10.0
+
+[node name="bg5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_x2olw")
+volume_db = -10.0
+
+[node name="bg4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_817gm")
+volume_db = -10.0
+
+[node name="bg3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_ggc52")
+volume_db = -20.0
+
+[node name="bg2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_l8ah6")
+volume_db = -10.0
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_navra")
+
+[node name="over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_x2olw")

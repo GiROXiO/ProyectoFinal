@@ -26,6 +26,7 @@ func slot2Deleted(): deleteSave(2)
 func slot3Deleted(): deleteSave(3)
 
 func updateInfo(slot: int):
+	gameData.loadData()
 	var path = "user://save_slot_%d.save" % slot
 	var button_node: Button = null
 	match slot:
