@@ -1,0 +1,39 @@
+join Gabriella center
+if {MissionAcepted.Gabriella_Mission.gabriella_mission_accepted} == false:
+	Gabriella: Hey noo, barro
+	- ¿Que paso?
+		Gabriella: Es que estaba pintando el lago
+		Gabriella: Para hacer un dibujo ahi bien melo que me pidio Maritza
+		Gabriella: Pero es que hay demasiada basura
+		Gabriella: Un poco
+		Gabriella: Que estresss
+		- Yo limpiare el lago para que puedas pintar bien
+			Gabriella: ¿De verdad?
+			Gabriella: Hey muchas gracias
+			Gabriella: Estas salvando la patria ,_,
+			Gabriella: Porfa, quita 5 botellitas de plastico que estan por este lago
+			Gabriella: Tambien puedes hacerlo de otros lagos o del mar incluso
+			Gabriella: Todo aporta porque tambien quiero hacer dibujitos allá
+			Gabriella: Aparte que estarias limpiando toda la cochinada que le metieron al agua
+			set {MissionAcepted.Gabriella_Mission.gabriella_mission_accepted} = true
+		- Bueno no todo se puede, nos vemos
+			Gabriella: Ah que bacano
+			Gabriella: ._.
+	- Emm, chao
+		Gabriella: Estoy que me tiro al agua a recoger la basura yo misma
+elif {MissionAcepted.Gabriella_Mission.gabriella_mission_completed} == true:
+	Gabriella: De verdad que muchas gracias
+	Gabriella: Voy a hacer que aparezcas como cameo en mi dibujo \:)
+else:
+	if {MissionAcepted.Gabriella_Mission.gabriella_pickup} >= 5.0:
+		Gabriella: Heyyyyyyyyy muchas gracias ;_;
+		Gabriella: Estaba que tiraba el lienzo al lago y me iba
+		Gabriella: ...
+		Gabriella: Obvio como broma, no contaminaria el lago
+		Gabriella: Gracias tambien por ayudar al medio ambiente
+		Gabriella: Haces de estas tierras un lugar mejor ;_;
+		set {MissionAcepted.Gabriella_Mission.gabriella_mission_completed} = true
+	else:
+		Gabriella: No te estreses, no tienes que hacerlo rápido
+		Gabriella: ;_;
+[signal arg="exit_gabriella"]

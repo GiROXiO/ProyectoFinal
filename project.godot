@@ -33,6 +33,7 @@ OptionsBus="*res://scripts/optionsBus.gd"
 directories/dch_directory={
 "Aspiradora": "res://Dialogic/Characters/Aspiradora.dch",
 "Escoba": "res://Dialogic/Characters/Escoba.dch",
+"Gabriella": "res://Dialogic/Characters/Gabriella.dch",
 "Golero": "res://Dialogic/Characters/Golero.dch",
 "Ignacio": "res://Dialogic/Characters/Ignacio.dch",
 "Luis": "res://Dialogic/Characters/Luis.dch",
@@ -42,6 +43,7 @@ directories/dch_directory={
 "pkm_42e": "res://Dialogic/Characters/pkm_42e.dch"
 }
 directories/dtl_directory={
+"gabriella_timeline": "res://Dialogic/Timeline/gabriella_timeline.dtl",
 "ignacio_timeline": "res://Dialogic/Timeline/ignacio_timeline.dtl",
 "luis_timeline": "res://Dialogic/Timeline/luis_timeline.dtl",
 "maritza_timeline": "res://Dialogic/Timeline/maritza_timeline.dtl",
@@ -100,6 +102,11 @@ variables={
 "lumberjacks_defeated": 0
 },
 "MissionAcepted": {
+"Gabriella_Mission": {
+"gabriella_mission_accepted": false,
+"gabriella_mission_completed": false,
+"gabriella_pickup": 0
+},
 "Ignacio_Mission": {
 "ignacio_lumberjacks": 0,
 "ignacio_mission_accepted": false,
