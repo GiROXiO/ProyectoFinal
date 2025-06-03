@@ -240,7 +240,7 @@ func enemy_attack():
 		$AnimatedSprite2D.modulate = Color(1, 0.4, 0.4)
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
-		if health == 0:
+		if health < 0:
 			global.player_current_attack = false
 			reset()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")
