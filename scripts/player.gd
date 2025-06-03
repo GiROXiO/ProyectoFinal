@@ -78,10 +78,6 @@ func _physics_process(delta):
 		enemy_attack()
 		play_anim(0)
 	attack()
-	
-	#if health == 0:
-		#player_alive = false # Aca el jugador muere
-		#self.queue_free() # De momento
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and Input.is_action_just_pressed("use_item"):
