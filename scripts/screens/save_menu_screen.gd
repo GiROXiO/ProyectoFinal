@@ -1,29 +1,15 @@
-class_name World
-extends Node2D
+class_name SaveMenu
+extends Control
 
-@onready var player = $Player
-@onready var inventory = $GUI/InventoryGUI
-@onready var healthBar = $GUI/HeatlhBar
-
-func _ready():
-	inventory.opened.connect(_on_inventory_opened)
-	inventory.closed.connect(_on_inventory_closed)
-	global.player_current_attack = false
-	
+func _ready() -> void:
 	$MonochromatismFilter.visible = false
 	$ProtanopiaFilter.visible = false
 	$TritanopiaFilter.visible = false
+	
 	self._filter_changed(OptionsBus.current_filter)
 
-func _process(_delta) -> void:
-	healthBar.value = player.get_life()
+func _process(_delta: float) -> void:
 	self._filter_changed(OptionsBus.current_filter)
-
-func _on_inventory_opened():
-	get_tree().paused = true
-
-func _on_inventory_closed():
-	get_tree().paused = false
 
 func _filter_changed(filter: String):
 	match filter:

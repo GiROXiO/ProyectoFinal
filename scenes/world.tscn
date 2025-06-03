@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dyvh37j58ix2e"]
+[gd_scene load_steps=27 format=3 uid="uid://dyvh37j58ix2e"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -21,20 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://bxf7h13udwao7" path="res://scenes/invisible_wall.tscn" id="18_pm21f"]
 [ext_resource type="PackedScene" uid="uid://cr8vm1x4iccup" path="res://scenes/items/spawn_items.tscn" id="19_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/Enemies/spawn_emissions.tscn" id="19_pm21f"]
-[ext_resource type="Shader" uid="uid://kl0m8t4j3xif" path="res://scripts/daltonismShaders/tritanopia.gdshader" id="22_oo54l"]
-[ext_resource type="Shader" uid="uid://c5ig1a5dk6v21" path="res://scripts/daltonismShaders/protanopia.gdshader" id="23_kpybi"]
-[ext_resource type="Shader" uid="uid://bgcuar3dhkd8x" path="res://scripts/daltonismShaders/monocromatismo.gdshader" id="24_ctatt"]
+[ext_resource type="PackedScene" uid="uid://4il6yai6blbt" path="res://scenes/shaders_scenes/protanopia_filter.tscn" id="24_munwf"]
+[ext_resource type="PackedScene" uid="uid://csnt2hg2b4ete" path="res://scenes/shaders_scenes/monochromatism_filter.tscn" id="25_ts3gi"]
 [ext_resource type="PackedScene" uid="uid://fsasyfv7gyqa" path="res://scenes/NPCs/Ignacio.tscn" id="25_xgqkh"]
+[ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="26_0nbtd"]
 [ext_resource type="PackedScene" uid="uid://c1px5fr122brc" path="res://scenes/NPCs/Gabriella.tscn" id="26_munwf"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpybi"]
-shader = ExtResource("22_oo54l")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctatt"]
-shader = ExtResource("23_kpybi")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgqkh"]
-shader = ExtResource("24_ctatt")
 
 [node name="World" type="Node2D"]
 light_mask = 3
@@ -183,42 +174,6 @@ generationType = 1
 limit_spawn = 8
 cooldown = 120
 margen = 60
-
-[node name="TritanopiaFilter" type="CanvasLayer" parent="."]
-
-[node name="TritanopiaOL" type="ColorRect" parent="TritanopiaFilter"]
-visible = false
-material = SubResource("ShaderMaterial_kpybi")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ProtanopiaFilter" type="CanvasLayer" parent="."]
-
-[node name="ProtanopiaOL" type="ColorRect" parent="ProtanopiaFilter"]
-visible = false
-material = SubResource("ShaderMaterial_ctatt")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MonochromatismFilter" type="CanvasLayer" parent="."]
-
-[node name="MonochromatismOL" type="ColorRect" parent="MonochromatismFilter"]
-visible = false
-material = SubResource("ShaderMaterial_xgqkh")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="spawn_items6" parent="." instance=ExtResource("19_2lf6f")]
 position = Vector2(2875, 1665)
@@ -375,3 +330,9 @@ cooldown = 190
 position = Vector2(3299, 492)
 itemType = 2
 cooldown = 190
+
+[node name="ProtanopiaFilter" parent="." instance=ExtResource("24_munwf")]
+
+[node name="MonochromatismFilter" parent="." instance=ExtResource("25_ts3gi")]
+
+[node name="TritanopiaFilter" parent="." instance=ExtResource("26_0nbtd")]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b73bsknbw7gv"]
+[gd_scene load_steps=11 format=3 uid="uid://b73bsknbw7gv"]
 
 [ext_resource type="Script" uid="uid://df61ee1yqxr06" path="res://scripts/options.gd" id="1_0agyt"]
 [ext_resource type="Texture2D" uid="uid://djbvpslgfbems" path="res://art/images/inicio.png" id="2_ufgnv"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
 [ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
+[ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="5_o7i7e"]
+[ext_resource type="PackedScene" uid="uid://csnt2hg2b4ete" path="res://scenes/shaders_scenes/monochromatism_filter.tscn" id="6_uon5e"]
+[ext_resource type="PackedScene" uid="uid://4il6yai6blbt" path="res://scenes/shaders_scenes/protanopia_filter.tscn" id="7_85aq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vpq"]
 bg_color = Color(0.894118, 0.643137, 0.454902, 1)
@@ -62,6 +65,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 6
@@ -212,6 +219,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
 text = "ATRAS"
+
+[node name="MonochromatismFilter" parent="." instance=ExtResource("6_uon5e")]
+visible = false
+
+[node name="TritanopiaFilter" parent="." instance=ExtResource("5_o7i7e")]
+visible = false
+
+[node name="ProtanopiaFilter" parent="." instance=ExtResource("7_85aq5")]
+visible = false
 
 [connection signal="item_selected" from="MarginContainer/GridContainer/FullScreenButtonResolutions2" to="." method="_on_full_screen_button_resolutions_2_item_selected"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter4" to="." method="_on_btn_filter_4_pressed"]

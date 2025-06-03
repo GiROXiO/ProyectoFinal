@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8bvj754arvsq"]
+[gd_scene load_steps=21 format=3 uid="uid://b8bvj754arvsq"]
 
 [ext_resource type="Script" uid="uid://cfn12seal1mss" path="res://scripts/start_menu.gd" id="1_ouf4f"]
-[ext_resource type="Texture2D" uid="uid://biouuvb72lupm" path="res://art/images/inicio.png" id="2_m7x51"]
+[ext_resource type="Texture2D" uid="uid://djbvpslgfbems" path="res://art/images/inicio.png" id="2_m7x51"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_thu50"]
 [ext_resource type="PackedScene" uid="uid://dmbxqjl51x7bw" path="res://scenes/help_menu.tscn" id="4_fcv5n"]
 [ext_resource type="PackedScene" uid="uid://b73bsknbw7gv" path="res://scenes/options.tscn" id="5_4v6gu"]
+[ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="6_u4qax"]
+[ext_resource type="PackedScene" uid="uid://csnt2hg2b4ete" path="res://scenes/shaders_scenes/monochromatism_filter.tscn" id="7_5byqq"]
+[ext_resource type="PackedScene" uid="uid://4il6yai6blbt" path="res://scenes/shaders_scenes/protanopia_filter.tscn" id="8_e58y3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x51"]
 bg_color = Color(0.588235, 0.517647, 0.439216, 1)
@@ -247,6 +250,15 @@ text = "Salir"
 visible = false
 
 [node name="options" parent="CanvasLayer" instance=ExtResource("5_4v6gu")]
+visible = false
+
+[node name="TritanopiaFilter" parent="." instance=ExtResource("6_u4qax")]
+visible = false
+
+[node name="MonochromatismFilter" parent="." instance=ExtResource("7_5byqq")]
+visible = false
+
+[node name="ProtanopiaFilter" parent="." instance=ExtResource("8_e58y3")]
 visible = false
 
 [connection signal="pressed" from="ElectionContainer/start" to="." method="_on_start_pressed"]

@@ -1,4 +1,3 @@
-class_name SaveMenu
 extends Control
 
 var selectedSlot := 0

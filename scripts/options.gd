@@ -11,6 +11,10 @@ extends Control
 
 func _ready() -> void:
 	$MarginContainer/GridContainer/FullScreenButtonResolutions2.select(0)
+	$TritanopiaFilter.visible = false
+	$ProtanopiaFilter.visible = false
+	$MonochromatismFilter.visible = false
+	
 
 
 #func _on_back_pressed() -> void:
@@ -18,18 +22,30 @@ func _ready() -> void:
 
 func _on_btn_filter_1_pressed() -> void:
 	OptionsBus.current_filter = "protanopia"
+	$TritanopiaFilter.visible = false
+	$ProtanopiaFilter.visible = true
+	$MonochromatismFilter.visible = false
 	get_tree().paused = false
 
 func _on_btn_filter_2_pressed() -> void:
 	OptionsBus.current_filter = "tritanopia"
+	$TritanopiaFilter.visible = true
+	$ProtanopiaFilter.visible = false
+	$MonochromatismFilter.visible = false
 	get_tree().paused = false
 
 func _on_btn_filter_3_pressed() -> void:
 	OptionsBus.current_filter = "monocromatismo"
+	$TritanopiaFilter.visible = false
+	$ProtanopiaFilter.visible = false
+	$MonochromatismFilter.visible = true
 	get_tree().paused = false
 
 func _on_btn_filter_4_pressed() -> void:
 	OptionsBus.current_filter = ""
+	$TritanopiaFilter.visible = false
+	$ProtanopiaFilter.visible = false
+	$MonochromatismFilter.visible = false
 	get_tree().paused = false
 
 func _on_back_button_up() -> void:
