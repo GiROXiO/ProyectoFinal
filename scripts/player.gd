@@ -48,6 +48,8 @@ func _process(delta):
 func reset()-> void:
 	health = 100
 	position = Vector2(3064,1486)
+	global.player_current_attack = false
+	global.another_entity = false
 	gameData.save_to_file()
 
 func saveTime()-> float:
@@ -237,7 +239,6 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print("Vida del jugador: ", health)
 		if health <= 0:
-			global.player_current_attack = false
 			get_node("/root/World/over").play()
 			reset()
 			get_tree().change_scene_to_file("res://scenes/game_over_scene.tscn")

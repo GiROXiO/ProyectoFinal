@@ -41,7 +41,7 @@ if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
 	Maritza: Ve a tu izquierda y dale con la escoba al muñeco de entrenamiento por lo menos 5 veces
 	set {MissionAcepted.Maritza_Mision.maritza_mission_accepted} = true
 elif {MissionAcepted.Maritza_Mision.maritza_mission_completed} == true:
-	Maritza: De verdad que todos podemos hacer un cambio si nos lo proponemos
+	Maritza: Recuerda que si te hacen daño, puedes recoger alimentos y comerlos
 	Maritza: Tenemos que ser resilientes ante la adversidad
 	Maritza: Que viva la ecologia urbana
 elif {MissionAcepted.Maritza_Mision.maritza_dummy} == false:
@@ -75,7 +75,9 @@ elif {MissionAcepted.Maritza_Mision.maritza_gas} == true:
 	else:
 		Maritza: ¡Muy bien! Ya recogiste la basura con el golero
 		Maritza: Con todo esto estas más que listo para adentrarte en este mundo y ayudar al medio ambiente
-		Maritza: ¡Te deseo el mayor de los exitos!
+		Maritza: Recuerda que en este mundo podras encontrarte mucha contaminación peligrosa
+		Maritza: Pero tambien te encontraras con personas las cuales te guiaran en tu progreso
+		Maritza: Te deseo el mayor de los exitos
 		set {MissionAcepted.Maritza_Mision.maritza_mission_completed} = true
 else:
 	Maritza: ¿Todavia no lo haz hecho?

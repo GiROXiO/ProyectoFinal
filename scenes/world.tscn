@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cle4hs84yugjp"]
+[gd_scene load_steps=38 format=3 uid="uid://cle4hs84yugjp"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://c3tok3ha4ryya" path="res://music/living-mice---minecraft-volume-alpha.mp3" id="33_ggc52"]
 [ext_resource type="AudioStream" uid="uid://qeodjo77nlj7" path="res://music/subwoofer-lullaby---minecraft-volume-alpha.mp3" id="34_l8ah6"]
 [ext_resource type="AudioStream" uid="uid://ceie0nq1wyn3e" path="res://music/negative_beeps-6008.mp3" id="35_x2olw"]
+[ext_resource type="PackedScene" uid="uid://b8kqm2ttflpie" path="res://scenes/NPCs/Angel.tscn" id="37_817gm"]
 
 [node name="World" type="Node2D"]
 light_mask = 3
@@ -384,3 +385,6 @@ stream = ExtResource("30_navra")
 
 [node name="over" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_x2olw")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("37_817gm")]
+position = Vector2(4254, 1581)

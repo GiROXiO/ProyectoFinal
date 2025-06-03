@@ -81,5 +81,7 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 func verifyMission():
 	if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker += 1
-	if Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_accepted == true:
+	if Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_accepted:
 		Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_pickup += 1
+	if Dialogic.VAR.MissionAcepted.Angel_Mission.angel_mission_accepted:
+		Dialogic.VAR.MissionAcepted.Angel_Mission.angel_pickup += 1
