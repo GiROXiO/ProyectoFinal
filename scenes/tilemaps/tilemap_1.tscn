@@ -1,22 +1,22 @@
 [gd_scene load_steps=42 format=4 uid="uid://dk57oid3g2mpr"]
 
-[ext_resource type="Texture2D" uid="uid://cfjikfxl148l1" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
-[ext_resource type="Texture2D" uid="uid://wpouuotyy0m4" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
-[ext_resource type="Texture2D" uid="uid://b1kusawjsn7f" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
-[ext_resource type="Texture2D" uid="uid://ckwsa88kj2noj" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
-[ext_resource type="Texture2D" uid="uid://cpcto355wdqbt" path="res://art/tilemap/ySort.png" id="3_02dga"]
-[ext_resource type="Texture2D" uid="uid://717jvm23epg8" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
-[ext_resource type="Texture2D" uid="uid://54x37e7kq0eu" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
+[ext_resource type="Texture2D" uid="uid://da1eyfviqb4vf" path="res://art/tilemap/tilemap.png" id="1_ruvfg"]
+[ext_resource type="Texture2D" uid="uid://38jyc8l1bfgv" path="res://art/tilemap/tilemapDeco.png" id="2_0life"]
+[ext_resource type="Texture2D" uid="uid://h4yjbcmikpov" path="res://art/tilemap/AridZone.png" id="2_4nfve"]
+[ext_resource type="Texture2D" uid="uid://b1jb4euge1j3q" path="res://art/tilemap/waterGrass.png" id="2_hcjgc"]
+[ext_resource type="Texture2D" uid="uid://cik4jm15xosk7" path="res://art/tilemap/ySort.png" id="3_02dga"]
+[ext_resource type="Texture2D" uid="uid://dwn4h3bej0hks" path="res://art/tilemap/GrassSandFade.png" id="3_w1xss"]
+[ext_resource type="Texture2D" uid="uid://b5jjq7vgpwbap" path="res://art/tilemap/Beach-Sheet.png" id="4_w1xss"]
 [ext_resource type="Script" uid="uid://ci7k643xwop2d" path="res://scripts/lake.gd" id="5_xqubo"]
-[ext_resource type="Texture2D" uid="uid://ddmhttaw71d7x" path="res://art/tilemap/Oil.png" id="6_a8oxr"]
-[ext_resource type="Texture2D" uid="uid://xrkaymxeje3p" path="res://art/tilemap/Bridge.png" id="9_k53gq"]
+[ext_resource type="Texture2D" uid="uid://d0bgnwv2pfgov" path="res://art/tilemap/Oil.png" id="6_a8oxr"]
+[ext_resource type="Texture2D" uid="uid://b7731jdx0dsdb" path="res://art/tilemap/Bridge.png" id="9_k53gq"]
 [ext_resource type="PackedScene" uid="uid://cthikgy7mamcx" path="res://scenes/items/collectables/Cereza.tscn" id="10_cv2pu"]
-[ext_resource type="Texture2D" uid="uid://vyh545xph1yy" path="res://art/tilemap/camion.png" id="10_lhc2v"]
+[ext_resource type="Texture2D" uid="uid://dgdc86prlw15v" path="res://art/tilemap/camion.png" id="10_lhc2v"]
 [ext_resource type="PackedScene" uid="uid://v0md8l44gdsw" path="res://scenes/items/collectables/Manzana.tscn" id="10_m7jdy"]
-[ext_resource type="Texture2D" uid="uid://bqw28pok4grjb" path="res://art/tilemap/PalmTree.png" id="10_p0scm"]
+[ext_resource type="Texture2D" uid="uid://ch3ffq8gu7ec7" path="res://art/tilemap/PalmTree.png" id="10_p0scm"]
 [ext_resource type="PackedScene" uid="uid://c2lmrcdul7m5t" path="res://scenes/items/collectables/Naranja.tscn" id="11_cv2pu"]
 [ext_resource type="PackedScene" uid="uid://7r1ry1pk773e" path="res://scenes/items/collectables/ManzanaDorada.tscn" id="12_p0scm"]
-[ext_resource type="Texture2D" uid="uid://blgb4r2b4fjge" path="res://art/tilemap/casas.png" id="12_yosv7"]
+[ext_resource type="Texture2D" uid="uid://ba8b2dsrd40e0" path="res://art/tilemap/casas.png" id="12_yosv7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nfve"]
 texture = ExtResource("1_ruvfg")
@@ -650,7 +650,7 @@ tile_set = SubResource("TileSet_s6kkm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/MapBorder"]
 build_mode = 1
-polygon = PackedVector2Array(-1, 4, 14, 1365, 1307, 1413, 1331, 1416, 1329, 1462, 1469, 1480, 1451, 1711, 1908, 1718, 1921, 1748, 2132, 1755, 1458, 1755, 1454, 2266, 4231, 2288, 4207, 2210, 4214, 2013, 3757, 2005, 3758, 1882, 3762, 1748, 3628, 1753, 3642, 1712, 3638, 1611, 5072, 1600, 5088, 1600, 5088, 1584, 5104, 1584, 5104, 1568, 5120, 1568, 5120, 1552, 5136, 1552, 5136, 1536, 5152, 1536, 5152, 1520, 5168, 1520, 5168, 1505, 5312, 1504, 5312, 943, 5295, 943, 5296, 928, 5279, 928, 5279, 913, 5264, 912, 5264, 896, 5023, 896, 5024, 0)
+polygon = PackedVector2Array(-1, 4, 14, 1365, 1307, 1413, 1331, 1416, 1329, 1462, 1469, 1480, 1451, 1711, 1908, 1718, 1921, 1748, 2132, 1755, 1458, 1755, 1454, 2266, 4231, 2288, 4207, 2210, 4899, 2216, 4903, 1602, 5072, 1600, 5088, 1600, 5088, 1584, 5104, 1584, 5104, 1568, 5120, 1568, 5120, 1552, 5136, 1552, 5136, 1536, 5152, 1536, 5152, 1520, 5168, 1520, 5168, 1505, 5312, 1504, 5312, 943, 5295, 943, 5296, 928, 5279, 928, 5279, 913, 5264, 912, 5264, 896, 5023, 896, 5024, 0)
 
 [connection signal="body_entered" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_entered"]
 [connection signal="body_exited" from="TileMap/WaterBody/FishingZone" to="TileMap/WaterBody" method="_on_fishing_zone_body_exited"]
