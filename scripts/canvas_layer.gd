@@ -46,12 +46,10 @@ func _on_continuar_pressed() -> void:
 
 func _on_configuracion_pressed() -> void:
 	options.visible = true
-	pass # Replace with function body.
 
 
 func _on_ayuda_pressed() -> void:
 	help.visible = true
-	pass # Replace with function body.
 
 
 func _on_back_start_menu_pressed() -> void:

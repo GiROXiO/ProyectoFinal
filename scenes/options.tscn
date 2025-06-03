@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b73bsknbw7gv"]
 
 [ext_resource type="Script" uid="uid://df61ee1yqxr06" path="res://scripts/options.gd" id="1_0agyt"]
-[ext_resource type="Texture2D" uid="uid://b00e66njju03u" path="res://art/images/inicio.png" id="2_ufgnv"]
+[ext_resource type="Texture2D" uid="uid://djbvpslgfbems" path="res://art/images/inicio.png" id="2_ufgnv"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
 [ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
 
