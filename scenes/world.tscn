@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dyvh37j58ix2e"]
+[gd_scene load_steps=30 format=3 uid="uid://dyvh37j58ix2e"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -25,6 +25,7 @@
 [ext_resource type="Shader" uid="uid://c5ig1a5dk6v21" path="res://scripts/daltonismShaders/protanopia.gdshader" id="23_kpybi"]
 [ext_resource type="Shader" uid="uid://bgcuar3dhkd8x" path="res://scripts/daltonismShaders/monocromatismo.gdshader" id="24_ctatt"]
 [ext_resource type="PackedScene" uid="uid://fsasyfv7gyqa" path="res://scenes/NPCs/Ignacio.tscn" id="25_xgqkh"]
+[ext_resource type="PackedScene" uid="uid://c1px5fr122brc" path="res://scenes/NPCs/Gabriella.tscn" id="26_munwf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpybi"]
 shader = ExtResource("22_oo54l")
@@ -117,6 +118,10 @@ position = Vector2(3158, 1006)
 [node name="spawn_lumberjacks3" parent="." instance=ExtResource("17_7t5mc")]
 light_mask = 1
 position = Vector2(3670, 990)
+
+[node name="spawn_lumberjacks4" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(4515, 843)
 
 [node name="spawn_emissions" parent="." instance=ExtResource("19_pm21f")]
 light_mask = 1
@@ -225,6 +230,21 @@ position = Vector2(2254, 1430)
 itemType = 2
 cooldown = 100
 
+[node name="spawn_items28" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(1795, 1416)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items29" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(1076, 1419)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items30" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(423, 1419)
+itemType = 2
+cooldown = 100
+
 [node name="spawn_items8" parent="." instance=ExtResource("19_2lf6f")]
 position = Vector2(2987, 1175)
 itemType = 2
@@ -236,4 +256,122 @@ itemType = 2
 cooldown = 100
 
 [node name="Ignacio" parent="." instance=ExtResource("25_xgqkh")]
-position = Vector2(3798, 601)
+position = Vector2(3954, 761)
+
+[node name="Gabriella" parent="." instance=ExtResource("26_munwf")]
+position = Vector2(3393, 316)
+
+[node name="spawn_items5" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4014, 509)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items15" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4134, 1410)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items16" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4397, 1402)
+itemType = 2
+cooldown = 40
+
+[node name="spawn_items17" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4845, 1459)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items18" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4198, 1718)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items19" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4325, 1687)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items20" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3781, 2249)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items27" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4145, 2255)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items31" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4452, 2255)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items32" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4780, 2245)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items33" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4973, 2097)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items34" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4983, 1848)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items21" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3221, 2253)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items26" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3445, 2250)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items22" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2603, 2257)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items23" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(1806, 2251)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items24" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2157, 2254)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items25" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2887, 2256)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items10" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3476, 482)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items12" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3637, 524)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items13" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3794, 516)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items14" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4233, 425)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items11" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3299, 492)
+itemType = 2
+cooldown = 190

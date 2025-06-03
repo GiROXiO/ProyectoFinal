@@ -20,6 +20,7 @@ func _physics_process(delta):
 		garbage_picker_movement(delta)
 	else:
 		exist = false
+		global_position = get_parent().global_position
 		$CollisionShape2D.disabled = true
 		$AnimatedSprite2D.hide()
 
@@ -74,3 +75,5 @@ func _on_collect_area_area_entered(area: Area2D) -> void:
 func verifyMission():
 	if Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_mission_completed == false:
 		Dialogic.VAR.MissionAcepted.Maritza_Mision.maritza_garbage_picker += 1
+	if Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_accepted == true:
+		Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_pickup += 1

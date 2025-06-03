@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_6hh1i"]
 [ext_resource type="Script" uid="uid://bsjb2dcrepoke" path="res://scenes/NPCs/ScriptsNPCS/gabriella.gd" id="2_pa3w5"]
-[ext_resource type="Texture2D" uid="uid://daw3lthgdsun6" path="res://art/characters/spritesheet npc amiga Angelo.png" id="3_3fnif"]
+[ext_resource type="Texture2D" uid="uid://clvgvgnb57pky" path="res://art/characters/spritesheet npc amiga Angelo.png" id="3_3fnif"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f82pq"]
 atlas = ExtResource("3_3fnif")
