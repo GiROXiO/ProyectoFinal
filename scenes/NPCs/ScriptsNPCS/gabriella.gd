@@ -13,7 +13,7 @@ func _ready():
 func _process(_delta):
 	if player_in_area:
 		if Input.is_key_pressed(KEY_E) and global.isChatting == false:
-			run_dialogue("angel_timeline")
+			run_dialogue("gabriella_timeline")
 			global.another_entity = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -31,6 +31,6 @@ func run_dialogue(dialogue_string):
 	Dialogic.start(dialogue_string)
 
 func DialogicSignal(arg: String):
-	if arg == "exit_angel":
+	if arg == "exit_gabriella":
 		global.isChatting = false
 		print("Se ha emitido una señal correctamente")
