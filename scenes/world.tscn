@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dyvh37j58ix2e"]
+[gd_scene load_steps=29 format=3 uid="uid://dyvh37j58ix2e"]
 
 [ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
@@ -24,6 +24,7 @@
 [ext_resource type="Shader" uid="uid://kl0m8t4j3xif" path="res://scripts/daltonismShaders/tritanopia.gdshader" id="22_oo54l"]
 [ext_resource type="Shader" uid="uid://c5ig1a5dk6v21" path="res://scripts/daltonismShaders/protanopia.gdshader" id="23_kpybi"]
 [ext_resource type="Shader" uid="uid://bgcuar3dhkd8x" path="res://scripts/daltonismShaders/monocromatismo.gdshader" id="24_ctatt"]
+[ext_resource type="PackedScene" uid="uid://fsasyfv7gyqa" path="res://scenes/NPCs/Ignacio.tscn" id="25_xgqkh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpybi"]
 shader = ExtResource("22_oo54l")
@@ -233,3 +234,6 @@ cooldown = 100
 position = Vector2(3551, 1550)
 itemType = 2
 cooldown = 100
+
+[node name="Ignacio" parent="." instance=ExtResource("25_xgqkh")]
+position = Vector2(3798, 601)

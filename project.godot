@@ -34,6 +34,7 @@ directories/dch_directory={
 "Aspiradora": "res://Dialogic/Characters/Aspiradora.dch",
 "Escoba": "res://Dialogic/Characters/Escoba.dch",
 "Golero": "res://Dialogic/Characters/Golero.dch",
+"Ignacio": "res://Dialogic/Characters/Ignacio.dch",
 "Luis": "res://Dialogic/Characters/Luis.dch",
 "Maritza": "res://Dialogic/Characters/Maritza.dch",
 "Mono": "res://Dialogic/Characters/Mono.dch",
@@ -41,6 +42,7 @@ directories/dch_directory={
 "pkm_42e": "res://Dialogic/Characters/pkm_42e.dch"
 }
 directories/dtl_directory={
+"ignacio_timeline": "res://Dialogic/Timeline/ignacio_timeline.dtl",
 "luis_timeline": "res://Dialogic/Timeline/luis_timeline.dtl",
 "maritza_timeline": "res://Dialogic/Timeline/maritza_timeline.dtl",
 "mono_timeline": "res://Dialogic/Timeline/mono_timeline.dtl",
@@ -98,6 +100,11 @@ variables={
 "lumberjacks_defeated": 0
 },
 "MissionAcepted": {
+"Ignacio_Mission": {
+"ignacio_lumberjacks": 0,
+"ignacio_mission_accepted": false,
+"ignacio_mission_completed": false
+},
 "Luis_Mission": {
 "luis_emissions": 0,
 "luis_mission_accepted": false,

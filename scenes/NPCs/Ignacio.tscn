@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://fsasyfv7gyqa"]
+
+[ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_6ib71"]
+[ext_resource type="Script" uid="uid://dcof24uwh5awn" path="res://scenes/NPCs/ScriptsNPCS/ignacio.gd" id="2_2y13u"]
+[ext_resource type="Texture2D" uid="uid://bs0748p4o7pm8" path="res://art/characters/spritesheet npcs v2.png" id="2_c1gfb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y13u"]
+atlas = ExtResource("2_c1gfb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03il6"]
+atlas = ExtResource("2_c1gfb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meg5d"]
+atlas = ExtResource("2_c1gfb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_483yv"]
+atlas = ExtResource("2_c1gfb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2180k"]
+atlas = ExtResource("2_c1gfb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgsx6"]
+atlas = ExtResource("2_c1gfb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a40hy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y13u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03il6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meg5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_483yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2180k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgsx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ignacio" instance=ExtResource("1_6ib71")]
+script = ExtResource("2_2y13u")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_a40hy")
+frame_progress = 0.187032

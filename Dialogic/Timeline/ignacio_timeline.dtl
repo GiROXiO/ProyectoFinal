@@ -1,0 +1,35 @@
+join Ignacio left
+if {MissionAcepted.Ignacio_Mission.ignacio_mission_accepted} == false:
+	Ignacio: Estoy triste
+	- ¿Por que estas triste?
+		Ignacio: Es que he visto a leñadores talando muchos arboles
+		Ignacio: Todavia recuerdo esos bellos tiempos donde...
+		Ignacio: Espera, ¿quien eres?
+		- He venido a ayudar
+			Ignacio: Ah, tú eres el muchacho que Maritza dijo que iba a ayudar
+			Ignacio: ¿Podrias encargarte de 14 leñadores?
+			Ignacio: Los puedes encontrar por los bosques de esta zona
+			- Ignacio, esos leñadores no cortaran ningún arbol más
+				Ignacio: \:)
+				set {MissionAcepted.Ignacio_Mission.ignacio_mission_accepted} = true
+		- Buena pregunta, tenga un buen día
+			Ignacio: Ah
+			Ignacio: Ehhh
+			Ignacio: \:(
+	- Tenga un buen día
+		Ignacio: \:(
+elif {MissionAcepted.Ignacio_Mission.ignacio_mission_completed} == true:
+	Ignacio: estoy muy feliz
+	Ignacio: grite tanto que me quede afónico
+	Ignacio: \:)
+else:
+	if {MissionAcepted.Ignacio_Mission.ignacio_lumberjacks} >= 14.0:
+		Ignacio: MUCHACHO ERES INCREIBLE
+		Ignacio: PERDON POR GRITAR PERO ESTOY MUY CONTENTO
+		Ignacio: GRACIAS MUCHACHO
+		Ignacio: \:)
+		set {MissionAcepted.Ignacio_Mission.ignacio_mission_completed} = true
+	else:
+		Ignacio: Aun no lo haz hecho...
+		Ignacio: \:(
+[signal arg="exit_ignacio"]
