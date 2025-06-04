@@ -5,7 +5,6 @@ extends Control
 @onready var trit = $MarginContainer/GridContainer/BtnFilterContainer/btnFilter2
 @onready var mon = $MarginContainer/GridContainer/BtnFilterContainer/btnFilter3
 @onready var optionBus = OptionsBus
-@export var ingame: bool
 @onready var brightness_slider = $MarginContainer/GridContainer/BrilloContainer/BrilloSlider
 
 
@@ -17,15 +16,15 @@ func _ready() -> void:
 	
 
 
-#func _on_back_pressed() -> void:
-	#self.visible = false
+func _on_back_pressed() -> void:
+	self.visible = false
 
 func _on_btn_filter_1_pressed() -> void:
 	OptionsBus.current_filter = "protanopia"
 	$TritanopiaFilter.visible = false
 	$ProtanopiaFilter.visible = true
 	$MonochromatismFilter.visible = false
-	get_tree().paused = false
+	#get_tree().paused = false
 	gameData.saveFilter()
 
 func _on_btn_filter_2_pressed() -> void:
@@ -33,7 +32,7 @@ func _on_btn_filter_2_pressed() -> void:
 	$TritanopiaFilter.visible = true
 	$ProtanopiaFilter.visible = false
 	$MonochromatismFilter.visible = false
-	get_tree().paused = false
+	#get_tree().paused = false
 	gameData.saveFilter()
 
 func _on_btn_filter_3_pressed() -> void:
@@ -41,7 +40,7 @@ func _on_btn_filter_3_pressed() -> void:
 	$TritanopiaFilter.visible = false
 	$ProtanopiaFilter.visible = false
 	$MonochromatismFilter.visible = true
-	get_tree().paused = false
+	#get_tree().paused = false
 	gameData.saveFilter()
 
 func _on_btn_filter_4_pressed() -> void:
@@ -49,12 +48,9 @@ func _on_btn_filter_4_pressed() -> void:
 	$TritanopiaFilter.visible = false
 	$ProtanopiaFilter.visible = false
 	$MonochromatismFilter.visible = false
-	get_tree().paused = false
+	#get_tree().paused = false
 	gameData.saveFilter()
 
-func _on_back_button_up() -> void:
-	if ingame == true:
-		get_tree().paused = true
 
 
 func _on_back_button_down() -> void:

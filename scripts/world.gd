@@ -22,10 +22,12 @@ func _process(_delta) -> void:
 	playMusic()
 
 func _on_inventory_opened():
-	get_tree().paused = true
+	pass
+	#get_tree().paused = true
 
 func _on_inventory_closed():
-	get_tree().paused = false
+	pass
+	#get_tree().paused = false
 
 func _filter_changed(filter: String):
 	match filter:

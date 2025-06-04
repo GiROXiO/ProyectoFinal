@@ -31,7 +31,7 @@ func _on_sub_menu_pressed() -> void:
 	coords.visible = false
 	health_bar.visible = false
 	hotbar.visible = false
-	get_tree().paused = true
+	#get_tree().paused = true
 
 
 func _on_continuar_pressed() -> void:
@@ -41,7 +41,7 @@ func _on_continuar_pressed() -> void:
 	coords.visible = true
 	health_bar.visible = true
 	hotbar.visible = true
-	get_tree().paused = false
+	#get_tree().paused = false
 
 
 func _on_configuracion_pressed() -> void:
@@ -53,5 +53,5 @@ func _on_ayuda_pressed() -> void:
 
 
 func _on_back_start_menu_pressed() -> void:
-	get_tree().paused = false
+	#get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
