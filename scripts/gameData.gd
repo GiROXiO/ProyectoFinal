@@ -56,7 +56,8 @@ func from_dict(dataLoad: Dictionary) -> void:
 	loadDialogic()
 	
 func loadFilter() -> void:
-	OptionsBus.current_filter = data.get("filtro")
+	if data.get("filtro") != null:
+		OptionsBus.current_filter = data.get("filtro")
 
 func saveFilter() -> Dictionary:
 	data["filtro"] = OptionsBus.current_filter
