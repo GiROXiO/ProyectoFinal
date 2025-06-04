@@ -81,10 +81,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -477.0
-offset_top = -103.0
-offset_right = 487.0
-offset_bottom = 138.0
+offset_left = -475.0
+offset_top = -67.0
+offset_right = 489.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -114,6 +114,7 @@ popup/item_1/text = "Activado"
 popup/item_1/id = 1
 
 [node name="VolumenLabel" type="Label" parent="MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_588u4")
 theme_override_font_sizes/font_size = 30
@@ -121,6 +122,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
 text = "VOLUMEN"
 
 [node name="VolumenContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 
 [node name="master sound" type="HSlider" parent="MarginContainer/GridContainer/VolumenContainer"]
@@ -204,10 +206,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -473.0
-offset_top = 132.0
-offset_right = -259.0
-offset_bottom = 217.0
+offset_left = -474.0
+offset_top = 104.0
+offset_right = -260.0
+offset_bottom = 189.0
 grow_horizontal = 2
 grow_vertical = 2
 
