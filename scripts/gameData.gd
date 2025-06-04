@@ -51,7 +51,6 @@ func from_dict(dataLoad: Dictionary) -> void:
 	loadDialogic()
 	
 func loadFilter() -> void:
-<<<<<<< HEAD
 	var path = "user://filter.save"
 	if FileAccess.file_exists(path):
 		var file = FileAccess.open(path, FileAccess.READ)
@@ -60,10 +59,6 @@ func loadFilter() -> void:
 			var parsed = JSON.parse_string(line)
 			if typeof(parsed) == TYPE_DICTIONARY and parsed.has("filtro"):
 				OptionsBus.current_filter = parsed["filtro"]
-=======
-	if data.get("filtro") != null:
-		OptionsBus.current_filter = data.get("filtro")
->>>>>>> 27f2daa144033af2dac142d7c3d5818c08d9a1a0
 
 func saveFilter() -> void:
 	var path = "user://filter.save"
