@@ -19,8 +19,8 @@ func _ready():
 
 func _process(_delta) -> void:
 	healthBar.value = player.get_life()
-	global.misionCompleted = snapped(get_misions_completed() / 8 * 100, 0.01)
-	misionCompleted.text = str(global.misionCompleted, "%") 
+	global.misionCompleted = snapped(get_misions_completed(), 0.01)
+	misionCompleted.text = "Misiones: " + "\n" + str(global.misionCompleted, "%") 
 	self._filter_changed(OptionsBus.current_filter)
 	playMusic()
 
@@ -73,7 +73,6 @@ func get_misions() -> Array[bool]:
 	misions.append(Dialogic.VAR.MissionAcepted.Ponllo_Mission.ponllo_mission_completed)
 	misions.append(Dialogic.VAR.MissionAcepted.Gabriella_Mission.gabriella_mission_completed)
 	misions.append(Dialogic.VAR.MissionAcepted.Ignacio_Mission.ignacio_mission_completed)
-	misions.append(Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_completed)
 	misions.append(Dialogic.VAR.MissionAcepted.Angel_Mission.angel_mission_completed)
 	return misions
 	
@@ -83,4 +82,4 @@ func get_misions_completed() -> float:
 	for mision in misions:
 		if(mision):
 			completed += 1
-	return completed
+	return completed/ 7 * 100

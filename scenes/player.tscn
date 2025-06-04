@@ -1,11 +1,11 @@
 [gd_scene load_steps=107 format=3 uid="uid://ctovl7kvxvlym"]
 
 [ext_resource type="Script" uid="uid://ywlsktjp0se1" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://b8g7d1k8vn4iv" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://bipendsgc6n0p" path="res://art/characters/j1 spritesheet dash.png" id="3_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://cr0xnq7kt2gdl" path="res://art/characters/j1 spritesheet aspiradora.png" id="4_dqkch"]
-[ext_resource type="Texture2D" uid="uid://deshg5tuj0ngl" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://kcd2am8rlyim" path="res://art/characters/j1 animaciones pescar, plantar.png" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dcs0wmsym4mt" path="res://art/characters/ataque escoba.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://p208pnkdomax" path="res://art/characters/j1 spritesheet dash.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://db1q1gkr7211p" path="res://art/characters/j1 spritesheet aspiradora.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://2ha5shomal25" path="res://art/characters/spritesheet j1.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dfas4ochot4n1" path="res://art/characters/j1 animaciones pescar, plantar.png" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_qlg0r")

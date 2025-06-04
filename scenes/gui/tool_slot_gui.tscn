@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://sl6f3q0apmcg"]
 
 [ext_resource type="Script" uid="uid://dgngnmn6v27qg" path="res://scripts/gui/toolSlotGUI.gd" id="1_8s08f"]
-[ext_resource type="Texture2D" uid="uid://cmnocm0g5sg5n" path="res://art/UI/inventoryUI/ToolSlot.png" id="1_x5j76"]
+[ext_resource type="Texture2D" uid="uid://dblbf30xor60s" path="res://art/UI/inventoryUI/ToolSlot.png" id="1_x5j76"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_foxsx"]
 
 [node name="ToolSlot" type="Panel"]
