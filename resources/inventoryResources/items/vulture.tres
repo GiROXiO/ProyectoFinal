@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cs0nbe2n1hbgg"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://c4ar15tq6306c"]
 
 [ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_wkioq"]
 [ext_resource type="Texture2D" uid="uid://dybjd2h5imyyw" path="res://art/characters/spritesheet golero.png" id="2_kwtmb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jeyy"]
 atlas = ExtResource("2_kwtmb")
-region = Rect2(17.4371, 10.3761, 18.4777, 21.6239)
+region = Rect2(18.3213, 13.6549, 16.8988, 18.3451)
 
 [resource]
 script = ExtResource("1_wkioq")

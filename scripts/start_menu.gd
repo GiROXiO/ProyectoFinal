@@ -2,6 +2,7 @@ extends Control
 
 @onready var options = $CanvasLayer/options
 @onready var help = $CanvasLayer/help_menu
+@onready var creditos = $CanvasLayer/Creditos
 
 func _ready() -> void:
 	$MonochromatismFilter.visible = false
@@ -30,7 +31,7 @@ func _on_help_pressed() -> void:
 	
 
 func _on_creditos_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/creditos.tscn")
+	creditos.visible = true
 
 func _filter_changed(filter: String):
 	match filter:
