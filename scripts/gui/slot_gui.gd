@@ -7,12 +7,14 @@ signal clicked(index)
 @onready var itemSprite: Sprite2D = $CenterContainer/Panel/item
 @onready var amountLabel: Label = $CenterContainer/Panel/Amount
 @onready var nameLabel: Label = $CenterContainer/Panel/Name
+@onready var curationLabel: Label = $CenterContainer/Panel/Curation
 
 @export var index: int = -1
 @export var isHotbarSlot = false
 @export var isSelected: bool = false
 
 var onSlot: bool = false
+var isCurative: bool = false
 
 func _ready() -> void:
 	backgroundSprite.play("normal")
@@ -27,12 +29,16 @@ func update(slot: InventorySlot):
 		self.amountLabel.visible = false
 		self.nameLabel.visible = false
 		self.amountLabel.text = "0"
+		self.curationLabel.visible = false
 	else:
 		self.itemSprite.visible = true
 		self.itemSprite.texture = slot.item.texture
 		self.amountLabel.visible = slot.amount>1
 		self.amountLabel.text = str(slot.amount)
+		self.curationLabel.visible = slot.item.curation>0
+		self.isCurative = slot.item.curation>0
 		self.nameLabel.text = str(slot.item.name)
+		self.curationLabel.text = "Curacion: " + str(slot.item.curation)
 	_update_hotbar_slot()
 
 func _gui_input(event: InputEvent) -> void:
@@ -43,8 +49,11 @@ func _gui_input(event: InputEvent) -> void:
 func showNameLabel():
 	if self.onSlot and int(self.amountLabel.text)>0:
 		self.nameLabel.visible = true
+		if self.isCurative:
+			self.curationLabel.visible = true
 	else:
 		self.nameLabel.visible = false
+		self.curationLabel.visible = false
 
 func _on_mouse_entered() -> void:
 	onSlot = true
