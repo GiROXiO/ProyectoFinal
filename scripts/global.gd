@@ -8,3 +8,4 @@ var another_entity = false
 var player_position: Vector2 = Vector2.ZERO
 #var misionCompleted: float = 0
 var pause: bool = false
+var dragging: bool = false
