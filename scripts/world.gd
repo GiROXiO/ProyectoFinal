@@ -5,7 +5,8 @@ extends Node2D
 @onready var inventory = $GUI/InventoryGUI
 @onready var healthBar = $GUI/HeatlhBar
 @onready var misionCompleted = $GUI/MissionsCompleted
-
+@onready var submenu =  $GUI/SubMenuContainer
+var misionCompletedPercentage :float
 func _ready():
 	inventory.opened.connect(_on_inventory_opened)
 	inventory.closed.connect(_on_inventory_closed)
@@ -19,8 +20,9 @@ func _ready():
 
 func _process(_delta) -> void:
 	healthBar.value = player.get_life()
-	global.misionCompleted = snapped(get_misions_completed(), 0.01)
-	misionCompleted.text = "Misiones: " + "\n" + str(global.misionCompleted, "%") 
+	global.pause = submenu.visible
+	misionCompletedPercentage = snapped(get_misions_completed(), 0.01)
+	misionCompleted.text = "Misiones: " + "\n" + str(misionCompletedPercentage, "%") 
 	self._filter_changed(OptionsBus.current_filter)
 	playMusic()
 

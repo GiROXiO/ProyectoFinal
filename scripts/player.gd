@@ -72,12 +72,12 @@ func load_position(data: Dictionary) -> void:
 	position = Vector2(data.get("x"), data.get("y"))
 
 func _physics_process(delta):
-	if global.isChatting == false and global.another_entity == false:
+	if global.isChatting == false and global.another_entity == false and global.pause == false:
 		player_movement(delta)
 		enemy_attack()
 		change_tool()
 		global.player_position = global_position
-	elif global.another_entity:
+	elif global.another_entity :
 		enemy_attack()
 		play_anim(0)
 	attack()
@@ -255,7 +255,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if can_attack():
+	if can_attack() and global.pause == false:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -320,7 +320,8 @@ func attack():
 			$AnimatedSprite2D.play("side_init")
 			$AnimatedSprite2D.flip_h = true
 	else:
-		if global.isChatting == true:
+		if global.isChatting == true and global.pause == false:
+			print("Carajo1")
 			attack_ip = false
 			if dir == "up":
 				$AnimatedSprite2D.play("back_init")
@@ -386,7 +387,7 @@ func use_item():
 	if not selectedSlot:
 		print("No tiene slot seleccionado")
 		return
-	if self.selectedSlot.item != null:
+	if self.selectedSlot.item != null and global.pause == false:
 		print("Jugador tiene item en el slot")
 		print("Nombre: "+selectedSlot.item.name )
 		print("Tipo: "+selectedSlot.item.typeItem)
@@ -443,3 +444,4 @@ func _on_dash_time_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
+	

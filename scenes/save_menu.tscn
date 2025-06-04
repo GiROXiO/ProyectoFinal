@@ -1,12 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0ocfgbpqjf8v"]
+[gd_scene load_steps=31 format=3 uid="uid://b0ocfgbpqjf8v"]
 
 [ext_resource type="Script" uid="uid://ceikevfnrnrhf" path="res://scripts/screens/save_menu_screen.gd" id="1_24ngm"]
 [ext_resource type="Script" uid="uid://c3e0aodvak0be" path="res://scripts/save_menu.gd" id="1_glv2v"]
-[ext_resource type="Texture2D" uid="uid://djbvpslgfbems" path="res://art/images/inicio.png" id="1_ouh38"]
+[ext_resource type="Texture2D" uid="uid://cva46swud6dgq" path="res://art/images/inicio.png" id="1_ouh38"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_asrt0"]
 [ext_resource type="PackedScene" uid="uid://4il6yai6blbt" path="res://scenes/shaders_scenes/protanopia_filter.tscn" id="4_0aupr"]
 [ext_resource type="PackedScene" uid="uid://csnt2hg2b4ete" path="res://scenes/shaders_scenes/monochromatism_filter.tscn" id="5_24ngm"]
 [ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="6_idnoy"]
+[ext_resource type="Script" uid="uid://bfmdyn55tilek" path="res://scripts/cambiar_visualizacion.gd" id="8_idnoy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fro71"]
 bg_color = Color(0.894118, 0.643137, 0.454902, 1)
@@ -468,6 +469,9 @@ visible = false
 
 [node name="TritanopiaFilter" parent="." instance=ExtResource("6_idnoy")]
 visible = false
+
+[node name="cambiarVisualizacion" type="Node" parent="."]
+script = ExtResource("8_idnoy")
 
 [connection signal="pressed" from="Save/CenterContainer/VBoxContainer/HBoxContainer/Info1" to="Save" method="_on_info_1_pressed"]
 [connection signal="pressed" from="Save/CenterContainer/VBoxContainer/HBoxContainer2/Info2" to="Save" method="_on_info_2_pressed"]

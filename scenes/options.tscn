@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b73bsknbw7gv"]
 
 [ext_resource type="Script" uid="uid://df61ee1yqxr06" path="res://scripts/options.gd" id="1_0agyt"]
-[ext_resource type="Texture2D" uid="uid://bmcl3kh5iva5o" path="res://art/images/inicio.png" id="2_ufgnv"]
+[ext_resource type="Texture2D" uid="uid://cva46swud6dgq" path="res://art/images/inicio.png" id="2_ufgnv"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
 [ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
 [ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="5_o7i7e"]
@@ -148,8 +148,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-min_value = 0.5
-value = 1.5
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
 
 [node name="FilerLabel" type="Label" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -232,6 +234,7 @@ visible = false
 visible = false
 
 [connection signal="item_selected" from="MarginContainer/GridContainer/FullScreenButtonResolutions2" to="." method="_on_full_screen_button_resolutions_2_item_selected"]
+[connection signal="value_changed" from="MarginContainer/GridContainer/BrilloContainer/BrilloSlider" to="." method="_on_brillo_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter4" to="." method="_on_btn_filter_4_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter1" to="." method="_on_btn_filter_1_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter2" to="." method="_on_btn_filter_2_pressed"]
