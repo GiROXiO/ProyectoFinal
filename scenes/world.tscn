@@ -29,12 +29,12 @@
 [ext_resource type="AudioStream" uid="uid://c7bjvy6wlgixo" path="res://music/raven-caw-caw.mp3" id="27_ts3gi"]
 [ext_resource type="AudioStream" uid="uid://dwctwnglimqyx" path="res://music/wings-flapping.mp3" id="28_0nbtd"]
 [ext_resource type="AudioStream" uid="uid://cyqpgxidv17ui" path="res://music/collect-a-berry.mp3" id="29_37qwj"]
-[ext_resource type="AudioStream" uid="uid://duohnrityf1d1" path="res://music/C418 - Wet Hands - Minecraft Volume Alpha.mp3" id="30_f17e3"]
-[ext_resource type="AudioStream" uid="uid://bvoabeidp0jag" path="res://music/minecraft---minecraft-volume-alpha.mp3" id="30_navra"]
-[ext_resource type="AudioStream" uid="uid://caaptvefeht23" path="res://music/C418 - Mice on Venus - Minecraft Volume Alpha.mp3" id="31_x2olw"]
-[ext_resource type="AudioStream" uid="uid://c2udh645yjmye" path="res://music/C418 - Haggstrom - Minecraft Volume Alpha.mp3" id="32_817gm"]
-[ext_resource type="AudioStream" uid="uid://c3tok3ha4ryya" path="res://music/living-mice---minecraft-volume-alpha.mp3" id="33_ggc52"]
-[ext_resource type="AudioStream" uid="uid://qeodjo77nlj7" path="res://music/subwoofer-lullaby---minecraft-volume-alpha.mp3" id="34_l8ah6"]
+[ext_resource type="AudioStream" uid="uid://0puj3wf68kjd" path="res://music/Fadegreen (1).mp3" id="30_817gm"]
+[ext_resource type="AudioStream" uid="uid://dcidrp3k8ping" path="res://music/Fadegreen (4).mp3" id="31_ggc52"]
+[ext_resource type="AudioStream" uid="uid://cgvwhs3mo1ggo" path="res://music/Fadegreen.mp3" id="32_l8ah6"]
+[ext_resource type="AudioStream" uid="uid://cog76v5nqoi2q" path="res://music/Untitled (1).mp3" id="33_e75v4"]
+[ext_resource type="AudioStream" uid="uid://djj60240jkswx" path="res://music/Untitled (2).mp3" id="34_8u370"]
+[ext_resource type="AudioStream" uid="uid://buqifwk1458qo" path="res://music/Untitled.mp3" id="35_rga7q"]
 [ext_resource type="AudioStream" uid="uid://ceie0nq1wyn3e" path="res://music/negative_beeps-6008.mp3" id="35_x2olw"]
 [ext_resource type="PackedScene" uid="uid://b8kqm2ttflpie" path="res://scenes/NPCs/Angel.tscn" id="37_817gm"]
 
@@ -361,27 +361,27 @@ stream = ExtResource("28_0nbtd")
 stream = ExtResource("29_37qwj")
 
 [node name="bg6" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("30_f17e3")
+stream = ExtResource("30_817gm")
 volume_db = -10.0
 
 [node name="bg5" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("31_x2olw")
+stream = ExtResource("31_ggc52")
 volume_db = -10.0
 
 [node name="bg4" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("32_817gm")
+stream = ExtResource("32_l8ah6")
 volume_db = -10.0
 
 [node name="bg3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("33_ggc52")
+stream = ExtResource("33_e75v4")
 volume_db = -20.0
 
 [node name="bg2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("34_l8ah6")
+stream = ExtResource("34_8u370")
 volume_db = -10.0
 
 [node name="bg" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("30_navra")
+stream = ExtResource("35_rga7q")
 
 [node name="over" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_x2olw")
