@@ -1,0 +1,239 @@
+[gd_scene load_steps=19 format=3 uid="uid://52vwfn0wl4wi"]
+
+[ext_resource type="PackedScene" uid="uid://blqh8q17xol8g" path="res://scenes/gui/inventory_gui.tscn" id="1_c4rma"]
+[ext_resource type="Script" uid="uid://bc1bpjy53hfq3" path="res://scripts/canvas_layer.gd" id="1_g6s7q"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_g6s7q"]
+[ext_resource type="Texture2D" uid="uid://b1pyhoi0lhtno" path="res://art/UI/HealthBarUI/HBFrame.png" id="3_kfwc7"]
+[ext_resource type="Texture2D" uid="uid://bdwflqxey3j2" path="res://art/UI/HealthBarUI/HBEmptyBar.png" id="4_4a2ha"]
+[ext_resource type="Texture2D" uid="uid://b0d8pl4skm4hy" path="res://art/UI/HealthBarUI/HBProgressBar.png" id="5_g6s7q"]
+[ext_resource type="PackedScene" uid="uid://sl6f3q0apmcg" path="res://scenes/gui/tool_slot_gui.tscn" id="7_jtalx"]
+[ext_resource type="Script" uid="uid://kpxl6kookli4" path="res://scripts/coords.gd" id="8_jtalx"]
+[ext_resource type="PackedScene" uid="uid://n5hxy68qtim4" path="res://scenes/options_for_game.tscn" id="9_wskm7"]
+[ext_resource type="PackedScene" uid="uid://baaa2pq7dn5e" path="res://scenes/help_menu_for_game.tscn" id="10_6gso4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghj5q"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6s7q"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek3oe"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 7
+anti_aliasing_size = 0.01
+
+[sub_resource type="GDScript" id="GDScript_kfwc7"]
+script/source = "extends TextureProgressBar
+
+class_name health_bar
+
+func update_life(health):
+	print(health)
+	self.value = health
+"
+
+[sub_resource type="Theme" id="Theme_wskm7"]
+default_font = ExtResource("3_g6s7q")
+default_font_size = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtalx"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wskm7"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gso4"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_g6s7q")
+
+[node name="InventoryGUI" parent="." instance=ExtResource("1_c4rma")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -219.0
+offset_right = -91.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_top = 33.0
+offset_right = -33.0
+offset_bottom = 96.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="SubMenu" type="Button" parent="MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_g6s7q")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghj5q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g6s7q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ek3oe")
+text = "Menu"
+
+[node name="HeatlhBar" type="TextureProgressBar" parent="."]
+offset_left = 3.0
+offset_top = -31.0
+offset_right = 321.0
+offset_bottom = 149.0
+tooltip_text = "Health "
+nine_patch_stretch = true
+texture_under = ExtResource("4_4a2ha")
+texture_over = ExtResource("3_kfwc7")
+texture_progress = ExtResource("5_g6s7q")
+script = SubResource("GDScript_kfwc7")
+
+[node name="ToolSlot" parent="." instance=ExtResource("7_jtalx")]
+offset_left = 17.0
+offset_top = 99.0
+offset_right = 37.0
+offset_bottom = 119.0
+scale = Vector2(4, 4)
+
+[node name="coords" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 110.0
+offset_right = 325.0
+offset_bottom = 189.0
+theme = SubResource("Theme_wskm7")
+text = "x: 2340  
+y: -4432
+"
+script = ExtResource("8_jtalx")
+
+[node name="SubMenuContainer" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -101.5
+offset_right = 111.5
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Continuar" type="Button" parent="SubMenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g6s7q")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
+text = "Continue"
+
+[node name="Configuracion" type="Button" parent="SubMenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g6s7q")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
+text = "Settings"
+
+[node name="Ayuda" type="Button" parent="SubMenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g6s7q")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
+text = "Help"
+
+[node name="BackStartMenu" type="Button" parent="SubMenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g6s7q")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtalx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wskm7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6gso4")
+text = "Exit"
+
+[node name="options" parent="." instance=ExtResource("9_wskm7")]
+visible = false
+
+[node name="help_menu" parent="." instance=ExtResource("10_6gso4")]
+visible = false
+
+[connection signal="pressed" from="MenuContainer/SubMenu" to="." method="_on_sub_menu_pressed"]
+[connection signal="pressed" from="SubMenuContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="SubMenuContainer/Configuracion" to="." method="_on_configuracion_pressed"]
+[connection signal="pressed" from="SubMenuContainer/Ayuda" to="." method="_on_ayuda_pressed"]
+[connection signal="pressed" from="SubMenuContainer/BackStartMenu" to="." method="_on_back_start_menu_pressed"]

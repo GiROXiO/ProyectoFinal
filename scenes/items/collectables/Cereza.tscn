@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cthikgy7mamcx"]
+
+[ext_resource type="PackedScene" uid="uid://ctwv2wtxqdps1" path="res://scenes/items/collectables/pickup_item.tscn" id="1_r86vb"]
+[ext_resource type="Resource" uid="uid://ba4578y8lifj" path="res://resources/inventoryResources/items/cherry.tres" id="2_7ega6"]
+[ext_resource type="Texture2D" uid="uid://pucmxmsxfye6" path="res://art/pickables/Cherry.png" id="3_gq2ig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ega6"]
+resource_local_to_scene = true
+
+[node name="Cereza" instance=ExtResource("1_r86vb")]
+itemRes = ExtResource("2_7ega6")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_gq2ig")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_7ega6")

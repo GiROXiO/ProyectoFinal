@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcidrp3k8ping"
+path="res://.godot/imported/Fadegreen (4).mp3-a59a09a25b66af9a506d8797c2ee5dc1.mp3str"
+
+[deps]
+
+source_file="res://music/Fadegreen (4).mp3"
+dest_files=["res://.godot/imported/Fadegreen (4).mp3-a59a09a25b66af9a506d8797c2ee5dc1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

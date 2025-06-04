@@ -1,0 +1,34 @@
+join Angel center
+if {MissionAcepted.Angel_Mission.angel_mission_accepted} == false:
+	Angel: Agh hermano de verdad, ¿que es esto?
+	- ¿Problemas con el cubo?
+		Angel: Ah?
+		Angel: Nononono
+		Angel: Osea si, pero no es eso
+		Angel: No puedo pensar bien en resolver el cubo con toda la contaminación que hay por el mar
+		Angel: Hermano, por ejemplo, literalmente tiraron botellas al agua que esta al frente mia
+		Angel: ¿HERMANO QUE ES ESO?
+		- Yo las recogere, no te preocupes
+			Angel: ¿De verdad?
+			Angel: Hermano ni siquiera te conozco, pero gracias
+			Angel: Te diria donde recoger la basura pero
+			Angel: Creo que es bastante obvio
+			Angel: Con que recogas al menos 10 botellas, haras ya mucho bien
+			set {MissionAcepted.Angel_Mission.angel_mission_accepted} = true
+	- Es un cubo, nos vemos
+		Angel: Ya lo sabia
+		Angel: Espera, ¿quien era?
+elif {MissionAcepted.Angel_Mission.angel_mission_completed} == true:
+	Angel: En definitiva eres un idolo de masas
+	Angel: Que maestro
+else:
+	if {MissionAcepted.Angel_Mission.angel_pickup} >= 10.0:
+		Angel: Hermano, eres un idolo
+		Angel: Lo hiciste, recogiste todo eso
+		Angel: Definitivamente a ti es para que te den un premio
+		Angel: Dame un abrazo hermano
+		set {MissionAcepted.Angel_Mission.angel_mission_completed} = true
+	else:
+		Angel: ¿Aún no lo haz hecho?
+		Angel: Normal, con tanta basura que hay...
+[signal arg="exit_angel"]

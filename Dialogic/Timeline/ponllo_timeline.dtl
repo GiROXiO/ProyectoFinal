@@ -1,0 +1,48 @@
+join Ponllo left
+if {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} == false:
+	Ponllo: LUIS, ¡OTRO CHISTE NO!
+	- Ehh ¿disculpa?
+		Ponllo: Aaaaanda
+		Ponllo: No eres Luis que pena
+		Ponllo: ¿Ya lo conociste?, espero que no
+		Ponllo: Soy Ponllo, famoso director de series de televisión
+		- ¿Necesitas ayuda con algo Ponllo?
+			Ponllo: ¿Me acabas de conocer y me ofreces ayuda?
+			Ponllo: Increible
+			Ponllo: Pues si, me vendria bastante bien la ayuda de alguien
+			Ponllo: Digamos que cuando estaba sacando a mis perros a pasear a la 1am en la playa
+			Ponllo: Vi que habia mucha basura por ahi suelta
+			Ponllo: Y me enojo, porque yo siempre boto la basura a las 2am
+			Ponllo: Aparte que es muy peligrosa para el medio ambiente
+			Ponllo: Mis perros querian orinarla pero me dio miedo que les pudieran pasar algo
+			Ponllo: ¿Podrias ayudarme?
+			- De una, por supuesto
+				Ponllo: Que crack
+				Ponllo: Con que les des una lección a 20 bolsas de basura estamos firmes
+				set {MissionAcepted.Ponllo_Mission.ponllo_mission_accepted} = true
+			- Nada, lo siento
+				Ponllo: Increible
+	- Adios
+		Ponllo: Anda no eras Luis que pena, nos vemos
+elif {MissionAcepted.Ponllo_Mission.ponllo_mission_completed} == true:
+	Ponllo: Quiero que sepas que eres todo un crack
+	Ponllo: Lograste lo que pocos han logrado
+else:
+	Ponllo: ¿Ya te encargaste de la basura?
+	- Si claro
+		if {MissionAcepted.Ponllo_Mission.ponllo_garbage} >= 20.0:
+			Ponllo: Vale
+			Ponllo: Perfecto
+			Ponllo: Eres un crack, lograste lo que pocos han logrado
+			Ponllo: Por eso quedas invitado para la siguiente temporada de una serie que estoy haciendo
+			Ponllo: Estaras al lado de grandes nombres como Pepe, Kike, Lucho, etc
+			Ponllo: ¿Como que no los conoces? No me lo estoy inventando
+			Ponllo: En fin
+			Ponllo: Deberias buscar a Luis si no lo haz hecho, puede que necesite de tú ayuda tambien
+		else:
+			Ponllo: Ombe pero tampoco empecemos con el embuste
+			Ponllo: Encargate bien de las 20 bolsas de basura por favor
+	- Nada
+		Ponllo: Interesante
+		Ponllo: Bueno, vuelve cuando lo hayas hecho
+[signal arg="exit_ponllo"]

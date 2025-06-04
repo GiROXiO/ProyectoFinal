@@ -1,0 +1,344 @@
+[gd_scene load_steps=23 format=3 uid="uid://dmbxqjl51x7bw"]
+
+[ext_resource type="Script" uid="uid://dw7mlynytx0ps" path="res://scripts/help_menu.gd" id="1_12kij"]
+[ext_resource type="Texture2D" uid="uid://djbvpslgfbems" path="res://art/images/inicio.png" id="1_yo4mw"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="2_12kij"]
+[ext_resource type="Texture2D" uid="uid://1uypi52ba5jo" path="res://art/images/w.png" id="4_p5r7i"]
+[ext_resource type="Texture2D" uid="uid://cixgb7tm8akss" path="res://art/images/down.png" id="5_prwkw"]
+[ext_resource type="Texture2D" uid="uid://g7l68oqi0f1" path="res://art/images/up.png" id="6_iaaq1"]
+[ext_resource type="Texture2D" uid="uid://c0wvfay1tg82p" path="res://art/images/s.png" id="7_qannr"]
+[ext_resource type="Texture2D" uid="uid://bcn10x6tiehlq" path="res://art/images/left.png" id="8_vilhh"]
+[ext_resource type="Texture2D" uid="uid://c1br0av0jd6dd" path="res://art/images/right.png" id="9_x4s8d"]
+[ext_resource type="Texture2D" uid="uid://bwikm8q8dmpno" path="res://art/images/d.png" id="10_qgryo"]
+[ext_resource type="Texture2D" uid="uid://bf6q7fx751cmr" path="res://art/images/c.png" id="11_5clpl"]
+[ext_resource type="Texture2D" uid="uid://7i0lxfbbxmdv" path="res://art/images/a.png" id="12_34a3j"]
+[ext_resource type="Texture2D" uid="uid://e7bigdm6fkec" path="res://art/images/shift.png" id="13_nbccp"]
+[ext_resource type="Texture2D" uid="uid://boolobrevgr8b" path="res://art/images/e.png" id="14_ccpy5"]
+[ext_resource type="Texture2D" uid="uid://0cu5lt1y6t2k" path="res://art/images/left click.png" id="15_drais"]
+[ext_resource type="Texture2D" uid="uid://35h6hjw6slef" path="res://art/images/space.png" id="16_2dq25"]
+[ext_resource type="Texture2D" uid="uid://b0c0aiqdad70s" path="res://art/images/tab.png" id="18_hpu0k"]
+[ext_resource type="Texture2D" uid="uid://c7ervy3wb6a70" path="res://art/images/i.png" id="18_p5r7i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmide"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo4mw"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12kij"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdt6g"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="help_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_12kij")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 6
+texture = ExtResource("1_yo4mw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -501.0
+offset_top = -243.0
+offset_right = 548.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="UpLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Arriba"
+
+[node name="UpContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="UpIcon" type="TextureRect" parent="MarginContainer/GridContainer/UpContainer"]
+layout_mode = 2
+texture = ExtResource("4_p5r7i")
+expand_mode = 2
+
+[node name="ToolLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Herramientas"
+
+[node name="ToolContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ToolIcon" type="TextureRect" parent="MarginContainer/GridContainer/ToolContainer"]
+layout_mode = 2
+texture = ExtResource("5_prwkw")
+expand_mode = 2
+
+[node name="ToolIcon2" type="TextureRect" parent="MarginContainer/GridContainer/ToolContainer"]
+layout_mode = 2
+texture = ExtResource("6_iaaq1")
+expand_mode = 2
+
+[node name="DownLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Abajo"
+
+[node name="DownContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DownIcon" type="TextureRect" parent="MarginContainer/GridContainer/DownContainer"]
+layout_mode = 2
+texture = ExtResource("7_qannr")
+expand_mode = 2
+
+[node name="ItemLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Cambiar item"
+
+[node name="ItemContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="itemIcon" type="TextureRect" parent="MarginContainer/GridContainer/ItemContainer"]
+layout_mode = 2
+texture = ExtResource("8_vilhh")
+expand_mode = 2
+
+[node name="itemIcon2" type="TextureRect" parent="MarginContainer/GridContainer/ItemContainer"]
+layout_mode = 2
+texture = ExtResource("9_x4s8d")
+expand_mode = 2
+
+[node name="RightLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Derecha"
+
+[node name="RightContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RightIcon" type="TextureRect" parent="MarginContainer/GridContainer/RightContainer"]
+layout_mode = 2
+texture = ExtResource("10_qgryo")
+expand_mode = 2
+
+[node name="UseItemLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Usar item"
+
+[node name="UseItemContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="UseItemIcon" type="TextureRect" parent="MarginContainer/GridContainer/UseItemContainer"]
+layout_mode = 2
+texture = ExtResource("11_5clpl")
+expand_mode = 2
+
+[node name="LeftLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Izquierda"
+
+[node name="LeftContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="LeftIcon" type="TextureRect" parent="MarginContainer/GridContainer/LeftContainer"]
+layout_mode = 2
+texture = ExtResource("12_34a3j")
+expand_mode = 2
+
+[node name="RunLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Correr"
+
+[node name="RunContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="RunIcon" type="TextureRect" parent="MarginContainer/GridContainer/RunContainer"]
+layout_mode = 2
+texture = ExtResource("13_nbccp")
+expand_mode = 2
+
+[node name="AtaqueLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Ataque"
+
+[node name="AtaqueContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="AtaqueIcon" type="TextureRect" parent="MarginContainer/GridContainer/AtaqueContainer"]
+layout_mode = 2
+texture = ExtResource("14_ccpy5")
+expand_mode = 2
+
+[node name="AtaqueIcon2" type="TextureRect" parent="MarginContainer/GridContainer/AtaqueContainer"]
+layout_mode = 2
+texture = ExtResource("15_drais")
+expand_mode = 2
+
+[node name="DashLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Dash"
+
+[node name="DashContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DashIcon" type="TextureRect" parent="MarginContainer/GridContainer/DashContainer"]
+layout_mode = 2
+texture = ExtResource("16_2dq25")
+expand_mode = 2
+
+[node name="DialogicLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Dialogo"
+
+[node name="DialogicContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DialogicIcon" type="TextureRect" parent="MarginContainer/GridContainer/DialogicContainer"]
+layout_mode = 2
+texture = ExtResource("14_ccpy5")
+expand_mode = 2
+
+[node name="MapLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "MiniMapa"
+
+[node name="MapContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MapIcon" type="TextureRect" parent="MarginContainer/GridContainer/MapContainer"]
+layout_mode = 2
+texture = ExtResource("18_hpu0k")
+expand_mode = 2
+
+[node name="InventoryLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmide")
+text = "Inventario"
+
+[node name="InventoryContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="InventoryIcon" type="TextureRect" parent="MarginContainer/GridContainer/InventoryContainer"]
+layout_mode = 2
+texture = ExtResource("18_p5r7i")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -517.0
+offset_top = 193.0
+offset_right = -303.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_12kij")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_yo4mw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_12kij")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdt6g")
+text = "ATRAS"
+
+[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]

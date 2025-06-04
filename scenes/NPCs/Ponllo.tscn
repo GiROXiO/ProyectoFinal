@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dxrqpu3kdiqry"]
+
+[ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_x0jq8"]
+[ext_resource type="Script" uid="uid://c8ku4jmoctopu" path="res://scenes/NPCs/ScriptsNPCS/Ponllo.gd" id="2_hbxnq"]
+[ext_resource type="Texture2D" uid="uid://ps6et0i6y1rb" path="res://art/characters/spritesheet npcs v2.png" id="3_jg8o8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_806gl"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k06b"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eki41"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkquq"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg2p3"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64b5y"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(192, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvby3"]
+atlas = ExtResource("3_jg8o8")
+region = Rect2(224, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlnai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_806gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k06b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eki41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkquq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg2p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64b5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvby3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ponllo" instance=ExtResource("1_x0jq8")]
+script = ExtResource("2_hbxnq")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nlnai")
+
+[node name="CollisionShape2D" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(-2, 7)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-1.5, 2.25)

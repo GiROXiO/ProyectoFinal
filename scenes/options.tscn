@@ -1,0 +1,242 @@
+[gd_scene load_steps=11 format=3 uid="uid://b73bsknbw7gv"]
+
+[ext_resource type="Script" uid="uid://df61ee1yqxr06" path="res://scripts/options.gd" id="1_0agyt"]
+[ext_resource type="Texture2D" uid="uid://cva46swud6dgq" path="res://art/images/inicio.png" id="2_ufgnv"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_588u4"]
+[ext_resource type="Script" uid="uid://b15txex06dcl1" path="res://scripts/master_sound.gd" id="4_7rcjn"]
+[ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="5_o7i7e"]
+[ext_resource type="PackedScene" uid="uid://csnt2hg2b4ete" path="res://scenes/shaders_scenes/monochromatism_filter.tscn" id="6_uon5e"]
+[ext_resource type="PackedScene" uid="uid://4il6yai6blbt" path="res://scenes/shaders_scenes/protanopia_filter.tscn" id="7_85aq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vpq"]
+bg_color = Color(0.894118, 0.643137, 0.454902, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.45098, 0.235294, 0.231373, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sggn"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
+bg_color = Color(0.588235, 0.517647, 0.439216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.898039, 0.65098, 0.45098, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0agyt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 6
+texture = ExtResource("2_ufgnv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = -67.0
+offset_right = 489.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+texture_filter = 2
+layout_mode = 2
+columns = 2
+
+[node name="FulScreenLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "PANTALLA COMPLETA"
+
+[node name="FullScreenButtonResolutions2" type="OptionButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_1sggn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+item_count = 2
+popup/item_0/text = "Desactivado"
+popup/item_0/id = 0
+popup/item_1/text = "Activado"
+popup/item_1/id = 1
+
+[node name="VolumenLabel" type="Label" parent="MarginContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "VOLUMEN"
+
+[node name="VolumenContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+visible = false
+layout_mode = 2
+
+[node name="master sound" type="HSlider" parent="MarginContainer/GridContainer/VolumenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 20.0
+step = 0.001
+value = 1.0
+script = ExtResource("4_7rcjn")
+
+[node name="BrilloLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "BRILLO"
+
+[node name="BrilloContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="BrilloSlider" type="HSlider" parent="MarginContainer/GridContainer/BrilloContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
+
+[node name="FilerLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "FILTRO DALTONICO"
+
+[node name="BtnFilterContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="btnFilter4" type="Button" parent="MarginContainer/GridContainer/BtnFilterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "Off"
+
+[node name="btnFilter1" type="Button" parent="MarginContainer/GridContainer/BtnFilterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "R/V"
+
+[node name="btnFilter2" type="Button" parent="MarginContainer/GridContainer/BtnFilterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "A/A"
+
+[node name="btnFilter3" type="Button" parent="MarginContainer/GridContainer/BtnFilterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "Mono"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -474.0
+offset_top = 104.0
+offset_right = -260.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_588u4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sggn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+text = "ATRAS"
+
+[node name="MonochromatismFilter" parent="." instance=ExtResource("6_uon5e")]
+visible = false
+
+[node name="TritanopiaFilter" parent="." instance=ExtResource("5_o7i7e")]
+visible = false
+
+[node name="ProtanopiaFilter" parent="." instance=ExtResource("7_85aq5")]
+visible = false
+
+[connection signal="item_selected" from="MarginContainer/GridContainer/FullScreenButtonResolutions2" to="." method="_on_full_screen_button_resolutions_2_item_selected"]
+[connection signal="value_changed" from="MarginContainer/GridContainer/BrilloContainer/BrilloSlider" to="." method="_on_brillo_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter4" to="." method="_on_btn_filter_4_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter1" to="." method="_on_btn_filter_1_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter2" to="." method="_on_btn_filter_2_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/BtnFilterContainer/btnFilter3" to="." method="_on_btn_filter_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/back" to="." method="_on_back_pressed"]

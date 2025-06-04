@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctwv2wtxqdps1"]
+
+[ext_resource type="Script" uid="uid://b8f6vajb3djut" path="res://scripts/collectables/pickup_item.gd" id="1_ift3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvkj8"]
+resource_local_to_scene = true
+
+[node name="PickupItem" type="Area2D"]
+script = ExtResource("1_ift3w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jvkj8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

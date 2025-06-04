@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://4il6yai6blbt"]
+
+[ext_resource type="Shader" uid="uid://c5ig1a5dk6v21" path="res://scripts/daltonismShaders/protanopia.gdshader" id="1_3ji8m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gne6b"]
+shader = ExtResource("1_3ji8m")
+
+[node name="ProtanopiaFilter" type="CanvasLayer"]
+
+[node name="ProtanopiaSh" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gne6b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

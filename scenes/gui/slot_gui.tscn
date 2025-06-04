@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://clllp3jjxp3x8"]
+
+[ext_resource type="Script" uid="uid://s0ux3ws25qok" path="res://scripts/gui/slot_gui.gd" id="1_tobkg"]
+[ext_resource type="Texture2D" uid="uid://4nryriwsyppl" path="res://art/UI/inventoryUI/Slots.png" id="2_tobkg"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_la7p1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tobkg"]
+atlas = ExtResource("2_tobkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la7p1"]
+atlas = ExtResource("2_tobkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flcqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tobkg")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la7p1")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[node name="Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(18, 18)
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.031
+offset_right = -1.584
+offset_bottom = -2.088
+script = ExtResource("1_tobkg")
+
+[node name="background" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 9)
+scale = Vector2(1.001, 0.996528)
+sprite_frames = SubResource("SpriteFrames_flcqt")
+animation = &"normal"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Amount" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 7.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_la7p1")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 2
+
+[node name="Name" type="Label" parent="CenterContainer/Panel"]
+z_index = 1
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 0
+offset_left = -9.0
+offset_top = 9.0
+offset_right = 19.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_la7p1")
+theme_override_font_sizes/font_size = 6
+text = "Name"
+
+[node name="Curation" type="Label" parent="CenterContainer/Panel"]
+z_index = 1
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 0
+offset_left = -9.0
+offset_top = 15.0
+offset_right = 19.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_la7p1")
+theme_override_font_sizes/font_size = 6
+text = "Name"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

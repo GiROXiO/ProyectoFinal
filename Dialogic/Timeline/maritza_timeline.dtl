@@ -1,0 +1,85 @@
+join Maritza left
+if {MissionAcepted.Maritza_Mision.maritza_mission_accepted} == false:
+	Maritza: Oh, ya despertaste
+	- ¿Donde Estoy?
+		Maritza: Tranquilo, estas a salvo
+	- ¿Quien eres?
+		Maritza: No te preocupes, no te hare daño
+	Maritza: Mi nombre es Maritza
+	Maritza: ...
+	Maritza: ...\
+	....
+	Maritza: ...\
+	....\
+	.....
+	Maritza: Supongo que ya viste el estado de este mundo
+	- Parece que se esta deteriorando
+		Maritza: Si...
+	Maritza: Realmente estas tierras siempre habia reinado la naturaleza y el medio ambiente
+	Maritza: Pero luego toda la armonia se fue yendo
+	Maritza: Todo por el actuar de nosotros, los humanos
+	Maritza: Desde que empezamos a pensar de manera consumista, el mundo ha decaido bastante
+	Maritza: Los servicios ecológicos los han explotado de sobremanera
+	Maritza: Los limites planetarios se han desbalanceado totalmente
+	Maritza: Y sobretodo, el cambio climático se ha acelerado de sobremanera
+	- ¿Que puedo hacer para ayudar?
+	Maritza: Ahora mismo tenemos que colaborar todos juntos para lograr un cambio
+	Maritza: Cualquier persona, cualquiera que quiera marcar una diferencia
+	Maritza: Inspirara a otras a hacer lo mismo
+	- Quiero marcar una diferencia
+	Maritza: No sabes cuanto me alegra escuchar esto
+	Maritza: Me alegra mucho que todavia haya gente que se preocupe por el medio ambiente
+	Maritza: Aunque no lo creas, por este mundo hay muchas personas que todavia se interesan por el medio ambiente, podrias ayudarlos
+	Maritza: Pero, hay un problema
+	Maritza: Alla afuera es muy peligroso que salgas todavia...
+	Maritza: No sin las herramientas necesarias
+	Maritza: Toma esto
+	Escoba: Con esta escoba podras encargarte de la basura y de los leñadores
+	Aspiradora (New portrait): Con esta aspiradora podras encargarte de las emisiones contaminantes
+	Golero: Y con este golero entrenado, podras recoger los desechos que estan contaminando
+	Maritza: Quiero ver que tal son tus habilidades con las herramientas que te acabo de dar antes de que salgas de esta zona
+	Maritza: Ve a tu izquierda y dale con la escoba al muñeco de entrenamiento por lo menos 5 veces
+	set {MissionAcepted.Maritza_Mision.maritza_mission_accepted} = true
+elif {MissionAcepted.Maritza_Mision.maritza_mission_completed} == true:
+	Maritza: Recuerda que si te hacen daño, puedes recoger alimentos y comerlos
+	Maritza: Tenemos que ser resilientes ante la adversidad
+	Maritza: Que viva la ecologia urbana
+elif {MissionAcepted.Maritza_Mision.maritza_dummy} == false:
+	if {MissionAcepted.Maritza_Mision.maritza_punches_dummy} >= 5.0:
+		if {MissionAcepted.Maritza_Mision.maritza_gas} == true:
+			Maritza: ¡Anda! y tambien te deshiciste del gas tambien
+			Maritza: Era un gas completamente inocuo para tu entrenamiento
+			Maritza: Pero al parecer te dio miedo o no se
+			Maritza: ¡Igual eso demuestra que sabes usar la aspiradora! Es la única herramienta capaz de eliminar emisiones
+			Maritza: Ahora, como ultima parte de tu entrenamiento
+			Maritza: Haz que el golero recoga 4 desechos que estan flotando por el mar
+			Maritza: Esta especificamente entrenado para ello
+			set {MissionAcepted.Maritza_Mision.maritza_dummy} = true
+		else:
+			Maritza: Bien, lo hiciste muy bien
+			Maritza: Ahora supongo que habras visto un gas al lado del muñeco de entrenamiento
+			Maritza: No te preocupes, ese gas es totalmente inocuo, es unicamente de entrenamiento, para demostrar la única forma de deshacerte de las emisiones contaminantes
+			Maritza: Para acabar con ese gas, utiliza la aspiradora, tu puedes
+			set {MissionAcepted.Maritza_Mision.maritza_dummy} = true
+	else:
+		Maritza: Umm, aún no lo haz hecho
+		Maritza: No importa, confio en tí
+		Maritza: Dale de escobazos a ese muñeco
+elif {MissionAcepted.Maritza_Mision.maritza_gas} == true:
+	if {MissionAcepted.Maritza_Mision.maritza_garbage_picker} < 4.0:
+		Maritza: ¡Bien hecho con lo de la aspiradora!
+		Maritza: Eso demuestra que sabes usar la aspiradora. Es la única herramienta capaz de eliminar emisiones
+		Maritza: Ahora, como ultima parte de tu entrenamiento
+		Maritza: Haz que el golero recoga 4 desechos que estan flotando por el mar
+		Maritza: Esta especificamente entrenado para ello
+	else:
+		Maritza: ¡Muy bien! Ya recogiste la basura con el golero
+		Maritza: Con todo esto estas más que listo para adentrarte en este mundo y ayudar al medio ambiente
+		Maritza: Recuerda que en este mundo podras encontrarte mucha contaminación peligrosa
+		Maritza: Pero tambien te encontraras con personas las cuales te guiaran en tu progreso
+		Maritza: Te deseo el mayor de los exitos
+		set {MissionAcepted.Maritza_Mision.maritza_mission_completed} = true
+else:
+	Maritza: ¿Todavia no lo haz hecho?
+	Maritza: No importa, tomate tu tiempo
+[signal arg="exit_maritza"]

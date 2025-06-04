@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsathrefiyu4m"]
+
+[ext_resource type="Script" uid="uid://dieocu01p1kt4" path="res://scripts/Enemies/spawn_lumberjacks.gd" id="1_ycprg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukrj7"]
+size = Vector2(314, 226)
+
+[node name="spawn_lumberjacks" type="Area2D"]
+light_mask = 3
+script = ExtResource("1_ycprg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_ukrj7")
+debug_color = Color(0.65098, 0.733333, 1, 0.188235)
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 2.643
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.00001, 0)
+scale = Vector2(6.575, 4.975)
+
+[node name="SpawnedEnemies" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

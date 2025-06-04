@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://ba4578y8lifj"]
+
+[ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_p2akw"]
+[ext_resource type="Texture2D" uid="uid://cq8lu1a46vnj3" path="res://art/pickables/Cherry.png" id="2_unsnb"]
+
+[resource]
+script = ExtResource("1_p2akw")
+name = "Cereza"
+texture = ExtResource("2_unsnb")
+maxAmount = 16
+curation = 5
+typeItem = "food"
+metadata/_custom_type_script = "uid://dwbnornupta3q"

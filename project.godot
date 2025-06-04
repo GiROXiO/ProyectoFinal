@@ -11,10 +11,227 @@ config_version=5
 [application]
 
 config/name="ProyectoFinal"
-run/main_scene="uid://b0ocfgbpqjf8v"
+run/main_scene="uid://b8bvj754arvsq"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://art/icon.svg"
+run/max_fps=60
+boot_splash/use_filter=false
+config/icon="uid://dqctik4ta3ckr"
+
+[audio]
+
+buses/default_bus_layout="uid://djox1xxghn6ne"
+
+[autoload]
+
+global="*res://scripts/global.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+gameData="*res://scenes/gameData.tscn"
+OptionsBus="*res://scripts/optionsBus.gd"
+Brightness="*res://scenes/brightness.tscn"
+
+[dialogic]
+
+directories/dch_directory={
+"Angel": "res://Dialogic/Characters/Angel.dch",
+"Aspiradora": "res://Dialogic/Characters/Aspiradora.dch",
+"Escoba": "res://Dialogic/Characters/Escoba.dch",
+"Gabriella": "res://Dialogic/Characters/Gabriella.dch",
+"Golero": "res://Dialogic/Characters/Golero.dch",
+"Ignacio": "res://Dialogic/Characters/Ignacio.dch",
+"Luis": "res://Dialogic/Characters/Luis.dch",
+"Maritza": "res://Dialogic/Characters/Maritza.dch",
+"Mono": "res://Dialogic/Characters/Mono.dch",
+"Ponllo": "res://Dialogic/Characters/Ponllo.dch",
+"pkm_42e": "res://Dialogic/Characters/pkm_42e.dch"
+}
+directories/dtl_directory={
+"angel_timeline": "res://Dialogic/Timeline/angel_timeline.dtl",
+"gabriella_timeline": "res://Dialogic/Timeline/gabriella_timeline.dtl",
+"ignacio_timeline": "res://Dialogic/Timeline/ignacio_timeline.dtl",
+"luis_timeline": "res://Dialogic/Timeline/luis_timeline.dtl",
+"maritza_timeline": "res://Dialogic/Timeline/maritza_timeline.dtl",
+"mono_timeline": "res://Dialogic/Timeline/mono_timeline.dtl",
+"ponllo_timeline": "res://Dialogic/Timeline/ponllo_timeline.dtl"
+}
+layout/style_directory={
+"": "res://Dialogic/Style/style.tres",
+"style": "res://Dialogic/Style/style.tres"
+}
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
+layout/style_list=["res://Dialogic/Style/style.tres"]
+layout/default_style="res://Dialogic/Style/style.tres"
+glossary/default_case_sensitive=true
+variables={
+"EnemiesDefeated": {
+"emissions_defeated": 0,
+"garbage_defeated": 0,
+"lumberjacks_defeated": 0
+},
+"EnemiesDefeated2": {
+"emissions_defeated": 0,
+"garbage_defeated": 0,
+"lumberjacks_defeated": 0
+},
+"MissionAcepted": {
+"Angel_Mission": {
+"angel_mission_accepted": false,
+"angel_mission_completed": false,
+"angel_pickup": 0
+},
+"Gabriella_Mission": {
+"gabriella_mission_accepted": false,
+"gabriella_mission_completed": false,
+"gabriella_pickup": 0
+},
+"Gabriella_Mission2": {
+"gabriella_mission_accepted": false,
+"gabriella_mission_completed": false,
+"gabriella_pickup": 0
+},
+"Ignacio_Mission": {
+"ignacio_lumberjacks": 0,
+"ignacio_mission_accepted": false,
+"ignacio_mission_completed": false
+},
+"Luis_Mission": {
+"luis_emissions": 0,
+"luis_mission_accepted": false,
+"luis_mission_completed": false
+},
+"Maritza_Mision": {
+"maritza_dummy": false,
+"maritza_garbage_picker": 0,
+"maritza_gas": false,
+"maritza_mission_accepted": false,
+"maritza_mission_completed": false,
+"maritza_punches_dummy": 0
+},
+"Mono_Mission": {
+"mono_emissions": 0,
+"mono_mission_acepted": false,
+"mono_mission_completed": false
+},
+"Ponllo_Mission": {
+"ponllo_garbage": 0,
+"ponllo_mission_accepted": false,
+"ponllo_mission_completed": false
+}
+}
+}
+save/autosave=true
+save/autosave_mode=2
+
+[display]
+
+window/size/mode=3
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=2
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[input]
+
+attack={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+openInventory={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":73,"location":0,"echo":false,"script":null)
+]
+}
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+change_tool={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Sprint={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+use_item={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
+]
+}
+change_item={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Dash={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+show_minimap={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+cambiarVisualizacion={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=0
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+environment/ssao/quality=1

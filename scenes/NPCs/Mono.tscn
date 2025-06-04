@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://fc50j48ns2yj"]
+
+[ext_resource type="PackedScene" uid="uid://r7wnuu0b7d1d" path="res://scenes/NPCs/NPC.tscn" id="1_sd42n"]
+[ext_resource type="Texture2D" uid="uid://diva1vyic8wah" path="res://art/characters/spritesheet npcs v2.png" id="2_mlqg1"]
+[ext_resource type="Script" uid="uid://s0ycb13irc5q" path="res://scenes/NPCs/ScriptsNPCS/mono.gd" id="2_ocyi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocyi0"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpowv"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orme7"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n6mx"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3acw1"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c5q0"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(192, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjy2h"]
+atlas = ExtResource("2_mlqg1")
+region = Rect2(224, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvm4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocyi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpowv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orme7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n6mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3acw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c5q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjy2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mono" instance=ExtResource("1_sd42n")]
+script = ExtResource("2_ocyi0")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_bvm4m")
+frame_progress = 0.0854398
+
+[node name="CollisionShape2D" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(0, 6)

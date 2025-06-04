@@ -1,0 +1,203 @@
+[gd_scene load_steps=7 format=3 uid="uid://blqh8q17xol8g"]
+
+[ext_resource type="Script" uid="uid://cvwgwbowkxx7p" path="res://scripts/gui/inventory_gui.gd" id="1_xbyvm"]
+[ext_resource type="Texture2D" uid="uid://cmtecyub0iqi8" path="res://art/UI/inventoryUI/UI_Frames.png" id="1_yr3bd"]
+[ext_resource type="PackedScene" uid="uid://clllp3jjxp3x8" path="res://scenes/gui/slot_gui.tscn" id="2_432mi"]
+[ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="4_xereh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_432mi"]
+atlas = ExtResource("1_yr3bd")
+region = Rect2(11.9672, 11.9369, 24.216, 26.153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbyvm"]
+atlas = ExtResource("1_yr3bd")
+region = Rect2(8, 8, 32, 32)
+
+[node name="InventoryGUI" type="Control"]
+custom_minimum_size = Vector2(148, 147)
+layout_mode = 3
+anchor_left = 0.011
+anchor_top = 0.01
+anchor_right = 0.112
+anchor_bottom = 0.116
+offset_left = -12.672
+offset_top = -6.48
+offset_right = 4.976
+offset_bottom = 61.832
+script = ExtResource("1_xbyvm")
+
+[node name="Inventory" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(148, 147)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -73.5
+offset_right = 74.0
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_432mi")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="Inventory"]
+custom_minimum_size = Vector2(122, 122)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.555
+offset_top = -62.775
+offset_right = 60.445
+offset_bottom = 59.225
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="Slot" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot2" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot3" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot4" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot5" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot6" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot7" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot8" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot9" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot10" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot11" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot12" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot13" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot14" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot15" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot16" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot17" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot18" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot19" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot20" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot21" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot22" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot23" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot24" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot25" parent="Inventory/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Hotbar" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(106, 18)
+layout_mode = 1
+offset_left = 14.0
+offset_top = -32.0
+offset_right = 135.0
+texture = SubResource("AtlasTexture_xbyvm")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="Hotbar"]
+custom_minimum_size = Vector2(106, 18)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 113.0
+offset_bottom = 25.0
+columns = 5
+
+[node name="Slot" parent="Hotbar/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot2" parent="Hotbar/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot3" parent="Hotbar/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot4" parent="Hotbar/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="Slot5" parent="Hotbar/GridContainer" instance=ExtResource("2_432mi")]
+layout_mode = 2
+
+[node name="DragPreview" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 0
+offset_left = 1.0
+offset_right = 16.0
+offset_bottom = 15.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+mouse_default_cursor_shape = 3
+
+[node name="Label" type="Label" parent="DragPreview"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 14.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xereh")
+theme_override_font_sizes/font_size = 6
+text = "-1"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

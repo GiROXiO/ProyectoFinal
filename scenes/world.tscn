@@ -1,6 +1,394 @@
-[gd_scene format=3 uid="uid://b3422njukyeyu"]
+[gd_scene load_steps=39 format=3 uid="uid://cle4hs84yugjp"]
 
-[node name="world" type="Node2D"]
+[ext_resource type="Script" uid="uid://dm05c0h7w26ci" path="res://scripts/world.gd" id="1_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://dk57oid3g2mpr" path="res://scenes/tilemaps/tilemap_1.tscn" id="2_jhx03"]
+[ext_resource type="PackedScene" uid="uid://ctovl7kvxvlym" path="res://scenes/player.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://4abm1p3atgmb" path="res://scenes/garbage_picker_entity.tscn" id="4_lakw3"]
+[ext_resource type="PackedScene" uid="uid://52vwfn0wl4wi" path="res://scenes/canvas_layer.tscn" id="9_7r4gi"]
+[ext_resource type="Script" uid="uid://efm2lx460a7a" path="res://scripts/minimap.gd" id="10_2lf6f"]
+[ext_resource type="Script" uid="uid://n1qux3ttdqmn" path="res://scripts/minimapVisibility.gd" id="10_7iits"]
+[ext_resource type="PackedScene" uid="uid://dt60obx0mc7v7" path="res://scenes/NPCs/Maritza.tscn" id="11_q5onr"]
+[ext_resource type="PackedScene" uid="uid://fc50j48ns2yj" path="res://scenes/NPCs/Mono.tscn" id="12_jhx03"]
+[ext_resource type="PackedScene" uid="uid://dxrqpu3kdiqry" path="res://scenes/NPCs/Ponllo.tscn" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://bj5sqjdgyruvb" path="res://scenes/game_data.tscn" id="13_jhx03"]
+[ext_resource type="AudioStream" uid="uid://bni0b7jj5bu1i" path="res://music/bonk_AgRFvsD.mp3" id="14_xo05s"]
+[ext_resource type="AudioStream" uid="uid://cx5p5kciljc38" path="res://music/jerma985-gyass-sor3q7xmg_m.mp3" id="15_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://cl51afnibmorf" path="res://scenes/NPCs/Luis.tscn" id="15_dss4m"]
+[ext_resource type="PackedScene" uid="uid://mlu3x1hqmiar" path="res://scenes/Enemies/dummy.tscn" id="16_dss4m"]
+[ext_resource type="PackedScene" uid="uid://dsathrefiyu4m" path="res://scenes/Enemies/spawn_lumberjacks.tscn" id="17_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://c5f18fck068ye" path="res://scenes/Enemies/gas.tscn" id="17_lakw3"]
+[ext_resource type="PackedScene" uid="uid://bttiiodu6hdcg" path="res://scenes/Enemies/spawn_garbage.tscn" id="18_lakw3"]
+[ext_resource type="PackedScene" uid="uid://bxf7h13udwao7" path="res://scenes/invisible_wall.tscn" id="18_pm21f"]
+[ext_resource type="PackedScene" uid="uid://cr8vm1x4iccup" path="res://scenes/items/spawn_items.tscn" id="19_2lf6f"]
+[ext_resource type="PackedScene" uid="uid://c2oemo1vidfkt" path="res://scenes/Enemies/spawn_emissions.tscn" id="19_pm21f"]
+[ext_resource type="PackedScene" uid="uid://4il6yai6blbt" path="res://scenes/shaders_scenes/protanopia_filter.tscn" id="24_munwf"]
+[ext_resource type="PackedScene" uid="uid://csnt2hg2b4ete" path="res://scenes/shaders_scenes/monochromatism_filter.tscn" id="25_ts3gi"]
+[ext_resource type="PackedScene" uid="uid://fsasyfv7gyqa" path="res://scenes/NPCs/Ignacio.tscn" id="25_xgqkh"]
+[ext_resource type="PackedScene" uid="uid://hj3rxqccxqdr" path="res://scenes/shaders_scenes/tritanopia_filter.tscn" id="26_0nbtd"]
+[ext_resource type="PackedScene" uid="uid://c1px5fr122brc" path="res://scenes/NPCs/Gabriella.tscn" id="26_munwf"]
+[ext_resource type="AudioStream" uid="uid://c7bjvy6wlgixo" path="res://music/raven-caw-caw.mp3" id="27_ts3gi"]
+[ext_resource type="AudioStream" uid="uid://dwctwnglimqyx" path="res://music/wings-flapping.mp3" id="28_0nbtd"]
+[ext_resource type="AudioStream" uid="uid://cyqpgxidv17ui" path="res://music/collect-a-berry.mp3" id="29_37qwj"]
+[ext_resource type="AudioStream" uid="uid://0puj3wf68kjd" path="res://music/Fadegreen (1).mp3" id="30_817gm"]
+[ext_resource type="AudioStream" uid="uid://dcidrp3k8ping" path="res://music/Fadegreen (4).mp3" id="31_ggc52"]
+[ext_resource type="AudioStream" uid="uid://cgvwhs3mo1ggo" path="res://music/Fadegreen.mp3" id="32_l8ah6"]
+[ext_resource type="AudioStream" uid="uid://cog76v5nqoi2q" path="res://music/Untitled (1).mp3" id="33_e75v4"]
+[ext_resource type="AudioStream" uid="uid://djj60240jkswx" path="res://music/Untitled (2).mp3" id="34_8u370"]
+[ext_resource type="AudioStream" uid="uid://buqifwk1458qo" path="res://music/Untitled.mp3" id="35_rga7q"]
+[ext_resource type="AudioStream" uid="uid://ceie0nq1wyn3e" path="res://music/negative_beeps-6008.mp3" id="35_x2olw"]
+[ext_resource type="PackedScene" uid="uid://b8kqm2ttflpie" path="res://scenes/NPCs/Angel.tscn" id="37_817gm"]
+[ext_resource type="Script" uid="uid://bfmdyn55tilek" path="res://scripts/cambiar_visualizacion.gd" id="38_ggc52"]
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
+[node name="World" type="Node2D"]
+light_mask = 3
+y_sort_enabled = true
+script = ExtResource("1_w7kh3")
+metadata/_edit_vertical_guides_ = [-141.0]
+
+[node name="Tilemap1" parent="." instance=ExtResource("2_jhx03")]
+
+[node name="Player" parent="." instance=ExtResource("4_k0juu")]
+position = Vector2(2834, 1385)
+
+[node name="GarbagePickerEntity" parent="Player" instance=ExtResource("4_lakw3")]
+
+[node name="Luis" parent="." instance=ExtResource("15_dss4m")]
+position = Vector2(3545, 1380)
+
+[node name="Maritza" parent="." instance=ExtResource("11_q5onr")]
+y_sort_enabled = true
+position = Vector2(3064, 1446)
+
+[node name="Mono" parent="." instance=ExtResource("12_jhx03")]
+position = Vector2(92, 185)
+
+[node name="Ponllo" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(1010, 416)
+
+[node name="GUI" parent="." instance=ExtResource("9_7r4gi")]
+process_mode = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GUI"]
+offset_left = 852.0
+offset_top = 440.0
+offset_right = 1152.0
+offset_bottom = 650.0
+script = ExtResource("10_7iits")
+
+[node name="SubViewport" type="SubViewport" parent="GUI/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(300, 210)
+render_target_update_mode = 4
+script = ExtResource("10_2lf6f")
+
+[node name="Camera2D" type="Camera2D" parent="GUI/SubViewportContainer/SubViewport"]
+zoom = Vector2(0.2, 0.2)
+limit_left = 14
+limit_top = 12
+limit_right = 5049
+limit_bottom = 2265
+
+[node name="GameData" parent="." instance=ExtResource("13_jhx03")]
+
+[node name="bonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_xo05s")
+
+[node name="gas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_7t5mc")
+
+[node name="texto" type="AudioStreamPlayer" parent="."]
+
+[node name="Dummy" parent="." instance=ExtResource("16_dss4m")]
+position = Vector2(2829, 1503)
+
+[node name="gas2" parent="." instance=ExtResource("17_lakw3")]
+position = Vector2(2826, 1454)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("18_pm21f")]
+position = Vector2(2840, 1213)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("18_pm21f")]
+position = Vector2(2698, 1580)
+
+[node name="spawn_lumberjacks" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(2752, 467)
+
+[node name="spawn_lumberjacks2" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(3158, 1006)
+
+[node name="spawn_lumberjacks3" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(3670, 990)
+
+[node name="spawn_lumberjacks4" parent="." instance=ExtResource("17_7t5mc")]
+light_mask = 1
+position = Vector2(4515, 843)
+
+[node name="spawn_emissions" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(2060, 693)
+
+[node name="spawn_emissions2" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(234, 927)
+
+[node name="spawn_emissions3" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(1149, 1107)
+
+[node name="spawn_emissions4" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(458, 159)
+
+[node name="spawn_emissions5" parent="." instance=ExtResource("19_pm21f")]
+light_mask = 1
+position = Vector2(1621, 151)
+
+[node name="spawn_garbage" parent="." instance=ExtResource("18_lakw3")]
+light_mask = 1
+position = Vector2(1641, 1911)
+
+[node name="spawn_garbage2" parent="." instance=ExtResource("18_lakw3")]
+light_mask = 1
+position = Vector2(2085, 2094)
+
+[node name="spawn_garbage3" parent="." instance=ExtResource("18_lakw3")]
+light_mask = 1
+position = Vector2(3295, 2054)
+
+[node name="spawn_items" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2971, 1421)
+generationType = 1
+foodType = 2
+limit_spawn = 8
+cooldown = 120
+margen = 60
+
+[node name="spawn_items2" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3017, 1436)
+generationType = 1
+limit_spawn = 8
+cooldown = 120
+margen = 60
+
+[node name="spawn_items3" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3085, 1437)
+generationType = 1
+limit_spawn = 8
+cooldown = 120
+margen = 60
+
+[node name="spawn_items4" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3142, 1419)
+generationType = 1
+limit_spawn = 8
+cooldown = 120
+margen = 60
+
+[node name="spawn_items6" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2875, 1665)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items7" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2254, 1430)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items28" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(1795, 1416)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items29" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(1076, 1419)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items30" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(423, 1419)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items8" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2987, 1175)
+itemType = 2
+cooldown = 100
+
+[node name="spawn_items9" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3551, 1550)
+itemType = 2
+cooldown = 100
+
+[node name="Ignacio" parent="." instance=ExtResource("25_xgqkh")]
+position = Vector2(3954, 761)
+
+[node name="Gabriella" parent="." instance=ExtResource("26_munwf")]
+position = Vector2(3393, 316)
+
+[node name="spawn_items5" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4014, 509)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items15" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4134, 1410)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items16" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4397, 1402)
+itemType = 2
+cooldown = 40
+
+[node name="spawn_items17" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4845, 1459)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items18" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4198, 1718)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items19" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4325, 1687)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items20" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3781, 2249)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items27" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4145, 2255)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items31" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4452, 2255)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items32" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4780, 2245)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items33" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4973, 2097)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items34" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4983, 1848)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items21" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3221, 2253)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items26" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3445, 2250)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items22" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2603, 2257)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items23" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(1806, 2251)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items24" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2157, 2254)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items25" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(2887, 2256)
+itemType = 2
+cooldown = 120
+
+[node name="spawn_items10" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3476, 482)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items12" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3637, 524)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items13" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3794, 516)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items14" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(4233, 425)
+itemType = 2
+cooldown = 190
+
+[node name="spawn_items11" parent="." instance=ExtResource("19_2lf6f")]
+position = Vector2(3299, 492)
+itemType = 2
+cooldown = 190
+
+[node name="ProtanopiaFilter" parent="." instance=ExtResource("24_munwf")]
+visible = false
+
+[node name="MonochromatismFilter" parent="." instance=ExtResource("25_ts3gi")]
+visible = false
+
+[node name="TritanopiaFilter" parent="." instance=ExtResource("26_0nbtd")]
+visible = false
+
+[node name="cuervo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_ts3gi")
+
+[node name="aleteo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_0nbtd")
+
+[node name="item" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_37qwj")
+
+[node name="bg6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_817gm")
+volume_db = -10.0
+
+[node name="bg5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_ggc52")
+volume_db = -10.0
+
+[node name="bg4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_l8ah6")
+volume_db = -10.0
+
+[node name="bg3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_e75v4")
+volume_db = -20.0
+
+[node name="bg2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_8u370")
+volume_db = -10.0
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_rga7q")
+
+[node name="over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_x2olw")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("37_817gm")]
+position = Vector2(4254, 1581)
+
+[node name="cambiarVisualizacion" type="Node" parent="."]
+script = ExtResource("38_ggc52")

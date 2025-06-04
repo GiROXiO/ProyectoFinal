@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cmchrnrpk83s2"]
+
+[ext_resource type="Script" uid="uid://dwbnornupta3q" path="res://scripts/inventory/inventoryItem.gd" id="1_h4b6a"]
+[ext_resource type="Texture2D" uid="uid://c4wtyxxvjpcrr" path="res://art/pickables/Apple.png" id="2_trmg6"]
+
+[resource]
+script = ExtResource("1_h4b6a")
+name = "Manzana"
+texture = ExtResource("2_trmg6")
+maxAmount = 16
+curation = 10
+typeItem = "food"
+metadata/_custom_type_script = "uid://dwbnornupta3q"
