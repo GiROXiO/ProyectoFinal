@@ -11,6 +11,12 @@ var time: String
 
 @export var player: Player
 
+func _ready() -> void:
+	load_from_file(1)
+	load_from_file(2)
+	load_from_file(3)
+	loadFilter()
+
 func restore() -> void:
 	for i in to_dict_reset().keys():
 		if not data.has(i):
@@ -48,7 +54,13 @@ func from_dict(dataLoad: Dictionary) -> void:
 	restore()
 	username = data.get("username")
 	loadDialogic()
+	
+func loadFilter() -> void:
 	OptionsBus.current_filter = data.get("filtro")
+
+func saveFilter() -> Dictionary:
+	data["filtro"] = OptionsBus.current_filter
+	return data
 
 func setPlayer(pl: Player) -> void:
 	player = pl
@@ -94,6 +106,10 @@ func saveDialogic() -> Dictionary:
 		"gabriella_pickup2": Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_pickup, 
 		"gabriella_mission_accepted2": Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_accepted,
 		"gabriella_mission_completed2": Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_completed,
+		
+		"angel_pickup": Dialogic.VAR.MissionAcepted.Angel_Mission.angel_pickup, 
+		"angel_mission_accepted": Dialogic.VAR.MissionAcepted.Angel_Mission.angel_mission_accepted,
+		"angel_mission_completed": Dialogic.VAR.MissionAcepted.Angel_Mission.angel_mission_completed,
 	}
 	
 	return quests
@@ -139,6 +155,10 @@ func saveDialogicReset() -> Dictionary:
 		"gabriella_pickup2": 0,
 		"gabriella_mission_accepted2": false,
 		"gabriella_mission_completed2": false,
+		
+		"angel_pickup": 0,
+		"angel_mission_accepted": false,
+		"angel_mission_completed": false,
 	}
 	return quests
 	
@@ -181,6 +201,10 @@ func loadDialogic() -> void:
 	Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_pickup = data.get("quests").get("gabriella_pickup2")
 	Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_accepted = data.get("quests").get("gabriella_mission_accepted2")
 	Dialogic.VAR.MissionAcepted.Gabriella_Mission2.gabriella_mission_completed = data.get("quests").get("gabriella_mission_completed2")
+	
+	Dialogic.VAR.MissionAcepted.Angel_Mission.angel_pickup = data.get("quests").get("angel_pickup")
+	Dialogic.VAR.MissionAcepted.Angel_Mission.angel_mission_accepted = data.get("quests").get("angel_mission_accepted")
+	Dialogic.VAR.MissionAcepted.Angel_Mission.angel_mission_completed = data.get("quests").get("angel_mission_completed")
 
 func getTool() -> int:
 	return player.player_tool
@@ -210,6 +234,22 @@ func save_to_file() -> void:
 	else:
 		print("Error al guardar el archivo.")
 
+func save_to_file_filter_i(slotc: int) -> void:
+	load_from_file(slotc)
+	var path = "user://save_slot_%d.save" % slotc
+	var file = FileAccess.open(path, FileAccess.WRITE)
+
+	if file:
+		file.store_line(JSON.stringify(saveFilter()))
+		file.close()
+	else:
+		print("Error al guardar el archivo.")
+
+func save_to_file_filter() -> void:
+	save_to_file_filter_i(1)
+	save_to_file_filter_i(2)
+	save_to_file_filter_i(3)
+	
 func save_to_file_reset() -> void:
 	var path = "user://save_slot_%d.save" % slot
 	var file = FileAccess.open(path, FileAccess.WRITE)
