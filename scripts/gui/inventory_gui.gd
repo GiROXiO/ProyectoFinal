@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and not event.is_echo():
 		if !self.on_inventory and self.dragging:
-			drop_to_world()
+			pass
 
 func start_dragging(slot_index):
 	if slot_index < 0 or slot_index > slots.size():
@@ -80,6 +80,7 @@ func start_dragging(slot_index):
 			print("Item en slot: ", slot.item.name)
 			print("Item en slot_gui: ", slot_gui.nameLabel.text)
 			self.dragging = true
+			global.dragging = true
 			self.dragging_index = slot_gui.index
 			self.itemPreview = slot.item
 			self.amountPreview = slot.amount
@@ -141,6 +142,7 @@ func drop_to_world():
 
 func stop_dragging():
 	self.dragging = false
+	global.dragging = false
 	self.dragging_index = -1
 	self.iconPreview = null
 	self.amountPreview = -1

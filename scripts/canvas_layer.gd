@@ -24,14 +24,15 @@ func _input(event):
 
 
 func _on_sub_menu_pressed() -> void:
-	inventory.close()
-	submenu.visible = true
-	submenuBottom.visible = false
-	toolSlot.visible = false
-	coords.visible = false
-	health_bar.visible = false
-	hotbar.visible = false
-	#get_tree().paused = true
+	if !global.dragging:
+		inventory.close()
+		submenu.visible = true
+		submenuBottom.visible = false
+		toolSlot.visible = false
+		coords.visible = false
+		health_bar.visible = false
+		hotbar.visible = false
+		#get_tree().paused = true
 
 
 func _on_continuar_pressed() -> void:
