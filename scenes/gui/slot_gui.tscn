@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://clllp3jjxp3x8"]
 
 [ext_resource type="Script" uid="uid://s0ux3ws25qok" path="res://scripts/gui/slot_gui.gd" id="1_tobkg"]
-[ext_resource type="Texture2D" uid="uid://1t8cwgssivtb" path="res://art/UI/inventoryUI/Slots.png" id="2_tobkg"]
+[ext_resource type="Texture2D" uid="uid://4nryriwsyppl" path="res://art/UI/inventoryUI/Slots.png" id="2_tobkg"]
 [ext_resource type="FontFile" uid="uid://b04amb0g5fgkg" path="res://art/Not Jam Chunky Sans 6/NotJamChunkySans.ttf" id="3_la7p1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tobkg"]
@@ -74,6 +74,7 @@ text = "0"
 horizontal_alignment = 2
 
 [node name="Name" type="Label" parent="CenterContainer/Panel"]
+z_index = 1
 custom_minimum_size = Vector2(10, 12)
 layout_mode = 0
 offset_left = -9.0
@@ -86,6 +87,7 @@ theme_override_font_sizes/font_size = 6
 text = "Name"
 
 [node name="Curation" type="Label" parent="CenterContainer/Panel"]
+z_index = 1
 custom_minimum_size = Vector2(10, 12)
 layout_mode = 0
 offset_left = -9.0

@@ -18,7 +18,7 @@ func _input(event):
 		if inventory.isOpen and !inventory.dragging:
 			inventory.close()
 			toolSlot.visible = true
-		else:
+		elif !global.isChatting and !submenu.visible:
 			inventory.open()
 			toolSlot.visible = false
 

@@ -36,6 +36,7 @@ var current_dir = "down"
 
 func _ready():
 	global.player_current_attack = false
+	global.another_entity = false
 	add_to_group("player")
 	emit_signal("toolChanged", "")
 	gameData.setPlayer(self)
