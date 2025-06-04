@@ -26,7 +26,7 @@ func _on_btn_filter_1_pressed() -> void:
 	$ProtanopiaFilter.visible = true
 	$MonochromatismFilter.visible = false
 	get_tree().paused = false
-	gameData.save_to_file_filter()
+	gameData.saveFilter()
 
 func _on_btn_filter_2_pressed() -> void:
 	OptionsBus.current_filter = "tritanopia"
@@ -34,7 +34,7 @@ func _on_btn_filter_2_pressed() -> void:
 	$ProtanopiaFilter.visible = false
 	$MonochromatismFilter.visible = false
 	get_tree().paused = false
-	gameData.save_to_file_filter()
+	gameData.saveFilter()
 
 func _on_btn_filter_3_pressed() -> void:
 	OptionsBus.current_filter = "monocromatismo"
@@ -42,7 +42,7 @@ func _on_btn_filter_3_pressed() -> void:
 	$ProtanopiaFilter.visible = false
 	$MonochromatismFilter.visible = true
 	get_tree().paused = false
-	gameData.save_to_file_filter()
+	gameData.saveFilter()
 
 func _on_btn_filter_4_pressed() -> void:
 	OptionsBus.current_filter = ""
@@ -50,7 +50,7 @@ func _on_btn_filter_4_pressed() -> void:
 	$ProtanopiaFilter.visible = false
 	$MonochromatismFilter.visible = false
 	get_tree().paused = false
-	gameData.save_to_file_filter()
+	gameData.saveFilter()
 
 func _on_back_button_up() -> void:
 	if ingame == true:

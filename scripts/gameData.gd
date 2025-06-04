@@ -12,9 +12,6 @@ var time: String
 @export var player: Player
 
 func _ready() -> void:
-	load_from_file(1)
-	load_from_file(2)
-	load_from_file(3)
 	loadFilter()
 
 func restore() -> void:
@@ -34,7 +31,6 @@ func to_dict() -> Dictionary:
 		"inventory": player.inventory.to_dict(),
 		"position": player.savePosition(),
 		"quests": saveDialogic(),
-		"filtro": OptionsBus.current_filter
 	}
 
 func to_dict_reset() -> Dictionary:
@@ -46,7 +42,6 @@ func to_dict_reset() -> Dictionary:
 		"inventory": {},
 		"position": {"x": 3064,"y": 1486},
 		"quests": saveDialogicReset(),
-		"filtro": OptionsBus.current_filter
 	}
 
 func from_dict(dataLoad: Dictionary) -> void:
@@ -56,11 +51,24 @@ func from_dict(dataLoad: Dictionary) -> void:
 	loadDialogic()
 	
 func loadFilter() -> void:
-	OptionsBus.current_filter = data.get("filtro")
+	var path = "user://filter.save"
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file:
+			var line = file.get_line()
+			var parsed = JSON.parse_string(line)
+			if typeof(parsed) == TYPE_DICTIONARY and parsed.has("filtro"):
+				OptionsBus.current_filter = parsed["filtro"]
 
-func saveFilter() -> Dictionary:
-	data["filtro"] = OptionsBus.current_filter
-	return data
+func saveFilter() -> void:
+	var path = "user://filter.save"
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	if file:
+		var data_filter = {"filtro": OptionsBus.current_filter}
+		file.store_line(JSON.stringify(data_filter))
+		file.close()
+	else:
+		print("Error al guardar filtro.")
 
 func setPlayer(pl: Player) -> void:
 	player = pl
@@ -233,22 +241,6 @@ func save_to_file() -> void:
 		file.close()
 	else:
 		print("Error al guardar el archivo.")
-
-func save_to_file_filter_i(slotc: int) -> void:
-	load_from_file(slotc)
-	var path = "user://save_slot_%d.save" % slotc
-	var file = FileAccess.open(path, FileAccess.WRITE)
-
-	if file:
-		file.store_line(JSON.stringify(saveFilter()))
-		file.close()
-	else:
-		print("Error al guardar el archivo.")
-
-func save_to_file_filter() -> void:
-	save_to_file_filter_i(1)
-	save_to_file_filter_i(2)
-	save_to_file_filter_i(3)
 	
 func save_to_file_reset() -> void:
 	var path = "user://save_slot_%d.save" % slot
